@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dabeeo Map</title>
+    <!--    <script type="text/javascript" src="[다비오기술문서의 api 링크]"></script>-->
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+</body>
+<script>
+    let mapContainer = document.getElementById('map'); // 지를 표시할 div
+
+    // 지도 인증정보
+    let authorization = new indoorMapApi.Authorization({
+        clientId: "28AXw_veA2YbNKDP6poTpT",
+        clientSecret: "70c540c169af62808f4da3709e988e06"
+    });
+
+    let mapOptions = {
+        authorization: authorization,
+        minZoom: 3, // 최소 줌 설정
+        maxZoom: 8, // 최대 줌 설정,
+        center: new indoorMapApi.Point({ // 지도의 중심좌표
+            x: 3000,
+            y: 1500
+        })
+    };
+
+    // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+    new indoorMapApi.MapView(
+        mapContainer, // 컨테이너
+        mapOptions, // 옵션
+        function (response) { // 맵 로드 콜백
+            let code = response.getCode();
+
+            if (code === 200) {
+                let mapView = response.getPayload().mapView;
+
+                let icon = new indoorMapApi.Image({
+                    url: "https://www.dabeeo.com/wp-content/uploads/2019/04/logo@3x.png",
+                    width: 200,
+                    height: 44
+                }); // 마커 이미지
+
+                let markerOptions = new indoorMapApi.MarkerOptions({
+                    position: new indoorMapApi.Point({
+                        x: 0,
+                        y: 0,
+                        z: 0
+                    })
+                });
+
+                markerOptions.setIcon(icon); //  아이콘 설정
+                markerOptions.setTitle("(주)다비오"); // 타이틀 설정
+                markerOptions.setFontSize(20); // 타이틀 폰트 사이즈 설정
+                markerOptions.setFontColor("#00A6D8"); // 타이틀 컬러 설정
+
+                let marker = new indoorMapApi.Marker(markerOptions); // 마커 생성
+                marker.addEventListener("click", function (e) { // 이벤트 설정
+                    console.log("클릭");
+                });
+
+                marker.addTo(mapView); // 지도에 마커 추가﻿﻿
+            }
+        }
+    );
+</script>
+</html>
