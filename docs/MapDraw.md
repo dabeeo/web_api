@@ -65,15 +65,12 @@ MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 들어있
 
 ## MapDraw Options
 
-| **Option**      | **Parameter** | **Type** | **Returns**   | **Returns**  **Description** | **Description**                             |
-| --------------- | ------------- | ------------------------- | ------------- | ---------------------------- | ------------------------------------------- |
-| floorInfo       | array         |             |               |                              | 지도의 중심 좌표 변경                       |
-|                 | id         | string            |               |                              | 옵션 설정을 통한 지도 중심 좌표 변경        |
-|                 | name         | array           |               |                              | 옵션 설정을 통한 지도 중심 좌표 변경        |
-|                 | defaultYn        | boolean                   |               |                              |                                             |
-| mapName         |               |                           | Point         | 지도 중심 좌표               | 지도의 중심 좌표 리턴                       |
-| themeInfo       | array        | 줌 레벨                   |               |                              | 지정된 zoom level로 확대/축소 화면 변경     |
-| getZoom         |               |                           | Number        | 줌 레벨                      | 지도의 zoom level 리턴                      |
-| setBounds       | Bounds        | 좌표 영역 정보            |               |                              | 좌표 영역 정보를 이용한 확대/축소 화면 변경 |
-| getBounds       |               |                           | Bounds        | 지도 화면의  영역 정보       | 지도 화면의 영역 정보 리턴                  |
+| **Option**      | **Parameter** | **Parameter** | **Type**   | **Values**     | **Description**                             |
+| --------------- | ------------- | ----------- | ------------- | ---------------------------- | ------------------------------------------- |
+| floorInfo       |               |             | array         |                              | 지도의 중심 좌표 변경                       |
+|                 | id            |             | string        |                              | 옵션 설정을 통한 지도 중심 좌표 변경        |
+|                 | name          |             | array         |                              | 옵션 설정을 통한 지도 중심 좌표 변경        |
+|                 |               | lang        | string        |  "ko"                            | 옵션 설정을 통한 지도 중심 좌표 변경        |
+|                 |               | text        | string        |                              | 옵션 설정을 통한 지도 중심 좌표 변경        |
+|                 | defaultYn     | boolean     |               |                              |                                             |
 
