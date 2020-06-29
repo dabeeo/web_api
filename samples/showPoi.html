@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>showPoi sample</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+		<style>
+            body {
+                background-color: #f0f0f0;
+                color: #aaaaaa;
+                margin:0;
+                overflow:hidden; 
+            }
+            .show-poi {
+                float:left;
+                width: 80px;
+                height: 36px;
+                background: #FFFFFF;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 13px;
+                color: #B7B9C1;
+                border-bottom: 1px solid #EDEDED;
+                box-sizing: border-box;
+                cursor: pointer;
+            }
+
+            .show-poi-container{
+                /* float:left; */
+                position:absolute;
+                left: 200px;
+                top: 50px;
+            }            
+            .show-poi-on{
+                color: red;
+            }
+
+		</style>
+        <script type="module" src="https://demo-preview-rebuild.dabeeomaps.com/jsMapAPI.js"></script>
+    </head>
+	<body>
+        <div id="map"></div>        
+        <script>
+
+            window.addEventListener("load", function () {  
+                initMap();
+            });
+
+            function initMap() {
+                let mapContainer = document.getElementById('map'); // 지도를 표시할 div
+                    
+                    // 지도 인증정보
+                    let authorization = new indoorMapApi.Authorization({
+                    clientId: "28AXw_veA2YbNKDP6poTpT",
+                    clientSecret: "70c540c169af62808f4da3709e988e06"
+                    });
+                
+                    let mapOptions = {
+                    authorization: authorization
+                    };
+                
+
+                // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+                new indoorMapApi.MapView(
+                    mapContainer, // 컨테이너
+                    mapOptions, // 옵션
+                    function (response) { // 맵 로드 콜백
+                        let code = response.getCode();
+            
+                        if (code === 200) {
+                            mapView = response.getPayload().mapView;
+                            mapDraw = response.getPayload().mapDraw;
+                            // do something
+                            console.log("map view success!")
+                            initShowPoiBtn();
+                        }
+                    } 
+                );
+            };
+            function initShowPoiBtn() {
+                const showPoiContainer = document.createElement("DIV")
+                showPoiContainer.classList.add('show-poi-container');
+                
+                const mapElement = document.querySelector("#map");
+
+                mapElement.insertAdjacentElement("afterbegin", showPoiContainer);
+                let showPoiHTML ="";
+                showPoiHTML +=`<div class="show-poi show-poi-on" id="show-poi-true">show poi</div>`
+                showPoiHTML +=`<div class="show-poi" id="show-poi-false">hide poi</div>`
+                showPoiContainer.innerHTML = showPoiHTML;
+                showPoiContainer.addEventListener("click", ({target})=>{
+                    if(target.className === "show-poi" ) {
+                        document.querySelector(".show-poi-on").classList.remove("show-poi-on");
+                        target.classList.add("show-poi-on");
+                        if (target.id === "show-poi-true") {
+                            mapDraw.changeShowPoi({showPoi: true});
+                        } else {
+                            mapDraw.changeShowPoi({showPoi: false});
+                        }
+                    }
+                });
+            }
+
+        </script>		
+    </body>
+</html>
