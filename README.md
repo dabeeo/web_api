@@ -55,8 +55,7 @@
 <body>
     <div id="map"></div>
     <script type="module" src="https://demo-preview-rebuild.dabeeomaps.com/jsMapAPI.js"></script>
-    <!-- <script type="module" src="http://localhost:3000/jsMapAPI.js"></script> -->
-    <!-- <script src="jsMapAPI.js"></script> -->
+
     <script src="index.js"></script>
 
 </body>
