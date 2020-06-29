@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>camera sample</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+		<style>
+            body {
+                background-color: #f0f0f0;
+                color: #aaaaaa;
+                margin:0;
+                overflow:hidden; 
+            }
+            .camera-container{
+                /* float:left; */
+                position:absolute;
+                left: 100px;
+                top: 50px;
+            }
+
+            .camera {
+                float:left;
+                width: 100px;
+                height: 36px;
+                background: #FFFFFF;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 13px;
+                color: #B7B9C1;
+                border-bottom: 1px solid #EDEDED;
+                box-sizing: border-box;
+                cursor: pointer;
+            }
+            .camera-on{
+                color: red;
+            }
+
+
+		</style>
+        <script type="module" src="https://demo-preview-rebuild.dabeeomaps.com/jsMapAPI.js"></script>
+    </head>
+	<body>
+        <div id="map"></div>        
+        <script>
+
+            window.addEventListener("load", function () {  
+                initMap();
+            });
+
+            function initMap() {
+                let mapContainer = document.getElementById('map'); // 지도를 표시할 div
+                    
+                // 지도 인증정보
+                let authorization = new indoorMapApi.Authorization({
+                clientId: "28AXw_veA2YbNKDP6poTpT",
+                clientSecret: "70c540c169af62808f4da3709e988e06"
+                });
+            
+                let mapOptions = {
+                authorization: authorization
+                };
+            
+
+                // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+                new indoorMapApi.MapView(
+                    mapContainer, // 컨테이너
+                    mapOptions, // 옵션
+                    function (response) { // 맵 로드 콜백
+                        console.log(response)
+                        let code = response.getCode();
+            
+                        if (code === 200) {
+                            mapView = response.getPayload().mapView;
+                            mapDraw = response.getPayload().mapDraw;
+                            // do something
+                            console.log("map view success!")
+                            initCameraBtn();
+                        }
+                    } 
+                );
+            };
+            function initCameraBtn() {
+                const cameraContainer = document.createElement("DIV")
+                cameraContainer.classList.add('camera-container');
+                
+                const mapElement = document.querySelector("#map");
+
+                mapElement.insertAdjacentElement("afterbegin", cameraContainer);
+                let cameraHTML ="";
+                cameraHTML +=`<div class="camera" id="2d">2d</div>`
+                cameraHTML +=`<div class="camera camera-on" id="3d">3d</div>`
+                cameraContainer.innerHTML = cameraHTML;
+                cameraContainer.addEventListener("click", ({target})=>{
+                    if(target.className === "camera" ) {
+                        document.querySelector(".camera-on").classList.remove("camera-on");
+                        target.classList.add("camera-on");
+                        mapDraw.changeCamera({camera: target.id});
+                    }
+                });
+            }
+
+        </script>		
+    </body>
+</html>
