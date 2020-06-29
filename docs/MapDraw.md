@@ -67,10 +67,24 @@ MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 들어있
 
 | **Option**      | **Parameter** | **Parameter** | **Type**   | **Values**           | **Description**                             |
 | --------------- | ------------- | ----------- | ------------- | ------------------- | ------------------------------------------- |
-| floorInfo       |               |             | array         |                     | 지도의 층정보                       |
-|                 | id            |             | string        |                     | 층 아이디        |
-|                 | name          |             | array         |                     | 층 이름        |
-|                 |               | lang        | string        |  "ko"               | 언어        |
-|                 |               | text        | string        |                     | 층이름        |
-|                 | defaultYn     | boolean     |               |                     | 디폴트여부                    |
+| floorInfo       |               |             | array         |                     | 지도의 층정보                      |
+|                 | id            |             | string        |                     | 층 아이디                         |
+|                 | name          |             | array         |                     | 층 이름                           |
+|                 |               | lang        | string        |  "ko"               | 언어                             |
+|                 |               | text        | string        |                     | 층이름                            |
+|                 | defaultYn     |             | boolean       |                     | 디폴트여부                         |
+| themeInfo       |               |             | array         |                     | 지도의 테마 정보                       |
+|                 | id            |             | number        |                     | 테마 아이디                          |
+|                 | name          |             | string        |                     | 테마 이름                           |
+|                 | defaultYn     |             | boolean       |                     | 디폴트여부                         |
+| poiInfo         |               |             | array         |                     | 지도의 poi정보                       |
+|                 | id            |             | string        |                     | poi 아이디                          |
+|                 | floorId       |             | string        |                     | 층 아이디                           |
+|                 | title         |             | string        |                     | poi 이름                         |
+|                 | categoryCode  |             | string        |                     | category code                   |
+|                 | iconUrl       |             | string        |                     | url String                   |
+| mapName         |               |             | string        |                     | 지도의 이름                       |
+
+
+
 
