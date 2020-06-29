@@ -58,14 +58,14 @@
 
 
 ## MapView Options
-| **Option**       | **Type**      | **Default**         | **Description**                                             |
-| ---------------- | ------------- | ------------------- | ---------------------------------- |    
-| authorization    | Authorization | null                | 인증 객체                           | |    
-| zoom             | Number        | 100                 | 실내 지도 초기화시 zoom level 설정  | |    
-| floor       | String        | "default"           | 실내지도 초기화시 최초 표시할 층 설정       | |    
-| theme       | String        | "default"           | 실내지도 초기화시 최초 표시할 테마  설정      | |    
-| camera       | String        | "3d"           | 실내지도 초기시 최초 표시할 카메라 모드  설정  | "2d", "3d"|    
-| showPoi     | Boolean       | FALSE               | 실내지도 초기화시 poi 표시 여부 설정    | true, false |    
+| **Option**       | **Type**      | **Default**         | **Description**                          | **Value**                          |
+| ---------------- | ------------- | ------------------- | ---------------------------------- | -------------------------------- |
+| authorization    | Authorization | null                | 인증 객체                           | |
+| zoom             | Number        | 100                 | 실내 지도 초기화시 zoom level 설정  | | 
+| floor       | String        | "default"           | 실내지도 초기화시 최초 표시할 층 설정       | |
+| theme       | String        | "default"           | 실내지도 초기화시 최초 표시할 테마  설정      | |
+| camera       | String        | "3d"           | 실내지도 초기시 최초 표시할 카메라 모드  설정  | "2d", "3d"|
+| showPoi     | Boolean       | true               | 실내지도 초기화시 poi 표시 여부 설정    | true, false |
 
 ## MapDraw Options
 
