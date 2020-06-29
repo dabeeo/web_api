@@ -65,12 +65,12 @@ MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 들어있
 
 ## MapDraw Options
 
-| **Option**      | **Parameter** | **Parameter** | **Type**   | **Values**     | **Description**                             |
-| --------------- | ------------- | ----------- | ------------- | ---------------------------- | ------------------------------------------- |
-| floorInfo       |               |             | array         |                              | 지도의 중심 좌표 변경                       |
-|                 | id            |             | string        |                              | 옵션 설정을 통한 지도 중심 좌표 변경        |
-|                 | name          |             | array         |                              | 옵션 설정을 통한 지도 중심 좌표 변경        |
-|                 |               | lang        | string        |  "ko"                            | 옵션 설정을 통한 지도 중심 좌표 변경        |
-|                 |               | text        | string        |                              | 옵션 설정을 통한 지도 중심 좌표 변경        |
-|                 | defaultYn     | boolean     |               |                              |                                             |
+| **Option**      | **Parameter** | **Parameter** | **Type**   | **Values**           | **Description**                             |
+| --------------- | ------------- | ----------- | ------------- | ------------------- | ------------------------------------------- |
+| floorInfo       |               |             | array         |                     | 지도의 층정보                       |
+|                 | id            |             | string        |                     | 층 아이디        |
+|                 | name          |             | array         |                     | 층 이름        |
+|                 |               | lang        | string        |  "ko"               | 언어        |
+|                 |               | text        | string        |                     | 층이름        |
+|                 | defaultYn     | boolean     |               |                     | 디폴트여부                    |
 
