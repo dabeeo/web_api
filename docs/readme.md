@@ -67,6 +67,5 @@
 | camera       | String        | "3d"           | 실내지도 초기시 최초 표시할 카메라 모드  설정  | "2d", "3d"|
 | showPoi     | Boolean       | true               | 실내지도 초기화시 poi 표시 여부 설정    | true, false |
 
-## MapDraw Options
 
 
