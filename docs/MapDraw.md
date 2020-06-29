@@ -1,8 +1,9 @@
 # MapDraw
 
 ~~~
-MapDraw를 활용하여 지도 모드를 변경할 수 있습니다. 
-MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 맵이름, 층정보, poi정보, 테마정보 등이 들어있습니다. 메소드 호출시 이들 정보를 이용합니다. 
+MapDraw를 활용하여 지도보기의  모드를 변경할 수 있습니다. 
+MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 맵이름, 층정보, poi정보, 테마정보 등이 들어있습니다.    
+메소드 호출시 이들 정보를 이용합니다. 
 ~~~
 
 
