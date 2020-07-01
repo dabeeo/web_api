@@ -85,6 +85,12 @@ MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 맵이름
 |                 | categoryCode  |             | string        |                     | category code                   |
 |                 | iconUrl       |             | string        |                     | url String                   |
 | mapName         |               |             | string        |                     | 지도의 이름                       |
+| poiCategories   |               |             | array         |                     | 카테고리 정보 (레벨별로 hierarhy 구조로 존재함)              |
+|                 | id            |             | string        |                     | 카테고리 아이디                         |
+|                 | code          |             | string        |                     | 카테고리 코드 (예: "1-1")             |
+|                 | level         |             | number        |                     | 카테고리 레벨                        |
+|                 | title         |             | string        |                     | 타이틀                          |
+|                 | childList     |             | array        |                      | 부모와 동일한 구조로 구성              |
 
 
 
