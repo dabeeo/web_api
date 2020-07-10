@@ -42,6 +42,7 @@ https://dabeeo.github.io/web_api/samples/floor.html
 https://dabeeo.github.io/web_api/samples/theme.html   
 https://dabeeo.github.io/web_api/samples/camera.html   
 https://dabeeo.github.io/web_api/samples/showPoi.html   
+https://dabeeo.github.io/web_api/samples/navigation.html   
 
 ## api 호출 샘플
 ~~~html
