@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>zoom sample</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+		<style>
+            body {
+                background-color: #f0f0f0;
+                color: #aaaaaa;
+                margin:0;
+                overflow:hidden; 
+            }
+			.zoom-container {
+                position : absolute;
+                top:50px;
+                font-size: 13px;
+                color: #aaaaaa;
+				left:10px;
+				box-sizing: border-box;
+				z-index:1;
+            }
+            .zoom-button {
+                background: #FFFFFF;
+
+            }
+
+
+		</style>
+        <script type="module" src="https://demo-preview-rebuild.dabeeomaps.com/jsMapAPI.js"></script>
+    </head>
+	<body>
+        <div id="map"></div>        
+        <div class="zoom-container">
+            <button id="zoom-in-button" class="zoom-button" type="button" >+</button>
+            <button id="zoom-out-button" class="zoom-button" type="button" >-</button>
+        </div>
+
+        <script>
+
+            window.addEventListener("load", function () {  
+                initMap();
+            });
+
+            function initMap() {
+                let mapContainer = document.getElementById('map'); // 지도를 표시할 div
+                    
+                // 지도 인증정보
+                let authorization = new indoorMapApi.Authorization({
+                clientId: "28AXw_veA2YbNKDP6poTpT",
+                clientSecret: "70c540c169af62808f4da3709e988e06"
+                });
+            
+                let mapOptions = {
+                authorization: authorization
+                };
+            
+
+                // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+                new indoorMapApi.MapView(
+                    mapContainer, // 컨테이너
+                    mapOptions, // 옵션
+                    function (response) { // 맵 로드 콜백
+                        let code = response.getCode();
+            
+                        if (code === 200) {
+                            mapView = response.getPayload().mapView;
+                            mapDraw = response.getPayload().mapDraw;
+                            // do something
+                            console.log("map view success!")
+                            initZoom();
+                        }
+                    } 
+                );
+            };
+
+            function initZoom() {
+                let zoomInButton = document.getElementById("zoom-in-button");
+                let zoomOutButton = document.getElementById("zoom-out-button");
+                zoomInButton.addEventListener("click", (e) => {
+                    mapDraw.zoomIn();
+                });
+                zoomOutButton.addEventListener("click", (e) => {
+                    mapDraw.zoomOut();
+                });
+            }
+
+
+        </script>		
+    </body>
+</html>
