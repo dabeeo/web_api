@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>camera sample</title>
+		<title>navigation sample</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -32,7 +32,8 @@
         <div class="poi-list-container">
             <select id="select-start-poi", class="select-start-poi"></select>
             <select id="select-dest-poi", class="select-dest-poi"></select>
-            <button id="navi-button" class="navi-button" type="button" >길찾기</button>
+            <button id="navi-on-button" class="navi-button" type="button" >길찾기</button>
+            <button id="navi-off-button" class="navi-button" type="button" >길찾기끄기</button>
         </div>
 
         <script>
@@ -75,7 +76,8 @@
             function initNavigation(poiList) {
                 let poiStartElement = document.getElementById("select-start-poi");
                 let poiDestElement = document.getElementById("select-dest-poi");
-                let naviButton = document.getElementById("navi-button");
+                let naviOnButton = document.getElementById("navi-on-button");
+                let naviOffButton = document.getElementById("navi-off-button");
                 let startPoint = {position: poiList[0].position, floorId: poiList[0].floorId};
                 let destPoint = {position: poiList[0].position, floorId: poiList[0].floorId};
 
@@ -103,8 +105,11 @@
                         floorId: poiList[e.target.value].floorId
                     };
                 });
-                naviButton.addEventListener("click", (e) => {
-                    mapDraw.getRoute(startPoint, destPoint);
+                naviOnButton.addEventListener("click", (e) => {
+                    mapDraw.getRouteOn(startPoint, destPoint);
+                });
+                naviOffButton.addEventListener("click", (e) => {
+                    mapDraw.getRouteOff();
                 });
             }
 
