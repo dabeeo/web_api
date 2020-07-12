@@ -53,6 +53,9 @@ MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 맵이름
                 initCameraBtn();//카메라모드변경
                 initShowPoiBtn();//poi 보여주기모드 변경
                 initMapName(mapDraw.response.mapName); //지도이름 표기
+                initNavigation(mapDraw.response.poiInfo); //네비게이션 모드 
+                initZoom(); //줌 
+
 
                 }
             }
@@ -84,6 +87,10 @@ MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 맵이름
 |                 | title         |             | string        |                     | poi 이름                         |
 |                 | categoryCode  |             | string        |                     | category code                   |
 |                 | iconUrl       |             | string        |                     | url String                   |
+|                 | position      |             | object        |                     | poi의 위치,x,y z으로 구성              |
+|                 |               |  x          | number        |                     | x좌표              |
+|                 |               |  y          | number        |                     | y좌표              |
+|                 |               |  z          | number        |                     | z좌표
 | mapName         |               |             | string        |                     | 지도의 이름                       |
 | poiCategories   |               |             | array         |                     | 카테고리 정보 (레벨별로 hierarhy 구조로 존재함)              |
 |                 | id            |             | string        |                     | 카테고리 아이디                         |
@@ -102,4 +109,13 @@ MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 맵이름
 | changeCamera    | camera        | string  | "2d", "3d"   | 카메라 모드 변경        |
 | redrawMap       | floor         | string  |  층아이디      | 층 변경               |
 |                 | theme         | string  |  테마아이디     | 테마 변경             |
+| zoomIn          |               |         |              | 지도확대               |
+| zoomOut         |               |         |              | 지도축소              |
+| getRouteOn      |               |         |              | 네비게이션 보여주기          |
+|                 | startPoint    | position| x,y,z        | 출발점 좌표          |
+|                 |               | floorId |              | 출발점 층아이디        |
+|                 | endPoint      | position|x,y,z        | 도착점 좌표          |      
+|                 |               | floorId |              | 도착점 층아이디        |      
+| getRouteOff     |               |         |              | 네비게이션               |
+
 
