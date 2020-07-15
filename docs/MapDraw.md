@@ -103,7 +103,7 @@ MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 맵이름
 
 ## Methods
 
-| **Method**      | **Parameter** | **Type** | **Value**   | **return value**  |  **Description**    | **return value**  |
+| **Method**      | **Parameter** | **Type** | **Value**   | **return value**  |  **Description**    |
 | --------------- | ------------- | -------- | ----------- | ----------------- | -------------------- |
 | changeShowPoi   | showPoi       | boolean |              |                   | poi 보여주기 모드 변경   |
 | changeCamera    | camera        | string  | "2d", "3d"   |                   | 카메라 모드 변경        |
