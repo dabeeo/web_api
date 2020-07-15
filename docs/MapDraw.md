@@ -118,5 +118,6 @@ MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 맵이름
 |                 |               | floorId |              |                   | 도착점 층아이디        |      
 |                 |               |         |              | 소요시간            |                     |      
 | getRouteOff     |               |         |              |                   | 네비게이션               |
+| getRouteAnimation   |               |         |              |                   | 모의주행               |
 
 
