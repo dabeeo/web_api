@@ -20,7 +20,9 @@
                 color: #aaaaaa;
 				right:10px;
 				box-sizing: border-box;
-				z-index:1;
+                z-index:1;
+                border: 1px solid #EDEDED;
+                
 			}
             .floors-container{
                 /* float:left; */
@@ -44,6 +46,11 @@
             .floor-on{
                 color: red;
             }
+            .navi-button, .select-poi {
+                background: #FFFFFF;
+                border: 1px solid #EDEDED;
+                height: 36px;
+                color: #234a92;
 
 		</style>
         <script type="module" src="https://demo-preview-rebuild.dabeeomaps.com/jsMapAPI.js"></script>
@@ -51,11 +58,12 @@
 	<body>
         <div id="map"></div>        
         <div class="poi-list-container">
-            <select id="select-start-poi", class="select-start-poi"></select>
-            <select id="select-dest-poi", class="select-dest-poi"></select>
+            <select id="select-start-poi", class="select-poi"></select>
+            <select id="select-dest-poi", class="select-poi"></select>
             <button id="navi-on-button" class="navi-button" type="button" >길찾기</button>
             <button id="navi-off-button" class="navi-button" type="button" >길찾기끄기</button>
             <button id="navi-ani-button" class="navi-button" type="button" >모의주행</button>
+            <button id="navi-time-button" class="navi-button" type="button" >소요시간</button>
 
         </div>
 
@@ -161,8 +169,11 @@
                     };
                 });
                 naviOnButton.addEventListener("click", (e) => {
-                    mapDraw.getRouteOn(startPoint, destPoint);
+                    let a = mapDraw.getRouteOn(startPoint, destPoint);
+                    console.log("a :", a / (1000 * 60));
+                    document.getElementById("navi-time-button").innerHTML = (a / (1000 * 60)).toFixed(0) + "분 소요";
                 });
+
                 naviOffButton.addEventListener("click", (e) => {
                     mapDraw.getRouteOff();
                 });
