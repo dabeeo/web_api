@@ -103,19 +103,20 @@ MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 맵이름
 
 ## Methods
 
-| **Method**      | **Parameter** | **Type** | **Value**   |  **Description**    |
-| --------------- | ------------- | -------- | ----------- | -------------------- |
-| changeShowPoi   | showPoi       | boolean |              | poi 보여주기 모드 변경   |
-| changeCamera    | camera        | string  | "2d", "3d"   | 카메라 모드 변경        |
-| redrawMap       | floor         | string  |  층아이디      | 층 변경               |
-|                 | theme         | string  |  테마아이디     | 테마 변경             |
-| zoomIn          |               |         |              | 지도확대               |
-| zoomOut         |               |         |              | 지도축소              |
-| getRouteOn      |               |         |              | 네비게이션 보여주기          |
-|                 | startPoint    | position| x,y,z        | 출발점 좌표          |
-|                 |               | floorId |              | 출발점 층아이디        |
-|                 | endPoint      | position|x,y,z        | 도착점 좌표          |      
-|                 |               | floorId |              | 도착점 층아이디        |      
-| getRouteOff     |               |         |              | 네비게이션               |
+| **Method**      | **Parameter** | **Type** | **Value**   | **return value**  |  **Description**    | **return value**  |
+| --------------- | ------------- | -------- | ----------- | ----------------- | -------------------- |
+| changeShowPoi   | showPoi       | boolean |              |                   | poi 보여주기 모드 변경   |
+| changeCamera    | camera        | string  | "2d", "3d"   |                   | 카메라 모드 변경        |
+| redrawMap       | floor         | string  |  층아이디      |                   | 층 변경               |
+|                 | theme         | string  |  테마아이디     |                   | 테마 변경             |
+| zoomIn          |               |         |              |                   | 지도확대               |
+| zoomOut         |               |         |              |                   | 지도축소              |
+| getRouteOn      |               |         |              |                   | 네비게이션 보여주기          |
+|                 | startPoint    | position| x,y,z        |                   | 출발점 좌표          |
+|                 |               | floorId |              |                   | 출발점 층아이디        |
+|                 | endPoint      | position|x,y,z        |                   | 도착점 좌표          |      
+|                 |               | floorId |              |                   | 도착점 층아이디        |      
+|                 |               |         |              | 소요시간            |                     |      
+| getRouteOff     |               |         |              |                   | 네비게이션               |
 
 
