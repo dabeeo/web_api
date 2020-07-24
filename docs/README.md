@@ -4,6 +4,7 @@ api를 사용학 위한 간단한 설명입니다. 자세한 내용은 해당 �
 ## 지도그리기
 indoorMapApi.MapView를 이용하여 지도를 그릴 수 있습니다. 
 MapView를 호출시 mapDraw를 반환하며 여기에 여러 지도에 관한 정보들이 담겨있습니다. 지도 설정변경시 이러한 값들을 사용합니다. 
+
 #### mapDraw에 담긴 정보
 floorInfo : 층 정보  
 themeInfo : 테마 정보
@@ -22,6 +23,14 @@ callbackFunc // callback 함수)
 ~~~javascript
 MapDraw.response.mapName
 ~~~
+
+## poi 정보 가져오기   
+poi 정보는 MapDraw의 속성에 담겨 있습니다. 
+~~~javascript
+MapDraw.response.poiInfo
+~~~
+
+
 
 ## 층 선택하기     
 mapDraw.redrawMap() 메소드를 이용하여 층을 변경할 수 있습니다. 
