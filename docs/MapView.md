@@ -58,14 +58,43 @@
 
 
 ## MapView Options
-| **Option**       | **Type**      | **Default**         | **Description**                          | **Value**                          |
-| ---------------- | ------------- | ------------------- | ---------------------------------- | -------------------------------- |
-| authorization    | Authorization | null                | 인증 객체                           | |
-| zoom             | Number        | 100                 | 실내 지도 초기화시 zoom level 설정  | | 
-| floor       | String        | "default"           | 실내지도 초기화시 최초 표시할 층 설정       | |
-| theme       | String        | "default"           | 실내지도 초기화시 최초 표시할 테마  설정      | |
-| camera       | String        | "3d"           | 실내지도 초기시 최초 표시할 카메라 모드  설정  | "2d", "3d"|
-| showPoi     | Boolean       | true               | 실내지도 초기화시 poi 표시 여부 설정    | true, false |
+### authorization
+다비오 지도를 사용하기 위한 인증 정보    
+Type: 인증 객체      
+{
+clientId: "28AXw_veA2YbNKDP6poTpT",
+clientSecret: "70c540c169af62808f4da3709e988e06"
+}
 
+### zoom
+실내 지도 초기화시 zoom level 설정
+Type: Number
+Default: 100
 
+### floor
+실내지도 초기화시 최초 표시할 층 설정.
+Type : String
+Default : "default"
+### theme
+실내지도 초기화시 최초 표시할 테마  설정
+Type: String
+Default : "default"
 
+### camera
+실내지도 초기시 최초 표시할 카메라 모드  설정. "2d", "3d" 중 하나로 설정. 
+Type : String
+Default : "3d"
+
+### showPoi
+실내지도 초기화시 poi 표시 여부 설정
+Type: Boolean
+Default : true
+
+### canvasSize
+지도의 크기를 결정하기 위한 넓이와 높이    
+Type: 객체    
+{
+width : 1000
+height : 800
+}    
+Default : 화면 전체 사이즈 
