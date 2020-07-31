@@ -67,28 +67,26 @@ clientSecret: "70c540c169af62808f4da3709e988e06"
 }
 
 ### zoom
-실내 지도 초기화시 zoom level 설정
-Type: Number
-Default: 100
+실내 지도 초기화시 zoom level 설정   
+Type: Number   
+Default: 100   
 
 ### floor
-실내지도 초기화시 최초 표시할 층 설정.
+실내지도 초기화시 최초 표시할 층 설정. 설정 안하는 경우 default로 지도의 default층으로 설정   
 Type : String
-Default : "default"
 ### theme
-실내지도 초기화시 최초 표시할 테마  설정
+실내지도 초기화시 최초 표시할 테마  설정. 설정안하는 경우 지도의 default theme으로 설정    
 Type: String
-Default : "default"
 
 ### camera
-실내지도 초기시 최초 표시할 카메라 모드  설정. "2d", "3d" 중 하나로 설정. 
-Type : String
-Default : "3d"
+실내지도 초기시 최초 표시할 카메라 모드  설정. "2d", "3d" 중 하나로 설정.  
+Type : String     
+Default : "3d"    
 
 ### showPoi
-실내지도 초기화시 poi 표시 여부 설정
-Type: Boolean
-Default : true
+실내지도 초기화시 poi 표시 여부 설정   
+Type: Boolean   
+Default : true   
 
 ### canvasSize
 지도의 크기를 결정하기 위한 넓이와 높이    
