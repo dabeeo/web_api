@@ -61,11 +61,12 @@
 ### authorization
 다비오 지도를 사용하기 위한 인증 정보    
 Type: 인증 객체      
+~~~
 {
 clientId: "28AXw_veA2YbNKDP6poTpT",
 clientSecret: "70c540c169af62808f4da3709e988e06"
 }
-
+~~~
 ### zoom
 실내 지도 초기화시 zoom level 설정   
 Type: Number   
@@ -91,8 +92,10 @@ Default : true
 ### canvasSize
 지도의 크기를 결정하기 위한 넓이와 높이    
 Type: 객체    
+~~~
 {
 width : 1000,
 height : 800
 }    
+~~~
 Default : 화면 전체 사이즈 
