@@ -94,7 +94,7 @@ Default : true
 지도의 크기를 결정하기 위한 넓이와 높이    
 Type: 객체    
 {
-width : 1000
+width : 1000,
 height : 800
 }    
 Default : 화면 전체 사이즈 
