@@ -120,6 +120,23 @@ MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 맵이름
 | getRouteOff     |               |         |              |                   | 네비게이션               |
 | startRouteAnimation   |               |         |              |                   | 모의주행 시작              |
 | stopRouteAnimation   |               |         |              |                   | 모의주행 멈춤              |
-| changeLanguage  | languageCode  | string  | "ko", "en" ... |                   | poi 언어변경             |
+| changeLanguage  | languageCode  | string  | "ko", "en" ... |                   | poi 언어변경 (_ISO_639-1_codes 참조_)  |
+| mapCordInfo     |               |          |             |   하단 참조        |  지도 좌표 정보         |          
 
-
+~~~javascript
+// mapDraw.mapCordInfo() 호출시 보여지는 지도 정보 값 
+{ 
+    "fixedPosition": { // 지도 영점
+        "x": 0,
+        "y": 0,
+        "z": 0
+    },    
+    "scaleCm": 10, // 지도 축척비
+    "xaxisDirection": 1, // x 증가방향
+    "yaxisDirection": 1, // y 증가방향
+    "size": { // 지도 사이즈 
+        "width": 1600,
+        "height": 2200
+    }
+} 
+~~~
