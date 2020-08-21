@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>camera sample</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+		<style>
+            body {
+                background-color: #f0f0f0;
+                color: #aaaaaa;
+                margin:0;
+                overflow:hidden; 
+            }
+            .myposition{
+                position: absolute; 
+                left: 10px;
+                top: 10px;
+				padding-right: 10px;
+				font-size: 13px;
+			}
+			.myposition > button {
+				background: #FFFFFF;
+				font-size: 13px;
+				color: #B7B9C1;
+				border: none;
+				cursor: pointer;
+			}
+			.myposition > button.on {
+				color: red;
+			}
+			.myposition-title{
+				margin-top: 10px;
+				margin-bottom: 5px;
+			}
+			.myposition-box{
+				margin-bottom: 5px;
+			}
+			.myposition-input{
+				width: 100px;
+				margin-left: 5px;
+			}
+
+
+		</style>
+        <script type="module" src="https://demo-preview-rebuild.dabeeomaps.com/jsMapAPI.js"></script>
+    </head>
+	<body>
+        <div id="map"></div>        
+        <div class="myposition">
+            <p class="myposition-title">
+                내위치설정
+            </p>
+            <p class="myposition-box">
+                <span>x</span>
+                <input type="text" class="myposition-input" name="" id="mypositionX" value="0">
+            </p>
+            <p class="myposition-box">
+                <span>y</span>
+                <input type="text" class="myposition-input" name="" id="mypositionY" value="0">
+            </p>
+            <p class="myposition-box">
+                <span>z</span>
+                <input type="text" class="myposition-input" name="" id="mypositionZ" value="1">
+            </p>
+            <button id="mypositionOn">on</button>
+            <button class="on" id="mypositionOff">off</button>
+        </div>
+        <script>
+
+            window.addEventListener("load", function () {  
+                initMap();
+            });
+
+            function initMap() {
+                let mapContainer = document.getElementById('map'); // 지도를 표시할 div
+                    
+                // 지도 인증정보
+                let authorization = new indoorMapApi.Authorization({
+                clientId: "28AXw_veA2YbNKDP6poTpT",
+                clientSecret: "70c540c169af62808f4da3709e988e06"
+                });
+            
+                let mapOptions = {
+                authorization: authorization
+                };
+            
+
+                // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+                new indoorMapApi.MapView(
+                    mapContainer, // 컨테이너
+                    mapOptions, // 옵션
+                    function (response) { // 맵 로드 콜백
+                        console.log(response)
+                        let code = response.getCode();
+            
+                        if (code === 200) {
+                            mapView = response.getPayload().mapView;
+                            mapDraw = response.getPayload().mapDraw;
+                            // do something
+                            console.log("map view success!")
+                            initMylocationBtn();
+                        }
+                    } 
+                );
+            };
+            function initMylocationBtn() {
+                let isOn = false;
+                document.querySelector("#mypositionOn").addEventListener("click", (e) => {
+                    let posX = document.querySelector("#mypositionX").value,
+                        posY = document.querySelector("#mypositionY").value,
+                        posZ = document.querySelector("#mypositionZ").value;
+                    mapDraw.myLocationOn(posX, posY, posZ); // 내위치 표시
+                    document.querySelector("#mypositionOn").classList.add("on");
+                    document.querySelector("#mypositionOff").classList.remove("on");
+                    isOn = true;
+                });
+
+                document.querySelector("#mypositionOff").addEventListener("click", (e) => {
+                    mapDraw.myLocationOff(); // 내위치 삭제
+                    document.querySelector("#mypositionOff").classList.add("on");
+                    document.querySelector("#mypositionOn").classList.remove("on");
+                    isOn = false;
+                });
+
+                document.querySelector(".myposition").querySelectorAll("input").
+                    forEach((ele) => {
+                        ele.addEventListener("input", (e) => {
+                            let posX = document.querySelector("#mypositionX").value,
+                                posY = document.querySelector("#mypositionY").value,
+                                posZ = document.querySelector("#mypositionZ").value;
+
+                            if (isOn) {
+                                mapDraw.myLocationOn(posX, posY, posZ); // 내위치 표시
+                            }
+                        });
+                    });
+            }
+
+        </script>		
+    </body>
+</html>

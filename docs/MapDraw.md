@@ -90,7 +90,9 @@ MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 맵이름
 |                 | position      |             | object        |                     | poi의 위치,x,y z으로 구성              |
 |                 |               |  x          | number        |                     | x좌표              |
 |                 |               |  y          | number        |                     | y좌표              |
-|                 |               |  z          | number        |                     | z좌표
+|                 |               |  z          | number        |                     | z좌표  |
+|                 | metadatas     |             | object        |                     | poi의 메타데이터            |
+|                 | titleByLanguages |          | object        |                     | poi의 언어 별 타이틀 정보           |
 | mapName         |               |             | string        |                     | 지도의 이름                       |
 | poiCategories   |               |             | array         |                     | 카테고리 정보 (레벨별로 hierarhy 구조로 존재함)              |
 |                 | id            |             | string        |                     | 카테고리 아이디                         |
@@ -121,7 +123,9 @@ MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 맵이름
 | startRouteAnimation   |               |         |              |                   | 모의주행 시작              |
 | stopRouteAnimation   |               |         |              |                   | 모의주행 멈춤              |
 | changeLanguage  | languageCode  | string  | "ko", "en" ... |                   | poi 언어변경 (_ISO_639-1_codes 참조_)  |
-| mapCordInfo     |               |          |             |   하단 참조        |  지도 좌표 정보         |          
+| mapCordInfo     |               |          |             |   하단 참조        |  지도 좌표 정보         |
+| myLocationOn    | point         | position | x, y, z     |                  |  내 위치 표시         |
+| myLocationOff   |               |          |             |                  |  내 위치 삭제         |
 
 ~~~javascript
 // mapDraw.mapCordInfo() 호출시 보여지는 지도 정보 값 
@@ -141,4 +145,5 @@ MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 맵이름
 } 
 ~~~
 좌표계 그림 설명 
+
 <img width="517" alt="Screen Shot 2020-08-18 at 5 43 51 PM" src="https://user-images.githubusercontent.com/63434357/90492700-71395b00-e17c-11ea-8190-d64607b35e24.png">
