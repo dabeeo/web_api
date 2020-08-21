@@ -117,8 +117,12 @@ MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 맵이름
 |                 | startPoint    | position| x,y,z        |                   | 출발점 좌표          |
 |                 |               | floorId |              |                   | 출발점 층아이디        |
 |                 | endPoint      | position|x,y,z        |                   | 도착점 좌표          |      
-|                 |               | floorId |              |                   | 도착점 층아이디        |      
-|                 |               |         |              | 소요시간            |                     |      
+|                 |               | floorId |              |                   | 도착점 층아이디        |
+|                 | navigationType | sting  | "recommendation" |               | 네비게이션 옵션 ( 추천 ) |
+|                 |               | sting  | "stairs" |                        | 네비게이션 옵션 ( 계단 ) |
+|                 |               | sting  | "escalator" |                     | 네비게이션 옵션 ( 에스컬레이터 ) |
+|                 |               | sting  | "elevator" |                      | 네비게이션 옵션 ( 엘리베이터 ) |
+|                 |               |         |              | 소요시간            |                     |
 | getRouteOff     |               |         |              |                   | 네비게이션               |
 | startRouteAnimation   |               |         |              |                   | 모의주행 시작              |
 | stopRouteAnimation   |               |         |              |                   | 모의주행 멈춤              |

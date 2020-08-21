@@ -61,6 +61,12 @@
         <div class="poi-list-container">
             <select id="select-start-poi", class="select-poi"></select>
             <select id="select-dest-poi", class="select-poi"></select>
+            <select name="" class="select-poi" id="navi-on-type">
+				<option value="recommendation">추천경로</option>
+				<option value="stairs">계단</option>
+				<option value="escalator">에스컬레이터</option>
+				<option value="elevator">엘리베이터</option>
+			</select>
             <button id="navi-on-button" class="navi-button" type="button" >길찾기</button>
             <button id="navi-off-button" class="navi-button" type="button" >길찾기끄기</button>
             <button id="navi-ani-on-button" class="navi-button" type="button" >모의주행</button>
@@ -171,7 +177,7 @@
                     };
                 });
                 naviOnButton.addEventListener("click", (e) => {
-                    let a = mapDraw.getRouteOn(startPoint, destPoint);
+                    let a = mapDraw.getRouteOn(startPoint, destPoint, document.querySelector("#navi-on-type").value);
                     document.getElementById("navi-time-button").innerHTML = (a / (1000 * 60)).toFixed(0) + "분 소요";
                 });
                 naviOffButton.addEventListener("click", (e) => {
