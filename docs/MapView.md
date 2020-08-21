@@ -71,6 +71,12 @@ clientSecret: "70c540c169af62808f4da3709e988e06"
 실내 지도 초기화시 zoom level 설정   
 Type: Number   
 Default: 100   
+~~~
+let mapOptions = {
+    zoom: 120
+}
+~~~
+
 
 ### floor
 실내지도 초기화시 최초 표시할 층 설정. 설정 안하는 경우 default로 지도의 default층으로 설정   
