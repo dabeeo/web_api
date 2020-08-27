@@ -130,6 +130,11 @@ MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 맵이름
 | mapCordInfo     |               |          |             |   하단 참조        |  지도 좌표 정보         |
 | myLocationOn    | point         | position | x, y, z     |                  |  내 위치 표시         |
 | myLocationOff   |               |          |             |                  |  내 위치 삭제         |
+| myLocationOn    | point         | position | x, y, z     |                  |  내 위치 표시         |
+| controlDragLeft |               |          |             |                  |  Left mouse로 drag         |
+| controlDragRight |               |          |             |                  |  Right mouse로 drag  |
+| zoomOn |               |          |             |                  |  mouse로 zoom 기능 활성화      |
+| zoomOff |               |          |             |                  |  mouse로 zoom 기능 비활성화  |
 
 ~~~javascript
 // mapDraw.mapCordInfo() 호출시 보여지는 지도 정보 값 
