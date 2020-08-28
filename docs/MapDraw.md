@@ -135,6 +135,9 @@ MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 맵이름
 | controlDragRight |               |          |             |                  |  Right mouse로 drag  |
 | zoomOn |               |          |             |                  |  mouse로 zoom 기능 활성화      |
 | zoomOff |               |          |             |                  |  mouse로 zoom 기능 비활성화  |
+| setMarker       | marker Array  | position [, image] [, floorId] | Array[{ position: {x, y, z}, image: url, floorId: string}] |       | 마커 표시(여러개 가능) |
+| clearMarker     |               |          |             |                  |  마커 삭제         |
+
 
 ~~~javascript
 // mapDraw.mapCordInfo() 호출시 보여지는 지도 정보 값 
