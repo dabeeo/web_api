@@ -17,6 +17,7 @@ floorInfo에 층에 대한 정보들이 들어 있습니다. 이를 이용하여
 
 ~~~javascript
 MapDraw.response.floorInfo
+[
     {
       "id": "FL-qhndqjlqhu7p3894",
       "name": [
@@ -27,6 +28,7 @@ MapDraw.response.floorInfo
       ],
       "defaultYn": true
     }
+]
 ~~~
 
 ### 테마 정보
@@ -38,11 +40,13 @@ themeInfo에 각층의 object를 그리는 테마에 대한 정보가 들어있�
 
 ~~~javascript
 MapDraw.response.themeInfo
+[
     {
       "id": 1915,
       "name": "다비오 테마",
       "defaultYn": false
     }
+]
 ~~~
 
 ### poi 정보   
@@ -57,7 +61,7 @@ poi 정보는 MapDraw의 속성에 담겨 있습니다. 여러개의 poi가 있�
 - titleByLanguages: 언어별 타이틀 정보
 ~~~javascript
 MapDraw.response.poiInfo
-{
+[{
       "id": "PO-4JvSQCWHC2270",
       "floorId": "FL-qhndqjlqhu7p3894",
       "title": "남자화장실",
@@ -80,7 +84,7 @@ MapDraw.response.poiInfo
           "text": "남자화장실"
         }
       ]
-    }
+}]
 ~~~
 
 ### poi 카테고리   
@@ -93,8 +97,93 @@ poi 카테고리는 poi가 속한 카테고리에 대한 정보가 담겨 있습
 
 ~~~javascript
 MapDraw.response.poiCategories
-{
-}
+
+[
+  {
+    "id":"PC-1hvb0j1qh0bc36692",
+    "code":"1",
+    "level":1,
+    "title":"편의시설",
+    "parentId":null,
+    "parentCode":null,
+    "titleByLanguages":[
+      {
+        "lang":"ko",
+        "text":"편의시설"
+      },
+      {
+        "lang":"en",
+        "text":"Convenience"
+      }
+    ],
+    "childList":[
+      {
+        "id":"PC-vb6bkd9gg8qe0622",
+        "code":"1-1",
+        "level":2,
+        "title":"화장실(여)",
+        "parentId":null,
+        "parentCode":null,
+        "titleByLanguages":[
+          {
+            "lang":"ko",
+            "text":"화장실(여)"
+          },
+          {
+            "lang":"en",
+            "text":"Toilet(w)"
+          }
+        ],
+        "childList":[
+          
+        ]
+      },
+      {
+        "id":"PC-1iv0zx28uyvcn6399",
+        "code":"1-2",
+        "level":2,
+        "title":"화장실(남)",
+        "parentId":null,
+        "parentCode":null,
+        "titleByLanguages":[
+          {
+            "lang":"ko",
+            "text":"화장실(남)"
+          },
+          {
+            "lang":"en",
+            "text":"Toilet(m)"
+          }
+        ],
+        "childList":[
+          
+        ]
+      },
+      {
+        "id":"PC-ubgb2mmh58hl3786",
+        "code":"1-3",
+        "level":2,
+        "title":"엘리베이터",
+        "parentId":null,
+        "parentCode":null,
+        "titleByLanguages":[
+          {
+            "lang":"ko",
+            "text":"엘리베이터"
+          },
+          {
+            "lang":"en",
+            "text":"Elevator"
+          }
+        ],
+        "childList":[
+          
+        ]
+      }
+    ]
+  },
+]
+
 ~~~
 
 ### lang info   
@@ -106,10 +195,11 @@ MapDraw.response.poiCategories
 
 ~~~javascript
 MapDraw.response.langInfo
-    {
+[    {
       "lang":"ko",
       "name":"한국어",
       "name_en":"Korean",
       "defaultYn":true
     }
+ ]
 ~~~
