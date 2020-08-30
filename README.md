@@ -1,7 +1,7 @@
 
 
 <h1 align="center">
-	<img src="https://indoor.dabeeomaps.com/upload/demo/CI.png" />
+ <img src="https://indoor.dabeeomaps.com/upload/demo/CI.png" />
 </h1>
 
 ### DABEEO MAPS JavaScript API
@@ -35,20 +35,6 @@
 
 
 
-## Sample
-https://dabeeo.github.io/web_api/samples   
-https://dabeeo.github.io/web_api/samples/mapName.html   
-https://dabeeo.github.io/web_api/samples/floor.html   
-https://dabeeo.github.io/web_api/samples/theme.html   
-https://dabeeo.github.io/web_api/samples/camera.html   
-https://dabeeo.github.io/web_api/samples/showPoi.html   
-https://dabeeo.github.io/web_api/samples/navigation.html   
-https://dabeeo.github.io/web_api/samples/zoom.html   
-https://dabeeo.github.io/web_api/samples/language.html
-https://dabeeo.github.io/web_api/samples/myLocation.html   
-https://dabeeo.github.io/web_api/samples/marker.html
-
-
 ## api 호출 샘플
 ~~~html
 <!DOCTYPE html>
@@ -61,7 +47,7 @@ https://dabeeo.github.io/web_api/samples/marker.html
 </head>
 <body>
     <div id="map"></div>
-    <script type="module" src="https://demo-preview-rebuild.dabeeomaps.com/jsMapAPI.js"></script>
+    <script type="module" src="[dabeeo javascript link]"></script>
     <script>
         window.onload = function () {
             let mapContainer = document.getElementById('map'); // 지도를 표시할 div
