@@ -5,6 +5,14 @@
 ~~~
 
 
+~~~javascript
+new indoorMapApi.MapView(
+mapContainer, // 컨테이너
+mapOptions, // 옵션
+callbackFunc // callback 함수)
+)
+~~~
+
 
 예제를 보면서 다비오 맵스 JavaScript API 설명합니다. 아래는 다비오 사무실을 API으로 이용하여 지도를 생성하는 예입니다.
 
@@ -19,7 +27,7 @@
 </head>
 <body>
     <div id="map"></div>
-    <script type="module" src="https://demo-preview-rebuild.dabeeomaps.com/jsMapAPI.js"></script>
+    <script type="module" src="[다비오기술문서의 api 링크]"></script>
     <script>
         window.onload = function () {
             let mapContainer = document.getElementById('map'); // 지도를 표시할 div
@@ -61,7 +69,8 @@
 ### authorization
 다비오 지도를 사용하기 위한 인증 정보    
 Type: 인증 객체      
-~~~
+~~~javascript
+authorization:        
 {
 clientId: "28AXw_veA2YbNKDP6poTpT",
 clientSecret: "70c540c169af62808f4da3709e988e06"
@@ -71,7 +80,7 @@ clientSecret: "70c540c169af62808f4da3709e988e06"
 실내 지도 초기화시 zoom level 설정   
 Type: Number   
 Default: 100   
-~~~
+~~~javascript
 let mapOptions = {
     zoom: 120
 }
@@ -98,10 +107,11 @@ Default : true
 ### canvasSize
 지도의 크기를 결정하기 위한 넓이와 높이    
 Type: 객체    
-~~~
-{
+Default : 아무것도 지정하지 않으면 화면 전체 사이즈로 지정됩니다. 
+
+~~~javascript
+canvasSize: {
 width : 1000,
 height : 800
 }    
 ~~~
-Default : 화면 전체 사이즈 

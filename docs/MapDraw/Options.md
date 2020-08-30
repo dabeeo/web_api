@@ -1,4 +1,4 @@
-## MapDraw : 지도 속성 반환
+## MapDraw.response: 지도 속성 반환
 MapView를 호출시 mapDraw를 반환하며 여기에 여러 지도에 관한 정보들이 담겨있습니다. 이 정보를 이용하여 지도 설정을 변경하거나 필요한 지도정보를 사용자에게 보여줄 수 있습니다.   
 
 
@@ -7,6 +7,7 @@ MapView를 호출시 mapDraw를 반환하며 여기에 여러 지도에 관한 �
 ~~~javascript
 MapDraw.response.mapName
 ~~~
+- example: https://dabeeo.github.io/web_api/samples/mapName.html   
 
 ### 층정보
 floorInfo에 층에 대한 정보들이 들어 있습니다. 이를 이용하여 층에 대한 정보를 표시하거나 제어할 수 있습니다. 여러층이 있을 수 있으므로 array 형태입니다.     
