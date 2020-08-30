@@ -91,6 +91,7 @@ mapDraw.stopRouteAnimation() 메소드를 이용하여 모의주행을 멈출 �
 mapDraw.stopRouteAnimation();
 ~~~
 모의주행이 완료되면 "navi-complete" 이벤트가 반환됩니다. 
+- example: https://dabeeo.github.io/web_api/samples/navigation.html   
 
 ### 내 위치 표시
 mapDraw.myLocationOn()메소드를 이용하여 원하는 좌표에 위치를 표시할 수 있습니다. 
