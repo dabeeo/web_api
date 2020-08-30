@@ -62,16 +62,23 @@ mapDraw.zoomOut();
 ### 길찾기  
 mapDraw.getRouteOn() 메소드를 이용하여 길찾기 경로를 표시할 수 있습니다.
 이 때 목적지까지 가는데 걸리는 시간이 반환됩니다. (miliseconds)
-- startPoint: 출발지, x,y,z 좌표
-- destPoint : 도착지, x,y,z 좌표
-- navigationType : 주행경로, 네가지 option이 있습니다. 
-    - "recommendation : 추천
+- origin: 출발지, {x,y,z} 좌표
+    {x:
+     y:
+     z:
+     }
+- destination : 도착지, {x,y,z} 좌표
+- type : 주행경로, 네가지 option이 있습니다. 아무값도 주지않으면 자동으로 추천 경로로 반환됩니다.  
+    - "recommendation" : 추천
     - "stairs": 계단
     - "escalator"
     - "elevator"
 
 ~~~javascript
-let time = mapDraw.getRouteOn(startPoint, destPoint);
+let time = mapDraw.getRouteOn(
+{x:100, y:100,z:10},
+{x:200, y:200, z:20},
+"elevator");
 ~~~
 mapDraw.getRouteOff() 메소드를 이용하여 길찾기 경로를 삭제할 수 있습니다. 
 ~~~javascript
