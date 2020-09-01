@@ -32,3 +32,20 @@ document.querySelector("#map").addEventListener("poi-click", (e) => { // 캔버�
         console.log(e.detail); // 해당하는 poi 정보가 array 로 리턴
 });
 ~~~
+- return 형태   
+~~~
+[
+  {
+    "metadatas": [
+      {
+        "lang": "ko",
+        "metadatas": [
+          {
+            "text": "{\"unit\": \"3145\"}"
+          }
+        ]
+      }
+    ],
+  }
+]
+~~~
