@@ -5,7 +5,7 @@
 사용법은 다음과 같습니다.    
 
 
-~~~html
+~~~javascript
 document.addEventListener("floor-changed", (e) => {
     let floorId = e.detail;
     console.log(floorId);
@@ -18,8 +18,17 @@ document.addEventListener("floor-changed", (e) => {
 ### navi-complete
 네비게이션의 모의주행이 완료된 경우 모의주행이 완료되었다는 이벤트가 발생합니다. 
 사용법은 다음과 같습니다. 
-~~~html
+~~~javascript
 document.addEventListener("navi-complete", (e) => {
                 console.log(e.detail);
+});
+~~~
+
+### poi-click
+지도에서 poi 클릭 이벤트를 실행하면 poi 정보를 전달합니다.
+사용법은 다음과 같습니다. 
+~~~javascript
+document.querySelector("#map").addEventListener("poi-click", (e) => { // 캔버스가 그려지는 container
+        console.log(e.detail); // 해당하는 poi 정보가 array 로 리턴
 });
 ~~~
