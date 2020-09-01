@@ -46,7 +46,7 @@ mapDraw.changeShowPoi({showPoi: false});
 ~~~
 - example: https://dabeeo.github.io/web_api/samples/showPoi.html   
 
-### 확대/축소   
+### 지도 확대/축소      
 mapDraw.ZoomIn() 메소드를 이용하여 지도를 확대할 수 있습니다. 
 
 ~~~javascript
@@ -57,6 +57,13 @@ mapDraw.ZoomOut() 메소드를 이용하여 지도를 축소할 수 있습니다
 mapDraw.zoomOut();
 ~~~
 - example: https://dabeeo.github.io/web_api/samples/zoom.html   
+
+### 지도 비율 지정하여 확대/축소   
+mapDraw.ZoomControl() 메소드를 이용하여 지도를 확대나 축소시 그 비율을 지정할 수 있습니다. 
+비율은 백분율을 사용합니다. 예를 들어 120은 현재 대비 120%입니다. 
+~~~javascript
+mapDraw.zoomControl(120);
+~~~
 
 
 ### 길찾기  
