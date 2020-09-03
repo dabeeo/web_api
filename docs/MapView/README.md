@@ -111,7 +111,36 @@ Default : 아무것도 지정하지 않으면 화면 전체 사이즈로 지정�
 
 ~~~javascript
 canvasSize: {
-width : 1000,
-height : 800
+    width : 1000,
+    height : 800
+}    
+~~~
+
+### center
+지도가 그려질 중심 좌표를 설정합니다.  
+Type: 객체   
+Default : 아무것도 지정하지 않으면 지도사이즈의 중심로 지정됩니다.
+
+~~~javascript
+center: {
+    x : 100, // 지도 내 좌표 x 
+    y : 200 // 지도 내 좌표 y
+}    
+~~~
+
+
+### angle
+3D 카메라 설정일 때    
+Type: 객체     
+Default : angle 이 지정되지 않으면 3D 지도일 때 마우스로 rotation 을 움직일 수 있지만     
+angle이 설정되면 rotation 을 움직일 수 없습니다.     
+입력 예:      
+angle.vertical : angle 입력     
+angle.horizontal : angle 입력
+
+~~~javascript
+angle: {
+    vertical : 20, 
+    horizontal : 0 
 }    
 ~~~
