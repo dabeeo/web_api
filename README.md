@@ -10,7 +10,8 @@
 본 문서에서는 웹 서비스 또는 애플리케이션에 지도 기능을 구현하기 위한 기본 개발환경 구성 및 설치방법을 포함하여 개발을 시작하기 전에 준비해야할 기본사항들을 담고 있습니다.
 
 
-
+## Release History
+https://github.com/dabeeo/web_api/blob/master/release_history.md
 
 
 ## Issue Client ID / Secret
