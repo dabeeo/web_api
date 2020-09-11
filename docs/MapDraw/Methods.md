@@ -9,12 +9,16 @@ mapDraw.redrawMap({floor: floorId});
 ~~~
 - example: https://dabeeo.github.io/web_api/samples/floor.html   
 
+#
+
 ### 테마 선택하기  
 mapDraw.redrawMap() 메소드를 이용하여 테마를 변경할 수 있습니다. 
 ~~~javascript
 mapDraw.redrawMap({theme: themeId});
 ~~~
 - example: https://dabeeo.github.io/web_api/samples/theme.html   
+
+#
 
 ### 카메라 모드 변경하기
 mapDraw.changeCamera() 메소드를 이용하여 2d/3d 지도로 변경할 수 있습니다. 
@@ -24,6 +28,9 @@ mapDraw.changeCamera() 메소드를 이용하여 2d/3d 지도로 변경할 수 �
 mapDraw.changeCamera("2d");
 ~~~
 - example:  https://dabeeo.github.io/web_api/samples/camera.html   
+
+
+#
 
 ### 언어변경
 mapDraw.changeLanguage()를 이용하여 언어를 변경할 수 있습니다.(_ISO_639-1_codes 참조_) 
@@ -35,6 +42,8 @@ mapDraw.chanageLanguage("ko");
 - example: https://dabeeo.github.io/web_api/samples/language.html
 
 
+#
+
 ### poi 보이기/숨기기  
 mapDraw.changeShowPoi() 메소드를 이용하여 poi를 보이거 숨길 수 있습니다. 
 
@@ -45,6 +54,8 @@ mapDraw.changeShowPoi({showPoi: true});
 mapDraw.changeShowPoi({showPoi: false});
 ~~~
 - example: https://dabeeo.github.io/web_api/samples/showPoi.html   
+
+#
 
 ### 지도 확대/축소      
 mapDraw.ZoomIn() 메소드를 이용하여 지도를 확대할 수 있습니다. 
@@ -59,12 +70,16 @@ mapDraw.zoomOut();
 - example: https://dabeeo.github.io/web_api/samples/zoom.html   
 
 ### 지도 비율 지정하여 확대/축소   
-mapDraw.ZoomControl() 메소드를 이용하여 지도를 확대나 축소시 그 비율을 지정할 수 있습니다. 
-비율은 백분율을 사용합니다. 예를 들어 120은 현재 대비 120%입니다. 
+mapDraw.ZoomControl() 메소드를 이용하여 지도를 확대나 축소시 그 비율을 지정할 수 있습니다.   
+비율은 백분율을 사용합니다. 예를 들어 120은 현재 대비 120%입니다.  
+비율은 백분율을 사용합니다. 예를 들어 120은 현재 대비 120%입니다.   
+비율을 지정하지 않고 사용시 현재의 비율을 리턴합니다.   
 ~~~javascript
 mapDraw.zoomControl(120);
+// 현재 비율 리턴시 : mapDraw.zoomControl();
 ~~~
 
+#
 
 ### 길찾기  
 mapDraw.getRouteOn() 메소드를 이용하여 길찾기 경로를 표시할 수 있습니다.
@@ -93,6 +108,7 @@ let a = mapDraw.getRouteOff();
 ~~~
 - example: https://dabeeo.github.io/web_api/samples/navigation.html   
 
+#
 
 ### 모의주행  
 mapDraw.startRouteAnimation() 메소드를 이용하여 모의주행을 표시할 수 있습니다.
@@ -107,6 +123,8 @@ mapDraw.stopRouteAnimation();
 모의주행이 완료되면 "navi-complete" 이벤트가 반환됩니다. 
 - example: https://dabeeo.github.io/web_api/samples/navigation.html   
 
+#
+
 ### 내 위치 표시
 mapDraw.myLocationOn()메소드를 이용하여 원하는 좌표에 위치를 표시할 수 있습니다. 
 - position: x,y,z 좌표. z좌표는 object보다 높아야 지도에 표시됩니다. 
@@ -120,20 +138,28 @@ mapDraw.myLocationOff();
 - example: https://dabeeo.github.io/web_api/samples/myLocation.html   
 
 
+#
+
 ### 여러개의 마커표시
 mapDraw.setMarker()마커를 한개 또는 여러개 표시할 수 있습니다. 이 때 원하는 아이콘을 지정하여 줄 수 있습니다. 여러개의 마커를 줄 수 있으므로 배열 형태로 지정합니다. 
 - position:x, y, z 좌표
 - image: optional. icon URL. 지정하지 않을 경우 기본 이미지로 표시 
 - floorId: optional. 층 지정시. 지정하지 않는 경우 현재의 층으로 표시 
+- size : 마커의 이미지 사이즈를 지정
 ~~~javascript
 mapDraw.setMarker([
-    {position:{
-        x: i.position.x,
-        y: i.position.y,
-        z: 58,},
-    image: "img_marker_blue-3x.png", // 이미지 지정하지 않을 경우 기본 이미지로 표시
-    floorId: "[해당층아이디]" // 층을 지정 할때 : 지정하지 않을 경우 현재 보이는 층
-    }]);
+    {   position:{
+            x: i.position.x,
+            y: i.position.y,
+            z: 50},
+        size: { // size 가 없을 경우 지도 비율에 맞춰 이미지 사이즈가 정의
+            width:20, 
+            height: 20
+        },
+        image: "img_marker_blue-3x.png", // 이미지 지정하지 않을 경우 기본 이미지로 표시
+        floorId: "[해당층아이디]" // 층을 지정 할때 : 지정하지 않을 경우 현재 보이는 층
+    }
+    ]);
 ~~~
 mapDraw.clearMarker로 표시한 마커를 삭제할 수 있습니다. 
 ~~~javascript
@@ -141,6 +167,8 @@ mapDraw.clearMarker();
 ~~~
 - example: https://dabeeo.github.io/web_api/samples/marker.html
 
+
+#
 
 ### 마우스로 zoom 기능 끄기
 mapDraw.zoomOff()를 이용하여 마우스로 zoom기능을 비활성화할 수 있습니다 .
@@ -152,6 +180,7 @@ mapDraw.zoomOn()을 이용하여 zoom기능을 활성화할 수 있습니다.
 mapDraw.zoomOn();
 ~~~
 
+#
 
 ### drag 기능 마우스로 지정
 mapDraw.controlDragLeft()메소드를 이용하여 drag기능을 마우스의 왼쪽 클릭으로 조정하도록 지정합니다 .
@@ -163,7 +192,7 @@ mapDraw.controlDragRight()메소드로 마우르 오른쪽 클릭으로 지정�
 mapDraw.controlDragRight();
 ~~~
 
-
+#
 
 ### 지도 좌표계정보
 mapDraw.mapCordinfo()는 지도좌표계를 매핑하기 위한 기본 정보를 제공합니다. 
@@ -190,3 +219,33 @@ mapDraw.mapCordinfo()는 지도좌표계를 매핑하기 위한 기본 정보를
 
 
 
+#         
+
+
+### POI 중요도에 따라 설정한 지도 확대 백분율에 맞게 보이기
+mapDraw.setPoiLevelOn()를 이용하여 POI 에 설정한 중요도에 따라 해당 POI 를 지도 확대/축소시 보이게 합니다.    
+
+~~~javascript
+mapDraw.setPoiLevelOn(clusterLevel_1, clusterLevel_2, clusterLevel_3);
+~~~
+
+clusterLevel_1: number    
+POI 의 clusterLevel이 1인 POI 가 보이게 되는 시점의 지도 확대 비율을 설정합니다.   
+
+clusterLevel_2: number    
+POI 의 clusterLevel이 2인 POI 가 보이게 되는 시점의 지도 확대 비율을 설정합니다.  
+
+clusterLevel_3: number    
+POI 의 clusterLevel이 3인 POI 가 보이게 되는 시점의 지도 확대 비율을 설정합니다.  
+
+
+
+### POI 중요도에 따라 설정한 지도 확대 백분율에 맞게 보이기 상태 해제
+mapDraw.setPoiLevelOff()를 이용하여 mapDraw.setPoiLevelOn 설정을 해제 합니다.   
+
+~~~javascript
+mapDraw.setPoiLevelOff();
+~~~
+- example: https://dabeeo.github.io/web_api/samples/poiLevel.html
+
+   

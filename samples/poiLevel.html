@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>camera sample</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+		<style>
+            body {
+                background-color: #f0f0f0;
+                color: #aaaaaa;
+                margin:0;
+                overflow:hidden; 
+            }
+
+            .mymaker{
+                position: absolute; 
+                left: 10px;
+                top: 10px;
+				padding-right: 10px;
+				font-size: 13px;
+			}
+			.mymaker button {
+				background: #FFFFFF;
+				font-size: 13px;
+				color: #B7B9C1;
+				border: none;
+				cursor: pointer;
+			}
+			.mymaker button.on {
+				color: red;
+			}
+			.mymaker-title{
+				margin-top: 10px;
+				margin-bottom: 5px;
+			}
+			.mymaker-box{
+				margin-bottom: 5px;
+			}
+			.mymaker-input{
+				width: 100px;
+				margin-left: 5px;
+			}
+		</style>
+        <script type="module" src="https://demo-preview-rebuild.dabeeomaps.com/jsMapAPI.js"></script>
+    </head>
+	<body>
+        <div id="map"></div>        
+        <div class="mymaker">
+            <p class="mymaker-title">
+                poi 중요도 설정
+            </p>
+            <p>
+                <input type="number" id="cluster1" style="margin-right:5px; width: 40px;" value="0">
+                <input type="number" id="cluster2" style="margin-right:5px; width: 40px;" value="0">
+                <input type="number" id="cluster3" style="width: 40px;" value="0">
+            </p>
+            <button id="clusterOn">설정 추가</button>
+            <button class="on" id="clusterOff">설정 초기화</button>
+        </div>
+        <script>
+
+            window.addEventListener("load", function () {  
+                initMap();
+            });
+
+            function initMap() {
+                let mapContainer = document.getElementById('map'); // 지도를 표시할 div
+                    
+                // 지도 인증정보
+                let authorization = new indoorMapApi.Authorization({
+                clientId: "28AXw_veA2YbNKDP6poTpT",
+                clientSecret: "70c540c169af62808f4da3709e988e06"
+                });
+            
+                let mapOptions = {
+                authorization: authorization
+                };
+            
+
+                // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+                new indoorMapApi.MapView(
+                    mapContainer, // 컨테이너
+                    mapOptions, // 옵션
+                    function (response) { // 맵 로드 콜백
+                        console.log(response)
+                        let code = response.getCode();
+            
+                        if (code === 200) {
+                            mapView = response.getPayload().mapView;
+                            mapDraw = response.getPayload().mapDraw;
+                            // do something
+                            console.log("map view success!")
+                            initsetPoiLevel();
+                        }
+                    } 
+                );
+            };
+            function initsetPoiLevel() {
+                /* 줌레벨에 따른 POI 보여주기 */
+                document.querySelector("#clusterOn").addEventListener("click", function (e) {
+                    let top = Number(document.querySelector("#cluster1").value),
+                        middle = Number(document.querySelector("#cluster2").value),
+                        bottom = Number(document.querySelector("#cluster3").value);
+                    mapDraw.setPoiLevelOn(top, middle, bottom); // 중요도 레벨 1, 중요도 레벨 2, 중요도 레벨 3
+                    document.querySelector("#clusterOn").classList.remove("on");
+                    document.querySelector("#clusterOff").classList.add("on");
+                });
+                document.querySelector("#clusterOff").addEventListener("click", function (e) {
+                    mapDraw.setPoiLevelOff();
+                    document.querySelector("#clusterOn").classList.add("on");
+                    document.querySelector("#clusterOff").classList.remove("on");
+                });
+            }
+
+        </script>		
+    </body>
+</html>
