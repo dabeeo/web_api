@@ -129,7 +129,7 @@ mapDraw.stopRouteAnimation();
 mapDraw.myLocationOn()메소드를 이용하여 원하는 좌표에 위치를 표시할 수 있습니다. 
 - position: x,y,z 좌표. z좌표는 object보다 높아야 지도에 표시됩니다. 
 ~~~javascript
-mapDraw.myLocationOn();
+mapDraw.myLocationOn(x, y, z);
 ~~~
 mapDraw.myLocationOff()메소드로 좌표에 표시된 아이콘을 삭제할 수 있습니다. 
 ~~~javascript
