@@ -224,19 +224,19 @@ mapDraw.mapCordinfo()는 지도좌표계를 매핑하기 위한 기본 정보를
 
 ### POI 중요도에 따라 설정한 지도 확대 백분율에 맞게 보이기
 mapDraw.setPoiLevelOn()를 이용하여 POI 에 설정한 중요도에 따라 해당 POI 를 지도 확대/축소시 보이게 합니다.    
+- clusterLevel_1: number    
+POI 의 clusterLevel이 1인 POI 가 보이게 되는 시점의 지도 확대 비율을 설정합니다.   
+
+- clusterLevel_2: number    
+POI 의 clusterLevel이 2인 POI 가 보이게 되는 시점의 지도 확대 비율을 설정합니다.  
+
+- clusterLevel_3: number    
+POI 의 clusterLevel이 3인 POI 가 보이게 되는 시점의 지도 확대 비율을 설정합니다.  
+
 
 ~~~javascript
 mapDraw.setPoiLevelOn(clusterLevel_1, clusterLevel_2, clusterLevel_3);
 ~~~
-
-clusterLevel_1: number    
-POI 의 clusterLevel이 1인 POI 가 보이게 되는 시점의 지도 확대 비율을 설정합니다.   
-
-clusterLevel_2: number    
-POI 의 clusterLevel이 2인 POI 가 보이게 되는 시점의 지도 확대 비율을 설정합니다.  
-
-clusterLevel_3: number    
-POI 의 clusterLevel이 3인 POI 가 보이게 되는 시점의 지도 확대 비율을 설정합니다.  
 
 
 
