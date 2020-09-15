@@ -249,3 +249,12 @@ mapDraw.setPoiLevelOff();
 - example: https://dabeeo.github.io/web_api/samples/poiLevel.html
 
    
+#
+
+### 지도 이미지 다운로드
+현재 보이는 지도를 이미지로 다운로드 합니다.   
+.png 파일로 저장됩니다.
+
+~~~javascript
+mapDraw.convert2img();
+~~~
