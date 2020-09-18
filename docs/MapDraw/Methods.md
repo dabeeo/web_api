@@ -82,25 +82,76 @@ mapDraw.zoomControl(120);
 #
 
 ### 길찾기  
-mapDraw.getRouteOn() 메소드를 이용하여 길찾기 경로를 표시할 수 있습니다.
+mapDraw.getRouteOn() 메소드를 이용하여 길찾기 경로를 표시할 수 있습니다.   
 이 때 목적지까지 가는데 걸리는 시간이 반환됩니다. (miliseconds)
-- origin: 출발지, {x,y,z} 좌표
-    {x:
+주행경로와 경유지를 option으로 줄 수 있습니다. 
+- origin: 출발지, 좌표와 층     
+    { position : {x:
      y:
      z:
-     }
-- destination : 도착지, {x,y,z} 좌표
+     },
+    floorId:
+    }
+- destination : 도착지,origin과 동일한 format   
 - type : 주행경로, 네가지 option이 있습니다. 아무값도 주지않으면 자동으로 추천 경로로 반환됩니다.  
     - "recommendation" : 추천
     - "stairs": 계단
     - "escalator"
     - "elevator"
+- waypoints : 경유지, 배열 형태. 배열 안에는 origin과 destination과 같은 형태의 데이터를 주면 됩니다. 아무값도 주지 않으면 경유지 없이 길찾기 기능이 수행됩니다. 
 
 ~~~javascript
+         let origin = {
+             position: {
+                 x: 1795.07054740437,
+                 y: 1519.36098544918,
+                 z: 0
+             },
+             floorId: "FL-qhndqjlqhu7p3894"
+         };
+
+         let destination = {
+             position: {
+                 x: 5001.24376187739,
+                 y: 1270.39676054864,
+                 z: 0
+             },
+             floorId: "FL-qhndqjlqhu7p3894"
+         };
+        let waypoint1 = { 
+            position: {
+                x: 194.9300631234604,
+                y: 435.2368257718544,
+                z: 60
+            },
+            floorId: "FL-1jeyt4ubl4awn7429"
+        };
+        
+        let waypoint2 = {
+            position: {
+                x: 758.6335459859386,
+                y: 835.624999999005,
+                z: 60
+            },
+            floorId: "FL-1jeyt4ubl4awn7429"
+        };
+        
+        let waypoint3 = {
+            position: {
+                x: 534.1032714843856,
+                y: 839.6628880450837,
+                z: 60
+            },
+            floorId: "FL-1jeyt4ubl4awn7429"
+        };
+        let waypoints=[waypoint1, waypoint2, waypoint3]
+
+
 let time = mapDraw.getRouteOn(
-{x:100, y:100,z:10},
-{x:200, y:200, z:20},
-"elevator");
+origin,
+destination,
+"elevator",
+waypoints);
 ~~~
 mapDraw.getRouteOff() 메소드를 이용하여 길찾기 경로를 삭제할 수 있습니다. 
 ~~~javascript
