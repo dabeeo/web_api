@@ -132,8 +132,8 @@ center: {
 ### angle
 3D 지도 설정일 때 화면의 angle을 설정합니다        
 Type: 객체     
-Default : angle 이 지정되지 않으면 3D 지도일 때 마우스로 rotation 을 움직일 수 있지만     
-angle이 설정되면 rotation 을 움직일 수 없습니다.     
+Default : angle 이 지정되지 않으면 3D 지도일 때 마우스로 3D앵글을 움직일 수 있지만     
+angle이 설정되면 마우스로 3D앵글을 움직일 수 없습니다.     
 입력 예:      
 angle.vertical : angle 입력     
 angle.horizontal : angle 입력
