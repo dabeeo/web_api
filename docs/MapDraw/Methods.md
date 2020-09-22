@@ -164,6 +164,12 @@ let a = mapDraw.getRouteOff();
 ### 모의주행  
 mapDraw.startRouteAnimation() 메소드를 이용하여 모의주행을 표시할 수 있습니다.
 이 때 목적지까지 가는데 층이 변경되는 경우 층변경에 대하여 "floor-changed" 이벤트가 반환됩니다. 이벤트가 발생한 경우 클라이언트는 해당층을 가리키는 ui를 변경해줘야 합니다. 
+<!-- 배포 후 주석 제거 예정 
+    옵션 : { zoom: number } 입력시 모의주행중 카메라 이동이 해당 zoom 입력값으로 됩니다. 카메라 이동중 마우스로 지도위치를 변경할 수 없습니다
+    ~~~javascript
+        mapDraw.startRouteAnimation({zoom: 200});
+    ~~~
+-->
 ~~~javascript
 mapDraw.startRouteAnimation();
 ~~~
@@ -173,6 +179,49 @@ mapDraw.stopRouteAnimation();
 ~~~
 모의주행이 완료되면 "navi-complete" 이벤트가 반환됩니다. 
 - example: https://dabeeo.github.io/web_api/samples/navigation.html   
+
+<!-- 배포 후 주석 제거 예정
+#
+
+### 길찾기 목록
+mapDraw.getRouteOn 함수 호출 후 mapDraw.getCameraPosition 함수를 사용하면 길찾기 목록을 array 로 제공합니다. 배열의 항목에서 move() 를 사용하면 카메라를 해당위치로 이동시킵니다. 
+
+~~~javascript
+let list = mapDraw.getNavigation();
+
+console.log(list); //  [{…}, {…}, {…}, ... ]
+
+list[0].move(); // 항목에 move() 호출시 해당하는 위치로 카메라가 이동합니다.
+
+/* list 배열의 항목 object */
+// list에서 시작점이거나 경유지, 도착지일 때 : poi object 
+list[0] = {   
+    cameraPostion: { x: 0, y: 0 } // mapDraw.moveCamera() 시 사용될 position 
+    categoryCode: "" // poi categoryCode
+    floorId: "FL-00000000000" // poi floorId
+    icoUrl: "url"  // poi icoUrl
+    id: "PO-00000000000" // poi id
+    idx: 0 // array index 
+    metadatas: [{…}, {…}, {…}, {…}] // poi metadatas
+    move: ƒ () // move() 함수 
+    position: {x: 0, y:0, z: 0} // scene에서 사용하는 poi position
+    title: "title" // poi title
+    titleByLanguages: [{…}, {…}, {…}, {…}] // poi titleByLanguages
+};
+// list에서 이동수단 일 때 : 노드 object
+list[1] = {
+    cameraPostion: {x: 0, y: 0} // mapDraw.moveCamera() 시 사용될 position 
+    floorId: "FL-0000000000000" // 층 id 
+    idx: 1 // array index 
+    move: ƒ () // move() 함수 
+    position: {x: 0, y: 0, z: 0} // scene에서 사용하는 position
+    transCode: null // 이동수단 : null - 걷기 / stair - 계단 / escalator / elevator
+};
+
+~~~
+
+- example: https://dabeeo.github.io/web_api/samples/navigation.html   
+-->
 
 #
 
@@ -325,3 +374,17 @@ mapDraw.moveCamera({
 ~~~
 
 - example: https://dabeeo.github.io/web_api/samples/moveCamera.html
+
+<!-- 배포 후 주석 제거 예정
+#
+
+### 지도 방위각에 따라 x,y 좌표 변환
+지도 방위각이 있을 경우 scene의 좌표와 camera 의 좌표가 다르기 때문에
+scene 좌표를 camera가 보는 좌표로 변환해주어야 moveCamera 가 원하는 위치로 동작합니다. 
+
+~~~javascript
+let position = mapDraw.getCameraPosition(x, y);
+console.log(position); // return 값 : {x:x', y:y'}
+~~~
+
+-->
