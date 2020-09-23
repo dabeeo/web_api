@@ -54,7 +54,8 @@
             }
 
 		</style>
-        <script type="module" src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI.js"></script>
+        <!-- <script type="module" src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI.js"></script> -->
+        <script type="module" src="https://demo-preview-rebuild.dabeeomaps.com/jsMapAPI_pre_release.js"></script>
     </head>
 	<body>
         <div id="map"></div>        
@@ -70,9 +71,13 @@
             <button id="navi-on-button" class="navi-button" type="button" >길찾기</button>
             <button id="navi-off-button" class="navi-button" type="button" >길찾기끄기</button>
             <button id="navi-ani-on-button" class="navi-button" type="button" >모의주행</button>
+            <button id="navi-ani-on-button-option" class="navi-button" type="button" >모의주행 카메라 애니메이션 설정</button>
             <button id="navi-ani-off-button" class="navi-button" type="button" >모의주행끄기</button>
             <button id="navi-time-button" class="navi-button" type="button" >소요시간</button>
         </div>
+        <div id="map-navilist" style="position: absolute; top: 200px; left: 70px;">
+			<!-- 길찾기 목록 -->
+		</div>
 
         <script>
 
@@ -149,6 +154,7 @@
                 let naviOffButton = document.getElementById("navi-off-button");
                 let naviAniOnButton = document.getElementById("navi-ani-on-button");
                 let naviAniOffButton = document.getElementById("navi-ani-off-button");
+                let naviAniOnButtonOption = document.getElementById("navi-ani-on-button-option");
                 let startPoint = {position: poiList[0].position, floorId: poiList[0].floorId};
                 let destPoint = {position: poiList[0].position, floorId: poiList[0].floorId};
 
@@ -179,15 +185,20 @@
                 naviOnButton.addEventListener("click", (e) => {
                     let a = mapDraw.getRouteOn(startPoint, destPoint, document.querySelector("#navi-on-type").value);
                     document.getElementById("navi-time-button").innerHTML = (a / (1000 * 60)).toFixed(0) + "분 소요";
+                    setNavigationList();
                 });
                 naviOffButton.addEventListener("click", (e) => {
                     mapDraw.getRouteOff();
+                    document.getElementById("map-navilist").innerHTML = '';
                 });
                 naviAniOnButton.addEventListener("click", (e) => {
                     mapDraw.startRouteAnimation();
                 });
                 naviAniOffButton.addEventListener("click", (e) => {
                     mapDraw.stopRouteAnimation();
+                });
+                naviAniOnButtonOption.addEventListener("click", (e) => {
+                    mapDraw.startRouteAnimation({zoom: 200});
                 });
             }
 
@@ -201,6 +212,51 @@
             document.addEventListener("navi-complete", (e) => {
                 console.log(e.detail);
             });        
+            /* 네비게이션 목록 */
+            function setNavigationList() {
+                var list = mapDraw.getNavigation();
+                var transCode = function (type){
+                    var result = "걷기";
+                        /*
+                        * transCode: 이동수단 코드
+                        * OB-ELEVATOR : 엘리베이터
+                        * OB-ESCALATOR : 에스컬레이터 양방향
+                        * OB-ESCALATOR_UP : 에스컬레이터 상행
+                        * OB-ESCALATOR_DOWN : 에스컬레이터 하행
+                        * OB-STAIRS : 계단
+                        */
+                        switch(type) {
+                            case "OB-STAIRS": result = "계단"
+                                break;
+                            case "OB-ELEVATOR": result = "엘리베이터"
+                                break;
+                            case "OB-ESCALATOR": result = "에스컬레이터 양방향"
+                                break;
+                            case "OB-ESCALATOR_UP": result = "에스컬레이터 상행"
+                                break;
+                            case "OB-ESCALATOR_DOWN": result = "에스컬레이터 하행"
+                                break;
+                            default: result = "걷기"
+                                break;
+                        }  
+                        return result;
+                    }
+                    document.getElementById("map-navilist").innerHTML = '';
+                    for( var i = 0; i < list.length ; i ++) {
+                        var btn = document.createElement("BUTTON");
+                        btn.classList.add("navi-button");
+                        btn.style.display = "block";
+                        btn.style.marginBottom = "5px";
+                        btn.addEventListener("click", list[i].move);
+                        if( list[i].isDestination ) {
+                            btn.innerText = list[i].title;
+                            document.getElementById("map-navilist").append(btn);
+                        } else {
+                            btn.innerText = transCode(list[i].transCode) + ' ' + (list[i].distance/100) + 'm';
+                            document.getElementById("map-navilist").append(btn);
+                        }
+                    }
+            }
         </script>		
     </body>
 </html>

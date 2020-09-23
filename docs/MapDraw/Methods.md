@@ -196,6 +196,7 @@ list[0].move(); // 항목에 move() 호출시 해당하는 위치로 카메라�
 /* list 배열의 항목 object */
 // list에서 시작점이거나 경유지, 도착지일 때 : poi object 
 list[0] = {   
+    isDestination: true // 시작점이거나 경유지, 도착지 여부
     cameraPostion: { x: 0, y: 0 } // mapDraw.moveCamera() 시 사용될 position 
     categoryCode: "" // poi categoryCode
     floorId: "FL-00000000000" // poi floorId
@@ -207,17 +208,27 @@ list[0] = {
     position: {x: 0, y:0, z: 0} // scene에서 사용하는 poi position
     title: "title" // poi title
     titleByLanguages: [{…}, {…}, {…}, {…}] // poi titleByLanguages
+    distance: 0 // cm 단위로 이전포인트와의 거리
 };
 // list에서 이동수단 일 때 : 노드 object
 list[1] = {
+    isDestination: false // 시작점이거나 경유지, 도착지 여부 - false 일 때: 이동수단
     cameraPostion: {x: 0, y: 0} // mapDraw.moveCamera() 시 사용될 position 
     floorId: "FL-0000000000000" // 층 id 
     idx: 1 // array index 
     move: ƒ () // move() 함수 
     position: {x: 0, y: 0, z: 0} // scene에서 사용하는 position
-    transCode: null // 이동수단 : null - 걷기 / stair - 계단 / escalator / elevator
+    transCode: null // 이동수단 코드 - 아래 설명 추가
+    distance: 0 // cm 단위로 이전포인트와의 거리
 };
-
+/*
+* transCode: 이동수단 코드
+* OB-ELEVATOR : 엘리베이터
+* OB-ESCALATOR : 에스컬레이터 양방향
+* OB-ESCALATOR_UP : 에스컬레이터 상행
+* OB-ESCALATOR_DOWN : 에스컬레이터 하행
+* OB-STAIRS : 계단
+*/
 ~~~
 
 - example: https://dabeeo.github.io/web_api/samples/navigation.html   
@@ -386,5 +397,5 @@ scene 좌표를 camera가 보는 좌표로 변환해주어야 moveCamera 가 원
 let position = mapDraw.getCameraPosition(x, y);
 console.log(position); // return 값 : {x:x', y:y'}
 ~~~
-
+- example: https://dabeeo.github.io/web_api/samples/moveCamera.html
 -->
