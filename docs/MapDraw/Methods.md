@@ -185,6 +185,7 @@ mapDraw.stopRouteAnimation();
 
 ### 길찾기 목록
 mapDraw.getRouteOn 함수 호출 후 mapDraw.getCameraPosition 함수를 사용하면 길찾기 목록을 array 로 제공합니다. 배열의 항목에서 move() 를 사용하면 카메라를 해당위치로 이동시킵니다. 
+*이동수단을 이용한 다음 층이 변경된 경우 항목의 distance가 number 가 아닌 층 object 로 표현됩니다.*
 
 ~~~javascript
 let list = mapDraw.getNavigation();
@@ -208,7 +209,7 @@ list[0] = {
     position: {x: 0, y:0, z: 0} // scene에서 사용하는 poi position
     title: "title" // poi title
     titleByLanguages: [{…}, {…}, {…}, {…}] // poi titleByLanguages
-    distance: 0 // cm 단위로 이전포인트와의 거리
+    distance: 0 // cm 단위로 이전 항목과의 거리
 };
 // list에서 이동수단 일 때 : 노드 object
 list[1] = {
@@ -219,7 +220,7 @@ list[1] = {
     move: ƒ () // move() 함수 
     position: {x: 0, y: 0, z: 0} // scene에서 사용하는 position
     transCode: null // 이동수단 코드 - 아래 설명 추가
-    distance: 0 // cm 단위로 이전포인트와의 거리
+    distance: 0 // cm 단위로 이전 항목과의 거리 또는 층변경시 층 object
 };
 /*
 * transCode: 이동수단 코드

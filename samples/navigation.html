@@ -252,7 +252,11 @@
                             btn.innerText = list[i].title;
                             document.getElementById("map-navilist").append(btn);
                         } else {
-                            btn.innerText = transCode(list[i].transCode) + ' ' + (list[i].distance/100) + 'm';
+                            if( typeof list[i].distance === "object") { // 이동수단 진입 후 층변경시 distance: 이동된 floor object
+                                btn.innerText = transCode(list[i].transCode) +' ' + list[i].distance.name[0].text + ' 으로 이동';
+                            } else {
+                                btn.innerText = transCode(list[i].transCode) +' ' + (list[i].distance/100) + 'm' ;
+                            }
                             document.getElementById("map-navilist").append(btn);
                         }
                     }
