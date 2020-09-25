@@ -1,5 +1,15 @@
 ## Release History
 
+
+### javascript_03.02.03_S_2020.09.25
+jsMapAPI_03.02.03_s_2020.09.25.js
+
+- 모의주행시 라인 색 및 길안내 애니메이션 아이콘 변경 api 추가 mapDraw.setNavigationOption()
+- 모의주행시 카메라 따라 움직임 설정하도록 option 추가 mapDraw.startRouteAnimation()
+- poi 좌표 변환 api 추가 mapDraw.getCameraPosition(x, y)
+- 길찾기 루트 반환 API 추가 mapDraw.getNavigation()
+- 내위치 보기 오류 수정
+
 ### jsMapAPI_03.02.02_s_2020.09.18.js
 - 길찾기 메소드에 경유지 옵션 추가 
 - 경로 안내시 튀는 문제 해결
