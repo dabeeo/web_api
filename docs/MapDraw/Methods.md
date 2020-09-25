@@ -163,8 +163,8 @@ let a = mapDraw.getRouteOff();
 
 ### 길찾기 옵션
 mapDraw.setNavigationOption() 메소드를 이용하여 네비게이션 관련 옵션을 세팅할 수 있습니다.
-lineColor : 네비게이션 주행 라인의 색상을 지정
-iconUrl : 모의주행의 icon을 지정
+- lineColor : 네비게이션 주행 라인의 색상을 지정
+- iconUrl : 모의주행의 icon을 지정
 
 ~~~javascript
 mapDraw.setNavigationOption ({ 
