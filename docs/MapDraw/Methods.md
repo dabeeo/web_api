@@ -162,14 +162,10 @@ let a = mapDraw.getRouteOff();
 #
 
 ### 모의주행  
-mapDraw.startRouteAnimation() 메소드를 이용하여 모의주행을 표시할 수 있습니다.
-이 때 목적지까지 가는데 층이 변경되는 경우 층변경에 대하여 "floor-changed" 이벤트가 반환됩니다. 이벤트가 발생한 경우 클라이언트는 해당층을 가리키는 ui를 변경해줘야 합니다. 
-<!-- 배포 후 주석 제거 예정 
-    옵션 : { zoom: number } 입력시 모의주행중 카메라 이동이 해당 zoom 입력값으로 됩니다. 카메라 이동중 마우스로 지도위치를 변경할 수 없습니다
-    ~~~javascript
-        mapDraw.startRouteAnimation({zoom: 200});
-    ~~~
--->
+mapDraw.startRouteAnimation() 메소드를 이용하여 모의주행을 표시할 수 있습니다.   
+이 때 목적지까지 가는데 층이 변경되는 경우 층변경에 대하여 "floor-changed" 이벤트가 반환됩니다. 이벤트가 발생한 경우 클라이언트는 해당층을 가리키는 ui를 변경해줘야 합니다.   
+
+
 ~~~javascript
 mapDraw.startRouteAnimation();
 ~~~
@@ -177,15 +173,30 @@ mapDraw.stopRouteAnimation() 메소드를 이용하여 모의주행을 멈출 �
 ~~~javascript
 mapDraw.stopRouteAnimation();
 ~~~
-모의주행이 완료되면 "navi-complete" 이벤트가 반환됩니다. 
+모의주행이 완료되면 "navi-complete" 이벤트가 반환됩니다.  
+
+- 모의주행 카메라 애니메이션 추가   
+함수 파라미터에 { zoom: number } 입력시 모의주행중 카메라 이동이 해당 zoom 입력값으로 됩니다. 카메라 이동중 마우스로 지도위치를 변경할 수 없습니다.
+~~~javascript
+mapDraw.startRouteAnimation({zoom: 200});
+~~~
+
 - example: https://dabeeo.github.io/web_api/samples/navigation.html   
 
-<!-- 배포 후 주석 제거 예정
+
 #
 
 ### 길찾기 목록
-mapDraw.getRouteOn 함수 호출 후 mapDraw.getCameraPosition 함수를 사용하면 길찾기 목록을 array 로 제공합니다. 배열의 항목에서 move() 를 사용하면 카메라를 해당위치로 이동시킵니다. 
-*이동수단을 이용한 다음 층이 변경된 경우 항목의 distance가 number 가 아닌 층 object 로 표현됩니다.*
+mapDraw.getRouteOn 함수 호출 후 mapDraw.getCameraPosition 함수를 사용하면 길찾기 목록을 array 로 제공합니다. 배열의 항목에서 move() 를 사용하면 카메라를 해당위치로 이동시킵니다.   
+*이동수단을 이용한 다음 층이 변경된 경우 항목의 distance가 number 가 아닌 층 object 로 표현됩니다.*  
+
+*이동수단 코드*
+* OB-ELEVATOR : 엘리베이터
+* OB-ESCALATOR : 에스컬레이터 양방향
+* OB-ESCALATOR_UP : 에스컬레이터 상행
+* OB-ESCALATOR_DOWN : 에스컬레이터 하행
+* OB-STAIRS : 계단
+* null : 걷기
 
 ~~~javascript
 let list = mapDraw.getNavigation();
@@ -219,21 +230,14 @@ list[1] = {
     idx: 1 // array index 
     move: ƒ () // move() 함수 
     position: {x: 0, y: 0, z: 0} // scene에서 사용하는 position
-    transCode: null // 이동수단 코드 - 아래 설명 추가
+    transCode: null // 이동수단 코드 - 위의 이동수단 코드 목록참고
     distance: 0 // cm 단위로 이전 항목과의 거리 또는 층변경시 층 object
 };
-/*
-* transCode: 이동수단 코드
-* OB-ELEVATOR : 엘리베이터
-* OB-ESCALATOR : 에스컬레이터 양방향
-* OB-ESCALATOR_UP : 에스컬레이터 상행
-* OB-ESCALATOR_DOWN : 에스컬레이터 하행
-* OB-STAIRS : 계단
-*/
+
 ~~~
 
 - example: https://dabeeo.github.io/web_api/samples/navigation.html   
--->
+
 
 #
 
@@ -387,16 +391,17 @@ mapDraw.moveCamera({
 
 - example: https://dabeeo.github.io/web_api/samples/moveCamera.html
 
-<!-- 배포 후 주석 제거 예정
 #
 
 ### 지도 방위각에 따라 x,y 좌표 변환
-지도 방위각이 있을 경우 scene의 좌표와 camera 의 좌표가 다르기 때문에
+지도 방위각이 있을 경우 mapDraw.response.poiInfo 의 좌표 정보( position )는 scene의 좌표이기 때문에 moveCamera시 그대로 입력하면 원하는 위치로 이동하지 않을 수 있습니다.   
+
+scene의 좌표와 camera 의 좌표가 다르기 때문에
 scene 좌표를 camera가 보는 좌표로 변환해주어야 moveCamera 가 원하는 위치로 동작합니다. 
 
 ~~~javascript
 let position = mapDraw.getCameraPosition(x, y);
 console.log(position); // return 값 : {x:x', y:y'}
 ~~~
+
 - example: https://dabeeo.github.io/web_api/samples/moveCamera.html
--->
