@@ -4,14 +4,14 @@
  <img src="https://indoor.dabeeomaps.com/upload/demo/CI.png" />
 </h1>
 
-### DABEEO MAPS JavaScript API
+# Release History
+https://github.com/dabeeo/web_api/blob/master/release_history.md
+
+# DABEEO MAPS JavaScript API
 
 다비오맵스 API 는 다비오맵스 실내지도플랫폼 지도를 활용한 서비스를 쉽고 빠르게 구축 할 수 있게 JavaScript 형태로 공개한 기술들입니다.
 본 문서에서는 웹 서비스 또는 애플리케이션에 지도 기능을 구현하기 위한 기본 개발환경 구성 및 설치방법을 포함하여 개발을 시작하기 전에 준비해야할 기본사항들을 담고 있습니다.
 
-
-## Release History
-https://github.com/dabeeo/web_api/blob/master/release_history.md
 
 
 ## Issue Client ID / Secret
