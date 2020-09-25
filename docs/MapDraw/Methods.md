@@ -199,7 +199,7 @@ mapDraw.startRouteAnimation({zoom: 200});
 #
 
 ### 길찾기 목록
-mapDraw.getRouteOn 함수 호출 후 mapDraw.getCameraPosition 함수를 사용하면 길찾기 목록을 array 로 제공합니다. 배열의 항목에서 move() 를 사용하면 카메라를 해당위치로 이동시킵니다.   
+mapDraw.getRouteOn 함수 호출 후 mapDraw.getNavigation 함수를 사용하면 길찾기 목록을 array 로 제공합니다. 배열의 항목에서 move() 를 사용하면 카메라를 해당위치로 이동시킵니다.   
 *이동수단을 이용한 다음 층이 변경된 경우 항목의 distance가 number 가 아닌 층 object 로 표현됩니다.*  
 
 *이동수단 코드*
