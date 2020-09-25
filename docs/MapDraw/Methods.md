@@ -161,6 +161,18 @@ let a = mapDraw.getRouteOff();
 
 #
 
+### 길찾기 옵션
+mapDraw.setNavigationOption() 메소드를 이용하여 네비게이션 관련 옵션을 세팅할 수 있습니다.
+lineColor : 네비게이션 주행 라인의 색상을 지정
+iconUrl : 모의주행의 icon을 지정
+
+~~~javascript
+mapDraw.setNavigationOption ({ 
+   lineColor:"#0000ff", 
+   iconUrl: "http://localhost:3000/demo/img_marker_blue-3x.png"
+});
+~~~
+
 ### 모의주행  
 mapDraw.startRouteAnimation() 메소드를 이용하여 모의주행을 표시할 수 있습니다.   
 이 때 목적지까지 가는데 층이 변경되는 경우 층변경에 대하여 "floor-changed" 이벤트가 반환됩니다. 이벤트가 발생한 경우 클라이언트는 해당층을 가리키는 ui를 변경해줘야 합니다.   
