@@ -1,8 +1,8 @@
 ## Release History
 
 
-### javascript_03.02.03_S_2020.09.25
-jsMapAPI_03.02.03_s_2020.09.25.js
+### jsMapAPI_03.02.03_R_2020.09.25
+jsMapAPI_03.02.03_R_2020.09.25.js
 - 지도회전(2d상태로 회전) 구현
 - 모의주행시 라인 색 및 길안내 애니메이션 아이콘 변경 api 추가 mapDraw.setNavigationOption()
 - 모의주행시 카메라 따라 움직임 설정하도록 option 추가 mapDraw.startRouteAnimation()
