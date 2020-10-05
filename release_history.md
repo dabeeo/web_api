@@ -1,5 +1,8 @@
 ## Release History
 
+### NOTE
+version 없이 사용할 경우 최신 version을 부르게 되어 있습니다. 
+
 ### jsMapAPI_03.02.04_R_2020.09.29
 jsMapAPI_03.02.04_R_2020.09.29.js
 - 2D 모드에서 네비게이션 실행시 지도 돌아감
