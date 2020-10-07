@@ -7,7 +7,7 @@
 
 ~~~javascript
 new indoorMapApi.MapView(
-mapContainer, // 맵을 그리기 위하여 지정한 영역
+mapContainer, // 맵을 그리기 위한 element
 mapOptions, // 옵션
 callbackFunc // callback 함수)
 )
