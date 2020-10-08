@@ -5,12 +5,22 @@ version 없이 사용할 경우 최신 version을 부르게 되어 있습니다.
 
 <!--
 ### jsMapAPI_03.02.05_R_2020.10.08
-
 - 지도 옵션중 anlge 설정이 변경되었습니다
 https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#angle  
 fixed 설정이 추가되었습니다. 
 
 -->
+### jsMapAPI_03.02.05_R_2020.10.08
+jsMapAPI_03.02.05_R_2020.10.08.js
+#### change description
+- 3d모드에서 moveCamera 함수 실행 시 지도 기울어짐(같은 위치 연속 호출) 이슈 해결
+- 아이콘 사이즈가 미리보기 화면에서 작게 보이는 문제 해결
+- 지도회전 구현 - 3 손가락으로 동작 
+- 3D지도에서 핀치 줌 아웃 or 드래그 시 초기 각도가 변경되지 않게 지정 - angle option 추가 필요
+#### changed API
+- MapView의  option 수정 : anlge option 에 fixed 설정 추가 
+https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#angle  
+
 
 
 ### jsMapAPI_03.02.04_R_2020.09.29
