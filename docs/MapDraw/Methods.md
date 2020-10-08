@@ -215,20 +215,6 @@ let a = mapDraw.getRouteOff();
 
 #
 
-### 길찾기 옵션
-mapDraw.setNavigationOption() 메소드를 이용하여 네비게이션 관련 옵션을 세팅할 수 있습니다.
-- lineColor : 네비게이션 주행 라인의 색상을 지정
-- iconUrl : 모의주행의 icon을 지정
-
-~~~javascript
-mapDraw.setNavigationOption ({ 
-   lineColor:"#0000ff", 
-   iconUrl: "http://localhost:3000/demo/img_marker_blue-3x.png"
-});
-~~~
-
-#
-
 ### 길찾기 목록
 mapDraw.getRouteOn 함수 호출 후 mapDraw.getNavigation 함수를 사용하면 길찾기 목록을 array 로 제공합니다. 배열의 항목에서 move() 를 사용하면 카메라를 해당위치로 이동시킵니다.   
 *이동수단을 이용한 다음 층이 변경된 경우 항목의 distance가 number 가 아닌 층 object 로 표현됩니다.*  
@@ -281,7 +267,7 @@ list[1] = {
 
 - example: https://dabeeo.github.io/web_api/samples/navigation.html   
 
-## 모의주행 관련
+#
 
 ### 모의주행  
 mapDraw.startRouteAnimation() 메소드를 이용하여 모의주행을 표시할 수 있습니다.   
@@ -305,6 +291,19 @@ mapDraw.startRouteAnimation({zoom: 200});
 
 - example: https://dabeeo.github.io/web_api/samples/navigation.html   
 
+#
+
+### 길찾기/ 옵션
+mapDraw.setNavigationOption() 메소드를 이용하여 네비게이션 관련 옵션을 세팅할 수 있습니다.
+- lineColor : 네비게이션 주행 라인의 색상을 지정
+- iconUrl : 모의주행의 icon을 지정
+
+~~~javascript
+mapDraw.setNavigationOption ({ 
+   lineColor:"#0000ff", 
+   iconUrl: "http://localhost:3000/demo/img_marker_blue-3x.png"
+});
+~~~
 
 
 ## 마커 관련
