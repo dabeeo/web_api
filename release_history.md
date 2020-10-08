@@ -2,14 +2,8 @@
 
 ### NOTE
 version 없이 사용할 경우 최신 version을 부르게 되어 있습니다. 
+- jsMapApi.js
 
-<!--
-### jsMapAPI_03.02.05_R_2020.10.08
-- 지도 옵션중 anlge 설정이 변경되었습니다
-https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#angle  
-fixed 설정이 추가되었습니다. 
-
--->
 ### jsMapAPI_03.02.05_R_2020.10.08
 jsMapAPI_03.02.05_R_2020.10.08.js
 #### change description
