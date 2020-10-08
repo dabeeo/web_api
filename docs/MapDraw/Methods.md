@@ -292,7 +292,7 @@ mapDraw.startRouteAnimation({zoom: 200});
 
 #
 
-### 길찾기/ 옵션
+### 길찾기  옵션
 mapDraw.setNavigationOption() 메소드를 이용하여 네비게이션 관련 옵션을 세팅할 수 있습니다.
 - lineColor : 네비게이션 주행 라인의 색상을 지정
 - iconUrl : 모의주행의 icon을 지정
@@ -409,7 +409,7 @@ console.log(position); // return 값 : {x:x', y:y'}
 - example: https://dabeeo.github.io/web_api/samples/moveCamera.html
 
    
-## 
+## 기타
 
 ### 지도 이미지 다운로드
 현재 보이는 지도를 이미지로 다운로드 합니다.   
