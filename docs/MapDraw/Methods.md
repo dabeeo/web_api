@@ -1,7 +1,8 @@
 ## MapDraw methods : 지도 속성 변경
-MapView의 메소드를 이용하여 지도에 대한 속성을 변경할 수 있습니다. 
+MapDraw의 메소드를 이용하여 지도에 대한 속성을 변경할 수 있습니다. 
 
-### 층 선택하기     
+## 지도 다시 그리기
+### 층 선택     
 mapDraw.redrawMap() 메소드를 이용하여 지도에 그려줄 층을 변경할 수 있습니다. 
 ~~~javascript
 mapDraw.redrawMap({floor: floorId});
@@ -10,7 +11,7 @@ mapDraw.redrawMap({floor: floorId});
 
 #
 
-### 테마 선택하기  
+### 테마 선택  
 mapDraw.redrawMap() 메소드를 이용하여 테마를 변경할 수 있습니다. 
 ~~~javascript
 mapDraw.redrawMap({theme: themeId});
