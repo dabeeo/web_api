@@ -1,8 +1,8 @@
 ## Release History
 
 ### NOTE
-version 없이 사용할 경우 최신 version을 부르게 되어 있습니다. 
-- jsMapApi.js
+version 없이 사용할 경우 최신 version을 부르게 되어 있습니다.   
+jsMapApi.js
 
 ### jsMapAPI_03.02.05_R_2020.10.08
 jsMapAPI_03.02.05_R_2020.10.08.js
