@@ -29,8 +29,20 @@ mapDraw.changeCamera("2d");
 ~~~
 - example:  https://dabeeo.github.io/web_api/samples/camera.html   
 
-
 #
+
+### drag 기능 마우스로 지정
+mapDraw.controlDragLeft()메소드를 이용하여 drag기능을 마우스의 왼쪽 클릭으로 조정하도록 지정합니다.
+~~~javascript
+mapDraw.controlDragLeft();
+~~~
+mapDraw.controlDragRight()메소드로 마우르 오른쪽 클릭으로 지정합니다. 
+~~~javascript
+mapDraw.controlDragRight();
+~~~
+
+
+## POI 관련
 
 ### poi 언어변경
 mapDraw.changeLanguage()를 이용하여 언어를 변경할 수 있습니다.(_ISO_639-1_codes 참조_) 
@@ -57,7 +69,7 @@ mapDraw.changeShowPoi({showPoi: false});
 
 #         
 
-### POI 중요도에 따라 설정한 지도 확대 백분율에 맞게 보이기
+### poi 중요도에 따라 설정한 지도 확대 백분율에 맞게 보이기
 mapDraw.setPoiLevelOn()를 이용하여 POI 에 설정한 중요도에 따라 해당 POI 를 지도 확대/축소시 보이게 합니다.    
 - clusterLevel_1: number    
 POI 의 clusterLevel이 1인 POI 가 보이게 되는 시점의 지도 확대 비율을 설정합니다.   
@@ -75,7 +87,7 @@ mapDraw.setPoiLevelOn(clusterLevel_1, clusterLevel_2, clusterLevel_3);
 
 
 
-### POI 중요도에 따라 설정한 지도 확대 백분율에 맞게 보이기 상태 해제
+### poi 중요도에 따라 설정한 지도 확대 백분율에 맞게 보이기 상태 해제
 mapDraw.setPoiLevelOff()를 이용하여 mapDraw.setPoiLevelOn 설정을 해제 합니다.   
 
 ~~~javascript
@@ -83,17 +95,6 @@ mapDraw.setPoiLevelOff();
 ~~~
 - example: https://dabeeo.github.io/web_api/samples/poiLevel.html
 
-#
-
-### drag 기능 마우스로 지정
-mapDraw.controlDragLeft()메소드를 이용하여 drag기능을 마우스의 왼쪽 클릭으로 조정하도록 지정합니다 .
-~~~javascript
-mapDraw.controlDragLeft();
-~~~
-mapDraw.controlDragRight()메소드로 마우르 오른쪽 클릭으로 지정합니다. 
-~~~javascript
-mapDraw.controlDragRight();
-~~~
 
 ## Zoom 
 
