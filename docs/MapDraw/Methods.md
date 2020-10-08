@@ -18,9 +18,9 @@ mapDraw.redrawMap({theme: themeId});
 ~~~
 - example: https://dabeeo.github.io/web_api/samples/theme.html   
 
-#
+## 설정 변경
 
-### 카메라 모드 변경하기
+### 카메라 모드 변경
 mapDraw.changeCamera() 메소드를 이용하여 2d/3d 지도로 변경할 수 있습니다. 
 - "2d": 2d 모드
 - "3d": 3d 모드
@@ -32,7 +32,7 @@ mapDraw.changeCamera("2d");
 
 #
 
-### 언어변경
+### poi 언어변경
 mapDraw.changeLanguage()를 이용하여 언어를 변경할 수 있습니다.(_ISO_639-1_codes 참조_) 
     - "ko": 한국어
     - "en": 영어 
@@ -55,7 +55,47 @@ mapDraw.changeShowPoi({showPoi: false});
 ~~~
 - example: https://dabeeo.github.io/web_api/samples/showPoi.html   
 
+#         
+
+### POI 중요도에 따라 설정한 지도 확대 백분율에 맞게 보이기
+mapDraw.setPoiLevelOn()를 이용하여 POI 에 설정한 중요도에 따라 해당 POI 를 지도 확대/축소시 보이게 합니다.    
+- clusterLevel_1: number    
+POI 의 clusterLevel이 1인 POI 가 보이게 되는 시점의 지도 확대 비율을 설정합니다.   
+
+- clusterLevel_2: number    
+POI 의 clusterLevel이 2인 POI 가 보이게 되는 시점의 지도 확대 비율을 설정합니다.  
+
+- clusterLevel_3: number    
+POI 의 clusterLevel이 3인 POI 가 보이게 되는 시점의 지도 확대 비율을 설정합니다.  
+
+
+~~~javascript
+mapDraw.setPoiLevelOn(clusterLevel_1, clusterLevel_2, clusterLevel_3);
+~~~
+
+
+
+### POI 중요도에 따라 설정한 지도 확대 백분율에 맞게 보이기 상태 해제
+mapDraw.setPoiLevelOff()를 이용하여 mapDraw.setPoiLevelOn 설정을 해제 합니다.   
+
+~~~javascript
+mapDraw.setPoiLevelOff();
+~~~
+- example: https://dabeeo.github.io/web_api/samples/poiLevel.html
+
 #
+
+### drag 기능 마우스로 지정
+mapDraw.controlDragLeft()메소드를 이용하여 drag기능을 마우스의 왼쪽 클릭으로 조정하도록 지정합니다 .
+~~~javascript
+mapDraw.controlDragLeft();
+~~~
+mapDraw.controlDragRight()메소드로 마우르 오른쪽 클릭으로 지정합니다. 
+~~~javascript
+mapDraw.controlDragRight();
+~~~
+
+## Zoom 
 
 ### 지도 확대/축소      
 mapDraw.ZoomIn() 메소드를 이용하여 지도를 확대할 수 있습니다. 
@@ -80,6 +120,19 @@ mapDraw.zoomControl(120);
 ~~~
 
 #
+
+### 마우스로 zoom 기능 끄기
+mapDraw.zoomOff()를 이용하여 마우스로 zoom기능을 비활성화할 수 있습니다 .
+~~~javascript
+mapDraw.zoomOff();
+~~~
+mapDraw.zoomOn()을 이용하여 zoom기능을 활성화할 수 있습니다. 
+~~~javascript
+mapDraw.zoomOn();
+~~~
+
+
+## 길찾기 
 
 ### 길찾기  
 mapDraw.getRouteOn() 메소드를 이용하여 길찾기 경로를 표시할 수 있습니다.   
@@ -173,29 +226,6 @@ mapDraw.setNavigationOption ({
 });
 ~~~
 
-### 모의주행  
-mapDraw.startRouteAnimation() 메소드를 이용하여 모의주행을 표시할 수 있습니다.   
-이 때 목적지까지 가는데 층이 변경되는 경우 층변경에 대하여 "floor-changed" 이벤트가 반환됩니다. 이벤트가 발생한 경우 클라이언트는 해당층을 가리키는 ui를 변경해줘야 합니다.   
-
-
-~~~javascript
-mapDraw.startRouteAnimation();
-~~~
-mapDraw.stopRouteAnimation() 메소드를 이용하여 모의주행을 멈출 수 있습니다. 
-~~~javascript
-mapDraw.stopRouteAnimation();
-~~~
-모의주행이 완료되면 "navi-complete" 이벤트가 반환됩니다.  
-
-- 모의주행 카메라 애니메이션 추가   
-함수 파라미터에 { zoom: number } 입력시 모의주행중 카메라 이동이 해당 zoom 입력값으로 됩니다. 카메라 이동중 마우스로 지도위치를 변경할 수 없습니다.
-~~~javascript
-mapDraw.startRouteAnimation({zoom: 200});
-~~~
-
-- example: https://dabeeo.github.io/web_api/samples/navigation.html   
-
-
 #
 
 ### 길찾기 목록
@@ -250,10 +280,35 @@ list[1] = {
 
 - example: https://dabeeo.github.io/web_api/samples/navigation.html   
 
+## 모의주행 관련
 
-#
+### 모의주행  
+mapDraw.startRouteAnimation() 메소드를 이용하여 모의주행을 표시할 수 있습니다.   
+이 때 목적지까지 가는데 층이 변경되는 경우 층변경에 대하여 "floor-changed" 이벤트가 반환됩니다. 이벤트가 발생한 경우 클라이언트는 해당층을 가리키는 ui를 변경해줘야 합니다.   
 
-### 내 위치 표시
+
+~~~javascript
+mapDraw.startRouteAnimation();
+~~~
+mapDraw.stopRouteAnimation() 메소드를 이용하여 모의주행을 멈출 수 있습니다. 
+~~~javascript
+mapDraw.stopRouteAnimation();
+~~~
+모의주행이 완료되면 "navi-complete" 이벤트가 반환됩니다.  
+
+- 모의주행 카메라 애니메이션 추가   
+함수 파라미터에 { zoom: number } 입력시 모의주행중 카메라 이동이 해당 zoom 입력값으로 됩니다. 카메라 이동중 마우스로 지도위치를 변경할 수 없습니다.
+~~~javascript
+mapDraw.startRouteAnimation({zoom: 200});
+~~~
+
+- example: https://dabeeo.github.io/web_api/samples/navigation.html   
+
+
+
+## 마커 관련
+
+### 내 위치 마커 표시
 mapDraw.myLocationOn()메소드를 이용하여 원하는 좌표에 위치를 표시할 수 있습니다. 
 - position: x,y,z 좌표. z좌표는 object보다 높아야 지도에 표시됩니다. 
 ~~~javascript
@@ -296,31 +351,8 @@ mapDraw.clearMarker();
 - example: https://dabeeo.github.io/web_api/samples/marker.html
 
 
-#
 
-### 마우스로 zoom 기능 끄기
-mapDraw.zoomOff()를 이용하여 마우스로 zoom기능을 비활성화할 수 있습니다 .
-~~~javascript
-mapDraw.zoomOff();
-~~~
-mapDraw.zoomOn()을 이용하여 zoom기능을 활성화할 수 있습니다. 
-~~~javascript
-mapDraw.zoomOn();
-~~~
-
-#
-
-### drag 기능 마우스로 지정
-mapDraw.controlDragLeft()메소드를 이용하여 drag기능을 마우스의 왼쪽 클릭으로 조정하도록 지정합니다 .
-~~~javascript
-mapDraw.controlDragLeft();
-~~~
-mapDraw.controlDragRight()메소드로 마우르 오른쪽 클릭으로 지정합니다. 
-~~~javascript
-mapDraw.controlDragRight();
-~~~
-
-#
+## 좌표 관련
 
 ### 지도 좌표계정보
 mapDraw.mapCordinfo()는 지도좌표계를 매핑하기 위한 기본 정보를 제공합니다. 
@@ -345,47 +377,6 @@ mapDraw.mapCordinfo()는 지도좌표계를 매핑하기 위한 기본 정보를
 
 <img width="517" alt="Screen Shot 2020-08-18 at 5 43 51 PM" src="https://user-images.githubusercontent.com/63434357/90492700-71395b00-e17c-11ea-8190-d64607b35e24.png">
 
-
-
-#         
-
-
-### POI 중요도에 따라 설정한 지도 확대 백분율에 맞게 보이기
-mapDraw.setPoiLevelOn()를 이용하여 POI 에 설정한 중요도에 따라 해당 POI 를 지도 확대/축소시 보이게 합니다.    
-- clusterLevel_1: number    
-POI 의 clusterLevel이 1인 POI 가 보이게 되는 시점의 지도 확대 비율을 설정합니다.   
-
-- clusterLevel_2: number    
-POI 의 clusterLevel이 2인 POI 가 보이게 되는 시점의 지도 확대 비율을 설정합니다.  
-
-- clusterLevel_3: number    
-POI 의 clusterLevel이 3인 POI 가 보이게 되는 시점의 지도 확대 비율을 설정합니다.  
-
-
-~~~javascript
-mapDraw.setPoiLevelOn(clusterLevel_1, clusterLevel_2, clusterLevel_3);
-~~~
-
-
-
-### POI 중요도에 따라 설정한 지도 확대 백분율에 맞게 보이기 상태 해제
-mapDraw.setPoiLevelOff()를 이용하여 mapDraw.setPoiLevelOn 설정을 해제 합니다.   
-
-~~~javascript
-mapDraw.setPoiLevelOff();
-~~~
-- example: https://dabeeo.github.io/web_api/samples/poiLevel.html
-
-   
-#
-
-### 지도 이미지 다운로드
-현재 보이는 지도를 이미지로 다운로드 합니다.   
-.png 파일로 저장됩니다.
-
-~~~javascript
-mapDraw.convert2img();
-~~~
 
 #
 
@@ -417,3 +408,16 @@ console.log(position); // return 값 : {x:x', y:y'}
 ~~~
 
 - example: https://dabeeo.github.io/web_api/samples/moveCamera.html
+
+   
+## 
+
+### 지도 이미지 다운로드
+현재 보이는 지도를 이미지로 다운로드 합니다.   
+.png 파일로 저장됩니다.
+
+~~~javascript
+mapDraw.convert2img();
+~~~
+
+
