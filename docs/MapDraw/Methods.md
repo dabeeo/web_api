@@ -386,8 +386,8 @@ mapDraw.mapCordinfo()는 지도좌표계를 매핑하기 위한 기본 정보를
 
 ~~~javascript
 mapDraw.moveCamera({
-    x,
-    y
+    "x": 0,
+    "y": 0
 });
 ~~~
 
