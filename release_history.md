@@ -1,10 +1,24 @@
 ## Release History
 
 ### NOTE
-version 없이 사용할 경우 최신 version을 부르게 되어 있습니다.   
+아래와 같이 version 없이 사용할 경우 최신 version을 부르게 되어 있습니다.   
 jsMapApi.js
 
 #
+
+### jsMapAPI_03.02.06_R_2020.10.16
+jsMapAPI_03.02.06_R_2020.10.16.js
+#### change description
+- 2d 회전 기능 제거
+- 길찾기 시 출발/도착 마커 변경/삭제 기능 추가
+- 폰트 수정 - 노트산스 적용, 중국어, 일본어 지원, bold체 
+- 속도 개선 
+#### changed API
+- 길찾기 시 출발/도착 마커 변경/삭제 기능 추가
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기--옵션
+
+#
+
 ### jsMapAPI_03.02.05_R_2020.10.08
 jsMapAPI_03.02.05_R_2020.10.08.js
 #### change description
