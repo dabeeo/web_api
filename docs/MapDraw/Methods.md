@@ -297,12 +297,34 @@ mapDraw.setNavigationOption() 메소드를 이용하여 네비게이션 관련 �
 - lineColor : 네비게이션 주행 라인의 색상을 지정
 - iconUrl : 모의주행의 icon을 지정
 
+<!-- 2020-10-15 길찾기 옵션 추가 -->
+- origin : 시작지 아이콘으로 image, width, height를 설정   
+- destination : 도착지 아이콘으로 image, width, height를 설정
+- visibleIcon : 길찾기 경로를 표시할 때 이미지를 보이거나 없앨 수 있습니다. Default는 true 로 아이콘이 표시됩니다.    
+
+시작지, 도착지 아이콘은 아래의 옵션을 추가로 받습니다.  
+ - iconUrl : 아이콘 url을 설정합니다. "" 빈값 일때 아이콘이 사라집니다. 
+ - width : 아이콘 width 값을 설정합니다. number를 받습니다.   
+ - height : 아이콘 height 값을 설정합니다. number를 받습니다. 
+
 ~~~javascript
 mapDraw.setNavigationOption ({ 
-   lineColor:"#0000ff", 
-   iconUrl: "http://localhost:3000/demo/img_marker_blue-3x.png"
+    lineColor:"#0000ff", 
+    iconUrl: "http://localhost:3000/demo/img_marker_blue-3x.png",
+    origin: { // 시작지 아이콘 
+        iconUrl: "origin.png", 
+        width: 100,
+        height: 100
+    },
+    destination: { // 도착지 아이콘 
+        iconUrl: "destination.png",
+        width: 100,
+        height: 100
+    },
+    visibleIcon: false  // 경로 표시할때 시작지, 도착지 아이콘 없애기 / 보이기
 });
 ~~~
+
 
 
 ## 마커 관련
