@@ -25,7 +25,7 @@ mapDraw.changeCamera() 메소드를 이용하여 2d/3d 지도로 변경할 수 �
 - "2d": 2d 모드
 - "3d": 3d 모드
 ~~~javascript
-mapDraw.changeCamera("2d");
+mapDraw.changeCamera({camera:"2d"});
 ~~~
 - example:  https://dabeeo.github.io/web_api/samples/camera.html   
 
