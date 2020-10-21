@@ -20,7 +20,30 @@ let mapOptions = {
     zoom: 120
 }
 ~~~
+<!-- 2020-10-21 추가 -->
+### maxZoom
+실내 지도 최대 zoom level 설정   
+Type: Number   
+Default: Infinity   
 
+~~~javascript
+let mapOptions = {
+    maxZoom: 300
+}
+~~~   
+
+<!-- 2020-10-21 추가 -->
+### minZoom
+실내 지도 최소 zoom level 설정   
+Type: Number   
+Default: 0   
+
+~~~javascript
+let mapOptions = {
+    minZoom: 30
+}
+~~~
+  
 
 ### floor
 실내지도 초기화시 최초 표시할 층 설정. 설정 안하는 경우 default로 지도의 default층으로 설정   
