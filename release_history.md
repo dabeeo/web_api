@@ -6,6 +6,21 @@ jsMapApi.js
 
 #
 
+### jsMapAPI_03.02.07_R_2020.10.22
+jsMapAPI_03.02.07_R_2020.10.22.js
+#### change description
+- 2d 회전 기능 추가 (두손가락 swipe)
+- zoom 최대치/최소치 설정
+- 줌 레벨 관계없이 2d에서 마커 사이즈 고정
+- object 클릭시 poi 메타데이터 반환
+
+#### changed API
+- zoom 최대치/최소치 설정   
+https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#maxzoom
+- object 클릭시 poi 메타데이터 반환   
+https://github.com/dabeeo/web_api/blob/master/docs/Event.md#object-click
+#
+
 ### jsMapAPI_03.02.06_R_2020.10.16
 jsMapAPI_03.02.06_R_2020.10.16.js
 #### change description
