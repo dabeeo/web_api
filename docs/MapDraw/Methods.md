@@ -386,7 +386,12 @@ mapDraw.clearMarker();
 
 ### 등록된 마커사이즈 실시간 동기화 
 mapDraw.setAsyncMarker (isAsync:boolean) 맵에 표시된 마커의 사이즈를 줌 배율에 맞게 동기화 여부를 설정할 수 있습니다.
+초기값은 비동기화(false) 입니다. 
 - isAsync : 실시간동기화:true, 동기화 안함:false  
+~~~javascript
+mapDraw.setAsyncMarker(true); // 실시간 줌배율 동기화 
+mapDraw.setAsyncMarker(false); // 실시간 줌배율 동기화 안함.
+~~~
 
 ## 좌표 관련
 
