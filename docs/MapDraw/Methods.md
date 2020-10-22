@@ -139,12 +139,16 @@ mapDraw.getRouteOn() 메소드를 이용하여 길찾기 경로를 표시할 수
 이 때 목적지까지 가는데 걸리는 시간이 반환됩니다. (miliseconds)
 주행경로와 경유지를 option으로 줄 수 있습니다. 
 - origin: 출발지, 좌표와 층     
-    { position : {x:
-     y:
-     z:
-     },
-    floorId:
+    {   
+        position : { x: 0, y: 0, z: 0 },    
+        floorId:   
+    }   
+    또는 poi의 id 를 입력합니다     
+    {   
+        poiId : poiId,    
+        floorId:   
     }
+
 - destination : 도착지,origin과 동일한 format   
 - type : 주행경로, 네가지 option이 있습니다. 아무값도 주지않으면 자동으로 추천 경로로 반환됩니다.  
     - "recommendation" : 추천
@@ -197,7 +201,14 @@ mapDraw.getRouteOn() 메소드를 이용하여 길찾기 경로를 표시할 수
             },
             floorId: "FL-1jeyt4ubl4awn7429"
         };
-        let waypoints=[waypoint1, waypoint2, waypoint3]
+        // poi id 로 설정
+        let setpoi = {
+            {   
+                poiId : "PO-KHfT1VzoG9044",    
+                floorId: "FL-1jeyt4ubl4awn7429"
+            }
+        }
+        let waypoints=[setpoi, waypoint1, waypoint2, waypoint3]
 
 
 let time = mapDraw.getRouteOn(
