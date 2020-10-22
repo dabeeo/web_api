@@ -385,9 +385,10 @@ mapDraw.clearMarker();
 - example: https://dabeeo.github.io/web_api/samples/marker.html
 
 ### 등록된 마커사이즈 실시간 동기화 
-mapDraw.setAsyncMarker (isAsync:boolean) 맵에 표시된 마커의 사이즈를 줌 배율에 맞게 동기화 여부를 설정할 수 있습니다.
+mapDraw.setAsyncMarker (isAsync:boolean) 맵에 표시된 마커의 사이즈를 줌 배율에 맞게 동기화 여부를 설정할 수 있습니다.   
 초기값은 비동기화(false) 입니다. 
-- isAsync : 실시간동기화:true, 동기화 안함:false  
+- true : 실시간동기화. 줌 배율이 확대되어도 초기에 설정된 마커 사이즈가 동일한 크기로 보입니다. 
+- false : 동기화 안함 (default)  줌배율이 확대되거나 축소될 때 마커 사이즈가 같은 비율로 확대되거나 축소됩니다. 
 ~~~javascript
 mapDraw.setAsyncMarker(true); // 실시간 줌배율 동기화 
 mapDraw.setAsyncMarker(false); // 실시간 줌배율 동기화 안함.
