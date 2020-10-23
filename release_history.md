@@ -19,6 +19,9 @@ jsMapAPI_03.02.07_R_2020.10.22.js
 https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#maxzoom
 - object 클릭시 poi 메타데이터 반환   
 https://github.com/dabeeo/web_api/blob/master/docs/Event.md#object-click
+- 줌 레벨 관계없이 2d에서 마커 사이즈 고정
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#등록된-마커사이즈-실시간-동기화
+
 #
 
 ### jsMapAPI_03.02.06_R_2020.10.16
