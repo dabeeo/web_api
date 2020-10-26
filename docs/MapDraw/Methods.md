@@ -466,6 +466,12 @@ mapDraw.convert2img();
 
 ### 좌표 변환
 고객의 좌표계의 좌표를 다비오 지도(원도) 기준의 좌표로 변환합니다.
+- position : 변환하고자 하는 대상 좌표값
+- degree : 대상 지도가 다비오 지도(원도)를 기준으로 몇도 틀어져있는지
+- meterPerPx : 대상 지도가 1픽셀당 몇 m 인지 (다비오 기본 : 0.1 - 10cm = 1px)
+- zeroPoint : 대상 지도의 영점이 다비오 지도(원도)를 기준으로 어떤포인트인지 좌표
+- xDirection : 원도와 비교 한 x 축 진행방향
+- yDirection : 원도와 비교 한 y 축 진행 방향
 
 ~~~ javascript
 let convertOptions = {
