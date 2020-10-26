@@ -364,8 +364,9 @@ mapDraw.setMarker()마커를 한개 또는 여러개 표시할 수 있습니다.
 - floorId: optional. 층 지정시. 지정하지 않는 경우 현재의 층으로 표시 
 - size : 마커의 이미지 사이즈를 지정
 ~~~javascript
-mapDraw.setMarker([
-    {   position:{
+mapDraw.setMarker({
+    marker: [
+        {   position:{
             x: i.position.x,
             y: i.position.y,
             z: 50},
@@ -375,8 +376,9 @@ mapDraw.setMarker([
         },
         image: "img_marker_blue-3x.png", // 이미지 지정하지 않을 경우 기본 이미지로 표시
         floorId: "[해당층아이디]" // 층을 지정 할때 : 지정하지 않을 경우 현재 보이는 층
-    }
-    ]);
+        }
+    ]
+});
 ~~~
 mapDraw.clearMarker로 표시한 마커를 삭제할 수 있습니다. 
 ~~~javascript
