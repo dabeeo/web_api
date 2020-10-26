@@ -464,4 +464,24 @@ console.log(position); // return 값 : {x:x', y:y'}
 mapDraw.convert2img();
 ~~~
 
+### 좌표 변환
+고객의 좌표계의 좌표를 다비오 지도(원도) 기준의 좌표로 변환합니다.
+
+~~~ javascript
+let convertOptions = {
+	position : {
+		x:node.position.x, // 고객이 구하려고 하는 x 좌표 (고객의 위치 수집장치를 통해 수집되는 m 단위의 좌표)
+		y:node.position.y // 고객이 구하려고 하는 y 좌표 (고객의 위치 수집장치를 통해 수집되는 m 단위의 좌표)
+	},
+	degree : -5.27, // 고객의 지도를 기준으로 다비오(원도) 의 회전각도 (시계방향이 +, 시계 반대방향이 -)
+	zeroPoint : {
+		x : -284,
+		y : 286.5
+	}, // 고객의 지도를 기준으로 다비오(원도) 의 영점 이동 좌표
+	xDirection : 1, // 고객의 지도를 기준으로 다비오지도의 x 축 진행방향 (순방향)
+	yDirection : -1 // 고객의 지도를 기준으로 다비오지도의 y 축 진행방향 (역방향)
+};
+let p = mapDraw.convertPosition(convertOptions); // 좌표 변경 함수 호출
+~~~
+
 
