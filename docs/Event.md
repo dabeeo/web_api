@@ -77,43 +77,12 @@ document.querySelector("#map").addEventListener("object-click", (e) => { // 캔�
 ~~~
 
 ### marker-click
-지도에서 marker 클릭시 선택된 marker 정보를 반환합니다.
+지도에서 marker 클릭시 선택된 marker 정보를 반환합니다.   
+반환하는 정보는 setMaker시에 data option으로 지정한 정보입니다. 
 사용법은 다음과 같습니다.
 ~~~ javascript 
 document.querySelector("#map").addEventListener("marker-click", (e) => { // 캔버스가 그려지는 container
         console.log(e.detail); // 해당하는 marker 정보 반환
 });
-~~~
-- return 형태
-~~~
-[ 
-    {
-        id:"47",
-        number:47,
-        type: "marker",
-        x:664.4371914863586,
-        y:664.4371914863586,
-        classes:[
-                    {
-                        id:"16",
-                        name:"12_12",
-                        angle:56,
-                        number:0
-                    },
-                    {
-                        id:"17",
-                        name:"13_13",
-                        angle:56,
-                        number:1
-                    },
-                    .
-                    .
-                    .
-        ]
-    }
-    .
-    .
-    .
-]
 ~~~
 
