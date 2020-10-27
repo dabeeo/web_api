@@ -363,6 +363,7 @@ mapDraw.setMarker()마커를 한개 또는 여러개 표시할 수 있습니다.
 - image: optional. icon URL. 지정하지 않을 경우 기본 이미지로 표시 
 - floorId: optional. 층 지정시. 지정하지 않는 경우 현재의 층으로 표시 
 - size : 마커의 이미지 사이즈를 지정
+- data : 마커를 클릭했을 때 반환할 정보 
 ~~~javascript
 mapDraw.setMarker({
     marker: [
@@ -374,6 +375,7 @@ mapDraw.setMarker({
             width:20, 
             height: 20
         },
+	data: i // marker를 클릭했을 때 반환할 정보 
         image: "img_marker_blue-3x.png", // 이미지 지정하지 않을 경우 기본 이미지로 표시
         floorId: "[해당층아이디]" // 층을 지정 할때 : 지정하지 않을 경우 현재 보이는 층
         }
