@@ -473,6 +473,8 @@ mapDraw.convert2img();
 - xDirection : 원도와 비교 한 x 축 진행방향
 - yDirection : 원도와 비교 한 y 축 진행 방향
 
+* example : https://dabeeo.github.io/web_api/samples/convert_position_debug.html
+
 ~~~ javascript
 let convertOptions = {
 	position : {
