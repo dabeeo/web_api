@@ -7,7 +7,7 @@ jsMapApi.js와 같이 version 없이 사용할 경우 최신 version을 부르�
 #
 
 ### jsMapAPI_03.02.08_R_2020.10.30 
-jsMapAPI_03.02.08_R_2020.10.30 
+jsMapAPI_03.02.08_R_2020.10.30.js
 
 #### change description
 - 모바일에서 폰트 align
