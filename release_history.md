@@ -18,11 +18,11 @@ jsMapAPI_03.02.08_R_2020.10.30.js
 - 네비게이션 시 좌표 이외에 poi로 지정할 수 있도록 option 추가
 
 #### changed API
-- 마커 클릭 이벤트 추가
+- 마커 클릭 이벤트 추가   
 https://github.com/dabeeo/web_api/blob/master/docs/Event.md#marker-click
-- 마커 클릭시 반환할 정보를 마커그릴 때 주도록 option 추가
+- 마커 클릭시 반환할 정보를 마커그릴 때 주도록 option 추가   
 https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#여러개의-마커표시
-- 슬램용 좌표 변환 api 추가
+- 슬램용 좌표 변환 api 추가   
 https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#좌표-변환
 - 네비게이션 시 좌표 이외에 poi로 지정할 수 있도록 option 추가   
 https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기
