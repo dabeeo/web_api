@@ -203,10 +203,8 @@ mapDraw.getRouteOn() 메소드를 이용하여 길찾기 경로를 표시할 수
         };
         // poi id 로 설정
         let setpoi = {
-            {   
-                poiId : "PO-KHfT1VzoG9044",    
-                floorId: "FL-1jeyt4ubl4awn7429"
-            }
+            poiId : "PO-KHfT1VzoG9044",
+            floorId: "FL-1jeyt4ubl4awn7429"
         }
         let waypoints=[setpoi, waypoint1, waypoint2, waypoint3]
 
