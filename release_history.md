@@ -1,8 +1,7 @@
 ## Release History
 
 ### NOTE
-version 없이 사용할 경우 최신 version을 부르게 되어 있습니다.   
-jsMapApi.js
+jsMapApi.js와 같이 version 없이 사용할 경우 최신 version을 부르게 되어 있습니다.
 특정 version을 부를 경우 아래 버전별 파일명을 참고하세요.
 
 #
