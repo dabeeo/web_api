@@ -1,8 +1,32 @@
 ## Release History
 
 ### NOTE
-아래와 같이 version 없이 사용할 경우 최신 version을 부르게 되어 있습니다.   
+version 없이 사용할 경우 최신 version을 부르게 되어 있습니다.   
 jsMapApi.js
+특정 version을 부를 경우 아래 버전별 파일명을 참고하세요.
+
+#
+
+### jsMapAPI_03.02.08_R_2020.10.30 
+jsMapAPI_03.02.08_R_2020.10.30 
+
+#### change description
+- 모바일에서 폰트 align
+- 마커 클릭 이벤트 추가
+- 마커 클릭시 반환할 정보를 마커그릴 때 주도록 option 추가 
+- zoom 최대최소 상태에서 지도 깜빡임 현상 개선
+- 슬램용 좌표 변환 api 추가
+- 네비게이션 시 좌표 이외에 poi로 지정할 수 있도록 option 추가
+
+#### changed API
+- 마커 클릭 이벤트 추가
+https://github.com/dabeeo/web_api/blob/master/docs/Event.md#marker-click
+- 마커 클릭시 반환할 정보를 마커그릴 때 주도록 option 추가
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#여러개의-마커표시
+- 슬램용 좌표 변환 api 추가
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#좌표-변환
+- 네비게이션 시 좌표 이외에 poi로 지정할 수 있도록 option 추가   
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기
 
 #
 
