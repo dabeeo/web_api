@@ -26,7 +26,7 @@ new indoorMapApi.MapView(
 ~~~
 
 - mapDraw의 reponse에 대한 설명은 링크에 있습니다. 
-- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Options.md
+- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/response.md
 
 - mapDraw의 method에 대한 설명은 링크에 있습니다. 
 - https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md
