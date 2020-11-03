@@ -108,3 +108,53 @@ angle: {
     fixed : true
 }    
 ~~~
+
+<!-- 2020-11-03 드래그마우스버튼설정/줌마우스 활성화 설정/poi 중요도에 따라 설정한 지도 확대 백분율에 맞게 보이기 
+
+### controlDrag
+지도이동할 때 사용자의 마우스 버튼을 설정합니다.           
+Type: 객체       
+Default : 아무것도 지정하지 않으면 3d는 "right" 2d는 "left" 버튼으로 지도이동이 됩니다.      
+- 3d : "left" 왼쪽 클릭으로 지도이동 or "right" 오른쪽 클릭으로 지도이동
+- 2d : "left" 왼쪽 클릭으로 지도이동 or "right" 오른쪽 클릭으로 지도이동
+
+~~~javascript
+controlDrag: {
+    "3d" : "left" // 왼쪽 클릭으로 지도이동
+    "2d" : "right" // 오른쪽 클릭으로 지도이동
+}    
+~~~
+
+    
+### controlZoom
+사용자가 마우스 휠로 지도 줌을 활성화 / 비활성화 할 것인지 결정합니다.      
+Type: Boolean     
+Default : true
+
+~~~javascript
+controlZoom: false // 마우스 휠로 지도가 확대 / 축소 되지 않습니다.
+~~~
+
+   
+### poiLevel
+poi 중요도에 따라 설정한 지도 확대 백분율에 맞게 보이게 설정합니다.     
+관련 메서드 : https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#poi-%EC%A4%91%EC%9A%94%EB%8F%84%EC%97%90-%EB%94%B0%EB%9D%BC-%EC%84%A4%EC%A0%95%ED%95%9C-%EC%A7%80%EB%8F%84-%ED%99%95%EB%8C%80-%EB%B0%B1%EB%B6%84%EC%9C%A8%EC%97%90-%EB%A7%9E%EA%B2%8C-%EB%B3%B4%EC%9D%B4%EA%B8%B0      
+
+
+Type: 배열    
+Default : 아무것도 지정하지 않으면 실행되지 않습니다. 배열모두 숫자를 받아야 하고 0보다 커야합니다.
+
+~~~javascript
+poiLevel: [50, 100, 200] // 상(level1), 중(level2), 하(level3)
+
+/*
+ 위의 예제는
+ cluster Level 1 : 줌 50 이상부터 보이게 설정
+ cluster Level 2 : 줌 100 이상부터 보이게 설정
+ cluster Level 3 : 줌 200 이상부터 보이게 설정
+ 합니다.
+*/
+
+~~~
+-->
+ 
