@@ -138,7 +138,7 @@ controlZoom: false // 마우스 휠로 지도가 확대 / 축소 되지 않습�
    
 ### poiLevel
 poi 중요도에 따라 설정한 지도 확대 백분율에 맞게 보이게 설정합니다.     
-관련 메서드 : https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#poi-%EC%A4%91%EC%9A%94%EB%8F%84%EC%97%90-%EB%94%B0%EB%9D%BC-%EC%84%A4%EC%A0%95%ED%95%9C-%EC%A7%80%EB%8F%84-%ED%99%95%EB%8C%80-%EB%B0%B1%EB%B6%84%EC%9C%A8%EC%97%90-%EB%A7%9E%EA%B2%8C-%EB%B3%B4%EC%9D%B4%EA%B8%B0      
+관련 메서드 : https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#poi-중요도에-따라-설정한-지도-확대-백분율에-맞게-보이기     
 
 
 Type: 배열    
