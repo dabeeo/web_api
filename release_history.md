@@ -6,6 +6,32 @@ jsMapApi.js와 같이 version 없이 사용할 경우 최신 version을 부르�
 
 #
 
+### jsMapAPI_03.02.09_R_2020.11.06 
+jsMapAPI_03.02.09_R_2020.11.06.js
+
+#### change description
+- internet explorer 11 동작
+- 지도 드래그시 캔버스 밖으로 벗어나지 않도록 수정 
+- 맵 그릴 때 주는 option 추가 : 
+  - 드래그마우스 버튼, 
+  - 줌마우스 활성화, 
+  - poi중요도에 따라 지도에 보져울 백분율 설정
+- 3D지도 모드 시, POI 타이틀도 같이 회전 및 각도 반영
+
+#### changed API
+
+- 맵 그릴 때 주는 option 추가 : 
+  - 드래그마우스 버튼, 
+https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#controldrag
+  - 줌마우스 활성화, 
+https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#controlzoom
+  - poi중요도에 따라 지도에 보져울 백분율 설정
+https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#poilevel
+
+
+
+#
+
 ### jsMapAPI_03.02.08_R_2020.10.30 
 jsMapAPI_03.02.08_R_2020.10.30.js
 
