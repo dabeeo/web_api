@@ -95,6 +95,17 @@ mapDraw.setPoiLevelOff();
 ~~~
 - example: https://dabeeo.github.io/web_api/samples/poiLevel.html
 
+#
+
+### 3D모드에서 poi 높이값 설정 
+mapDraw.setPoiRotateDistance()를 이용하여 poi 객체의 높이값을 추가하거나 낮출수 있습니다.
+맵에 적용되어 있는 poi의 높이 값을 0으로 인식 합니다.
+setPoiRotateDistance() 의 인자값은 소숫점 2자리 까지 반영 됩니다.
+
+~~~ javasript 
+mapDraw.setPoiRotateDistance(5.55);
+~~~
+
 
 ## Zoom 
 
