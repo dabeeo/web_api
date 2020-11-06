@@ -20,6 +20,8 @@ jsMapAPI_03.02.09_R_2020.11.06.js
 
 #### changed API
 
+- 3D지도 모드 시, POI 타이틀도 같이 회전 및 각도 반영   
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#3d모드에서-poi-높이값-설정
 - 맵 그릴 때 주는 option 추가 : 
   - 드래그마우스 버튼   
 https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#controldrag
@@ -27,6 +29,8 @@ https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#controldra
 https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#controlzoom
   - poi중요도에 따라 지도에 보져울 백분율 설정   
 https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#poilevel
+
+
 
 #
 
