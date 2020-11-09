@@ -39,7 +39,7 @@
             }
 
 		</style>
-        <script type="module" src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI.js"></script>
+        <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI.js"></script>
     </head>
 	<body>
         <div id="map"></div>        
@@ -50,15 +50,15 @@
             });
 
             function initMap() {
-                let mapContainer = document.getElementById('map'); // 지도를 표시할 div
+                var mapContainer = document.getElementById('map'); // 지도를 표시할 div
                     
                     // 지도 인증정보
-                    let authorization = new indoorMapApi.Authorization({
+                    var authorization = new indoorMapApi.Authorization({
                     clientId: "28AXw_veA2YbNKDP6poTpT",
                     clientSecret: "70c540c169af62808f4da3709e988e06"
                     });
                 
-                    let mapOptions = {
+                    var mapOptions = {
                     authorization: authorization
                     };
                 
@@ -68,7 +68,7 @@
                     mapContainer, // 컨테이너
                     mapOptions, // 옵션
                     function (response) { // 맵 로드 콜백
-                        let code = response.getCode();
+                        var code = response.getCode();
             
                         if (code === 200) {
                             mapView = response.getPayload().mapView;
@@ -81,17 +81,18 @@
                 );
             };
             function initShowPoiBtn() {
-                const showPoiContainer = document.createElement("DIV")
+                var showPoiContainer = document.createElement("DIV")
                 showPoiContainer.classList.add('show-poi-container');
                 
-                const mapElement = document.querySelector("#map");
+                var mapElement = document.querySelector("#map");
 
                 mapElement.insertAdjacentElement("afterbegin", showPoiContainer);
-                let showPoiHTML ="";
+                var showPoiHTML ="";
                 showPoiHTML +=`<div class="show-poi show-poi-on" id="show-poi-true">show poi</div>`
                 showPoiHTML +=`<div class="show-poi" id="show-poi-false">hide poi</div>`
                 showPoiContainer.innerHTML = showPoiHTML;
-                showPoiContainer.addEventListener("click", ({target})=>{
+                showPoiContainer.addEventListener("click", function(e) {
+                    var target = e.target;
                     if(target.className === "show-poi" ) {
                         document.querySelector(".show-poi-on").classList.remove("show-poi-on");
                         target.classList.add("show-poi-on");

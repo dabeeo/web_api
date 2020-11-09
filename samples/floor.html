@@ -38,7 +38,7 @@
             }
 
 		</style>
-        <script type="module" src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI.js"></script>
+        <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI.js"></script>
     </head>
 	<body>
         <div id="map"></div>        
@@ -49,15 +49,15 @@
             });
 
             function initMap() {
-                let mapContainer = document.getElementById('map'); // 지도를 표시할 div
+                var mapContainer = document.getElementById('map'); // 지도를 표시할 div
                     
                     // 지도 인증정보
-                    let authorization = new indoorMapApi.Authorization({
+                    var authorization = new indoorMapApi.Authorization({
                     clientId: "28AXw_veA2YbNKDP6poTpT",
                     clientSecret: "70c540c169af62808f4da3709e988e06"
                     });
                 
-                    let mapOptions = {
+                    var mapOptions = {
                     authorization: authorization
                     };
                 
@@ -68,7 +68,7 @@
                     mapOptions, // 옵션
                     function (response) { // 맵 로드 콜백
                         console.log(response)
-                        let code = response.getCode();
+                        var code = response.getCode();
             
                         if (code === 200) {
                             mapView = response.getPayload().mapView;
@@ -83,15 +83,15 @@
 
             function initFloorBtn(floorInfo) {
                 console.log(floorInfo);
-                const floorsContainer = document.createElement("DIV")
+                var floorsContainer = document.createElement("DIV")
                 floorsContainer.classList.add('floors-container');
 
-                const mapElement = document.querySelector("#map");
+                var mapElement = document.querySelector("#map");
 
                 mapElement.insertAdjacentElement("afterbegin", floorsContainer);
                 //층 버튼 추가하기
-                let floorsHTML ="";
-                floorInfo.forEach((v)=>{
+                var floorsHTML ="";
+                floorInfo.forEach(function(v) {
                     if (v.defaultYn) {
                         floorsHTML +=`<div class="floor floor-on" id=${v.id}>${v.name[0].text}</div>`
                     } else {
@@ -99,7 +99,8 @@
                     }
                 });
                 floorsContainer.innerHTML = floorsHTML;
-                floorsContainer.addEventListener("click", ({target})=>{
+                floorsContainer.addEventListener("click", function(e) {
+                    var target = e.target;
                     if(target.className === "floor" ) {
                         document.querySelector(".floor-on").classList.remove("floor-on");
                         target.classList.add("floor-on");

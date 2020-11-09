@@ -55,7 +55,7 @@
 
 		</style>
         <!-- <script type="module" src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI.js"></script> -->
-        <script type="module" src="https://demo-preview-rebuild.dabeeomaps.com/jsMapAPI_pre_release.js"></script>
+        <script src="https://demo-preview-rebuild.dabeeomaps.com/jsMapAPI_pre_release.js"></script>
     </head>
 	<body>
         <div id="map"></div>        
@@ -86,15 +86,15 @@
             });
 
             function initMap() {
-                let mapContainer = document.getElementById('map'); // 지도를 표시할 div
+                var mapContainer = document.getElementById('map'); // 지도를 표시할 div
                     
                 // 지도 인증정보
-                let authorization = new indoorMapApi.Authorization({
+                var authorization = new indoorMapApi.Authorization({
                 clientId: "28AXw_veA2YbNKDP6poTpT",
                 clientSecret: "70c540c169af62808f4da3709e988e06"
                 });
             
-                let mapOptions = {
+                var mapOptions = {
                 authorization: authorization
                 };
             
@@ -104,7 +104,7 @@
                     mapContainer, // 컨테이너
                     mapOptions, // 옵션
                     function (response) { // 맵 로드 콜백
-                        let code = response.getCode();
+                        var code = response.getCode();
             
                         if (code === 200) {
                             mapView = response.getPayload().mapView;
@@ -117,19 +117,19 @@
                     } 
                 );
             };
-            let floorMap = new Map();
+            var floorMap = new Map();
 
             function initFloorBtn(floorInfo) {
                 console.log("floorInfo :", floorInfo);
-                const floorsContainer = document.createElement("DIV");
+                var floorsContainer = document.createElement("DIV");
                 floorsContainer.classList.add("floors-container"); // .className="floors-container";
 
-                const mapElement = document.querySelector("#map");
+                var mapElement = document.querySelector("#map");
 
                 mapElement.insertAdjacentElement("afterbegin", floorsContainer);
                 //층 버튼 추가하기
-                let floorsHTML = "";
-                floorInfo.forEach((v) => {
+                var floorsHTML = "";
+                floorInfo.forEach(function(v) {
                     floorMap.set(v.id, v.name[0].text);
                     if (v.defaultYn) {
                         floorsHTML += `<div class="floor floor-on" id=${v.id}>${v.name[0].text}</div>`;
@@ -138,7 +138,8 @@
                     }
                 });
                 floorsContainer.innerHTML = floorsHTML;
-                floorsContainer.addEventListener("click", ({target}) => {
+                floorsContainer.addEventListener("click", function(e) {
+                    var target = e.target;
                     if (target.className === "floor") {
                         document.querySelector(".floor-on").classList.remove("floor-on");
                         target.classList.add("floor-on");
@@ -148,68 +149,68 @@
             }
 
             function initNavigation(poiList) {
-                let poiStartElement = document.getElementById("select-start-poi");
-                let poiDestElement = document.getElementById("select-dest-poi");
-                let naviOnButton = document.getElementById("navi-on-button");
-                let naviOffButton = document.getElementById("navi-off-button");
-                let naviAniOnButton = document.getElementById("navi-ani-on-button");
-                let naviAniOffButton = document.getElementById("navi-ani-off-button");
-                let naviAniOnButtonOption = document.getElementById("navi-ani-on-button-option");
-                let startPoint = {position: poiList[0].position, floorId: poiList[0].floorId};
-                let destPoint = {position: poiList[0].position, floorId: poiList[0].floorId};
+                var poiStartElement = document.getElementById("select-start-poi");
+                var poiDestElement = document.getElementById("select-dest-poi");
+                var naviOnButton = document.getElementById("navi-on-button");
+                var naviOffButton = document.getElementById("navi-off-button");
+                var naviAniOnButton = document.getElementById("navi-ani-on-button");
+                var naviAniOffButton = document.getElementById("navi-ani-off-button");
+                var naviAniOnButtonOption = document.getElementById("navi-ani-on-button-option");
+                var startPoint = {position: poiList[0].position, floorId: poiList[0].floorId};
+                var destPoint = {position: poiList[0].position, floorId: poiList[0].floorId};
 
-                poiList.forEach((poi, index) => {
-                    let startOption = document.createElement("option");
+                poiList.forEach(function(poi, index) {
+                    var startOption = document.createElement("option");
                     startOption.value = index;
                     startOption.appendChild(document.createTextNode(poi.title + "--" + floorMap.get(poi.floorId)));
                     poiStartElement.appendChild(startOption);
 
-                    let destOption = document.createElement("option");
+                    var destOption = document.createElement("option");
                     destOption.value = index;
                     destOption.appendChild(document.createTextNode(poi.title + "--" + floorMap.get(poi.floorId)));
                     poiDestElement.appendChild(destOption);
                 });
 
-                poiStartElement.addEventListener("input", (e) => {
+                poiStartElement.addEventListener("input", function(e) {
                     startPoint = {
                         position: poiList[e.target.value].position,
                         floorId: poiList[e.target.value].floorId
                     };
                 });
-                poiDestElement.addEventListener("input", (e) => {
+                poiDestElement.addEventListener("input", function(e)  {
                     destPoint = {
                         position: poiList[e.target.value].position,
                         floorId: poiList[e.target.value].floorId
                     };
                 });
-                naviOnButton.addEventListener("click", (e) => {
-                    let a = mapDraw.getRouteOn(startPoint, destPoint, document.querySelector("#navi-on-type").value);
+                naviOnButton.addEventListener("click", function(e)  {
+                    var a = mapDraw.getRouteOn(startPoint, destPoint, document.querySelector("#navi-on-type").value);
                     document.getElementById("navi-time-button").innerHTML = (a / (1000 * 60)).toFixed(0) + "분 소요";
                     setNavigationList();
                 });
-                naviOffButton.addEventListener("click", (e) => {
+                naviOffButton.addEventListener("click", function(e){
                     mapDraw.getRouteOff();
                     document.getElementById("map-navilist").innerHTML = '';
                 });
-                naviAniOnButton.addEventListener("click", (e) => {
+                naviAniOnButton.addEventListener("click", function(e) {
                     mapDraw.startRouteAnimation();
                 });
-                naviAniOffButton.addEventListener("click", (e) => {
+                naviAniOffButton.addEventListener("click", function(e) {
                     mapDraw.stopRouteAnimation();
                 });
-                naviAniOnButtonOption.addEventListener("click", (e) => {
+                naviAniOnButtonOption.addEventListener("click", function(e)  {
                     mapDraw.startRouteAnimation({zoom: 200});
                 });
             }
 
-            document.addEventListener("floor-changed", (e) => {
-                let floorId = e.detail;
+            document.addEventListener("floor-changed", function(e)  {
+                var floorId = e.detail;
                 console.log(floorId);
                 document.querySelector(".floor-on").classList.remove("floor-on");
                 document.getElementById(floorId).classList.add("floor-on");
             });
 
-            document.addEventListener("navi-complete", (e) => {
+            document.addEventListener("navi-complete", function(e)  {
                 console.log(e.detail);
             });        
             /* 네비게이션 목록 */
@@ -250,14 +251,14 @@
                         btn.addEventListener("click", list[i].move);
                         if( list[i].isDestination ) {
                             btn.innerText = list[i].title;
-                            document.getElementById("map-navilist").append(btn);
+                            document.getElementById("map-navilist").appendChild(btn);
                         } else {
                             if( typeof list[i].distance === "object") { // 이동수단 진입 후 층변경시 distance: 이동된 floor object
                                 btn.innerText = transCode(list[i].transCode) +' ' + list[i].distance.name[0].text + ' 으로 이동';
                             } else {
                                 btn.innerText = transCode(list[i].transCode) +' ' + (list[i].distance/100) + 'm' ;
                             }
-                            document.getElementById("map-navilist").append(btn);
+                            document.getElementById("map-navilist").appendChild(btn);
                         }
                     }
             }

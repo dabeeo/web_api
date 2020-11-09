@@ -22,7 +22,7 @@
             }            
 
 		</style>
-        <script type="module" src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI.js"></script>
+        <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI.js"></script>
     </head>
 	<body>
         <div id="map"></div>        
@@ -33,15 +33,15 @@
             });
 
             function initMap() {
-                let mapContainer = document.getElementById('map'); // 지도를 표시할 div
+                var mapContainer = document.getElementById('map'); // 지도를 표시할 div
                     
                     // 지도 인증정보
-                    let authorization = new indoorMapApi.Authorization({
+                    var authorization = new indoorMapApi.Authorization({
                     clientId: "28AXw_veA2YbNKDP6poTpT",
                     clientSecret: "70c540c169af62808f4da3709e988e06"
                     });
                 
-                    let mapOptions = {
+                    var mapOptions = {
                     authorization: authorization
                     };
                 
@@ -51,7 +51,7 @@
                     mapContainer, // 컨테이너
                     mapOptions, // 옵션
                     function (response) { // 맵 로드 콜백
-                        let code = response.getCode();
+                        var code = response.getCode();
             
                         if (code === 200) {
                             mapView = response.getPayload().mapView;
@@ -64,20 +64,20 @@
                 );
             };
             function initLangBtn() {
-                const $select = document.createElement("select");
+                var $select = document.createElement("select");
                 $select.classList.add('langs');
                 
-                const mapElement = document.querySelector("#map");
+                var mapElement = document.querySelector("#map");
 
                 mapElement.insertAdjacentElement("afterbegin", $select);
                 
-                mapDraw.mapInfo.languageSets.forEach((item) => {
-                    let newOption = document.createElement("option");
+                mapDraw.mapInfo.languageSets.forEach(function(item) {
+                    var newOption = document.createElement("option");
                     newOption.value = item.lang;
                     newOption.appendChild(document.createTextNode(item.lang));
                     document.querySelector(".langs").appendChild(newOption);
                 });
-                document.querySelector(".langs").addEventListener("change", (e) => {
+                document.querySelector(".langs").addEventListener("change", function(e) {
                     mapDraw.changeLanguage(e.target.value); // 언어 변경
                 });
             }

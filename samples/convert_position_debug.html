@@ -61,7 +61,7 @@
 <script>
 
 	window.onload = function () {
-		let nodeListWrapper = {
+		var nodeListWrapper = {
 			"nodeList": [
 				{
 					"id": "1",
@@ -149,7 +149,7 @@
 				}
 			]
 		};
-		let nodeListWrapper2 = {
+		var nodeListWrapper2 = {
 					"nodeList": [
 						{
 							"id": "A회의실",
@@ -225,10 +225,10 @@
 				}
 		;
 
-		let mapContainer = document.getElementById("map"); // 지도를 표시할 div
+		var mapContainer = document.getElementById("map"); // 지도를 표시할 div
 
 		// 지도 인증정보
-		let authorization = new indoorMapApi.Authorization({
+		var authorization = new indoorMapApi.Authorization({
 			clientId: "5VKPHFJn4HS9Mgg-EthBUe",
 			clientSecret: "db11546b3aef916a8c078a527e68399b"
 		});
@@ -237,7 +237,7 @@
 		//     clientSecret: "70c540c169af62808f4da3709e988e06"
 		// });
 
-		let mapOptions = {
+		var mapOptions = {
 			authorization: authorization
 		};
 
@@ -248,15 +248,15 @@
 				mapOptions, // 옵션
 				function (res) { // 맵 로드 콜백
 
-					let code = res.getCode();
+					var code = res.getCode();
 
 					if (code === 200) {
 						window.mapDraw = res.getPayload().mapDraw;
 
-						let convertedNodePositions = [];
+						var convertedNodePositions = [];
 
-						nodeListWrapper.nodeList.forEach(node => {
-							let convertOptions = {
+						nodeListWrapper.nodeList.forEach(function(node) {
+							var convertOptions = {
 								position : {
 									x:node.position.x, // 고객이 구하려고 하는 x 좌표 (고객의 위치 수집장치를 통해 수집되는 m 단위의 좌표)
 									y:node.position.y // 고객이 구하려고 하는 y 좌표 (고객의 위치 수집장치를 통해 수집되는 m 단위의 좌표)
@@ -270,18 +270,17 @@
 								yDirection : -1 // 고객의 지도를 기준으로 다비오지도의 y 축 진행방향 (역방향)
 							};
 
-							let p = mapDraw.convertPosition(convertOptions); // 좌표 변경 함수 호출
+							var p = mapDraw.convertPosition(convertOptions); // 좌표 변경 함수 호출
 							convertedNodePositions.push({
 								position:{
 									x: p.x,
 									y: p.y,
 									z: 5}
 							});
-
 						});
 
-						nodeListWrapper2.nodeList.forEach(node => {
-							let convertOptions = {
+						nodeListWrapper2.nodeList.forEach(function(node) {
+							var convertOptions = {
 								position : {
 									x:node.position.x, // 고객이 구하려고 하는 x 좌표 (고객의 위치 수집장치를 통해 수집되는 m 단위의 좌표)
 									y:node.position.y // 고객이 구하려고 하는 y 좌표 (고객의 위치 수집장치를 통해 수집되는 m 단위의 좌표)
@@ -294,7 +293,7 @@
 								xDirection : 1, // 고객의 지도를 기준으로 다비오지도의 x 축 진행방향 (순방향)
 								yDirection : -1 // 고객의 지도를 기준으로 다비오지도의 y 축 진행방향 (역방향)
 							};
-							let p = mapDraw.convertPosition(convertOptions); // 좌표 변환
+							var p = mapDraw.convertPosition(convertOptions); // 좌표 변환
 							convertedNodePositions.push({
 								position:{
 									x: p.x,
@@ -302,7 +301,6 @@
 									z: 5},
 								image : "https://assets.dabeeomaps.com/image/ico/img_person-3x.png"
 							});
-
 						});
 
 						mapDraw.setMarker({marker:convertedNodePositions});
