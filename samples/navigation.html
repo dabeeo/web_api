@@ -173,13 +173,15 @@
 
                 poiStartElement.addEventListener("input", function(e) {
                     startPoint = {
-                        position: poiList[e.target.value].position,
+                        // position: poiList[e.target.value].position,
+                        poiId: poiList[e.target.value].id,
                         floorId: poiList[e.target.value].floorId
                     };
                 });
                 poiDestElement.addEventListener("input", function(e)  {
                     destPoint = {
-                        position: poiList[e.target.value].position,
+                        // position: poiList[e.target.value].position,
+                        poiId: poiList[e.target.value].id,
                         floorId: poiList[e.target.value].floorId
                     };
                 });
