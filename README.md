@@ -44,23 +44,24 @@ https://dabeeo.github.io/web_api/samples
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>map</title>
+    <title>Document</title>
     
 </head>
 <body>
     <div id="map"></div>
-    <script type="module" src="[dabeeo javascript link]"></script>
+    <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI.js"></script>
+    
     <script>
         window.onload = function () {
-            let mapContainer = document.getElementById('map'); // 지도를 표시할 div
+            var mapContainer = document.getElementById('map'); // 지도를 표시할 div
         
             // 지도 인증정보
-            let authorization = new indoorMapApi.Authorization({
+            var authorization = new indoorMapApi.Authorization({
             clientId: "28AXw_veA2YbNKDP6poTpT",
             clientSecret: "70c540c169af62808f4da3709e988e06"
             });
         
-            let mapOptions = {
+            var mapOptions = {
             authorization: authorization
             };
         
@@ -69,10 +70,10 @@ https://dabeeo.github.io/web_api/samples
             mapContainer, // 컨테이너
             mapOptions, // 옵션
             function (response) { // 맵 로드 콜백
-                let code = response.getCode();
+                var code = response.getCode();
         
                 if (code === 200) {
-                let mapView = response.getPayload().mapView;
+                var mapView = response.getPayload().mapView;
                 // do something
                 console.log("map view success!")
                 }
