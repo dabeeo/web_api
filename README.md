@@ -49,7 +49,7 @@ https://dabeeo.github.io/web_api/samples
 </head>
 <body>
     <div id="map"></div>
-    <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI.js"></script>
+    <script src="[다비오기술문서의 api 링크]"></script>
     
     <script>
         window.onload = function () {
