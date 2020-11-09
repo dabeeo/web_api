@@ -88,8 +88,8 @@
 
                 mapElement.insertAdjacentElement("afterbegin", showPoiContainer);
                 var showPoiHTML ="";
-                showPoiHTML +=`<div class="show-poi show-poi-on" id="show-poi-true">show poi</div>`
-                showPoiHTML +=`<div class="show-poi" id="show-poi-false">hide poi</div>`
+                showPoiHTML += '<div class="show-poi show-poi-on" id="show-poi-true">show poi</div>';
+                showPoiHTML += '<div class="show-poi" id="show-poi-false">hide poi</div>';
                 showPoiContainer.innerHTML = showPoiHTML;
                 showPoiContainer.addEventListener("click", function(e) {
                     var target = e.target;

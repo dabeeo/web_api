@@ -91,9 +91,9 @@
                 var themesHTML ="";
                 themeInfo.forEach(function(v) {
                     if (v.defaultYn) {
-                        themesHTML +=`<div class="theme theme-on" id=${v.id}>${v.name}</div>`
+                        themesHTML += '<div class="theme theme-on" id='+v.id+'>'+v.name+'</div>';
                     } else {
-                        themesHTML +=`<div class="theme" id=${v.id}>${v.name}</div>`
+                        themesHTML += '<div class="theme" id='+v.id+'>'+v.name+'</div>';
                     }
                 });
                 themesContainer.innerHTML = themesHTML;

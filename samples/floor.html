@@ -93,9 +93,9 @@
                 var floorsHTML ="";
                 floorInfo.forEach(function(v) {
                     if (v.defaultYn) {
-                        floorsHTML +=`<div class="floor floor-on" id=${v.id}>${v.name[0].text}</div>`
+                        floorsHTML += '<div class="floor floor-on" id='+v.id+'>'+v.name[0].text+'</div>';
                     } else {
-                        floorsHTML +=`<div class="floor" id=${v.id}>${v.name[0].text}</div>`
+                        floorsHTML += '<div class="floor" id='+v.id+'>'+v.name[0].text+'</div>';
                     }
                 });
                 floorsContainer.innerHTML = floorsHTML;

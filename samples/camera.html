@@ -90,8 +90,8 @@
 
                 mapElement.insertAdjacentElement("afterbegin", cameraContainer);
                 var cameraHTML ="";
-                cameraHTML +=`<div class="camera" id="2d">2d</div>`
-                cameraHTML +=`<div class="camera camera-on" id="3d">3d</div>`
+                cameraHTML += '<div class="camera" id="2d">2d</div>';
+                cameraHTML += '<div class="camera camera-on" id="3d">3d</div>';
                 cameraContainer.innerHTML = cameraHTML;
                 cameraContainer.addEventListener("click", ({target})=>{
                     if(target.className === "camera" ) {
