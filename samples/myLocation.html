@@ -124,9 +124,9 @@
                     isOn = false;
                 });
 
-                document.querySelector(".myposition").querySelectorAll("input").
+                document.querySelector(".myposition").querySelectorAll("change").
                     forEach(function(ele) {
-                        ele.addEventListener("input",function(e) {
+                        ele.addEventListener("change",function(e) {
                             let posX = document.querySelector("#mypositionX").value,
                                 posY = document.querySelector("#mypositionY").value,
                                 posZ = document.querySelector("#mypositionZ").value;

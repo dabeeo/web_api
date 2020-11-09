@@ -171,14 +171,14 @@
                     poiDestElement.appendChild(destOption);
                 });
 
-                poiStartElement.addEventListener("input", function(e) {
+                poiStartElement.addEventListener("change", function(e) {
                     startPoint = {
                         // position: poiList[e.target.value].position,
                         poiId: poiList[e.target.value].id,
                         floorId: poiList[e.target.value].floorId
                     };
                 });
-                poiDestElement.addEventListener("input", function(e)  {
+                poiDestElement.addEventListener("change", function(e)  {
                     destPoint = {
                         // position: poiList[e.target.value].position,
                         poiId: poiList[e.target.value].id,
