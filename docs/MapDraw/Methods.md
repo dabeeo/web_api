@@ -436,7 +436,7 @@ mapDraw.mapCordinfo()는 지도좌표계를 매핑하기 위한 기본 정보를
 #
 
 ### x, y좌표로 이동
-*방위각이 없는 지도*는 상단 위가 중심으로(0, 0) x, y좌표로 카메라를 이동합니다. (#지도-좌표계정보)     
+*방위각이 없는 지도*는 상단 위가 중심으로(0, 0) x, y좌표로 카메라를 이동합니다. [지도-좌표계정보](https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#%EC%A7%80%EB%8F%84-%EC%A2%8C%ED%91%9C%EA%B3%84%EC%A0%95%EB%B3%B4)    
 *방위각이 있는 지도*의 경우 지도 중앙을 중심으로(0, 0) x, y좌표로 카메라를 이동합니다.     
 
 - x: number, x 좌표를 입력합니다.  
