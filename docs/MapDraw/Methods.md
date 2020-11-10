@@ -453,14 +453,15 @@ mapDraw.moveCamera({
 
 ### 지도 방위각에 따라 poi의 x,y 좌표 변환
 <!-- 2020-11-10 설명 수정-->
-지도 정보에서 받은 poiInfo 의 좌표 정보는 방위각이 있는 지도와 좌표 정보가 다르기 때문에 변환해 주어야 합니다.   
-scene의 좌표와 camera 의 좌표가 다르기 때문에
-scene 좌표를 camera가 보는 좌표로 변환해주어야 moveCamera 가 원하는 위치로 동작합니다.   
+지도 정보에서 받은 poiInfo 의 좌표 정보는 *방위각이 있는 지도*와 좌표 정보가 다르기 때문에 변환해 주어야 합니다.   
+scene의 좌표와 camera 의 좌표가 다르기 때문에 scene 좌표를 camera가 보는 좌표로 변환해주어야 moveCamera 가 원하는 위치로 동작합니다.   
 
 <!-- 지도 방위각이 있을 경우 mapDraw.response.poiInfo 의 좌표 정보( position )는 scene의 좌표이기 때문에 moveCamera시 그대로 입력하면 원하는 위치로 이동하지 않을 수 있습니다.-->
 카메라 이동을 원하는 poi 좌표를 그대로 입력하여 moveCamera시 그대로 입력하면 원하는 위치로 이동하지 않을 수 있기 때문에 변환해 주어야 합니다.    
 
-<!-- 2020-11-10 moveCamera 에 해당함수를 같이 안쓰는 이유 : 사용자가 moveCamera 를 이용하여 지도에서 받은 poi 위치가 아닌 사용자가 지정한 위치로 이동할 수 있기 때문에  -->
+<!-- 2020-11-10 !! moveCamera 에 해당함수를 같이 안쓰는 이유 : 사용자가 moveCamera 를 이용하여 지도에서 받은 poi 위치가 아닌 사용자가 지정한 위치로 이동할 수 있기 때문에 함수 분리 !!  -->
+
+*mapDraw.myLocationOn 으로 만든 마커나 mapDraw.setMarker 의 경우도 scene 좌표에 그려지기 때문에 변환이 필요합니다*
 
 ~~~javascript
 let position = mapDraw.getCameraPosition(x, y);
