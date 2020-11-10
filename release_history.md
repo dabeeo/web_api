@@ -6,6 +6,20 @@ jsMapApi.js와 같이 version 없이 사용할 경우 최신 version을 부르�
 
 #
 
+### jsMapAPI_03.02.10_R_2020.11.13 
+- jsMapAPI_03.02.10_R_2020.11.13.js
+
+#### change description
+- 줌 레벨 관계없이 3d에서 마커 사이즈 고정  
+- 지도 좌표기준으로 카메라 이동 함수 생성  
+- 3D지도 모드 시, POI 타이틀도 같이 회전 및 각도 반영 기능 삭제
+
+#### changed API
+
+- 지도 좌표기준으로 카메라 이동 함수 생성   
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#지도-좌표-기준으로-x-y좌표로-이동
+#
+
 ### jsMapAPI_03.02.09_R_2020.11.06 
 jsMapAPI_03.02.09_R_2020.11.06.js
 
