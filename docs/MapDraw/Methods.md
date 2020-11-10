@@ -351,6 +351,7 @@ mapDraw.setNavigationOption ({
 
 ### 내 위치 마커 표시
 mapDraw.myLocationOn()메소드를 이용하여 원하는 좌표에 위치를 표시할 수 있습니다. 
+**방위각이 있는 지도**의 경우 지도의 좌표가 아니라 지도 중앙을 중심으로(0, 0) 좌표가 설정되므로 지도의 좌표를 그리기 위해서는 getCameraPosition() 을 통해 좌표를 변환한 뒤 불러야 합니다.  
 - position: x,y,z 좌표. z좌표는 object보다 높아야 지도에 표시됩니다. 
 ~~~javascript
 mapDraw.myLocationOn(x, y, z);
@@ -366,6 +367,7 @@ mapDraw.myLocationOff();
 
 ### 여러개의 마커표시
 mapDraw.setMarker()마커를 한개 또는 여러개 표시할 수 있습니다. 이 때 원하는 아이콘을 지정하여 줄 수 있습니다.
+**방위각이 있는 지도**의 경우 지도의 좌표가 아니라 지도 중앙을 중심으로(0, 0) 좌표가 설정되므로 지도의 좌표를 그리기 위해서는 getCameraPosition() 을 통해 좌표를 변환한 뒤 불러야 합니다.  
 여러개의 마커를 줄 수 있으므로 배열 형태로 지정합니다. 
 2D 모드일때 줌기능 동작 시 마커의 스케일을 동일하게 변경합니다.  
 - position:x, y, z 좌표
@@ -455,7 +457,7 @@ mapDraw.moveCamera({
 
 ### 지도 방위각에 따라 poi의 x,y 좌표 변환
 <!-- 2020-11-10 설명 수정-->
-지도 정보에서 받은 poiInfo 의 좌표 정보는 *방위각이 있는 지도*와 좌표 정보가 다르기 때문에 변환해 주어야 합니다.   
+지도 정보에서 받은 poiInfo 의 좌표 정보는 **방위각이 있는 지도**의 경우 좌표 정보가 다르기 때문에 변환해 주어야 합니다.   
 scene의 좌표와 camera 의 좌표가 다르기 때문에 scene 좌표를 camera가 보는 좌표로 변환해주어야 moveCamera 가 원하는 위치로 동작합니다.   
 
 <!-- 지도 방위각이 있을 경우 mapDraw.response.poiInfo 의 좌표 정보( position )는 scene의 좌표이기 때문에 moveCamera시 그대로 입력하면 원하는 위치로 이동하지 않을 수 있습니다.-->
@@ -463,7 +465,7 @@ scene의 좌표와 camera 의 좌표가 다르기 때문에 scene 좌표를 came
 
 <!-- 2020-11-10 !! moveCamera 에 해당함수를 같이 안쓰는 이유 : 사용자가 moveCamera 를 이용하여 지도에서 받은 poi 위치가 아닌 사용자가 지정한 위치로 이동할 수 있기 때문에 함수 분리 !!  -->
 
-*mapDraw.myLocationOn 으로 만든 마커나 mapDraw.setMarker 의 경우도 scene 좌표에 그려지기 때문에 변환이 필요합니다*
+**mapDraw.myLocationOn 으로 만든 마커나 mapDraw.setMarker 의 경우도 scene 좌표에 그려지기 때문에 변환이 필요합니다**
 
 ~~~javascript
 let position = mapDraw.getCameraPosition(x, y);
