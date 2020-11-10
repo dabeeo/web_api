@@ -42,6 +42,10 @@
 				width: 100px;
 				margin-left: 5px;
 			}
+            #btns button {
+                margin: 2px;
+                text-align: left;
+            }
 		</style>
         <!-- <script type="module" src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI.js"></script> -->
         <script src="https://demo-preview-rebuild.dabeeomaps.com/jsMapAPI_pre_release.js"></script>
@@ -73,6 +77,9 @@
             <p>
                 <input readonly type="number" id="c-positionx" style="margin-right:5px; width: 60px;" value="">
                 <input readonly type="number" id="c-positiony" style="margin-right:5px; width: 60px;" value="">
+            </p>
+            <p id="btns" style="width: 150px;">
+                
             </p>
         </div>
         <script>
@@ -109,6 +116,8 @@
                             // do something
                             console.log("map view success!")
                             initmoveCamera();
+                            makeBtn(mapDraw.response.poiInfo);
+                            
                         }
                     } 
                 );
@@ -132,6 +141,23 @@
                 });
             }
 
+            function makeBtn(pois) {
+                pois.forEach( function(ele) {
+                    var btn = document.createElement("BUTTON");                    
+                    document.getElementById("btns").appendChild(btn);
+                    btn.innerText = ele.title;
+                    btn.addEventListener("click", move(ele.position));
+                });
+            }
+            function move(position) {
+                var poi = mapDraw.getCameraPosition(position.x, position.y);
+                return function(e) {
+                    mapDraw.moveCamera({
+                        "x": poi.x,
+                        "y": poi.y
+                    });
+                }
+            }
         </script>		
     </body>
 </html>
