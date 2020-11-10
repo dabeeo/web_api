@@ -435,10 +435,10 @@ mapDraw.mapCordinfo()는 지도좌표계를 매핑하기 위한 기본 정보를
 
 #
 
-### 지도 x, y좌표로 이동
-지도의 x, y좌표로 카메라를 이동합니다.    
-- x: number 지도내의 좌표를 입력합니다.  
-- y: number 지도내의 좌표를 입력합니다.   
+### x, y좌표로 이동
+ x, y좌표로 카메라를 이동합니다.    
+- x: number x 좌표를 입력합니다.  
+- y: number y 좌표를 입력합니다.   
 
 ~~~javascript
 mapDraw.moveCamera({
@@ -474,6 +474,17 @@ mapDraw.moveCamera({
 ~~~
 
 - example: https://dabeeo.github.io/web_api/samples/moveCamera.html
+
+<!-- 2020-11-10 mapPositionMoveCamera 추가 -->
+### 지도 좌표 기준으로 x, y좌표로 이동
+
+지도의 좌표 기준으로 x, y좌표로 카메라를 이동합니다. (방위각에 상관없이 이동합니다)    
+- x: number 지도내의 좌표를 입력합니다.  
+- y: number 지도내의 좌표를 입력합니다.   
+
+~~~javascript
+mapDraw.mapPositionMoveCamera(x, y); // 지도 scene 좌표 x, y 
+~~~
 
 
 #
