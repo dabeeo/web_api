@@ -351,7 +351,6 @@ mapDraw.setNavigationOption ({
 
 ### 내 위치 마커 표시
 mapDraw.myLocationOn()메소드를 이용하여 원하는 좌표에 위치를 표시할 수 있습니다. 
-**방위각이 있는 지도**의 경우 지도의 좌표가 아니라 지도 중앙을 중심으로(0, 0) 좌표가 설정되므로 지도의 좌표를 그리기 위해서는 getCameraPosition() 을 통해 좌표를 변환한 뒤 불러야 합니다.  
 - position: x,y,z 좌표. z좌표는 object보다 높아야 지도에 표시됩니다. 
 ~~~javascript
 mapDraw.myLocationOn(x, y, z);
@@ -367,7 +366,6 @@ mapDraw.myLocationOff();
 
 ### 여러개의 마커표시
 mapDraw.setMarker()마커를 한개 또는 여러개 표시할 수 있습니다. 이 때 원하는 아이콘을 지정하여 줄 수 있습니다.
-**방위각이 있는 지도**의 경우 지도의 좌표가 아니라 지도 중앙을 중심으로(0, 0) 좌표가 설정되므로 지도의 좌표를 그리기 위해서는 getCameraPosition() 을 통해 좌표를 변환한 뒤 불러야 합니다.  
 여러개의 마커를 줄 수 있으므로 배열 형태로 지정합니다. 
 2D 모드일때 줌기능 동작 시 마커의 스케일을 동일하게 변경합니다.  
 - position:x, y, z 좌표
