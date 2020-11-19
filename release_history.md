@@ -5,6 +5,11 @@
 - https://dabeeomaps.com/docs
 
 #
+### jsMapAPI_03.02.11_R_2020.11.20
+#### change description
+canvasSize 설정시 화면 왜곡 이슈 
+
+#
 
 ### jsMapAPI_03.02.10_R_2020.11.13 
 
