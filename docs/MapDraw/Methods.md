@@ -316,7 +316,8 @@ mapDraw.startRouteAnimation({zoom: 200});
 mapDraw.setNavigationOption() 메소드를 이용하여 네비게이션 관련 옵션을 세팅할 수 있습니다.
 - lineColor : 네비게이션 주행 라인의 색상을 지정
 - iconUrl : 모의주행의 icon을 지정
-
+<!-- 2020-11-20 모의주행 속도 옵셪 추가 -->
+- speedRate : 모의주행 속도 지정. 예를 들어 1.5로 지정한 경우 default대비 1.5배 속도
 <!-- 2020-10-15 길찾기 옵션 추가 -->
 - origin : 시작지 아이콘으로 image, width, height를 설정   
 - destination : 도착지 아이콘으로 image, width, height를 설정
