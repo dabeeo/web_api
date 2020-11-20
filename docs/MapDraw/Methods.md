@@ -332,6 +332,7 @@ mapDraw.setNavigationOption() 메소드를 이용하여 네비게이션 관련 �
 mapDraw.setNavigationOption ({ 
     lineColor:"#0000ff", 
     iconUrl: "http://localhost:3000/demo/img_marker_blue-3x.png",
+    speedRate: 1.5,
     origin: { // 시작지 아이콘 
         iconUrl: "origin.png", 
         width: 100,
