@@ -5,14 +5,21 @@
 - https://dabeeomaps.com/docs
 
 #
+### jsMapAPI_03.02.12_R_2020.11.27
+#### change description
+- 길찾기 - 모의보행 시 속도 지정 옵션 추가 
+
+#### changed API
+- 길찾기 - 모의보행 시 속도 지정 옵션 추가    
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기--옵션
+
+#
 ### jsMapAPI_03.02.11_R_2020.11.20
 #### change description
 - canvasSize 설정시 화면 왜곡 이슈 
 
 #
-
 ### jsMapAPI_03.02.10_R_2020.11.13 
-
 #### change description
 - 줌 레벨 관계없이 3d에서 마커 사이즈 고정 기능   
 - 지도 좌표기준으로 카메라 이동 함수 생성  
