@@ -353,7 +353,8 @@ mapDraw.setNavigationOption ({
 
 ### 내 위치 마커 표시
 mapDraw.myLocationOn()메소드를 이용하여 원하는 좌표에 위치를 표시할 수 있습니다. 
-- position: x,y,z 좌표. z좌표는 object보다 높아야 지도에 표시됩니다. 
+- x,y,z 좌표: z좌표는 object보다 높아야 지도에 표시됩니다. 
+- onActive : true/false, default=false 다른 층을 간 이후에 다시 돌아왔을 때에도 내위치표시를 계속 할 것인지 설정.
 ~~~javascript
 mapDraw.myLocationOn(x, y, z);
 ~~~
