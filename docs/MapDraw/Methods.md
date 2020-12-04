@@ -7,8 +7,7 @@ mapDraw.redrawMap() 메소드를 이용하여 지도에 그려줄 층을 변경�
 ~~~javascript
 mapDraw.redrawMap({floor: floorId});
 ~~~
-- example: https://dabeeo.github.io/web_api/samples/floor.html   
-
+- example: https://github.com/dabeeo/web_api/blob/master/samples/floor.html   
 #
 
 ### 테마 선택  
@@ -16,7 +15,7 @@ mapDraw.redrawMap() 메소드를 이용하여 테마를 변경할 수 있습니�
 ~~~javascript
 mapDraw.redrawMap({theme: themeId});
 ~~~
-- example: https://dabeeo.github.io/web_api/samples/theme.html   
+- example: https://github.com/dabeeo/web_api/blob/master/samples/theme.html   
 
 ## 설정 변경
 
@@ -27,7 +26,7 @@ mapDraw.changeCamera() 메소드를 이용하여 2d/3d 지도로 변경할 수 �
 ~~~javascript
 mapDraw.changeCamera({camera:"2d"});
 ~~~
-- example:  https://dabeeo.github.io/web_api/samples/camera.html   
+- example:  https://github.com/dabeeo/web_api/blob/master/samples/camera.html   
 
 #
 
@@ -51,7 +50,7 @@ mapDraw.changeLanguage()를 이용하여 언어를 변경할 수 있습니다.(_
 ~~~javascript
 mapDraw.chanageLanguage("ko");
 ~~~
-- example: https://dabeeo.github.io/web_api/samples/language.html
+- example: https://github.com/dabeeo/web_api/blob/master/samples/language.html
 
 
 #
@@ -65,7 +64,7 @@ mapDraw.changeShowPoi({showPoi: true});
 ~~~javascript
 mapDraw.changeShowPoi({showPoi: false});
 ~~~
-- example: https://dabeeo.github.io/web_api/samples/showPoi.html   
+- example: https://github.com/dabeeo/web_api/blob/master/samples/showPoi.html   
 
 #         
 
@@ -93,7 +92,7 @@ mapDraw.setPoiLevelOff()를 이용하여 mapDraw.setPoiLevelOn 설정을 해제 
 ~~~javascript
 mapDraw.setPoiLevelOff();
 ~~~
-- example: https://dabeeo.github.io/web_api/samples/poiLevel.html
+- example: https://github.com/dabeeo/web_api/blob/master/samples/poiLevel.html
 
 #
 
@@ -119,7 +118,7 @@ mapDraw.ZoomOut() 메소드를 이용하여 지도를 축소할 수 있습니다
 ~~~javascript
 mapDraw.zoomOut();
 ~~~
-- example: https://dabeeo.github.io/web_api/samples/zoom.html   
+- example: https://github.com/dabeeo/web_api/blob/master/samples/zoom.html   
 
 ### 지도 비율 지정하여 확대/축소   
 mapDraw.ZoomControl() 메소드를 이용하여 지도를 확대나 축소시 그 비율을 지정할 수 있습니다.   
@@ -230,7 +229,7 @@ mapDraw.getRouteOff() 메소드를 이용하여 길찾기 경로를 삭제할 �
 ~~~javascript
 let a = mapDraw.getRouteOff();
 ~~~
-- example: https://dabeeo.github.io/web_api/samples/navigation.html   
+- example: https://github.com/dabeeo/web_api/blob/master/samples/navigation.html   
 
 #
 
@@ -284,7 +283,7 @@ list[1] = {
 
 ~~~
 
-- example: https://dabeeo.github.io/web_api/samples/navigation.html   
+- example: https://github.com/dabeeo/web_api/blob/master/samples/navigation.html   
 
 #
 
@@ -308,7 +307,7 @@ mapDraw.stopRouteAnimation();
 mapDraw.startRouteAnimation({zoom: 200});
 ~~~
 
-- example: https://dabeeo.github.io/web_api/samples/navigation.html   
+- example: https://github.com/dabeeo/web_api/blob/master/samples/navigation.html   
 
 #
 
@@ -362,7 +361,7 @@ mapDraw.myLocationOff()메소드로 좌표에 표시된 아이콘을 삭제할 �
 ~~~javascript
 mapDraw.myLocationOff();
 ~~~
-- example: https://dabeeo.github.io/web_api/samples/myLocation.html   
+- example: https://github.com/dabeeo/web_api/blob/master/samples/myLocation.html   
 
 
 #
@@ -398,7 +397,7 @@ mapDraw.clearMarker로 표시한 마커를 삭제할 수 있습니다.
 ~~~javascript
 mapDraw.clearMarker();
 ~~~
-- example: https://dabeeo.github.io/web_api/samples/marker.html
+- example: https://github.com/dabeeo/web_api/blob/master/samples/marker.html
 
 ### 등록된 마커사이즈 실시간 동기화 
 mapDraw.setAsyncMarker (isAsync:boolean) 맵에 표시된 마커의 사이즈를 줌 배율에 맞게 동기화 여부를 설정할 수 있습니다.   
@@ -452,7 +451,7 @@ mapDraw.moveCamera({
 });
 ~~~
 
-- example: https://dabeeo.github.io/web_api/samples/moveCamera.html
+- example: https://github.com/dabeeo/web_api/blob/master/samples/moveCamera.html
 
 
 
@@ -478,7 +477,7 @@ mapDraw.moveCamera({
 });
 ~~~
 
-- example: https://dabeeo.github.io/web_api/samples/moveCamera.html
+- example: https://github.com/dabeeo/web_api/blob/master/samples/moveCamera.html
 
 <!-- 2020-11-10 mapPositionMoveCamera 추가 -->
 ### 지도 좌표 기준으로 x, y좌표로 이동
@@ -513,7 +512,7 @@ mapDraw.convert2img();
 - xDirection : 원도와 비교 한 x 축 진행방향
 - yDirection : 원도와 비교 한 y 축 진행 방향
 
-* example : https://dabeeo.github.io/web_api/samples/convert_position_debug.html
+* example : https://github.com/dabeeo/web_api/blob/master/samples/convert_position_debug.html
 
 ~~~ javascript
 let convertOptions = {
