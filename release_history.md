@@ -5,6 +5,18 @@
 - https://dabeeomaps.com/docs
 
 #
+### jsMapAPI_03.02.14_R_2020.12.11
+#### change description
+- touch로 회전기능 끄거나 켤 수 있도록 mapView에 option 추가 (rotationTouch2d)
+- 길찾기 기능에서 출발지와 도착지의 아이콘의 z축 좌표를 설정할 수 있도록 option 추가 (originPositionZ, destinationPositionZ)
+
+#### changed API
+- touch로 회전기능 끄거나 켤 수 있도록 mapView에 option 추가 
+https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#rotationtouch2d
+- 길찾기 기능에서 출발지와 도착지의 아이콘의 z축 좌표를 설정할 수 있도록 option추가
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기--옵션
+
+#
 ### jsMapAPI_03.02.13_R_2020.12.04
 #### change description
 - 내위치 마커표시 기능에 층변경시에도 항상 내 위치를 표시할 수 있도록 option 추가 
