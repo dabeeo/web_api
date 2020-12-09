@@ -320,7 +320,10 @@ mapDraw.setNavigationOption() 메소드를 이용하여 네비게이션 관련 �
 <!-- 2020-10-15 길찾기 옵션 추가 -->
 - origin : 시작지 아이콘으로 image, width, height를 설정   
 - destination : 도착지 아이콘으로 image, width, height를 설정
-- visibleIcon : 길찾기 경로를 표시할 때 이미지를 보이거나 없앨 수 있습니다. Default는 true 로 아이콘이 표시됩니다.    
+- visibleIcon : 길찾기 경로를 표시할 때 이미지를 보이거나 없앨 수 있습니다. Default는 true 로 아이콘이 표시됩니다.   
+<!-- 2020-12-09 길찾기 옵션 추가 -->
+- originPositionZ: 출발지 아이콘의 z축값을 지정합니다. 
+- destinationPositionZ:  도착지 아이콘의 z축값을 지정합니다. 
 
 시작지, 도착지 아이콘은 아래의 옵션을 추가로 받습니다.  
  - iconUrl : 아이콘 url을 설정합니다. "" 빈값 일때 아이콘이 사라집니다. 
@@ -332,6 +335,8 @@ mapDraw.setNavigationOption ({
     lineColor:"#0000ff", 
     iconUrl: "http://localhost:3000/demo/img_marker_blue-3x.png",
     speedRate: 1.5,
+    originPositionZ: 100,
+    destinationPositionZ: 100,
     origin: { // 시작지 아이콘 
         iconUrl: "origin.png", 
         width: 100,
