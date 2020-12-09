@@ -48,19 +48,32 @@ let mapOptions = {
 ### floor
 실내지도 초기화시 최초 표시할 층 설정. 설정 안하는 경우 default로 지도의 default층으로 설정   
 Type : String
+~~~javascript
+floor : "default"
+~~~
+
 ### theme
 실내지도 초기화시 최초 표시할 테마  설정. 설정안하는 경우 지도의 default theme으로 설정    
 Type: String
+~~~javascript
+theme : "default"
+~~~
 
 ### camera
 실내지도 초기시 최초 표시할 카메라 모드  설정. "2d", "3d" 중 하나로 설정.  
 Type : String     
 Default : "3d"    
+~~~javascript
+camera : "2d"
+~~~
 
 ### showPoi
 실내지도 초기화시 poi 표시 여부 설정   
 Type: Boolean   
 Default : true   
+~~~javascript
+showPoi : false
+~~~
 
 ### canvasSize
 지도의 크기를 결정하기 위한 넓이와 높이    
@@ -133,6 +146,14 @@ Default : true
 
 ~~~javascript
 controlZoom: false // 마우스 휠로 지도가 확대 / 축소 되지 않습니다.
+~~~
+
+### rotationTouch2d
+사용자가 2d상에서 touch로 회전기능을 활성화 / 비활성화 할 것인지 결정합니다.  
+Type : Boolean
+Default : true
+~~~javascript
+rotationTouch2d : false // touch로 회전되지 않습니다. 
 ~~~
 
    
