@@ -85,6 +85,9 @@ https://github.com/dabeeo/web_api/blob/master/release_history.md
 </html>
 ~~~
 
+## API FLOW
+<img width="1178" alt="Screen Shot 2020-12-10 at 5 07 22 PM" src="https://user-images.githubusercontent.com/63434357/101739019-4f3c5d80-3b0a-11eb-9cdd-475dc1d178b9.png">
+
 ## Support
 
 ##### 기능이나 개발에 대한 문의사항이 있으신 경우 이메일[Platform.cs@dabeeo.com] 로 보내주시면 안내해 드리도록 하겠습니다.
