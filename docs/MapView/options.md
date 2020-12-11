@@ -60,7 +60,7 @@ theme : "default"
 ~~~
 
 ### camera
-실내지도 초기시 최초 표시할 카메라 모드  설정. "2d", "3d" 중 하나로 설정.  
+실내지도 초기시 최초 표시할 카메라 모드  설정. "2d", "3d" 중 하나로 설정.  default는 "3d"입니다. 
 Type : String     
 Default : "3d"    
 ~~~javascript
