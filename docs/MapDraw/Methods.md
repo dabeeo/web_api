@@ -315,7 +315,7 @@ mapDraw.startRouteAnimation({zoom: 200});
 mapDraw.setNavigationOption() 메소드를 이용하여 네비게이션 관련 옵션을 세팅할 수 있습니다.
 - lineColor : 네비게이션 주행 라인의 색상을 지정
 - lineSpotSize : 주행라인의 점의 굵기를 지정합니다.    
-- lineSpotInterval : 주행라인의 점간의 간격을 지정합니다.  
+- lineSpotInterval : 주행라인의 점간의 간격을 지정합니다. 숫자가 커질수록 실선에 가깝게 보입니다. 
 - lineZ : 주행라인의 z축값 지정합니다.   
 - iconUrl : 모의주행의 icon을 지정
 <!-- 2020-11-20 모의주행 속도 옵셪 추가 -->
@@ -337,8 +337,8 @@ mapDraw.setNavigationOption() 메소드를 이용하여 네비게이션 관련 �
 ~~~javascript
 mapDraw.setNavigationOption ({ 
     lineColor:"#0000ff", 
-    lineSpotSize:5,
-    lineSpotInterval:1000,
+    lineSpotSize:3,
+    lineSpotInterval:3000,
     lineZ : 20,
     iconUrl: "http://localhost:3000/demo/img_marker_blue-3x.png",
     speedRate: 1.5,
