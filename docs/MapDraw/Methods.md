@@ -314,6 +314,9 @@ mapDraw.startRouteAnimation({zoom: 200});
 ### 길찾기  옵션
 mapDraw.setNavigationOption() 메소드를 이용하여 네비게이션 관련 옵션을 세팅할 수 있습니다.
 - lineColor : 네비게이션 주행 라인의 색상을 지정
+- lineSpotSize : 주행라인의 점의 굵기를 지정합니다.    
+- lineSpotInterval : 주행라인의 점간의 간격을 지정합니다.  
+- lineZ : 주행라인의 z축값 지정합니다.   
 - iconUrl : 모의주행의 icon을 지정
 <!-- 2020-11-20 모의주행 속도 옵셪 추가 -->
 - speedRate : 모의주행 속도 지정. 예를 들어 1.5로 지정한 경우 default대비 1.5배 속도
@@ -324,9 +327,6 @@ mapDraw.setNavigationOption() 메소드를 이용하여 네비게이션 관련 �
 <!-- 2020-12-09 길찾기 옵션 추가 -->
 - originPositionZ : 출발지 아이콘의 z축값을 지정합니다. 
 - destinationPositionZ :  도착지 아이콘의 z축값을 지정합니다. 
-- lineSpotSize : 주행라인의 점의 굵기를 지정합니다.    
-- lineSpotInterval : 주행라인의 점간의 간격을 지정합니다.  
-- lineZ : 주행라인의 z축값 지정합니다.   
 
 
 시작지, 도착지 아이콘은 아래의 옵션을 추가로 받습니다.  
