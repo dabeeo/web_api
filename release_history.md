@@ -3,6 +3,17 @@
 ### NOTE
 - 공식 api 링크는 다비오 사이트에 올라가 있습니다. 
 - https://dabeeomaps.com/docs
+#
+### jsMapAPI_03.02.15_R_2020.12.18
+
+#### change description
+- POI 보이기/숨기기에서 같은 기능을 여러번 불렀을 때 나는 오류 수정
+- 모의보행시 노드 안내선에 대한 옵션 추가(점선을 실선으로 보일 수 있도록) (lineSpotSize, lineSpotInterval, lineZ)            
+- 길찾기 시 거리 소숫점2자리로 제한
+- 웹브라우저 기본배율 변경시 좌표 변환 (POI/Object click event)
+#### changed API
+- 모의보행시 노드 안내선 점선을 실선으로 보일 수 있도록 옵션 추가
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기--옵션
 
 #
 ### jsMapAPI_03.02.14_R_2020.12.11
