@@ -75,6 +75,14 @@ Default : true
 showPoi : false
 ~~~
 
+### isPoiAngle
+실내지도 3d 모드에서 지도의 각을 변화시켜도 poi를 항상 정면을 바라보게 할 지 여부 결정.   
+true로 지정하면 poi가 항상 정면을 바라봄. 
+Type: Boolean   
+Default : false
+~~~javascript
+isPoiAngle: true
+~~~
 ### canvasSize
 지도의 크기를 결정하기 위한 넓이와 높이    
 Type: 객체    
