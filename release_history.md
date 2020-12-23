@@ -3,6 +3,17 @@
 ### NOTE
 - 공식 api 링크는 다비오 사이트에 올라가 있습니다. 
 - https://dabeeomaps.com/docs
+
+#
+### jsMapAPI_03.02.16_R_2020.12.24
+
+#### change description
+- POI 숨긴 상태에서 드래그시 멈추는 현상 수정
+- 지도 로딩시 3d지도에서 항상 poi를 정면으로 보이게 하는 옵션 추가 (isPoiAngle)
+#### changed API
+- 지도 로딩시 3d지도에서 항상 poi를 정면으로 보이게 하는 옵션 추가 (isPoiAngle)
+https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#ispoiangle
+
 #
 ### jsMapAPI_03.02.15_R_2020.12.18
 
