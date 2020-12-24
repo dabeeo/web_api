@@ -145,8 +145,21 @@ mapDraw.zoomOn();
 ## 길찾기 
 
 ### 길찾기  
-mapDraw.getRouteOn() 메소드를 이용하여 길찾기 경로를 표시할 수 있습니다.   
-이 때 목적지까지 가는데 걸리는 시간이 반환됩니다. (miliseconds)
+mapDraw.getRouteOn() 메소드를 이용하여 길찾기 경로를 표시할 수 있습니다.
+아래 네가지의 매개변수를 갖습니다. 
+- origin : 출발지
+- destination : 도착지
+- type  : 이동수단 (추천, 계단, 에스컬레이더, 엘레베이터) 
+- waypoints : 경유지
+- retResponse : boolean 반환값을 시간으로 받을지 object로 받을지 선택. default는 false. 
+	- false인 경우 도착지까지 가는 데 걸리는 시간을 반환함. (miliseconds)
+	- true인 경우 object를 받음 
+		- locations : 경유하는 포인트들
+		- totalDistance : 도착지까지의 총 거리 (cm)
+		- totalTime : 도착지까지 가는 데 걸리는 시간 (miliseconds)     
+          
+각 매개변수의 자세한 정보는 아래와 같습니다. 
+
 주행경로와 경유지를 option으로 줄 수 있습니다. 
 - origin: 출발지, 좌표와 층     
     {   
@@ -217,13 +230,15 @@ mapDraw.getRouteOn() 메소드를 이용하여 길찾기 경로를 표시할 수
             floorId: "FL-1jeyt4ubl4awn7429"
         }
         let waypoints=[setpoi, waypoint1, waypoint2, waypoint3]
+~~~
 
-
-let time = mapDraw.getRouteOn(
-origin,
-destination,
-"elevator",
-waypoints);
+경유지 정보가 있으면서 도착지까지의 시간만 알고자 할 때 
+~~~javascript
+let time = mapDraw.getRouteOn(origin,destination,"elevator",waypoints);
+~~~
+경유지정보는 없고 도착지까지의 거리를 알고싶을 때
+~~~javascript
+var naviResponse =  mapDraw.getRouteOn(origin,destination,"elevator",[], true); 
 ~~~
 mapDraw.getRouteOff() 메소드를 이용하여 길찾기 경로를 삭제할 수 있습니다. 
 ~~~javascript
