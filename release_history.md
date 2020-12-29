@@ -4,6 +4,20 @@
 - 공식 api 링크는 다비오 사이트에 올라가 있습니다. 
 - https://dabeeomaps.com/docs
 
+
+#
+### jsMapAPI_03.02.17_R_2021.01.08
+
+#### change description
+- 지도 로딩을 빠르게 하기 위하여 네트워크를 통하지 않고 다운로드받은 지도를 로딩하도록 방법 추가 
+- 길찾기시 (getRouteOn()) 총거리 반환하도록 옵션 추가 
+#### changed API
+- 지도 로딩을 빠르게 하기 위하여 네트워크를 통하지 않고 다운로드받은 지도를 로딩하도록 방법 추가 
+https://github.com/dabeeo/web_api/tree/master/docs#maplocal--지도그리기-로컬에-저장된-지도파일-사용
+- 길찾기시 (getRouteOn()) 총거리 반환하도록 옵션 추가 
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기
+
+
 #
 ### jsMapAPI_03.02.16_R_2020.12.24
 
