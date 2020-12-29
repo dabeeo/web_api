@@ -1,12 +1,17 @@
 ## dabeeo web api에 대한 설명
 api를 사용하기 위한 간단한 설명입니다. 자세한 내용은 해당 파일을 참고하세요. 
 
-### MapView : 지도그리기
-- 자세한 설명은 아래 링크에 있습니다. 
+### MapView : 지도그리기 (서버에서 지도파일 가져오기)
+- 다비오 지도서버에서 지도를 다운로드하여 지도를 그리는 방법입니다. 
 - https://github.com/dabeeo/web_api/tree/master/docs/MapView
-- indoorMapApi.MapView를 이용하여 지도를 그릴 수 있습니다. 
+- indoorMapApi.MapView를 이용하여 지도를 그립니다. 
 - 초기 option을 지정할 수 있습니다. 
 
+### MapLocal : 지도그리기 (로컬에 저장된 지도파일 사용)
+- 다비오 지도서버에서 미리 지도를 다운받은 후 로컬에 저장한 파일을 읽어 지도를 그리는 방법입니다. 
+- https://github.com/dabeeo/web_api/tree/master/docs/MapLocal
+- indoorMapApi.MapLocal를 이용하여 지도를 그립니다. 
+- 초기 option을 지정할 수 있습니다. 
 
 ### MapDraw : 지도 속성 가져오기 및 지도 설정 변경하기
 - 자세한 설명은 아래 링크에 있습니다. 
