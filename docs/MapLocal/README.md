@@ -41,4 +41,3 @@ MapView와 동일한 기능이며 사용방법도 동일합니다. 단 지도파
 ~~~
 
 - example: https://github.com/dabeeo/web_api/blob/master/samples/local.html
-- example: https://github.com/dabeeo/web_api/blob/master/samples/mapData
