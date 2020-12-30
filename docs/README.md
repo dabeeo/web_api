@@ -7,8 +7,8 @@ api를 사용하기 위한 간단한 설명입니다. 자세한 내용은 해당
 - indoorMapApi.MapView를 이용하여 지도를 그립니다. 
 - 초기 option을 지정할 수 있습니다. 
 
-### MapLocal : 지도그리기 (로컬에 저장된 지도파일 사용)
-- 다비오 지도서버에서 미리 지도를 다운받은 후 로컬에 저장한 파일을 읽어 지도를 그리는 방법입니다. 
+### MapLocal : 지도그리기 (지정된 장소에 저장된 지도파일 사용)
+- 다비오 지도서버가 아닌 지정된 장소에 저장된 지도를 읽어서 지도를 그리는 방법입니다. MapView와 사용방법은 동일하되, 속도는 더 빠릅니다. 
 - https://github.com/dabeeo/web_api/tree/master/docs/MapLocal
 - indoorMapApi.MapLocal를 이용하여 지도를 그립니다. 
 - 초기 option을 지정할 수 있습니다. 
