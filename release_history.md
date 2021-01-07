@@ -9,12 +9,12 @@
 ### jsMapAPI_03.02.17_R_2021.01.08
 
 #### change description
-- 지도 로딩을 빠르게 하기 위하여 네트워크를 통하지 않고 다운로드받은 지도를 로딩하도록 방법 추가 
+- 지도 로딩을 빠르게 하는 새로운 인터페이스 추가 (MapLocal)
 - 길찾기시 (getRouteOn()) 총거리 반환하도록 옵션 추가 
 - 마커 클릭시 이벤트 안올라오는 버그 수정
 
 #### changed API
-- 지도 로딩을 빠르게 하기 위하여 네트워크를 통하지 않고 다운로드받은 지도를 로딩하도록 방법 추가 
+- 지도 로딩을 빠르게 하는 새로운 인터페이스 추가 (MapLocal)
 https://github.com/dabeeo/web_api/tree/master/docs/MapLocal
 - 길찾기시 (getRouteOn()) 총거리 반환하도록 옵션 추가     
 https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기
