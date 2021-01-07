@@ -14,7 +14,7 @@
 #### changed API
 - 지도 로딩을 빠르게 하기 위하여 네트워크를 통하지 않고 다운로드받은 지도를 로딩하도록 방법 추가 
 https://github.com/dabeeo/web_api/tree/master/docs/MapLocal
-- 길찾기시 (getRouteOn()) 총거리 반환하도록 옵션 추가 
+- 길찾기시 (getRouteOn()) 총거리 반환하도록 옵션 추가     
 https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기
 
 
