@@ -5,9 +5,10 @@ MapView API를 호출시 MapDraw가 Response로 반환되며 여기에 맵이름
 지도의 설정 변경시 MapDraw에 있는 정보를 사용하여 Mapdraw의 메소드를 호출합니다.
 mapDraw의 정보와 메소드는 해당문서에 자세히 설명되어 있습니다.
 
-- options에 대한 설명은 링크에 있습니다.
+- MapView호출시 사용가능한 options에 대한 설명은 링크에 있습니다.
   https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md
-
+- MapDraw.response에 대한 설명은 아래 링크에 있습니다.    
+  https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/response.md
 
 ~~~javascript
        <script>
@@ -58,3 +59,4 @@ mapDraw의 정보와 메소드는 해당문서에 자세히 설명되어 있습�
         </script>	
 ~~~
 - example: https://github.com/dabeeo/web_api/blob/master/samples/index.html
+- example: https://github.com/dabeeo/web_api/blob/master/samples/mapName.html
