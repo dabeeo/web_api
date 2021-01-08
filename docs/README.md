@@ -5,6 +5,7 @@ api를 사용하기 위한 간단한 설명입니다. 자세한 내용은 해당
 - 다비오 지도서버에서 지도를 다운로드하여 지도를 그리는 방법입니다. 
 - https://github.com/dabeeo/web_api/tree/master/docs/MapView
 - indoorMapApi.MapView를 이용하여 지도를 그립니다. 
+- 이 때 모든 지도 정보를 가져오므로 이 이후에는 반환된 값을 (MapDraw) 이용하여 지도를 제어할 수 있습니다. 
 - 초기 option을 지정할 수 있습니다. 
 
 ### MapLocal : 지도그리기 (CDN에 저장된 지도파일을 가져와서 지도 그리기 )
