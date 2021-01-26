@@ -4,12 +4,25 @@
 - 공식 api 링크는 다비오 사이트에 올라가 있습니다. 
 - https://dabeeomaps.com/docs
 
+#
+### jsMapAPI_03.02.18_R_2021.01.26
+
+#### change description
+- 지도 정보를 불러오는 새로운 클래스 추가 (MapInfo)- 버전, poi
+- 지도 방위각 설정하는 MapView option 추가
+- 지도 렌더링시 poi 안보이는 문제 해결
+
+#### changed API
+- 지도 정보를 불러오는 새로운 클래스 추가 (MapInfo)  
+https://github.com/dabeeo/web_api/tree/master/docs/MapInfo
+- 지도 방위각 설정하는 MapView option 추가   
+https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#northreference
 
 #
 ### jsMapAPI_03.02.17_R_2021.01.08
 
 #### change description
-- 지도 로딩을 빠르게 하는 새로운 인터페이스 추가 (MapLocal)
+- 지도 로딩을 빠르게 하는 새로운 클래스 추가 (MapLocal)
 - 길찾기시 (getRouteOn()) 총거리 반환하도록 옵션 추가 
 - 마커 클릭시 이벤트 안올라오는 버그 수정
 
