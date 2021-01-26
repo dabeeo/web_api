@@ -84,7 +84,7 @@ Default : false
 isPoiAngle: true
 ~~~
 ### canvasSize
-지도의 크기를 결정하기 위한 넓이와 높이    
+지도의 크기를 결정하기 위한 넓이와 높이로 container dom element의 사이즈(width, height)와 동일하게 설정되어야 합니다. 
 Type: 객체    
 Default : 아무것도 지정하지 않으면 화면 전체 사이즈로 지정됩니다. 
 
