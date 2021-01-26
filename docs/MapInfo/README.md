@@ -1,0 +1,76 @@
+# MapInfo
+
+지도 데이터에 대한 정보를 가져오는 기능을 제공합니다.
+
+- Version 가져오기
+- Poi 정보 가져오기
+
+## Version 가져오기
+
+- 배포된 지도의 최신 Version을 가져오는 기능입니다. 
+- Response는 object로서 다음과 같은 구조를 같습니다. 
+~~~
+version: {
+    code: "00",
+    message: "",
+    payload: "3.4"
+}
+~~~
+- 배포된 지도의 최신 Version을 가져오기 위해서 아래 예제와 같이 사용하면 됩니다.  
+~~~javascript
+        <script>
+        window.onload = function () {
+        
+            // 지도 인증정보
+            let authorization = new indoorMapApi.Authorization({
+            clientId: "28AXw_veA2YbNKDP6poTpT",
+            clientSecret: "70c540c169af62808f4da3709e988e06"
+            });
+        
+            let mapOptions = {
+            authorization: authorization
+            };
+        
+            // 서버에서 정보를 가져오면 콜백으로 결과를 리턴합니다
+            new indoorMapApi.MapInfo(mapOptions).getVersion( 
+                    function(response) {
+                        if (response.code === 200) {
+                        console.log(response.getPayload());
+                    }
+                }
+            );
+        };
+    </script>
+~~~
+
+## POI 가져오기
+
+- 지도에 있는 poi 정보를 가져오기 위해서 아래 예제를 참조하시면 됩니다.
+- Response의 자세한 정보는 아래 파일을 참조하기 바랍니다. 
+- https://docs.google.com/spreadsheets/d/1Z-Gi8vdX3Xiq5M7lABm456aYJ1bq7FyO4M1MjOCuSbk/edit?usp=sharing
+  
+~~~javascript
+        <script>
+        window.onload = function () {
+        
+            // 지도 인증정보
+            let authorization = new indoorMapApi.Authorization({
+            clientId: "28AXw_veA2YbNKDP6poTpT",
+            clientSecret: "70c540c169af62808f4da3709e988e06"
+            });
+        
+            let mapOptions = {
+            authorization: authorization
+            };
+        
+            // 서버에서 정보를 가져오면 콜백으로 결과를 리턴합니다
+            new indoorMapApi.MapInfo(mapOptions).getPoi( 
+                    function(response) {
+                        if (response.code === 200) {
+                        console.log(response.getPayload());
+                    }
+                }
+            );
+        };
+    </script>
+~~~
