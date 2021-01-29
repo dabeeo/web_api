@@ -5,6 +5,10 @@
 - https://dabeeomaps.com/docs
 
 #
+### jsMapAPI_03.02.19_S_2021.01.29
+- 중문폰트 동일한 굵기로 보이지 않는 문제 해결
+
+#
 ### jsMapAPI_03.02.18_R_2021.01.26
 
 #### change description
