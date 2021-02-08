@@ -3,6 +3,9 @@
 ### NOTE
 - 공식 api 링크는 다비오 사이트에 올라가 있습니다. 
 - https://dabeeomaps.com/docs
+#
+### jsMapAPI_03.02.20_R_2021.02.05 
+- 여러개의 map을 동시에 사용할 수 있도록 수정
 
 #
 ### jsMapAPI_03.02.19_R_2021.01.29
