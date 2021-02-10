@@ -5,7 +5,14 @@
 - https://dabeeomaps.com/docs
 #
 ### jsMapAPI_03.02.20_R_2021.02.05 
+
+#### change description
 - 여러개의 map을 동시에 사용할 수 있도록 수정
+- 카메라의 설정 (zoom과 rotation)을 초기화할 수 있도록 메소드 제공
+
+#### changed API
+- 카메라의 설정 (zoom과 rotation)을 초기화할 수 있도록 메소드 제공
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#카메라-모드-변경
 
 #
 ### jsMapAPI_03.02.19_R_2021.01.29
