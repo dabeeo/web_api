@@ -17,7 +17,7 @@ mapDraw.redrawMap({theme: themeId});
 ~~~
 - example: https://github.com/dabeeo/web_api/blob/master/samples/theme.html   
 
-## 설정 변경
+## 카메라 관련
 
 ### 카메라 모드 변경
 mapDraw.changeCamera() 메소드를 이용하여 2d/3d 지도로 변경할 수 있습니다. 
@@ -28,7 +28,19 @@ mapDraw.changeCamera({camera:"2d"});
 ~~~
 - example:  https://github.com/dabeeo/web_api/blob/master/samples/camera.html   
 
+### 카메라 초기화 기능
+mapDraw.init2DCameraInfo() 메소드를 이용하여 2d 카메라 상태에서 zoom과 rotate를 초기화할 수 있습니다. 
+~~~javascript
+mapDraw.init2DCameraInfo();
+~~~
+mapDraw.init3DCameraInfo() 메소드를 이용하여 3d 카메라 상태에서 zoom과 rotate를 초기화할 수 있습니다. 
+~~~javascript
+mapDraw.init3DCameraInfo();
+~~~
+
 #
+
+## 마우스 관련
 
 ### drag 기능 마우스로 지정
 mapDraw.controlDragLeft()메소드를 이용하여 drag기능을 마우스의 왼쪽 클릭으로 조정하도록 지정합니다.
