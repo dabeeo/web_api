@@ -28,7 +28,7 @@
                 /* float:left; */
                 position:absolute;
                 left: 10px;
-                top: 50px;
+                bottom: 50px;
             }
             .floor {
                 width: 36px;
@@ -54,7 +54,8 @@
             }
 
 		</style>
-        <script src="[다비오개발문서의 api 링크]"></script>
+        <!-- <script src="[다비오개발문서의 api 링크]"></script> -->
+        <script type="application/javascript" src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
     </head>
 	<body>
         <div id="map"></div>        
@@ -68,6 +69,8 @@
 				<option value="elevator">엘리베이터</option>
 			</select>
             <button id="navi-on-button" class="navi-button" type="button" >길찾기</button>
+            <select id="select-way-poi", class="select-poi"></select>
+            <button id="navi-way-button" class="navi-button" type="button" >경유지 포함 길찾기</button>
             <button id="navi-off-button" class="navi-button" type="button" >길찾기끄기</button>
             <button id="navi-ani-on-button" class="navi-button" type="button" >모의주행</button>
             <button id="navi-ani-on-button-option" class="navi-button" type="button" >모의주행 카메라 애니메이션 설정</button>
@@ -149,14 +152,17 @@
 
             function initNavigation(poiList) {
                 var poiStartElement = document.getElementById("select-start-poi");
+                var poiWayElement=document.getElementById("select-way-poi");
                 var poiDestElement = document.getElementById("select-dest-poi");
                 var naviOnButton = document.getElementById("navi-on-button");
+                var naviWayButton = document.getElementById("navi-way-button");
                 var naviOffButton = document.getElementById("navi-off-button");
                 var naviAniOnButton = document.getElementById("navi-ani-on-button");
                 var naviAniOffButton = document.getElementById("navi-ani-off-button");
                 var naviAniOnButtonOption = document.getElementById("navi-ani-on-button-option");
                 var startPoint = {position: poiList[0].position, floorId: poiList[0].floorId};
                 var destPoint = {position: poiList[0].position, floorId: poiList[0].floorId};
+                var wayPoint = {position: poiList[0].position, floorId: poiList[0].floorId};
 
                 poiList.forEach(function(poi, index) {
                     var startOption = document.createElement("option");
@@ -168,6 +174,11 @@
                     destOption.value = index;
                     destOption.appendChild(document.createTextNode(poi.title + "--" + floorMap.get(poi.floorId)));
                     poiDestElement.appendChild(destOption);
+
+                    var wayOption = document.createElement("option");
+                    wayOption.value = index;
+                    wayOption.appendChild(document.createTextNode(poi.title + "--" + floorMap.get(poi.floorId)));
+                    poiWayElement.appendChild(wayOption);
                 });
 
                 poiStartElement.addEventListener("change", function(e) {
@@ -184,8 +195,26 @@
                         floorId: poiList[e.target.value].floorId
                     };
                 });
+                poiWayElement.addEventListener("change", function(e)  {
+                    wayPoint = {
+                        // position: poiList[e.target.value].position,
+                        poiId: poiList[e.target.value].id,
+                        floorId: poiList[e.target.value].floorId
+                    };
+                });
                 naviOnButton.addEventListener("click", function(e)  {
                     var a = mapDraw.getRouteOn(startPoint, destPoint, document.querySelector("#navi-on-type").value, waypoints=[], retResponse=true);
+                    if (a === undefined) {
+                        console.log('함수 호출에 에러가 있습니다')
+                        return;
+                    }
+                    console.log(a);
+                    document.getElementById("navi-time-button").innerHTML = (a.totalTime / (1000 * 60)).toFixed(1) + "분 소요, 총거리: " + (a.totalDistance/100).toFixed(0)+"미터";
+
+                    setNavigationList();
+                });
+                naviWayButton.addEventListener("click", function(e)  {
+                    var a = mapDraw.getRouteOn(startPoint, destPoint, document.querySelector("#navi-on-type").value, waypoints=[wayPoint], retResponse=true);
                     // document.getElementById("navi-time-button").innerHTML = (a / (1000 * 60)).toFixed(0) + "분 소요";
                     console.log(a);
                     document.getElementById("navi-time-button").innerHTML = (a.totalTime / (1000 * 60)).toFixed(1) + "분 소요, 총거리: " + (a.totalDistance/100).toFixed(0)+"미터";
@@ -252,16 +281,21 @@
                         var btn = document.createElement("BUTTON");
                         btn.classList.add("navi-button");
                         btn.style.display = "block";
+                        btn.style.fontSize = "13px";
                         btn.style.marginBottom = "5px";
                         btn.addEventListener("click", list[i].move);
+                        btn.innerText ="";
                         if( list[i].isDestination ) {
-                            btn.innerText = list[i].title + ' ' + (list[i].distance/100)+'m';
+                            btn.innerText += list[i].title + ' ' + (list[i].distance/100)+'m';
                             document.getElementById("map-navilist").appendChild(btn);
                         } else {
+                            if (list[i].title) {
+                                btn.innerText +=list[i].title+' ';
+                            }
                             if( typeof list[i].distance === "object") { // 이동수단 진입 후 층변경시 distance: 이동된 floor object
-                                btn.innerText = transCode(list[i].transCode) +' ' + list[i].distance.name[0].text + ' 으로 이동';
+                                btn.innerText += transCode(list[i].transCode) +' ' + list[i].distance.name[0].text + ' 으로 이동';
                             } else {
-                                btn.innerText = transCode(list[i].transCode) +' ' + (list[i].distance/100) + 'm' ;
+                                btn.innerText += transCode(list[i].transCode) +' ' + (list[i].distance/100) + 'm' ;
                             }
                             document.getElementById("map-navilist").appendChild(btn);
                         }
