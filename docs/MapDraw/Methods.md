@@ -157,8 +157,7 @@ mapDraw.zoomOn();
 ## 길찾기 
 
 ### 길찾기  
-mapDraw.getRouteOn() 메소드를 이용하여 길찾기 경로를 표시할 수 있습니다.
-아래 네가지의 매개변수를 갖습니다. 
+mapDraw.getRouteOn() 메소드를 이용하여 길찾기 경로를 표시할 수 있습니다. 매개변수는 다음과 같습니다.    
 - origin : 출발지
 - destination : 도착지
 - type  : 이동수단 (추천, 계단, 에스컬레이더, 엘레베이터) 
