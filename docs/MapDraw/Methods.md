@@ -192,6 +192,20 @@ mapDraw.getRouteOn() 메소드를 이용하여 길찾기 경로를 표시할 수
     - "elevator"
 - waypoints : 경유지, 배열 형태. 배열 안에는 origin과 destination과 같은 형태의 데이터를 주면 됩니다. 아무값도 주지 않으면 경유지 없이 길찾기 기능이 수행됩니다. 
 
+- poi ID로 길찾기를 하는 경우 
+~~~javascript
+         let origin = {
+            poiId : "PO-KHfT1VzoG9044",
+            floorId: "FL-1jeyt4ubl4awn7429"
+         };
+
+         let destination = {
+            poiId : "PO-KHfT1Vzo_wfsd",
+            floorId: "FL-1jeyt4ubl4awn7429"
+         };
+~~~
+
+- 좌표로 길찾기를 하는 경우 
 ~~~javascript
          let origin = {
              position: {
@@ -210,6 +224,9 @@ mapDraw.getRouteOn() 메소드를 이용하여 길찾기 경로를 표시할 수
              },
              floorId: "FL-qhndqjlqhu7p3894"
          };
+~~~
+-경유지를 설정하는 경우 
+~~~javascript
         let waypoint1 = { 
             position: {
                 x: 194.9300631234604,
@@ -227,21 +244,7 @@ mapDraw.getRouteOn() 메소드를 이용하여 길찾기 경로를 표시할 수
             },
             floorId: "FL-1jeyt4ubl4awn7429"
         };
-        
-        let waypoint3 = {
-            position: {
-                x: 534.1032714843856,
-                y: 839.6628880450837,
-                z: 60
-            },
-            floorId: "FL-1jeyt4ubl4awn7429"
-        };
-        // poi id 로 설정
-        let setpoi = {
-            poiId : "PO-KHfT1VzoG9044",
-            floorId: "FL-1jeyt4ubl4awn7429"
-        }
-        let waypoints=[setpoi, waypoint1, waypoint2, waypoint3]
+        let waypoints=[waypoint1, waypoint2]
 ~~~
 
 경유지 정보가 있으면서 도착지까지의 시간만 알고자 할 때 
@@ -261,8 +264,12 @@ let a = mapDraw.getRouteOff();
 #
 
 ### 길찾기 목록
-mapDraw.getRouteOn 함수 호출 후 mapDraw.getNavigation 함수를 사용하면 길찾기 목록을 array 로 제공합니다. 배열의 항목에서 move() 를 사용하면 카메라를 해당위치로 이동시킵니다.   
-*이동수단을 이용한 다음 층이 변경된 경우 항목의 distance가 number 가 아닌 층 object 로 표현됩니다.*  
+- mapDraw.getNavigation()함수를 이용하여 길찾기 목록을 알 수 있습니다. 
+- mapDraw.getRouteOn() 함수 호출 후 mapDraw.getNavigation() 함수를 사용하면 길찾기 목록을 array 로 제공합니다.    
+- 길찾기는 지도에 그려진 노드를 기반으로 경로를 안내합니다.   
+- 배열의 항목에서 move() 를 사용하면 카메라를 해당위치로 이동시킵니다.   
+- *이동수단을 이용한 다음 층이 변경된 경우 항목의 distance가 number 가 아닌 층 object 로 표현됩니다.*   
+- 경로중에 poi가 연결된 경우 poi 정보가 반환됩니다. 
 
 *이동수단 코드*
 * OB-ELEVATOR : 엘리베이터
@@ -275,39 +282,59 @@ mapDraw.getRouteOn 함수 호출 후 mapDraw.getNavigation 함수를 사용하�
 ~~~javascript
 let list = mapDraw.getNavigation();
 
-console.log(list); //  [{…}, {…}, {…}, ... ]
-
-list[0].move(); // 항목에 move() 호출시 해당하는 위치로 카메라가 이동합니다.
 
 /* list 배열의 항목 object */
 // list에서 시작점이거나 경유지, 도착지일 때 : poi object 
-list[0] = {   
-    isDestination: true // 시작점이거나 경유지, 도착지 여부
-    cameraPostion: { x: 0, y: 0 } // mapDraw.moveCamera() 시 사용될 position 
+{   
+    isDestination: true // 시작점이거나 경유지, 도착지
+    cameraPostion: { x: 1207.928172, y: 1603.837263 } // mapDraw.moveCamera() 시 사용될 position 
     categoryCode: "" // poi categoryCode
-    floorId: "FL-00000000000" // poi floorId
+    floorId: "FL-t398273jwhdwef" // poi floorId
     icoUrl: "url"  // poi icoUrl
     id: "PO-00000000000" // poi id
     idx: 0 // array index 
     metadatas: [{…}, {…}, {…}, {…}] // poi metadatas
     move: ƒ () // move() 함수 
     position: {x: 0, y:0, z: 0} // scene에서 사용하는 poi position
-    title: "title" // poi title
-    titleByLanguages: [{…}, {…}, {…}, {…}] // poi titleByLanguages
+    title: "티켓부스" // poi title
+    titleByLanguages: [{…}, {…}, {…}, {…}] // poi title ByLanguages
     distance: 0 // cm 단위로 이전 항목과의 거리
 };
-// list에서 이동수단 일 때 : 노드 object
-list[1] = {
-    isDestination: false // 시작점이거나 경유지, 도착지 여부 - false 일 때: 이동수단
+
+// list에서 이동경로이면서 연결된 poi가 없을 때 : 노드 object
+{
+    isDestination: false // false 일 때: 이동경로 
+    transCode: null // 이동수단 코드 - 위의 이동수단 코드 목록참고
     cameraPostion: {x: 0, y: 0} // mapDraw.moveCamera() 시 사용될 position 
     floorId: "FL-0000000000000" // 층 id 
     idx: 1 // array index 
     move: ƒ () // move() 함수 
     position: {x: 0, y: 0, z: 0} // scene에서 사용하는 position
-    transCode: null // 이동수단 코드 - 위의 이동수단 코드 목록참고
-    distance: 0 // cm 단위로 이전 항목과의 거리 또는 층변경시 층 object
+    distance: 1003 // cm 단위로 이전 항목과의 거리 또는 층변경시 층 object
 };
 
+// list에서 이동경로이면서 연결된 poi가 있을 때 : poi object. 도착지, 경유지, 출발지와 데이터구조가 동일, 단 transcode가 추가되어 있음
+{   
+    isDestination: false // 이동경로 
+    transCode: null // 이동수단 코드 - 위의 이동수단 코드 목록참고
+    cameraPostion: { x: 1207.928172, y: 1603.837263 } // mapDraw.moveCamera() 시 사용될 position 
+    categoryCode: "" // poi categoryCode
+    floorId: "FL-t398273jwhdwef" // poi floorId
+    icoUrl: "url"  // poi icoUrl
+    id: "PO-00000000000" // poi id
+    idx: 3 // array index 
+    metadatas: [{…}, {…}, {…}, {…}] // poi metadatas
+    move: ƒ () // move() 함수 
+    position: {x: 0, y:0, z: 0} // scene에서 사용하는 poi position
+    title: "티켓부스" // poi title
+    titleByLanguages: [{…}, {…}, {…}, {…}] // poi title ByLanguages
+    distance: 1982 // cm 단위로 이전 항목과의 거리
+};
+~~~
+
+- 해당 경로로 카메라를 이동시키기 위해서는 object안에 있는 move()함수를 호출하면 됩니다. 
+~~~javascript
+list[0].move(); // 항목에 move() 호출시 해당하는 위치로 카메라가 이동합니다.
 ~~~
 
 - example: https://github.com/dabeeo/web_api/blob/master/samples/navigation.html   
