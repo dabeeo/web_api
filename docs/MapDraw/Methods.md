@@ -172,13 +172,14 @@ mapDraw.getRouteOn() 메소드를 이용하여 길찾기 경로를 표시할 수
           
 각 매개변수의 자세한 정보는 아래와 같습니다. 
 
-주행경로와 경유지를 option으로 줄 수 있습니다. 
-- origin: 출발지, 좌표와 층     
+주행경로와 경유지를 option으로 줄 수 있습니다. poi Id와 좌표 둘 중 하나의 포맷으로 전달합니다. 
+- origin : 출발지 
+ 	- 좌표로 입력하는 경우     
     {   
         position : { x: 0, y: 0, z: 0 },    
         floorId:   
     }   
-    또는 poi의 id 를 입력합니다     
+ 	- poi의 id를 입력하는 경우    
     {   
         poiId : poiId,    
         floorId:   
