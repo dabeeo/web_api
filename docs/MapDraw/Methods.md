@@ -381,6 +381,10 @@ mapDraw.setNavigationOption() 메소드를 이용하여 네비게이션 관련 �
 <!-- 2020-12-09 길찾기 옵션 추가 -->
 - originPositionZ : 출발지 아이콘의 z축값을 지정합니다. 
 - destinationPositionZ :  도착지 아이콘의 z축값을 지정합니다. 
+<!-- 2021-02-17 길찾기 옵션 추가 -->
+- solidLineEnabled : default는 false. 주행라인의 속성을 결정. false일 때는 점선, true일 때 실선으로 그려짐. 
+- solidLineWidth : 실선의 굵기. default는 1.
+
 
 
 시작지, 도착지 아이콘은 아래의 옵션을 추가로 받습니다.  
