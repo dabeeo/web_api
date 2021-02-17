@@ -3,6 +3,21 @@
 ### NOTE
 - 공식 api 링크는 다비오 사이트에 올라가 있습니다. 
 - https://dabeeomaps.com/docs
+
+#
+### jsMapAPI_03.02.21_R_2021.02.19 
+
+#### change description
+- 모의주행 시, 길 안내 정보를 POI 타이틀로 가져오는 기능
+- 모의 보행 시 실선으로 주행선 그릴 수 있도록 옵션 추가
+- 멀티뷰상태에서 터치 동작 오류
+
+#### changed API
+- 모의주행 시, 길 안내 정보를 POI 타이틀로 가져오는 기능
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기-목록
+- 모의 보행 시 실선으로 주행선 그릴 수 있도록 옵션 추가 (solidLineEnabled, solidLineWidth 추가)
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기--옵션
+
 #
 ### jsMapAPI_03.02.20_R_2021.02.05 
 
