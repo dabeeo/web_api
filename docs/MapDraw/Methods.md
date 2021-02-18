@@ -269,16 +269,17 @@ let a = mapDraw.getRouteOff();
 - 길찾기는 지도에 그려진 노드를 기반으로 경로를 안내합니다.   
 - 배열의 항목에서 move() 를 사용하면 카메라를 해당위치로 이동시킵니다.   
 - **이동수단을 이용한 다음 층이 변경된 경우 항목의 distance가 number 가 아닌 층 object 로 표현됩니다.**   
-#### jsMapAPI_03.02.21_R_2021.02.19에서 추가   
-- 경로중에 poi가 연결된 경우 poi 정보가 반환됩니다. 
 
-*이동수단 코드*
+**이동수단 코드**
 * OB-ELEVATOR : 엘리베이터
 * OB-ESCALATOR : 에스컬레이터 양방향
 * OB-ESCALATOR_UP : 에스컬레이터 상행
 * OB-ESCALATOR_DOWN : 에스컬레이터 하행
 * OB-STAIRS : 계단
 * null : 걷기
+
+#### jsMapAPI_03.02.21_R_2021.02.19에서 추가   
+- 경로중에 poi가 연결된 경우 poi 정보가 반환됩니다. 
 
 ~~~javascript
 let list = mapDraw.getNavigation();
@@ -367,18 +368,19 @@ mapDraw.startRouteAnimation({zoom: 200});
 #
 
 ### 길찾기  옵션
-mapDraw.setNavigationOption() 메소드를 이용하여 네비게이션 관련 옵션을 세팅할 수 있습니다.
+mapDraw.setNavigationOption() 메소드를 이용하여 네비게이션 관련 옵션을 세팅할 수 있습니다.  
+주행선은 실선이나 점선으로 그리도록 선택할 수 있습니다. 
 - lineColor : 네비게이션 주행 라인의 색상을 지정
-- lineSpotSize : 주행라인의 점의 굵기를 지정합니다.    
-- lineSpotInterval : 주행라인의 점간의 간격을 지정합니다. 숫자가 커질수록 실선에 가깝게 보입니다. 
-- lineZ : 주행라인의 z축값 지정합니다.   
+- lineSpotSize : 주행선의 점의 굵기를 지정합니다. 주행선의 속성이 점선일 경우 적용됩니다.       
+- lineSpotInterval : 주행선의 점간의 간격을 지정합니다. 숫자가 커질수록 실선에 가깝게 보입니다. 주행선의 속성이 점선일 경우 적용됩니다.         
+- lineZ : 주행선의 z축값 지정합니다.   
 - iconUrl : 모의주행의 icon을 지정
 <!-- 2020-11-20 모의주행 속도 옵셪 추가 -->
 - speedRate : 모의주행 속도 지정. 예를 들어 1.5로 지정한 경우 default대비 1.5배 속도
 <!-- 2020-10-15 길찾기 옵션 추가 -->
 - origin : 시작지 아이콘으로 image, width, height를 설정   
 - destination : 도착지 아이콘으로 image, width, height를 설정
-- visibleIcon : 길찾기 경로를 표시할 때 이미지를 보이거나 없앨 수 있습니다. Default는 true 로 아이콘이 표시됩니다.   
+- visibleIcon : 길찾기 경로를 표시할 때 시작지와 도착지 이미지를 보이거나 없앨 수 있습니다. Default는 true 로 아이콘이 표시됩니다.   
 <!-- 2020-12-09 길찾기 옵션 추가 -->
 - originPositionZ : 출발지 아이콘의 z축값을 지정합니다. 
 - destinationPositionZ :  도착지 아이콘의 z축값을 지정합니다. 
@@ -393,7 +395,7 @@ mapDraw.setNavigationOption() 메소드를 이용하여 네비게이션 관련 �
 - solidLineWidth : 실선의 굵기. default는 1.
 
 
-
+점선으로 표시되는 예입니다.    
 ~~~javascript
 mapDraw.setNavigationOption ({ 
     lineColor:"#0000ff", 
