@@ -268,7 +268,8 @@ let a = mapDraw.getRouteOff();
 - mapDraw.getRouteOn() 함수 호출 후 mapDraw.getNavigation() 함수를 사용하면 길찾기 목록을 array 로 제공합니다.    
 - 길찾기는 지도에 그려진 노드를 기반으로 경로를 안내합니다.   
 - 배열의 항목에서 move() 를 사용하면 카메라를 해당위치로 이동시킵니다.   
-- *이동수단을 이용한 다음 층이 변경된 경우 항목의 distance가 number 가 아닌 층 object 로 표현됩니다.*   
+- **이동수단을 이용한 다음 층이 변경된 경우 항목의 distance가 number 가 아닌 층 object 로 표현됩니다.**   
+#### jsMapAPI_03.02.21_R_2021.02.19에서 추가   
 - 경로중에 poi가 연결된 경우 poi 정보가 반환됩니다. 
 
 *이동수단 코드*
@@ -381,17 +382,17 @@ mapDraw.setNavigationOption() 메소드를 이용하여 네비게이션 관련 �
 <!-- 2020-12-09 길찾기 옵션 추가 -->
 - originPositionZ : 출발지 아이콘의 z축값을 지정합니다. 
 - destinationPositionZ :  도착지 아이콘의 z축값을 지정합니다. 
+
+시작지, 도착지 아이콘은 아래의 옵션을 추가로 받습니다.  
+ - iconUrl : 아이콘 url을 설정합니다. "" 빈값 일때 아이콘이 사라집니다. 
+ - width : 아이콘 width 값을 설정합니다. number를 받습니다.   
+ - height : 아이콘 height 값을 설정합니다. number를 받습니다.  
 <!-- 2021-02-17 길찾기 옵션 추가 -->
 #### jsMapAPI_03.02.21_R_2021.02.19에서 추가
 - solidLineEnabled : default는 false. 주행라인의 속성을 결정. false일 때는 점선, true일 때 실선으로 그려짐. 
 - solidLineWidth : 실선의 굵기. default는 1.
 
 
-
-시작지, 도착지 아이콘은 아래의 옵션을 추가로 받습니다.  
- - iconUrl : 아이콘 url을 설정합니다. "" 빈값 일때 아이콘이 사라집니다. 
- - width : 아이콘 width 값을 설정합니다. number를 받습니다.   
- - height : 아이콘 height 값을 설정합니다. number를 받습니다. 
 
 ~~~javascript
 mapDraw.setNavigationOption ({ 
