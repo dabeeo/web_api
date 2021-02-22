@@ -8,13 +8,13 @@
 ### jsMapAPI_03.02.21_R_2021.02.19 
 
 #### change description
-- 모의주행 시, 길 안내 정보를 POI 타이틀로 가져오는 기능
+- 모의 보행 시, 길 안내 정보를 POI 타이틀로 가져오는 기능
 - 모의 보행 시 실선으로 주행선 그릴 수 있도록 옵션 추가
 - 멀티뷰상태에서 터치 동작 오류
 - 같은 층에 경로가 여러개일 때 생기는 길찾기 오류 해결
 
 #### changed API
-- 모의주행 시, 길 안내 정보를 POI 타이틀로 가져오는 기능   
+- 모의 보행 시, 길 안내 정보를 POI 타이틀로 가져오는 기능   
 https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기-목록
 - 모의 보행 시 실선으로 주행선 그릴 수 있도록 옵션 추가 (solidLineEnabled, solidLineWidth 추가)    
 https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기--옵션
