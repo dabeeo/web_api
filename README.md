@@ -90,4 +90,4 @@ https://github.com/dabeeo/web_api/blob/master/release_history.md
 
 ## Support
 
-##### 기능이나 개발에 대한 문의사항이 있으신 경우 이메일[Platform.cs@dabeeo.com] 로 보내주시면 안내해 드리도록 하겠습니다.
+##### 기능이나 개발에 대한 문의사항이 있으신 경우 이메일[cs.imstudio@dabeeo.com] 로 보내주시면 안내해 드리도록 하겠습니다.
