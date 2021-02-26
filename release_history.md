@@ -4,6 +4,14 @@
 - 공식 api 링크는 다비오 사이트에 올라가 있습니다. 
 - https://dabeeomaps.com/docs
 
+
+#
+### jsMapAPI_03.02.22_R_2021.02.26 
+
+#### change description
+- 바닥판 poi 들의 아이콘이 바닥판 아래로 뭍히는 에러 해결
+- 옵션없이 default로 길찾기 기능 실행시 주행아이콘이 높이 뜨는 문제 해결
+
 #
 ### jsMapAPI_03.02.21_R_2021.02.19 
 
