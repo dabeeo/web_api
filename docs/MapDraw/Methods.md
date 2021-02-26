@@ -60,7 +60,7 @@ mapDraw.changeLanguage()를 이용하여 언어를 변경할 수 있습니다.(_
     - "ko": 한국어
     - "en": 영어 
 ~~~javascript
-mapDraw.chanageLanguage("ko");
+mapDraw.changeLanguage("ko");
 ~~~
 - example: https://github.com/dabeeo/web_api/blob/master/samples/language.html
 
