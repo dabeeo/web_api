@@ -11,7 +11,7 @@ https://github.com/dabeeo/web_api/blob/master/release_history.md
 
 다비오맵스 API 는 다비오맵스 실내지도플랫폼 지도를 활용한 서비스를 쉽고 빠르게 구축 할 수 있게 JavaScript 형태로 공개한 기술들입니다.
 본 문서에서는 웹 서비스 또는 애플리케이션에 지도 기능을 구현하기 위한 기능에 대한 설명이 담겨 있습니다. 
-- [API 문서 링크](https://docs.google.com/spreadsheets/d/1Cg7Qa35L2oIfenVn26J9dEnqe_lWEkFrp0Ix0ctW3aQ/edit?usp=sharing) 
+[javascript_API_기능정의서_2021_02_26_v1.0.pdf](https://github.com/dabeeo/web_api/files/6048535/javascript_API_._2021_02_26_v1.0.-.Spec_Map_option.pdf)
 
 ## Issue Client ID / Secret
 
