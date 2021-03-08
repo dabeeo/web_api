@@ -49,7 +49,7 @@ version: {
 - getPoi(callback_func)을 호출하면 인자로 넘겨진 callback function으로 서버에서 받은 지도의 poi 정보를 전달합니다. 
 - 지도에 있는 poi 정보를 가져오기 위해서 아래 예제를 참조하시면 됩니다.
 - Response의 자세한 정보는 아래 링크로 연결된 파일을 참조하기 바랍니다. 
-- https://docs.google.com/spreadsheets/d/1Z-Gi8vdX3Xiq5M7lABm456aYJ1bq7FyO4M1MjOCuSbk/edit?usp=sharing
+- https://docs.google.com/spreadsheets/d/1OjBHMOCf3Q0qz_k_QGV-uaC1xRKzdSSqdiwdADLiQdM/edit?usp=sharing
   
 ~~~javascript
         <script>
