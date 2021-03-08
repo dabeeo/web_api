@@ -4,6 +4,18 @@
 - 공식 api 링크는 다비오 사이트에 올라가 있습니다. 
 - https://dabeeomaps.com/docs
 
+#
+### jsMapAPI_03.02.23_R_2021.03.12
+#### change description  
+- 사용자가 2d상에서 마우스로 회전기능을 활성화 / 비활성화 할 것인지 결정할 수 있는 옵션 추가 
+- poi click event 동작 이상 해결
+- MapLocal class 삭제
+- 경로별 시간과 총거리 알 수 있는 메소드 추가 
+- 
+#### changed API
+- 사용자가 2d상에서 마우스로 회전기능을 활성화 / 비활성화 할 것인지 결정할 수 있는 옵션 추가 
+- https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#rotationmouse2d
+
 
 #
 ### jsMapAPI_03.02.22_R_2021.02.26 
