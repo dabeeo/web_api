@@ -158,12 +158,19 @@ controlZoom: false // 마우스 휠로 지도가 확대 / 축소 되지 않습�
 
 ### rotationTouch2d
 사용자가 2d상에서 touch로 회전기능을 활성화 / 비활성화 할 것인지 결정합니다.  
-Type : Boolean
+Type : Boolean   
 Default : true
 ~~~javascript
-rotationTouch2d : false // touch로 회전되지 않습니다. 
+rotationTouch2d : false // touch로 지도가 회전되는 기능을 비활성화합니다.  
 ~~~
 
+### rotationMouse2d
+사용자가 2d상에서 마우스로 회전기능을 활성화 / 비활성화 할 것인지 결정합니다.  
+Type : Boolean   
+Default : true
+~~~javascript
+rotationMouse2d : false // 마우스로 지도가 회전되는 기능을 비활성화합니다.  
+~~~
    
 ### poiLevel
 poi 중요도에 따라 설정한 지도 확대 백분율에 맞게 보이게 설정합니다.     
