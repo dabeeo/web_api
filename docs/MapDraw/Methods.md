@@ -167,6 +167,7 @@ mapDraw.getNaviInfoByRoute() 메소드를 이용하여 이동수단별 길찾기
     }   
 ~~~
 	- poi의 id를 입력하는 경우     
+
 ~~~javascript
     {   
         poiId : poiId,    
