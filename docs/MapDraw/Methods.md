@@ -166,7 +166,7 @@ mapDraw.getNaviInfoByRoute() 메소드를 이용하여 이동수단별 길찾기
         floorId: "FL-qhndqjlqhu7p3894"
     }   
 ~~~
- 	- poi의 id를 입력하는 경우
+	- poi의 id를 입력하는 경우     
 ~~~javascript
     {   
         poiId : poiId,    
