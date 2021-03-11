@@ -160,6 +160,7 @@ mapDraw.zoomOn();
 mapDraw.getNaviInfoByRoute() 메소드를 이용하여 이동수단별 길찾기 정보를 구할 수 있습니다. 매개변수는 다음과 같습니다.
 - origin : 출발지 
  	- 좌표로 입력하는 경우     
+ ~~~javascript
     {   
         position : { x: 0, y: 0, z: 0 },    
         floorId:   
@@ -169,18 +170,20 @@ mapDraw.getNaviInfoByRoute() 메소드를 이용하여 이동수단별 길찾기
         poiId : poiId,    
         floorId:   
     }
+~~~
 - destination : 도착지,origin과 동일한 format
 - waypoints : 경유지, 배열 형태. 배열 안에는 origin과 destination과 같은 형태의 데이터를 주면 됩니다. 아무값도 주지 않으면 경유지 없이 길찾기 기능이 수행됩니다. 
 
 반환타입은 다음과 같습니다.
 - routeMap {map} : 이동수단별 길찾기 정보
+~~~javascript
 { 
 	elevator: {totalTime: 14123.48266130216, totalDistance: 151441.53594482222},
 	escalator: {totalTime: 14723.48266130216, totalDistance: 151441.53594482222},
 	recommendation:  {totalDistance: 14723.48266130216, totalTime: 151441.53594482222},
 	stairs:  {totalDistance: 14723.48266130216, totalTime: 151441.53594482222
 }
-
+~~~
 #
 
 ### 길찾기  
