@@ -10,11 +10,13 @@
 - 사용자가 2d상에서 마우스로 회전기능을 활성화 / 비활성화 할 것인지 결정할 수 있는 옵션 추가 
 - poi click event 동작 이상 해결
 - MapLocal class 삭제
-- 경로별 시간과 총거리 알 수 있는 메소드 추가 
-- 
+- 경로별 시간과 총거리 알 수 있는 메소드 추가   
+ 
 #### changed API
 - 사용자가 2d상에서 마우스로 회전기능을 활성화 / 비활성화 할 것인지 결정할 수 있는 옵션 추가 
-- https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#rotationmouse2d
+https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#rotationmouse2d
+- 경로별 시간과 총거리 알 수 있는 메소드 추가   
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#이동수단별-길찾기-정보-구하기
 
 
 #
