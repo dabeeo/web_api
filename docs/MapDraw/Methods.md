@@ -163,12 +163,12 @@ mapDraw.getNaviInfoByRoute() 메소드를 이용하여 이동수단별 길찾기
  ~~~javascript
     {   
         position : { x: 0, y: 0, z: 0 },    
-        floorId:   
+        floorId: "FL-qhndqjlqhu7p3894"
     }   
  	- poi의 id를 입력하는 경우    
     {   
         poiId : poiId,    
-        floorId:   
+        floorId: "FL-qhndqjlqhu7p3894"
     }
 ~~~
 - destination : 도착지,origin과 동일한 format
