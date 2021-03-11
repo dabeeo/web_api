@@ -184,6 +184,15 @@ mapDraw.getNaviInfoByRoute() 메소드를 이용하여 이동수단별 길찾기
 	stairs:  {totalDistance: 14723.48266130216, totalTime: 151441.53594482222
 }
 ~~~
+사용 예)
+~~~javascript
+const routeInfos = mapDraw.getNaviInfoByRoute(origin, destination);
+~~~
+또는
+~~~javascript
+const routeInfos = mapDraw.getNaviInfoByRoute(origin, destination, waypoints);
+~~~
+
 #
 
 ### 길찾기  
