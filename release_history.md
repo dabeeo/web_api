@@ -5,6 +5,17 @@
 - https://dabeeomaps.com/docs
 
 #
+### jsMapAPI_03.02.24_R_2021.03.19
+#### change description  
+- font 기능 개선
+- object에 연결된 poi가 여러개인 경우 object click시 multi poi 반환
+- rest API 무응답시 S3에서 데이터 가져오도록 예외처리  
+
+#### changed API
+- object에 연결된 poi가 여러개인 경우 click시 multi poi 반환    
+  https://github.com/dabeeo/web_api/blob/master/docs/Event.md#object-click
+
+#
 ### jsMapAPI_03.02.23_R_2021.03.12
 #### change description  
 - 사용자가 2d상에서 마우스로 회전기능을 활성화 / 비활성화 할 것인지 결정할 수 있는 옵션 추가 
