@@ -51,7 +51,8 @@ document.querySelector("#map").addEventListener("poi-click", (e) => { // 캔버�
 ~~~
 
 ### object-click
-지도에서 object 클릭 이벤트를 실행하면 obejct의 id, title, type, 연결된 poi 정보를 반환합니다.
+지도에서 object 클릭 이벤트를 실행하면 obejct의 id, title, type, 연결된 poi 정보를 반환합니다.   
+object에 연결된 poi가 여러개인 경우를 위하여 배열형태로도 반환합니다.  
 사용법은 다음과 같습니다.
 ~~~ javascript 
 document.querySelector("#map").addEventListener("object-click", (e) => { // 캔버스가 그려지는 container
@@ -71,7 +72,16 @@ document.querySelector("#map").addEventListener("object-click", (e) => { // 캔�
                     .
                     .
                     .
+         },
+         poiDataArr : [
+                {
+                    id:"PO--yXbjGjlk6426",
+                    metadatas: [{"text": "{\"unit\": \"3145\"}"}],
+                    .
+                    .
+                    .
                 }
+         ]
     }
 ]
 ~~~
