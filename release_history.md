@@ -8,11 +8,11 @@
 ### jsMapAPI_03.02.24_R_2021.03.19
 #### change description  
 - font 기능 개선
-- object에 연결된 poi가 여러개인 경우 object click시 multi poi 반환
+- object click시 배열형태로도 poi를 반환하도록 반환속성 추가 
 - rest API 무응답시 S3에서 데이터 가져오도록 예외처리  
 
 #### changed API
-- object에 연결된 poi가 여러개인 경우 click시 multi poi 반환    
+- object click시 배열형태로도 poi를 반환하도록 반환속성 추가 
   https://github.com/dabeeo/web_api/blob/master/docs/Event.md#object-click
 
 #
