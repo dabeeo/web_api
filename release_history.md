@@ -12,7 +12,7 @@
 - rest API 무응답시 S3에서 데이터 가져오도록 예외처리  
 
 #### changed API
-- object click시 배열형태로도 poi를 반환하도록 반환속성 추가 
+- object click시 배열형태로도 poi를 반환하도록 반환속성 추가     
   https://github.com/dabeeo/web_api/blob/master/docs/Event.md#object-click
 
 #
