@@ -11,6 +11,17 @@ clientId: "28AXw_veA2YbNKDP6poTpT",
 clientSecret: "70c540c169af62808f4da3709e988e06"
 }
 ~~~
+
+### language
+실내 지도 poi를 표기할 언어 설정
+Default : "ko"
+
+~~~javascript
+let mapOptions = {
+    language: "ko",
+}
+~~~
+
 ### zoom
 실내 지도 초기화시 zoom level 설정   
 Type: Number   
