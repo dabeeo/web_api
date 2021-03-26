@@ -5,6 +5,15 @@
 - https://dabeeomaps.com/docs
 
 #
+### jsMapAPI_03.02.25_R_2021.03.26
+#### change description  
+- mapDraw.myLocationOn()에 animate option 추가
+- 미리보기 처음 화면에서 폰트 굵게 나오는 현상 해결
+
+#### changed API
+
+
+#
 ### jsMapAPI_03.02.24_R_2021.03.19
 #### change description  
 - POI font 8pt에서도 선명하게 보이도록 개선
