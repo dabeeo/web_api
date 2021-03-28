@@ -471,11 +471,6 @@ mapDraw.myLocationOn()메소드를 이용하여 원하는 좌표에 위치를 �
 mapDraw.myLocationOn(x, y, z, true); // 층변경 후 함수 호출층 복귀시 다시 내위치 표시함.
 mapDraw.myLocationOn(x, y, z, false); // 층변경 후 함수 호출층 복귀시 다시 내위치 표시 안함. 
 ~~~
-mapDraw.myLocationOff()메소드로 좌표에 표시된 아이콘을 삭제할 수 있습니다. 
-~~~javascript
-mapDraw.myLocationOff();
-~~~
-- example: https://github.com/dabeeo/web_api/blob/master/samples/myLocation.html   
 
 ### 내 위치 마커 옵션 
 - option : 마커 옵션 값 (없으면 default 옵션 적용)
@@ -510,7 +505,11 @@ mapDraw.myLocationOn(x = 0, y = 0, z = 1, onActive = false, option = {
 });
 ~~~
 
-
+mapDraw.myLocationOff()메소드로 좌표에 표시된 아이콘을 삭제할 수 있습니다. 
+~~~javascript
+mapDraw.myLocationOff();
+~~~
+- example: https://github.com/dabeeo/web_api/blob/master/samples/myLocation.html   
 
 #
 
