@@ -467,10 +467,6 @@ mapDraw.setNavigationOption ({
 mapDraw.myLocationOn()메소드를 이용하여 원하는 좌표에 위치를 표시할 수 있습니다. 
 - x,y,z 좌표: z좌표는 object보다 높아야 지도에 표시됩니다. 
 - onActive : true/false, default=false 다른 층을 간 이후에 다시 돌아왔을 때에도 내위치표시를 계속 할 것인지 설정.
-~~~javascript
-mapDraw.myLocationOn(x, y, z, true); // 층변경 후 함수 호출층 복귀시 다시 내위치 표시함.
-mapDraw.myLocationOn(x, y, z, false); // 층변경 후 함수 호출층 복귀시 다시 내위치 표시 안함. 
-~~~
 
 ### 내 위치 마커 옵션 
 - option : 마커 옵션 값 (없으면 default 옵션 적용)
@@ -483,13 +479,16 @@ mapDraw.myLocationOn(x, y, z, false); // 층변경 후 함수 호출층 복귀�
 - desireScale : 마커 사이즈 대비 목표 스케일 배수 
 
 ~~~javascript
+mapDraw.myLocationOn(x, y, z, true); // 층변경 후 함수 호출층 복귀시 다시 내위치 표시함.
+mapDraw.myLocationOn(x, y, z, false); // 층변경 후 함수 호출층 복귀시 다시 내위치 표시 안함. 
+
 // default 마커에 default animation 적용
-mapDraw.myLocationOn(x = 0, y = 0, z = 1, onActive = false, option = {
+mapDraw.myLocationOn(x = 0, y = 0, z = 1, false, {
     animate : true
 });
 
 // 마커 옵션 및 animation 옵션 적용
-mapDraw.myLocationOn(x = 0, y = 0, z = 1, onActive = false, option = {
+mapDraw.myLocationOn(x = 0, y = 0, z = 1, false, {
     icon :  {
         image : "https://assets.dabeeomaps.com/image/ico/img_mylocation.png",
         size : {
@@ -503,7 +502,6 @@ mapDraw.myLocationOn(x = 0, y = 0, z = 1, onActive = false, option = {
         desireScale : 3.0 // icon 대비 사이즈 배수
     }
 });
-~~~
 
 mapDraw.myLocationOff()메소드로 좌표에 표시된 아이콘을 삭제할 수 있습니다. 
 ~~~javascript
