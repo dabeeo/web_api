@@ -469,7 +469,7 @@ mapDraw.myLocationOn()메소드를 이용하여 원하는 좌표에 위치를 �
 - onActive : true/false, default=false 다른 층을 간 이후에 다시 돌아왔을 때에도 내위치표시를 계속 할 것인지 설정.
 
 ### 내 위치 마커 옵션 
-- option : 마커 옵션 값 (없으면 default 옵션 적용)
+(option 없으면 default 옵션 적용)
 - icon : 마커 이미지와 사이즈 설정 
 - image : 마커 이미지 URL 설정 
 - size : 마커 widht, height 값
