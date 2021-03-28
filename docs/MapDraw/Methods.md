@@ -477,6 +477,40 @@ mapDraw.myLocationOff();
 ~~~
 - example: https://github.com/dabeeo/web_api/blob/master/samples/myLocation.html   
 
+### 내 위치 마커 옵션 
+- option : 마커 옵션 값 (없으면 default 옵션 적용)
+- icon : 마커 이미지와 사이즈 설정 
+- image : 마커 이미지 URL 설정 
+- size : 마커 widht, height 값
+- animate : 마커 애니메이션 설정, default=false
+- color : 애니메이션 color 값 
+- opacity : 애니메이션 시작 opacity 값 ( 0으로 animation 됨)
+- desireScale : 마커 사이즈 대비 목표 스케일 배수 
+
+~~~javascript
+// default 마커에 default animation 적용
+mapDraw.myLocationOn(x = 0, y = 0, z = 1, onActive = false, option = {
+    animate : true
+});
+
+// 마커 옵션 및 animation 옵션 적용
+mapDraw.myLocationOn(x = 0, y = 0, z = 1, onActive = false, option = {
+    icon :  {
+        image : "https://assets.dabeeomaps.com/image/ico/img_mylocation.png",
+        size : {
+            width:12, 
+            height:12
+        }
+    },
+    animate : {
+        color : '#96c4e1',
+        opacity : 0.8, // 초기 opacity ( 0 으로 animation 됨)
+        desireScale : 3.0 // icon 대비 사이즈 배수
+    }
+});
+~~~
+
+
 
 #
 
