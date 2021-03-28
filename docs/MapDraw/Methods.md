@@ -502,6 +502,7 @@ mapDraw.myLocationOn(x = 0, y = 0, z = 1, false, {
         desireScale : 3.0 // icon 대비 사이즈 배수
     }
 });
+~~~
 
 mapDraw.myLocationOff()메소드로 좌표에 표시된 아이콘을 삭제할 수 있습니다. 
 ~~~javascript
