@@ -11,6 +11,8 @@
 - 미리보기 처음 화면에서 폰트 굵게 나오는 현상 해결
 
 #### changed API
+- mapDraw.myLocationOn()에 animate option 추가    
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#내-위치-마커-옵션
 
 
 #
