@@ -18,15 +18,6 @@ api를 사용하기 위한 간단한 설명입니다. 자세한 내용은 해당
 - 버전을 체크하거나 poi 정보를 가져올 수 있습니다. 
 - https://github.com/dabeeo/web_api/tree/master/docs/MapInfo
 
-
-### MapLocal : 지도그리기 (CDN에 저장된 지도파일을 가져와서 지도 그리기 )
-- 다비오 지도서버가 아닌 CDN에 저장된 지도를 읽어서 지도를 그리는 방법입니다. MapView와 사용방법은 동일합니다.
-- 속도는 MapView를 사용할 때보다 빠르나, 지도가 업데이트될 때마다 CDN으로 복사해줘야 합니다. 
-- https://github.com/dabeeo/web_api/tree/master/docs/MapLocal
-- indoorMapApi.MapLocal를 이용하여 지도를 그립니다. 
-- 초기 option을 지정할 수 있습니다. 
-
-
 ### Event : api 호출시 반환되는 event에 대한 설명
 - 자세한 설명은 아래 링크에 있습니다. 
 - https://github.com/dabeeo/web_api/blob/master/docs/Event.md
