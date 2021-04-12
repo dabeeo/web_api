@@ -234,6 +234,7 @@ northReference: -90
  카메라가 움직일 수 있는영역(빨강색 영역)이 오브젝트 사이즈에서 카메라 뷰 사이즈를 뺀 만큼 dynamic하게 늘어나고 줄어듭니다.
  결국 zoomIn을 하다보면 panningBox는 처음에 1.0으로 설정한 것 과 같이 오브젝트의 최대 사이즈까지 늘어나게 됩니다.
  참고 영상 : https://user-images.githubusercontent.com/79128769/114359397-df6cdb00-9bae-11eb-9ff6-7380496c4761.mov
+ https://github.com/dabeeo/web_api/issues/4#issue-855667078
 
   
  Type: Number
