@@ -232,7 +232,7 @@ northReference: -90
  
  panningPercent를 1.0이하로 설정 후, zoom을 변경하여 카메라의 뷰 사이즈가 오브젝트의 사이즈보다 작아질 경우 
  카메라가 움직일 수 있는영역(빨강색 영역)이 오브젝트 사이즈에서 카메라 뷰 사이즈를 뺀 만큼 dynamic하게 늘어나고 줄어듭니다.
- 결국 줌을 최대화 하면 panningBox는 처음에 1.0으로 설정한 것 과 같이 오브젝트의 최대 사이즈까지 늘어나게 됩니다.
+ 결국 zoomIn을 하다보면 panningBox는 처음에 1.0으로 설정한 것 과 같이 오브젝트의 최대 사이즈까지 늘어나게 됩니다.
  참고 영상 : https://user-images.githubusercontent.com/79128769/114351053-0cb48b80-9ba5-11eb-9a3e-bcdbdf0029fd.mov
  
  Type: Number
