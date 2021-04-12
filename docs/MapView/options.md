@@ -220,8 +220,17 @@ northReference: -90
  카메라가 최대 움직 일 수 있는 영역을 설정합니다.
  전체 오브젝트의 사이즈 대비 카메라가 움직일 수 있는 비율입니다.
  
- 빨간색 영역이 카메라가 최대로 움직 일 수 있는 영역입니다.
- 최소값은 0.05로서 전체 오브젝트의 사이즈의 0.05% 까지만 이동 할 수 있습니다.
+ Type: Number, 최대값: 1.0 최소값: 0.05   
+ Default: 1.0
+ 
+~~~javascript
+panningPercent: 1.0
+~~~
+
+#### 설명 
+ 빨간색 영역이 카메라가 최대로 움직 일 수 있는 영역입니다.  
+ 최소값은 0.05로서 전체 오브젝트의 사이즈의 5% 까지만 이동 할 수 있습니다.
+ 
  <img width="919" alt="camera_panning_box_0 05" src="https://user-images.githubusercontent.com/79128769/114351050-0b835e80-9ba5-11eb-98b5-7befcb92f006.png">
  
  0.5일 경우 카메라는 전체 오브젝트의 사이즈의 50% 까지만 이동 할 수 있습니다.
@@ -234,14 +243,6 @@ northReference: -90
  카메라가 움직일 수 있는영역(빨강색 영역)이 오브젝트 사이즈에서 카메라 뷰 사이즈를 뺀 만큼 dynamic하게 늘어나고 줄어듭니다.
  결국 zoomIn을 하다보면 panningBox는 처음에 1.0으로 설정한 것 과 같이 오브젝트의 최대 사이즈까지 늘어나게 됩니다.
  참고 영상 : https://user-images.githubusercontent.com/79128769/114359397-df6cdb00-9bae-11eb-9ff6-7380496c4761.mov
- https://github.com/dabeeo/web_api/issues/4#issue-855667078
 
-  
- Type: Number
- Default: 1.0
-~~~javascript
-panningPercent: 1.0
-
-~~~
 
 
