@@ -214,4 +214,33 @@ poiLevel: [50, 100, 200] // 상(level1), 중(level2), 하(level3)
 northReference: -90
 
 ~~~
+
+~~~
+
+ ### panningPercent
+ 카메라가 최대 움직 일 수 있는 영역을 설정합니다.
+ 전체 오브젝트의 사이즈 대비 카메라가 움직일 수 있는 비율입니다.
  
+ 빨간색 영역이 카메라가 최대로 움직 일 수 있는 영역입니다.
+ 최소값은 0.05로서 전체 오브젝트의 사이즈의 0.05% 까지만 이동 할 수 있습니다.
+ <img width="919" alt="camera_panning_box_0 05" src="https://user-images.githubusercontent.com/79128769/114351050-0b835e80-9ba5-11eb-98b5-7befcb92f006.png">
+ 
+ 0.5일 경우 카메라는 전체 오브젝트의 사이즈의 50% 까지만 이동 할 수 있습니다.
+ <img width="924" alt="camera_panning_box_0 5" src="https://user-images.githubusercontent.com/79128769/114351043-08886e00-9ba5-11eb-8743-20dc89609944.png">
+ 
+ 1.0일 경우 카메라는 전체 오브젝트 영역의 각 꼭지점까지 이동 할 수 있습니다.
+ <img width="919" alt="camera_panning_box_1 0" src="https://user-images.githubusercontent.com/79128769/114351066-12aa6c80-9ba5-11eb-8472-4a1a463101b9.png">
+ 
+ panningPercent를 1.0이하로 설정 후, zoom을 변경하여 카메라의 뷰 사이즈가 오브젝트의 사이즈보다 작아질 경우 
+ 카메라가 움직일 수 있는영역(빨강색 영역)이 오브젝트 사이즈에서 카메라 뷰 사이즈를 뺀 만큼 dynamic하게 늘어나고 줄어듭니다.
+ 결국 줌을 최대화 하면 panningBox는 처음에 1.0으로 설정한 것 과 같이 오브젝트의 최대 사이즈까지 늘어나게 됩니다.
+ 참고 영상 : https://user-images.githubusercontent.com/79128769/114351053-0cb48b80-9ba5-11eb-9a3e-bcdbdf0029fd.mov
+ 
+ Type: Number
+ Default: 1.0
+~~~javascript
+panningPercent: 1.0
+
+~~~
+
+
