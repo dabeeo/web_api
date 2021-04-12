@@ -5,6 +5,15 @@
 - https://dabeeomaps.com/docs
 
 #
+### jsMapAPI_03.02.26_R_2021.04.09
+#### change description  
+- mapView 클래스에 카메라가 최대 움직 일 수 있는 영역을 설정하는 옵션 추가 - 드래그시 보여주는 공백 조정
+
+#### changed API
+- mapView 클래스에 카메라가 최대 움직 일 수 있는 영역을 설정하는 옵션 추가
+  https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#panningpercent
+
+#
 ### jsMapAPI_03.02.25_R_2021.03.26
 #### change description  
 - mapDraw.myLocationOn()에 animate option 추가
