@@ -215,7 +215,6 @@ northReference: -90
 
 ~~~
 
-~~~
 
  ### panningPercent
  카메라가 최대 움직 일 수 있는 영역을 설정합니다.
