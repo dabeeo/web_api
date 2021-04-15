@@ -514,12 +514,12 @@ mapDraw.myLocationOff();
 ### 여러개의 마커표시
 mapDraw.setMarker()마커를 한개 또는 여러개 표시할 수 있습니다. 이 때 원하는 아이콘을 지정하여 줄 수 있습니다.
 여러개의 마커를 줄 수 있으므로 배열 형태로 지정합니다. 
-2D 모드일때 줌기능 동작 시 마커의 스케일을 동일하게 변경합니다.  
 - position:x, y, z 좌표
 - image: optional. icon URL. 지정하지 않을 경우 기본 이미지로 표시 
 - floorId: optional. 층 지정시. 지정하지 않는 경우 현재의 층으로 표시 
 - size : 마커의 이미지 사이즈를 지정
 - data : 마커를 클릭했을 때 반환할 정보 
+- async : 마커의 사이즈를 줌 배율에 맞춰서 동기화 할 지 여부.
 ~~~javascript
 mapDraw.setMarker({
     marker: [
@@ -533,7 +533,8 @@ mapDraw.setMarker({
         },
 	data: i // marker를 클릭했을 때 반환할 정보 
         image: "img_marker_blue-3x.png", // 이미지 지정하지 않을 경우 기본 이미지로 표시
-        floorId: "[해당층아이디]" // 층을 지정 할때 : 지정하지 않을 경우 현재 보이는 층
+        floorId: "[해당층아이디]", // 층을 지정 할때 : 지정하지 않을 경우 현재 보이는 층
+	async: true // 마커의 사이즈를 줌배율에 따라 실시간 동기화 : 지정하지 않을 경우 동기화 하지 않음
         }
     ]
 });
@@ -546,7 +547,7 @@ mapDraw.clearMarker();
 
 ### 등록된 마커사이즈 실시간 동기화 
 mapDraw.setAsyncMarker (isAsync:boolean) 맵에 표시된 마커의 사이즈를 줌 배율에 맞게 동기화 여부를 설정할 수 있습니다.   
-초기값은 비동기화(false) 입니다. 
+초기값은 비동기화(false) 입니다. 비동기화(false)상태에도 mapDraw.setMarker()에서 개별 marker에 async가 true라면 해당 마커는 동기화됩니다.
 - true : 실시간동기화. 줌 배율이 확대되어도 초기에 설정된 마커 사이즈가 동일한 크기로 보입니다. 
 - false : 동기화 안함 (default)  줌배율이 확대되거나 축소될 때 마커 사이즈가 같은 비율로 확대되거나 축소됩니다. 
 ~~~javascript
