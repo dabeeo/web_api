@@ -29,11 +29,13 @@ mapDraw.changeCamera({camera:"2d"});
 - example:  https://github.com/dabeeo/web_api/blob/master/samples/camera.html   
 
 ### 카메라 초기화 기능
-mapDraw.init2DCameraInfo() 메소드를 이용하여 2d 카메라 상태에서 zoom과 rotate를 초기화할 수 있습니다. 
+mapDraw.init2DCameraInfo() 메소드를 이용하여 2d 카메라 상태에서 zoom, position, rotate을  초기화할 수 있습니다.
+만약 mapOpions의 초기값에 zoom, center, northReference 값이 있다면 해당 값으로 초기화 됩니다.
 ~~~javascript
 mapDraw.init2DCameraInfo();
 ~~~
-mapDraw.init3DCameraInfo() 메소드를 이용하여 3d 카메라 상태에서 zoom과 rotate를 초기화할 수 있습니다. 
+mapDraw.init3DCameraInfo() 메소드를 이용하여 3d 카메라 상태에서 zoom, position, rotate을 초기화할 수 있습니다.
+만약 mapOpions의 초기값에 zoom, center, northReference 값이 있다면 해당 값으로 초기화 됩니다.
 ~~~javascript
 mapDraw.init3DCameraInfo();
 ~~~
