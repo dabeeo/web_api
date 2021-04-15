@@ -89,7 +89,7 @@ poi: {
 - MapInfo 생성시 옵션으로 지도의 클라이언트아이디와 시크릿 정보를 전달합니다. 
 - getAll(callback_func)을 호출하면 인자로 넘겨진 callback function으로 서버에서 받은 지도의 response 정보를 전달합니다. 
 - 지도에 있는 response 정보를 가져오기 위해서 아래 예제를 참조하시면 됩니다.
-- [response 정보]는 MapDraw의 response의 모든 정보를 한번에 전달합니다.
+- [response 정보]는 MapDraw의 response(아래 페이지)의 모든 정보를 한번에 전달합니다.
     https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/response.md
 
 ~~~javascript
