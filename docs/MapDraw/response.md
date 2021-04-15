@@ -205,3 +205,42 @@ MapDraw.response.langInfo
     }
  ]
 ~~~
+
+
+### section 정보
+sectionInfo에 섹션 정보가 들어있습니다. 여러개의 section이 있으므로 array 형태입니다.   
+
+- id: 고유 아이디
+- floorId: section이 속한 층아이디   
+- title : section 이름
+- position : x,y,z position
+- size : width(x축 넓이), height(y축 넓이) 
+- volume : depth (z축 넓이)
+- angle : 회전 각도
+- style : groupCode 스타일 그룹코드
+- passable : 지나 갈 수 있는 section인지 여부
+~~~javascript
+MapDraw.response.sectionInfo
+[{
+    {
+        "id": "SC-e0F2gHmSGh8957",
+        "floorId": "FL-qhndqjlqhu7p3894",
+        "title": "ROAD",
+        "position": {
+            "x": 3398.6336669921893,
+            "y": 1365.3215332031261,
+            "z": 0
+        },
+        "size": {
+            "width": 3285.38110351562,
+            "height": 910.968017578127
+        },
+        "volume": 0,
+        "angle": 0,
+        "style": {
+            "groupCode": "SC-SECTION|gZ-sl1DlU4079"
+        },
+        "passable": true
+    }
+}]
+~~~
