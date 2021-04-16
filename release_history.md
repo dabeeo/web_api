@@ -5,6 +5,26 @@
 - https://dabeeomaps.com/docs
 
 #
+### jsMapAPI_03.02.27_S_2021.04.16
+#### change description  
+- mapDraw 클래스의 response에 section 정보 추가
+- mapInfo 클래스에서 mapView.response와 동일한 모든 map에 관련된 정보 반환하는 메소드 추가
+- mapDraw.setMarker()에 각 마커의 사이즈를 줌 배율에 맞춰서 동기화 할 지 여부를 결정할 수 있는 option 추가 
+- mapDraw.init2DCameraInfo()와 mapDraw.init3DCameraInfo() 호출시 카메라 회전상태 초기상태로 가도록 수정
+
+
+#### changed API
+- mapDraw 클래스의 response에 section 정보 추가
+  https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/response.md#section-정보
+- mapInfo 클래스에서 mapView.response와 동일한 모든 map에 관련된 정보 반환하는 메소드 추가
+  https://github.com/dabeeo/web_api/tree/master/docs/MapInfo#모든-response-가져오기  
+- mapDraw.setMarker()에 각 마커의 사이즈를 줌 배율에 맞춰서 동기화 할 지 여부를 결정할 수 있는 option추가 
+  https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#여러개의-마커표시
+- mapDraw.init2DCameraInfo()와 mapDraw.init3DCameraInfo() 호출시 카메라 회전상태 초기상태로 가도록 수정
+  https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#카메라-초기화-기능
+  
+ 
+#
 ### jsMapAPI_03.02.26_R_2021.04.09
 #### change description  
 - mapView 클래스에 카메라가 최대 움직 일 수 있는 영역을 설정하는 옵션 추가 - 드래그시 보여주는 공백 조정
