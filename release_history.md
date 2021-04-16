@@ -5,7 +5,7 @@
 - https://dabeeomaps.com/docs
 
 #
-### jsMapAPI_03.02.27_S_2021.04.16
+### jsMapAPI_03.02.27_R_2021.04.16
 #### change description  
 - mapDraw 클래스의 response에 section 정보 추가
 - mapInfo 클래스에서 mapView.response와 동일한 모든 map에 관련된 정보 반환하는 메소드 추가
