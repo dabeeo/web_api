@@ -7,8 +7,9 @@
 #
 ### jsMapAPI_03.02.27_R_2021.04.16
 #### change description  
-- mapDraw 클래스의 response에 section 정보 추가
-- mapInfo 클래스에서 mapView.response와 동일한 모든 map에 관련된 정보 반환하는 메소드 추가
+- iFrame밖에서의 드래그 마우스 이벤트 처리하도록 카메라컨트롤 모듈 업데이트
+- mapDraw 클래스의 response에 section 정보 추가 - sectionInfo
+- mapInfo 클래스에서 mapView.response와 동일한 모든 map에 관련된 정보 반환하는 메소드 추가 - mapInfo.getAll()
 - mapDraw.setMarker()에 각 마커의 사이즈를 줌 배율에 맞춰서 동기화 할 지 여부를 결정할 수 있는 option 추가 
 - mapDraw.init2DCameraInfo()와 mapDraw.init3DCameraInfo() 호출시 카메라 회전상태 초기상태로 가도록 수정
 
