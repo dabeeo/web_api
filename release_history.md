@@ -15,7 +15,7 @@
 
 
 #### changed API
-- mapDraw 클래스의 response에 section 정보 추가
+- mapDraw 클래스의 response에 section 정보 추가   
   https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/response.md#section-정보
 - mapInfo 클래스에서 mapView.response와 동일한 모든 map에 관련된 정보 반환하는 메소드 추가
   https://github.com/dabeeo/web_api/tree/master/docs/MapInfo#모든-response-가져오기  
