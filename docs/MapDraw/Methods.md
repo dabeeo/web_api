@@ -109,7 +109,7 @@ mapDraw.changeShowPoi({showPoi: false});
 
 #         
 
-### 중요도에 따라 POI 노출 줌 설정
+### 중요도에 따른 POI 노출 줌 설정
 mapDraw.setPoiLevelOn()를 이용하여 POI 에 설정한 중요도에 따라 해당 POI 를 지도 확대/축소시 보이게 합니다.    
 - clusterLevel_1: number    
 POI 의 clusterLevel이 1인 POI 가 보이게 되는 시점의 지도 확대 비율을 설정합니다.   
@@ -127,7 +127,7 @@ mapDraw.setPoiLevelOn(clusterLevel_1, clusterLevel_2, clusterLevel_3);
 
 
 
-### 중요도에 따라 POI 노출 줌 설정 해제
+### 중요도에 따른 POI 노출 줌 설정 해제
 mapDraw.setPoiLevelOff()를 이용하여 mapDraw.setPoiLevelOn 설정을 해제 합니다.   
 
 ~~~javascript
