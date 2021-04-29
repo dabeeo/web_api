@@ -27,6 +27,7 @@ mapDraw.changeCamera() 메소드를 이용하여 2d/3d 지도로 변경할 수 �
 mapDraw.changeCamera({camera:"2d"});
 ~~~
 - example:  https://github.com/dabeeo/web_api/blob/master/samples/camera.html   
+#
 
 ### 카메라 초기화 기능
 mapDraw.init2DCameraInfo() 메소드를 이용하여 2d 카메라 상태에서 zoom, position, rotate을  초기화할 수 있습니다.
@@ -39,8 +40,35 @@ mapDraw.init3DCameraInfo() 메소드를 이용하여 3d 카메라 상태에서 z
 ~~~javascript
 mapDraw.init3DCameraInfo();
 ~~~
+#
+<!-- 2020-11-10 mapPositionMoveCamera 추가 -->
+});
+### 지도 좌표 기준 x,y좌표로 카메라 이동  
+
+지도의 좌표 기준으로 x, y좌표로 카메라를 이동합니다. (방위각에 상관없이 이동합니다)    
+- x: number 지도내의 좌표를 입력합니다.  
+- y: number 지도내의 좌표를 입력합니다.   
+
+~~~javascript
+mapDraw.mapPositionMoveCamera(x, y); // 지도 scene 좌표 x, y 
+~~~
 
 #
+### 카메라 좌표 기준 x,y좌표로 카메라 이동 (방위각이 있는 지도에서 사용시 주의!)
+**방위각이 없는 지도**는 상단 위가 중심으로(0, 0) x, y좌표로 카메라를 이동합니다. [지도-좌표계정보](https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#%EC%A7%80%EB%8F%84-%EC%A2%8C%ED%91%9C%EA%B3%84%EC%A0%95%EB%B3%B4)    
+**방위각이 있는 지도**의 경우 지도 중앙을 중심으로(0, 0) x, y좌표로 카메라를 이동합니다. 따라서 지도의 좌표를 기준으로 카메라를 이동시키려면 아래 설명에 나와있는 **getCameraPosition()** 을 통해 좌표를 변환한 뒤 부르거나,**mapPositionMoveCamera()** 를 호출해야 합니다.   
+
+- x: number, x 좌표를 입력합니다.  
+- y: number, y 좌표를 입력합니다.   
+
+~~~javascript
+mapDraw.moveCamera({
+    "x": 0,
+    "y": 0
+});
+~~~
+
+- example: https://github.com/dabeeo/web_api/blob/master/samples/moveCamera.html
 
 ## 마우스 관련
 
@@ -583,26 +611,6 @@ mapDraw.mapCordinfo()는 지도좌표계를 매핑하기 위한 기본 정보를
 <img width="517" alt="Screen Shot 2020-08-18 at 5 43 51 PM" src="https://user-images.githubusercontent.com/63434357/90492700-71395b00-e17c-11ea-8190-d64607b35e24.png">
 
 
-#
-
-### x, y좌표로 이동
-**방위각이 없는 지도**는 상단 위가 중심으로(0, 0) x, y좌표로 카메라를 이동합니다. [지도-좌표계정보](https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#%EC%A7%80%EB%8F%84-%EC%A2%8C%ED%91%9C%EA%B3%84%EC%A0%95%EB%B3%B4)    
-**방위각이 있는 지도**의 경우 지도 중앙을 중심으로(0, 0) x, y좌표로 카메라를 이동합니다. 따라서 지도의 좌표를 기준으로 카메라를 이동시키려면 아래 설명에 나와있는 **getCameraPosition()** 을 통해 좌표를 변환한 뒤 부르거나,**mapPositionMoveCamera()** 를 호출해야 합니다.   
-
-- x: number, x 좌표를 입력합니다.  
-- y: number, y 좌표를 입력합니다.   
-
-~~~javascript
-mapDraw.moveCamera({
-    "x": 0,
-    "y": 0
-});
-~~~
-
-- example: https://github.com/dabeeo/web_api/blob/master/samples/moveCamera.html
-
-
-
 ### 지도 방위각에 따라 poi의 x,y 좌표 변환
 <!-- 2020-11-10 설명 수정-->
 지도 정보에서 받은 poiInfo 의 좌표 정보는 **방위각이 있는 지도**의 경우 좌표 정보가 다르기 때문에 변환해 주어야 합니다.   
@@ -626,17 +634,6 @@ mapDraw.moveCamera({
 ~~~
 
 - example: https://github.com/dabeeo/web_api/blob/master/samples/moveCamera.html
-
-<!-- 2020-11-10 mapPositionMoveCamera 추가 -->
-### 지도 좌표 기준으로 x, y좌표로 이동
-
-지도의 좌표 기준으로 x, y좌표로 카메라를 이동합니다. (방위각에 상관없이 이동합니다)    
-- x: number 지도내의 좌표를 입력합니다.  
-- y: number 지도내의 좌표를 입력합니다.   
-
-~~~javascript
-mapDraw.mapPositionMoveCamera(x, y); // 지도 scene 좌표 x, y 
-~~~
 
 
 #
