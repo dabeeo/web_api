@@ -42,7 +42,6 @@ mapDraw.init3DCameraInfo();
 ~~~
 #
 <!-- 2020-11-10 mapPositionMoveCamera 추가 -->
-});
 ### 지도 좌표 기준 x,y좌표로 카메라 이동  
 
 지도의 좌표 기준으로 x, y좌표로 카메라를 이동합니다. (방위각에 상관없이 이동합니다)    
