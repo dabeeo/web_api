@@ -499,12 +499,12 @@ mapDraw.myLocationOn()메소드를 이용하여 원하는 좌표에 위치를 �
 
 마커 옵션 추가 (option 없으면 default 옵션 적용)
 - icon : 마커 이미지와 사이즈 설정 
-- image : 마커 이미지 URL 설정 
-- size : 마커 widht, height 값
+	- image : 마커 이미지 URL 설정 
+	- size : 마커 widht, height 값
 - animate : 마커 애니메이션 설정, default=false
-- color : 애니메이션 color 값 
-- opacity : 애니메이션 시작 opacity 값 ( 0으로 animation 됨)
-- desireScale : 마커 사이즈 대비 목표 스케일 배수 
+	- color : 애니메이션 color 값 
+	- opacity : 애니메이션 시작 opacity 값 ( 0으로 animation 됨)
+	- desireScale : 마커 사이즈 대비 목표 스케일 배수 
 
 ~~~javascript
 mapDraw.myLocationOn(x, y, z, true); // 층변경 후 함수 호출층 복귀시 다시 내위치 표시함.
