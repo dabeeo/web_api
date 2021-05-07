@@ -568,7 +568,7 @@ mapDraw.setMarker({
         	},
 	        floorId: "[해당층아이디]", // 층을 지정 할때 : 지정하지 않을 경우 현재 보이는 층
 		data: i // marker를 클릭했을 때 반환할 정보 
-		async: true // 마커의 사이즈를 줌배율에 따라 실시간 동기화 : 지정하지 않을 경우 동기화 하지 않음
+		async: true // 마커의 사이즈를 줌배율에 따라 실시간 동기화(마커 크기 일정) : 지정하지 않을 경우 동기화 하지 않음(마커 크기 변동)
         }
     ]
 });
@@ -585,8 +585,8 @@ mapDraw.setAsyncMarker (isAsync:boolean) 맵에 표시된 마커의 사이즈를
 - true : 동기화. 줌배율이 확대되어도 초기에 설정된 마커 사이즈가 동일한 크기로 보입니다. 
 - false : 비동기화. default 줌배율이 확대되거나 축소될 때 마커 사이즈가 같은 비율로 확대되거나 축소됩니다. 
 ~~~javascript
-mapDraw.setAsyncMarker(true); // 줌배율에 상관없이 마커 사이즈 유지
-mapDraw.setAsyncMarker(false); // 줌배율에 따라 마커 크기 .
+mapDraw.setAsyncMarker(true); // 줌배율에 상관없이 마커 크기 유지
+mapDraw.setAsyncMarker(false); // 줌배율에 따라 마커 크기 변함
 ~~~
 
 ## 좌표 관련
