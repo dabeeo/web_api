@@ -507,6 +507,7 @@ mapDraw.myLocationOn()메소드를 이용하여 원하는 좌표에 위치를 �
 	- desireScale : 마커 사이즈 대비 목표 스케일 배수 
 
 ~~~javascript
+mapDraw.myLocationOn(x, y, z); // 층변경 후 함수 호출층 복귀시 다시 내위치 표시 안함.
 mapDraw.myLocationOn(x, y, z, true); // 층변경 후 함수 호출층 복귀시 다시 내위치 표시함.
 mapDraw.myLocationOn(x, y, z, false); // 층변경 후 함수 호출층 복귀시 다시 내위치 표시 안함. 
 
@@ -545,25 +546,27 @@ mapDraw.setMarker()마커를 한개 또는 여러개 표시할 수 있습니다.
 여러개의 마커를 줄 수 있으므로 배열 형태로 지정합니다. 
 - position:x, y, z 좌표
 - image: optional. icon URL. 지정하지 않을 경우 기본 이미지로 표시 
-- floorId: optional. 층 지정시. 지정하지 않는 경우 현재의 층으로 표시 
 - size : 마커의 이미지 사이즈를 지정
+- floorId: optional. 층 지정시. 지정하지 않는 경우 현재의 층으로 표시 
 - data : 마커를 클릭했을 때 반환할 정보 
 - async : 마커의 사이즈를 줌 배율에 맞춰서 동기화 할 지 여부.
 ~~~javascript
 mapDraw.setMarker({
     marker: [
-        {   position:{
-            x: i.position.x,
-            y: i.position.y,
-            z: 50},
-        size: { // size 가 없을 경우 지도 비율에 맞춰 이미지 사이즈가 정의
-            width:20, 
-            height: 20
-        },
-	data: i // marker를 클릭했을 때 반환할 정보 
-        image: "img_marker_blue-3x.png", // 이미지 지정하지 않을 경우 기본 이미지로 표시
-        floorId: "[해당층아이디]", // 층을 지정 할때 : 지정하지 않을 경우 현재 보이는 층
-	async: true // 마커의 사이즈를 줌배율에 따라 실시간 동기화 : 지정하지 않을 경우 동기화 하지 않음
+        { 
+		position:{
+            		x: i.position.x,
+	            	y: i.position.y,
+        	    	z: 50
+		},
+	        image: "img_marker_blue-3x.png", // 이미지 지정하지 않을 경우 기본 이미지로 표시
+          	size: { // size 가 없을 경우 지도 비율에 맞춰 이미지 사이즈가 정의
+			width:20, 
+            		height: 20
+        	},
+	        floorId: "[해당층아이디]", // 층을 지정 할때 : 지정하지 않을 경우 현재 보이는 층
+		data: i // marker를 클릭했을 때 반환할 정보 
+		async: true // 마커의 사이즈를 줌배율에 따라 실시간 동기화 : 지정하지 않을 경우 동기화 하지 않음
         }
     ]
 });
