@@ -5,6 +5,14 @@
 - https://dabeeomaps.com/docs
 
 #
+### jsMapAPI_03.05.01_S_2021.05.21
+#### change description  
+- mapView 호출시 response에 현재 MapDraw option return
+#### changed API
+- mapView 호출시 response에 현재 MapDraw option return
+
+
+#
 ### jsMapAPI_03.02.27_R_2021.04.16
 #### change description  
 - iFrame밖에서의 드래그 마우스 이벤트 처리하도록 카메라컨트롤 모듈 업데이트
@@ -12,8 +20,6 @@
 - mapInfo 클래스에서 mapView.response와 동일한 모든 map에 관련된 정보 반환하는 메소드 추가 - mapInfo.getAll()
 - mapDraw.setMarker()에 각 마커의 사이즈를 줌 배율에 맞춰서 동기화 할 지 여부를 결정할 수 있는 option 추가 
 - mapDraw.init2DCameraInfo()와 mapDraw.init3DCameraInfo() 호출시 카메라 회전상태 초기상태로 가도록 수정
-
-
 #### changed API
 - mapDraw 클래스의 response에 section 정보 추가   
   https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/response.md#section-정보
