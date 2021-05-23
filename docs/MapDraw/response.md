@@ -244,3 +244,29 @@ MapDraw.response.sectionInfo
     }
 }]
 ~~~
+
+### mapOption 정보
+현재 mapView의 option을 return합니다. 
+~~~javascript
+MapDraw.response.mapOptions {
+    authorization: Authorization {clientId: "", clientSecret: ""}
+    camera: "2d"
+    canvasSize: {width: 1000, height: 800}
+    controlDrag: {3d: "right", 2d: "left"}
+    controlZoom: true
+    floor: "default"
+    fontWeight: {normal: 1, bold: 1}
+    isPoiAngle: false
+    isPoiSprite: false
+    language: "ko"
+    panningPercent: 1
+    poiLevel: (3) [NaN, NaN, NaN]
+    poiSpriteKeepRotation: false
+    rotationMouse2d: true
+    rotationTouch2d: true
+    showPoi: true
+    splitScreen: 1
+    theme: "default"
+    zoom: 150
+}
+~~~
