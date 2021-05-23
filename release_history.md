@@ -10,7 +10,7 @@
 - mapView 호출시 response에 현재 MapDraw option return
 #### changed API
 - mapView 호출시 response에 현재 MapDraw option return
-
+  https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/response.md#mapoption-정보
 
 #
 ### jsMapAPI_03.02.27_R_2021.04.16
