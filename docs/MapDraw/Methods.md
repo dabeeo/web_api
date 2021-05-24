@@ -346,6 +346,11 @@ let a = mapDraw.getRouteOff();
 * OB-STAIRS : 계단
 * null : 걷기
 
+**방향 코드**
+* LEFT : 좌회전
+* RIGHT : 우회전
+* STRAIGHT : 직진
+
 #### jsMapAPI_03.02.21_R_2021.02.19에서 추가   
 - 경로중에 poi가 연결된 경우 poi 정보가 반환됩니다. 
 
@@ -368,7 +373,8 @@ let list = mapDraw.getNavigation();
     position: {x: 0, y:0, z: 0} // scene에서 사용하는 poi position
     title: "티켓부스" // poi title
     titleByLanguages: [{…}, {…}, {…}, {…}] // poi title ByLanguages
-    distance: 0 // cm 단위로 이전 항목과의 거리
+    distance: 0 // cm 단위로 이전 항목과의 거리,
+    direction: "STRAIGHT" // 현재 항목이후 직진
 };
 
 // list에서 이동경로이면서 연결된 poi가 없을 때 : 노드 object
@@ -381,6 +387,7 @@ let list = mapDraw.getNavigation();
     move: ƒ () // move() 함수 
     position: {x: 0, y: 0, z: 0} // scene에서 사용하는 position
     distance: 1003 // cm 단위로 이전 항목과의 거리 또는 층변경시 층 object
+    direction: "LEFT" // 현재 항목이후 좌회전
 };
 
 // list에서 이동경로이면서 연결된 poi가 있을 때 : poi object. 도착지, 경유지, 출발지와 데이터구조가 동일, 단 transcode가 추가되어 있음
@@ -399,6 +406,7 @@ let list = mapDraw.getNavigation();
     title: "티켓부스" // poi title
     titleByLanguages: [{…}, {…}, {…}, {…}] // poi title ByLanguages
     distance: 1982 // cm 단위로 이전 항목과의 거리
+    direction: "RIGHT" // 현재 항목이후 우회전
 };
 ~~~
 
