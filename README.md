@@ -34,7 +34,7 @@ https://github.com/dabeeo/web_api/blob/master/release_history.md
 * API 를 로딩하는 스크립트의 위치는 head, body등 어디에 위치해도 상관없으나 실행코드보다 항상 먼저 선언되어야 합니다.
 
 ## 샘플 실행
-[샘플실행](https://demo-preview-rebuild.dabeeomaps.com/sample/)
+https://dabeeo.github.io/web_api/samples/
 
 
 ## api 호출 샘플
