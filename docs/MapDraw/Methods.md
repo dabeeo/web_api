@@ -350,7 +350,7 @@ let a = mapDraw.getRouteOff();
 * LEFT : 좌회전
 * RIGHT : 우회전
 * STRAIGHT : 직진
-* null : 방향 없음 (최종 도착지 인경우)
+* null : 방향 없음 (최종 도착지 일 경우)
 
 #### jsMapAPI_03.02.21_R_2021.02.19에서 추가   
 - 경로중에 poi가 연결된 경우 poi 정보가 반환됩니다. 
