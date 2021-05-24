@@ -374,7 +374,7 @@ let list = mapDraw.getNavigation();
     title: "티켓부스" // poi title
     titleByLanguages: [{…}, {…}, {…}, {…}] // poi title ByLanguages
     distance: 0 // cm 단위로 이전 항목과의 거리,
-    direction: "STRAIGHT" // 현재 항목이후 직진
+    direction: null // 현재 항목이후 방향없음 (최종 도착지 일 경우)
 };
 
 // list에서 이동경로이면서 연결된 poi가 없을 때 : 노드 object
@@ -387,7 +387,7 @@ let list = mapDraw.getNavigation();
     move: ƒ () // move() 함수 
     position: {x: 0, y: 0, z: 0} // scene에서 사용하는 position
     distance: 1003 // cm 단위로 이전 항목과의 거리 또는 층변경시 층 object
-    direction: "LEFT" // 현재 항목이후 좌회전
+    direction: "STRAIGHT" // 현재 항목이후 직진
 };
 
 // list에서 이동경로이면서 연결된 poi가 있을 때 : poi object. 도착지, 경유지, 출발지와 데이터구조가 동일, 단 transcode가 추가되어 있음
