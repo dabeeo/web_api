@@ -913,18 +913,26 @@ function setNavigationOption() {
     let iconUrl = document.querySelector("input#iconUrl[name='animation']").value;
     if (iconUrl !== "") navigationOption["iconUrl"] = iconUrl;
 
-    for (let key of ["origin", "destination"]) {
-        let option = {};
-        let iconUrl = document.querySelector("#" + key + " [name='iconUrl']").value;
-        if (iconUrl !== "") option["iconUrl"] = iconUrl;
+    // origin
+    let originOption = {};
+    let originIconUrl = document.querySelector("#origin [name='iconUrl']").value;
+    if (originIconUrl !== "") originOption["iconUrl"] = originIconUrl;
+    let originWidth = document.querySelector("#origin [name='width']").value;
+    let originHeight = document.querySelector("#origin [name='height']").value;
+    if (originWidth !== "") originOption["width"] = Number(originWidth);
+    if (originHeight !== "") originOption["height"] = Number(originHeight);
+    if (originIconUrl !== "") navigationOption["origin"] = originOption;
 
-        let width = document.querySelector("#" + key + " [name='width']").value;
-        let height = document.querySelector("#" + key + " [name='height']").value;
-        if (width !== "") option["width"] = Number(width);
-        if (height !== "") option["height"] = Number(height);
-
-        if (iconUrl !== "") navigationOption[key] = option;
-    }
+    // destination
+    let destOption = {};
+    let destIconUrl = document.querySelector("#destination [name='iconUrl']").value;
+    if (destIconUrl !== "") destOption["iconUrl"] = destIconUrl;
+    let destWidth = document.querySelector("#destination [name='width']").value;
+    let destHeight = document.querySelector("#destination [name='height']").value;
+    if (destWidth !== "") destOption["width"] = Number(destWidth);
+    if (destHeight !== "") destOption["height"] = Number(destHeight);
+    if (destIconUrl !== "") navigationOption["destination"] = destOption;
+    
     if (Object.keys(navigationOption).length !== 0) mapDraw.setNavigationOption(navigationOption);
 }
 
