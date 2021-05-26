@@ -913,7 +913,7 @@ function setNavigationOption() {
     let iconUrl = document.querySelector("input#iconUrl[name='animation']").value;
     if (iconUrl !== "") navigationOption["iconUrl"] = iconUrl;
 
-    for (key of ["origin", "destination"]) {
+    for (let key of ["origin", "destination"]) {
         let option = {};
         let iconUrl = document.querySelector("#" + key + " [name='iconUrl']").value;
         if (iconUrl !== "") option["iconUrl"] = iconUrl;
