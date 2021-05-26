@@ -81,7 +81,7 @@ https://dabeeo.github.io/web_api/demo/
                 var code = response.getCode();
         
                 if (code === 200) {
-                var mapView = response.getPayload().mapView;
+                var mapDraw = response.getPayload().mapDraw;
                 // do something
                 console.log("map view success!")
                 }
