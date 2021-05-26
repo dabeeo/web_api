@@ -41,6 +41,18 @@ let mapFloorName = {};
     initMarkerTest();
 })();
 
+function getParam(sname) {
+
+  let params = location.search.substr(location.search.indexOf("?") + 1);
+  let sval = "";
+  params = params.split("&");
+  for (let  i = 0; i < params.length; i++) {
+      temp = params[i].split("=");
+      if ([temp[0]] == sname) { sval = temp[1]; }
+  }
+  return sval;
+}
+
 //////////////////////////////////////////////////////////////////////////////////
 // mapIndex select창 초기화
 // mapSelect 구성
@@ -59,7 +71,7 @@ function initMapIndex() {
         mapIndexElement.appendChild(newOption);
     }
 
-    let paramVal = new URL(window.location.href).searchParams.get("mapIndex");
+    let paramVal = getParam("mapIndex");
     if (paramVal !== null) mapIndexElement.value = paramVal;
 
     //map select change시 page reload
@@ -76,17 +88,16 @@ function initMapIndex() {
 //MapOption Test 초기화
 
 function initMapOptionTest() {
-    let urlParams = new URL(window.location.href).searchParams;
     let mapOptionElement = document.querySelector("#mapOptionTest");
     let mapOptions = mapOptionElement.querySelectorAll("input, select");
     for (let i = 0; i < mapOptions.length; i++) {
-        let paramVal = new URL(window.location.href).searchParams.get(mapOptions[i].name);
+        let paramVal = getParam(mapOptions[i].name);
         mapOptions[i].value = paramVal;
     }
 
-    if (urlParams.get("clientId") === null)
+    if (getParam("clientId") === null)
         mapOptionElement.querySelector("input[name='clientId']").value = "6Lwuu9wa4wta0NiHwy1fO5";
-    if (urlParams.get("clientSecret") === null)
+    if (getParam("clientSecret") === null)
         mapOptionElement.querySelector("input[name='clientSecret']").value = "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd";
 
     //mapView Option 적용시 page reload
