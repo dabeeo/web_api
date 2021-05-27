@@ -52,7 +52,6 @@ function getParam(sname) {
   }
   return sval;
 }
-
 //////////////////////////////////////////////////////////////////////////////////
 // mapIndex select창 초기화
 // mapSelect 구성
@@ -70,7 +69,7 @@ function initMapIndex() {
 
         mapIndexElement.appendChild(newOption);
     }
-
+    
     let paramVal = getParam("mapIndex");
     if (paramVal !== null) mapIndexElement.value = paramVal;
 
@@ -88,6 +87,7 @@ function initMapIndex() {
 //MapOption Test 초기화
 
 function initMapOptionTest() {
+    
     let mapOptionElement = document.querySelector("#mapOptionTest");
     let mapOptions = mapOptionElement.querySelectorAll("input, select");
     for (let i = 0; i < mapOptions.length; i++) {
@@ -95,9 +95,9 @@ function initMapOptionTest() {
         mapOptions[i].value = paramVal;
     }
 
-    if (getParam("clientId") === null)
+    if (getParam("clientId") ==="")
         mapOptionElement.querySelector("input[name='clientId']").value = "6Lwuu9wa4wta0NiHwy1fO5";
-    if (getParam("clientSecret") === null)
+    if (getParam("clientSecret") === "")
         mapOptionElement.querySelector("input[name='clientSecret']").value = "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd";
 
     //mapView Option 적용시 page reload
@@ -165,10 +165,10 @@ function getMapOptions() {
         authorization: authorization
     };
     let mapIndexValue = document.querySelector("select#mapIndex").value;
-    if (mapIndexValue!=="" && mapList[mapIndexValue].server == "stage") {
-      mapOptions["url"]="http://121.131.4.170:16341/v2/map?t=JS";
-      mapOptions["oauthUrl"]="http://121.131.4.170:16342/oauth/token";
-      }    
+    if (mapIndexValue !== "" && mapList[mapIndexValue].server == "stage") {
+        mapOptions["url"] = "http://121.131.4.170:16341/v2/map?t=JS";
+        mapOptions["oauthUrl"] = "http://121.131.4.170:16342/oauth/token";
+    }
 
     getInputOptions("zoom", mapOptions);
     getInputOptions("minZoom", mapOptions);
@@ -943,7 +943,8 @@ function setNavigationOption() {
     if (destWidth !== "") destOption["width"] = Number(destWidth);
     if (destHeight !== "") destOption["height"] = Number(destHeight);
     if (destIconUrl !== "") navigationOption["destination"] = destOption;
-    
+
+
     if (Object.keys(navigationOption).length !== 0) mapDraw.setNavigationOption(navigationOption);
 }
 
