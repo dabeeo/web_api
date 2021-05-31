@@ -5,7 +5,7 @@
 - https://dabeeomaps.com/docs
 
 #
-### jsMapAPI_03.06.01_S_2021.05.28
+### jsMapAPI_03.06.01_R_2021.05.28
 
 #### change description  
 - 길찾기 목록 함수 (mapDraw.getNavigation())호출시 경로에 대하여 simplify 적용 및 방향에 대한 정보 추가 
