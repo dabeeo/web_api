@@ -5,7 +5,27 @@
 - https://dabeeomaps.com/docs
 
 #
-### jsMapAPI_03.05.01_S_2021.05.21
+### jsMapAPI_03.06.01_S_2021.05.28
+
+#### change description  
+- 길찾기 목록 함수 (mapDraw.getNavigation())호출시 경로에 대하여 simplify 적용 및 방향에 대한 정보 추가 
+- poi title의 행간 간격 조정 반영
+
+#### changed API
+- 길찾기 목록 함수 (mapDraw.getNavigation())호출시 경로에 대하여 simplify 적용 및 방향에 대한 정보 추가 
+  https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기-목록
+
+#
+### jsMapAPI_03.05.01_R_2021.05.21
+#### change description  
+- mapView 호출시 response에 현재 MapDraw option return
+#### changed API
+- mapView 호출시 response에 현재 MapDraw option return
+  https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/response.md#mapoption-정보
+
+
+#
+### jsMapAPI_03.05.01_R_2021.05.21
 #### change description  
 - mapView 호출시 response에 현재 MapDraw option return
 #### changed API
