@@ -1,93 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>zoom sample</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
-		<style>
-            body {
-                background-color: #f0f0f0;
-                color: #aaaaaa;
-                margin:0;
-                overflow:hidden; 
-            }
-			.zoom-container {
-                position : absolute;
-                top:50px;
-                font-size: 13px;
-                color: #aaaaaa;
-				left:10px;
-				box-sizing: border-box;
-				z-index:1;
-            }
-            .zoom-button {
-                background: #FFFFFF;
+<head>
+  <title>zoom sample</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <!-- dabeeo js api test url 사용. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+  <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-            }
+<body>
+  <div class="button-container">
+    <button type="button" class="button-menu">
+      Zoom
+    </button>
+  </div>
+  <div class="control-container">
+    <div class="inline-container">
+      <input type="button" class="inline-input" name="zoomIn" value="zoomIn">
+      <input type="button" class="inline-input" name="zoomOut" value="zoomOut">
+    </div>
+  </div>
+  <div id="map"></div>
 
+  <script>
 
-		</style>
-        <script src="[다비오개발문서의 api 링크]"></script>
-    </head>
-	<body>
-        <div id="map"></div>        
-        <div class="zoom-container">
-            <button id="zoom-in-button" class="zoom-button" type="button" >+</button>
-            <button id="zoom-out-button" class="zoom-button" type="button" >-</button>
-        </div>
+    window.addEventListener("load", function () {
+      initMap();
+    });
 
-        <script>
+    function initMap() {
+      let mapContainer = document.getElementById('map'); // 지도를 표시할 div
 
-            window.addEventListener("load", function () {  
-                initMap();
-            });
+      // 지도 인증정보
+      let authorization = new indoorMapApi.Authorization({
+        clientId: "6Lwuu9wa4wta0NiHwy1fO5",
+        clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
+      });
 
-            function initMap() {
-                var mapContainer = document.getElementById('map'); // 지도를 표시할 div
-                    
-                // 지도 인증정보
-                var authorization = new indoorMapApi.Authorization({
-                clientId: "28AXw_veA2YbNKDP6poTpT",
-                clientSecret: "70c540c169af62808f4da3709e988e06"
-                });
-            
-                var mapOptions = {
-                authorization: authorization
-                };
-            
+      let mapOptions = {
+        authorization: authorization
+      };
 
-                // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
-                new indoorMapApi.MapView(
-                    mapContainer, // 컨테이너
-                    mapOptions, // 옵션
-                    function (response) { // 맵 로드 콜백
-                        var code = response.getCode();
-            
-                        if (code === 200) {
-                            mapView = response.getPayload().mapView;
-                            mapDraw = response.getPayload().mapDraw;
-                            // do something
-                            console.log("map view success!")
-                            initZoom();
-                        }
-                    } 
-                );
-            };
+      // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+      new indoorMapApi.MapView(
+        mapContainer, // 컨테이너
+        mapOptions, // 옵션
+        function (response) { // 맵 로드 콜백
+          let code = response.getCode();
 
-            function initZoom() {
-                var zoomInButton = document.getElementById("zoom-in-button");
-                var zoomOutButton = document.getElementById("zoom-out-button");
-                zoomInButton.addEventListener("click", function(e) {
-                    mapDraw.zoomIn();
-                });
-                zoomOutButton.addEventListener("click", function(e) {
-                    mapDraw.zoomOut();
-                });
-            }
+          if (code === 200) {
+            mapDraw = response.getPayload().mapDraw;
+            // do something
+            console.log("map view success!")
+            initZoom();
+          }
+        }
+      );
+    };
 
+    function initZoom() {
+      let zoomInButton = document.querySelector("[name='zoomIn']");
+      let zoomOutButton = document.querySelector("[name='zoomOut']");
+      zoomInButton.addEventListener("click", (e) => {
+        mapDraw.zoomIn();
+      });
+      zoomOutButton.addEventListener("click", (e) => {
+        mapDraw.zoomOut();
+      });
+    }
+  </script>
+</body>
 
-        </script>		
-    </body>
 </html>

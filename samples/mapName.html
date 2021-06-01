@@ -1,87 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>mapName sample</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
-		<style>
-            body {
-                background-color: #f0f0f0;
-                color: #aaaaaa;
-                margin:0;
-                overflow:hidden; 
-            }
-            .map-name-container {
-                /* float:left; */
-                position:absolute;
-                right: 10px;
-                top: 5px;
-                width: 300px;
-                height: 36px;
-                background: #FFFFFF;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 13px;
-                color: #854e17;
-                border-bottom: 1px solid #EDEDED;
-                box-sizing: border-box;
-                cursor: pointer;
+<head>
+  <title>mapName sample</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <!-- dabeeo js api test url 사용. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+  <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
 
-            }
+<body>
+  <div class="button-container">
+    <button type="button" class="button-menu" name="mapName">
+      mapName
+    </button>
+  </div>
+  <div id="map"></div>
+  <script>
 
-		</style>
-        <script src="[다비오개발문서의 api 링크]"></script>
-    </head>
-	<body>
-        <div id="map"></div>        
-        <script>
+    window.addEventListener("load", function () {
+      initMap();
+    });
 
-            window.addEventListener("load", function () {  
-                initMap();
-            });
+    function initMap() {
+      let mapContainer = document.getElementById('map'); // 지도를 표시할 div
 
-            function initMap() {
-                var mapContainer = document.getElementById('map'); // 지도를 표시할 div
-                    
-                    // 지도 인증정보
-                    var authorization = new indoorMapApi.Authorization({
-                    clientId: "28AXw_veA2YbNKDP6poTpT",
-                    clientSecret: "70c540c169af62808f4da3709e988e06"
-                    });
-                
-                    var mapOptions = {
-                    authorization: authorization
-                    };
-                
+      // 지도 인증정보
+      let authorization = new indoorMapApi.Authorization({
+        clientId: "6Lwuu9wa4wta0NiHwy1fO5",
+        clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
+      });
 
-                // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
-                new indoorMapApi.MapView(
-                    mapContainer, // 컨테이너
-                    mapOptions, // 옵션
-                    function (response) { // 맵 로드 콜백
-                        console.log(response)
-                        var code = response.getCode();
-            
-                        if (code === 200) {
-                            mapView = response.getPayload().mapView;
-                            mapDraw = response.getPayload().mapDraw;
-                            // do something
-                            console.log("map view success!")
-                            initMapName(mapDraw.response.mapName);
-                        }
-                    } 
-                );
-            };
-            function initMapName(name) {
-                var mapNameContainer = document.createElement("DIV")
-                mapNameContainer.classList.add('map-name-container');
-                var mapElement = document.querySelector("#map");
-                mapElement.insertAdjacentElement("afterbegin", mapNameContainer);
-                mapNameContainer.innerText = name; 
-            }
-        </script>		
-    </body>
+      let mapOptions = {
+        authorization: authorization
+      };
+
+
+      // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+      new indoorMapApi.MapView(
+        mapContainer, // 컨테이너
+        mapOptions, // 옵션
+        function (response) { // 맵 로드 콜백
+          let code = response.getCode();
+
+          if (code === 200) {
+            mapDraw = response.getPayload().mapDraw;
+            // do something
+            console.log("map view success!")
+            handleMapName(mapDraw.response);
+          }
+        }
+      );
+    };
+    //////////////////////////////////////////////////////////////////////////////////
+    //지도명 처리
+    function handleMapName(response) {
+      let mapMenuElement = document.querySelector("[name='mapName']");
+      mapMenuElement.innerHTML = response.mapName;
+    }
+  </script>
+</body>
+
 </html>

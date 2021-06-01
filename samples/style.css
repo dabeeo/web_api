@@ -1,0 +1,95 @@
+:root {
+  --body-backgroud-color: #f0f0f0;
+  --dark-color: #40241a;
+  --light-color: #9c786c;
+  --primary-color: #a7a7a7;
+  --title-light-color: #ffffff;
+  --title-dark-color: #a7a7a7;
+  --menu-width: 250px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: arial, verdana, Helvetica;
+  word-break: keep-all;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+body {
+  background-color: var(--body-backgroud-color);
+  overflow: hidden;
+}
+
+.button-container {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: var(--menu-width);
+  margin: 0.2rem 0.2rem;
+
+}
+
+.button-menu {
+  width: 100%;
+  background-color: var(--dark-color);
+  color: var(--title-light-color);
+  padding: 0.2rem 0.3rem;
+  border: 1px solid var(--dark-color);
+  margin: 0.2rem 0.2rem;
+}
+
+.button-menu:hover {
+  background-color: var(--light-color);
+  border-color: var(--light-color);
+}
+
+.control-container {
+  position: absolute;
+  right: 10px;
+  top: 45px;
+  overflow-y: auto;
+  width: var(--menu-width);
+  max-height: 80vh;
+  background-color: var(--primary-color);
+  padding: 0.2rem 0rem;
+  overflow-x:hidden;
+}
+
+.inline-container {
+  display: flex;
+  padding: 0.1rem 0.2rem;
+}
+
+input {
+  padding:0rem 0.3rem;
+}
+input:focus {
+  outline:none;
+}
+.inline-input {
+  width: 100%;
+  border: 1px solid var(--light-color);
+  color: var(--title-dark-color);
+  background-color: #ffffff;
+}
+.inline-input:hover {
+  background-color: var(--light-color);
+  border-color: var(--light-color);
+  color: var(--title-light-color);
+
+}
+
+.inline-label {
+  color: var(--title-light-color);
+  padding: 0.2rem 0.2rem;
+}
+
+.divider {
+  height: 0;
+  margin: 0.2rem 0rem;
+  border-top: 1px solid var(--title-light-color)
+}
