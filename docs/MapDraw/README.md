@@ -4,11 +4,11 @@ MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 맵이름
 지도의 설정 변경시 MapDraw의 response에 있는 정보를 사용하여 Mapdraw의 메소드를 호출합니다.     
 mapDraw의 정보와 메소드는 해당문서에 자세히 설명되어 있습니다.    
 
-- mapDraw의 response에 대한 설명은 링크에 있습니다. 
-- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/response.md
+- mapDraw의 response에 대한 설명은 링크에 있습니다.   
+  https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/response.md
 
-- mapDraw의 method에 대한 설명은 링크에 있습니다. 
-- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md
+- mapDraw의 method에 대한 설명은 링크에 있습니다.   
+  https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md
 
 
 ~~~javascript
