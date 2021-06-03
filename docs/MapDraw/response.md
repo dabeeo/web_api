@@ -8,6 +8,7 @@ MapView를 호출시 mapDraw를 반환하며 여기에 여러 지도에 관한 �
 MapDraw.response.mapName
 ~~~
 - example: https://github.com/dabeeo/web_api/blob/master/samples/mapName.html   
+- 실행 : https://dabeeo.github.io/web_api/samples/mapName.html
 
 ### 층정보
 floorInfo에 층에 대한 정보들이 들어 있습니다. 이를 이용하여 층에 대한 정보를 표시하거나 제어할 수 있습니다. 여러층이 있을 수 있으므로 array 형태입니다.     
@@ -30,6 +31,9 @@ MapDraw.response.floorInfo
     }
 ]
 ~~~
+
+- example: https://github.com/dabeeo/web_api/blob/master/samples/floor.html   
+- 실행 : https://dabeeo.github.io/web_api/samples/floor.html
 
 ### 테마 정보
 themeInfo에 각층의 object를 그리는 테마에 대한 정보가 들어있습니다. 테마에 따라 다른 색감으로 지도를 그리게 됩니다. 하나의 지도에 여러개의 테마가 지정될 수 있으므로 array형태로 되어 있습니다. 
@@ -55,18 +59,17 @@ poi 정보에 담긴 타이틀에는 new line 과 같은 특수 문자들이 포
 
 - id: 고유 아이디
 - floorId: poi가 속한 층아이디   
-- title : poi 이름
 - categoryCode : 카테고리 코드
 - iconUrl : icon Url
 - position : x,y,z position
 - metadatas : 메타데이터 정보
-- titleByLanguages: 언어별 타이틀 정보
+- titleByLanguages: 언어별 타이틀 정보   
+
 ~~~javascript
 MapDraw.response.poiInfo
 [{
       "id": "PO-4JvSQCWHC2270",
       "floorId": "FL-qhndqjlqhu7p3894",
-      "title": "남자화장실",
       "categoryCode": "",
       "icoUrl": "https://assets.dabeeomaps.com/upload/poiMarker/MansToilet.png",
       "position": {
@@ -205,6 +208,10 @@ MapDraw.response.langInfo
     }
  ]
 ~~~
+
+
+- example: https://github.com/dabeeo/web_api/blob/master/samples/language.html   
+- 실행 : https://dabeeo.github.io/web_api/samples/language.html
 
 
 ### section 정보
