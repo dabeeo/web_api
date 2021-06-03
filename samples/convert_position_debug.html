@@ -1,314 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>map</title>
-	<style>
-		body {
-			background-color: #f0f0f0;
-			color: #aaaaaa;
-			margin:0;
-			overflow:hidden;
-		}
-		.poi-list-container {
-			position : absolute;
-			top:50px;
-			font-size: 13px;
-			color: #aaaaaa;
-			right:10px;
-			box-sizing: border-box;
-			z-index:1;
-			border: 1px solid #EDEDED;
-
-		}
-		.floors-container{
-			/* float:left; */
-			position:absolute;
-			left: 10px;
-			top: 50px;
-		}
-		.floor {
-			width: 36px;
-			height: 36px;
-			background: #FFFFFF;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			font-size: 13px;
-			color: #B7B9C1;
-			border-bottom: 1px solid #EDEDED;
-			box-sizing: border-box;
-			cursor: pointer;
-		}
-		.floor-on{
-			color: red;
-		}
-		.navi-button, .select-poi {
-			background: #FFFFFF;
-			border: 1px solid #EDEDED;
-			height: 36px;
-			color: #234a92;
-		}
-
-	</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>map</title>
+  <style>
+    body {
+      background-color: #f0f0f0;
+      color: #aaaaaa;
+      margin: 0;
+      overflow: hidden;
+    }
+  </style>
 
 </head>
+
 <body>
-<div id="map"></div>
-<script type="application/javascript" src="[다비오개발문서의 api 링크]"></script>
-<!--<script src="/public/js/indexAPI.js"></script>-->
-<script>
+  <div id="map"></div>
+  <!-- dabeeo js api test url 사용. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+  <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
+  <script>
 
-	window.onload = function () {
-		var nodeListWrapper = {
-			"nodeList": [
-				{
-					"id": "1",
-					"position": {
-						"x": "-10.200",
-						"y": "-8.169",
-						"z": "0.000"
-					},
-					"orientation": {
-						"w": "1.000",
-						"x": "0.000",
-						"y": "0.000",
-						"z": "0.000"
-					}
-				},
-				{
-					"id": "2",
-					"position": {
-						"x": "-10.533",
-						"y": "-5.303",
-						"z": "0.000"
-					},
-					"orientation": {
-						"w": "1.000",
-						"x": "0.000",
-						"y": "0.000",
-						"z": "0.000"
-					}
-				},
-				{
-					"id": "3",
-					"position": {
-						"x": "-5.644",
-						"y": "-4.925",
-						"z": "0.000"
-					},
-					"orientation": {
-						"w": "1.000",
-						"x": "0.000",
-						"y": "0.000",
-						"z": "0.000"
-					}
-				},
-				{
-					"id": "4",
-					"position": {
-						"x": "-2.622",
-						"y": "-4.547",
-						"z": "0.000"
-					},
-					"orientation": {
-						"w": "1.000",
-						"x": "0.000",
-						"y": "0.000",
-						"z": "0.000"
-					}
-				},
-				{
-					"id": "5",
-					"position": {
-						"x": "2.178",
-						"y": "-4.258",
-						"z": "0.000"
-					},
-					"orientation": {
-						"w": "1.000",
-						"x": "0.000",
-						"y": "0.000",
-						"z": "0.000"
-					}
-				},
-				{
-					"id": "6",
-					"position": {
-						"x": "5.556",
-						"y": "-5.258",
-						"z": "0.000"
-					},
-					"orientation": {
-						"w": "1.000",
-						"x": "0.000",
-						"y": "0.000",
-						"z": "0.000"
-					}
-				}
-			]
-		};
-		var nodeListWrapper2 = {
-					"nodeList": [
-						{
-							"id": "A회의실",
-							"position": {
-								"x": "9.771",
-								"y": "-8.925",
-								"z": "0.000"
-							},
-							"orientation": {
-								"w": "1.000",
-								"x": "0.000",
-								"y": "0.000",
-								"z": "0.000"
-							}
-						},
-						{
-							"id": "개발팀",
-							"position": {
-								"x": "-8.943",
-								"y": "-7.068",
-								"z": "0.000"
-							},
-							"orientation": {
-								"w": "1.000",
-								"x": "0.000",
-								"y": "0.000",
-								"z": "0.000"
-							}
-						},
-						{
-							"id": "사업본부",
-							"position": {
-								"x": "0.571",
-								"y": "-5.896",
-								"z": "0.000"
-							},
-							"orientation": {
-								"w": "1.000",
-								"x": "0.000",
-								"y": "0.000",
-								"z": "0.000"
-							}
-						},
-						{
-							"id": "탕비실",
-							"position": {
-								"x": "5.057",
-								"y": "-2.154",
-								"z": "0.000"
-							},
-							"orientation": {
-								"w": "1.000",
-								"x": "0.000",
-								"y": "0.000",
-								"z": "0.000"
-							}
-						},
-						{
-							"id": "휴게실",
-							"position": {
-								"x": "-8.114",
-								"y": "-4.782",
-								"z": "0.000"
-							},
-							"orientation": {
-								"w": "1.000",
-								"x": "0.000",
-								"y": "0.000",
-								"z": "0.000"
-							}
-						}
-					]
-				}
-		;
+    window.onload = function () {
+      var nodeListWrapper = {
+        "nodeList": [
+          {
+            "id": "1",
+            "position": {
+              "x": "-10.200",
+              "y": "-8.169",
+              "z": "0.000"
+            },
+            "orientation": {
+              "w": "1.000",
+              "x": "0.000",
+              "y": "0.000",
+              "z": "0.000"
+            }
+          },
+          {
+            "id": "2",
+            "position": {
+              "x": "-10.533",
+              "y": "-5.303",
+              "z": "0.000"
+            },
+            "orientation": {
+              "w": "1.000",
+              "x": "0.000",
+              "y": "0.000",
+              "z": "0.000"
+            }
+          },
+          {
+            "id": "3",
+            "position": {
+              "x": "-5.644",
+              "y": "-4.925",
+              "z": "0.000"
+            },
+            "orientation": {
+              "w": "1.000",
+              "x": "0.000",
+              "y": "0.000",
+              "z": "0.000"
+            }
+          },
+          {
+            "id": "4",
+            "position": {
+              "x": "-2.622",
+              "y": "-4.547",
+              "z": "0.000"
+            },
+            "orientation": {
+              "w": "1.000",
+              "x": "0.000",
+              "y": "0.000",
+              "z": "0.000"
+            }
+          },
+          {
+            "id": "5",
+            "position": {
+              "x": "2.178",
+              "y": "-4.258",
+              "z": "0.000"
+            },
+            "orientation": {
+              "w": "1.000",
+              "x": "0.000",
+              "y": "0.000",
+              "z": "0.000"
+            }
+          },
+          {
+            "id": "6",
+            "position": {
+              "x": "5.556",
+              "y": "-5.258",
+              "z": "0.000"
+            },
+            "orientation": {
+              "w": "1.000",
+              "x": "0.000",
+              "y": "0.000",
+              "z": "0.000"
+            }
+          }
+        ]
+      };
+      var nodeListWrapper2 = {
+        "nodeList": [
+          {
+            "id": "A회의실",
+            "position": {
+              "x": "9.771",
+              "y": "-8.925",
+              "z": "0.000"
+            },
+            "orientation": {
+              "w": "1.000",
+              "x": "0.000",
+              "y": "0.000",
+              "z": "0.000"
+            }
+          },
+          {
+            "id": "개발팀",
+            "position": {
+              "x": "-8.943",
+              "y": "-7.068",
+              "z": "0.000"
+            },
+            "orientation": {
+              "w": "1.000",
+              "x": "0.000",
+              "y": "0.000",
+              "z": "0.000"
+            }
+          },
+          {
+            "id": "사업본부",
+            "position": {
+              "x": "0.571",
+              "y": "-5.896",
+              "z": "0.000"
+            },
+            "orientation": {
+              "w": "1.000",
+              "x": "0.000",
+              "y": "0.000",
+              "z": "0.000"
+            }
+          },
+          {
+            "id": "탕비실",
+            "position": {
+              "x": "5.057",
+              "y": "-2.154",
+              "z": "0.000"
+            },
+            "orientation": {
+              "w": "1.000",
+              "x": "0.000",
+              "y": "0.000",
+              "z": "0.000"
+            }
+          },
+          {
+            "id": "휴게실",
+            "position": {
+              "x": "-8.114",
+              "y": "-4.782",
+              "z": "0.000"
+            },
+            "orientation": {
+              "w": "1.000",
+              "x": "0.000",
+              "y": "0.000",
+              "z": "0.000"
+            }
+          }
+        ]
+      }
+        ;
 
-		var mapContainer = document.getElementById("map"); // 지도를 표시할 div
+      var mapContainer = document.getElementById("map"); // 지도를 표시할 div
 
-		// 지도 인증정보
-		var authorization = new indoorMapApi.Authorization({
-			clientId: "5VKPHFJn4HS9Mgg-EthBUe",
-			clientSecret: "db11546b3aef916a8c078a527e68399b"
-		});
-		// let authorization = new indoorMapApi.Authorization({
-		//     clientId: "28AXw_veA2YbNKDP6poTpT",
-		//     clientSecret: "70c540c169af62808f4da3709e988e06"
-		// });
-
-		var mapOptions = {
-			authorization: authorization
-		};
+      // 지도 인증정보
+      var authorization = new indoorMapApi.Authorization({
+        clientId: "5VKPHFJn4HS9Mgg-EthBUe",
+        clientSecret: "db11546b3aef916a8c078a527e68399b"
+      });
+      var mapOptions = {
+        authorization: authorization
+      };
 
 
-		// 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
-		new indoorMapApi.MapView(
-				mapContainer, // 컨테이너
-				mapOptions, // 옵션
-				function (res) { // 맵 로드 콜백
+      // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+      new indoorMapApi.MapView(
+        mapContainer, // 컨테이너
+        mapOptions, // 옵션
+        function (res) { // 맵 로드 콜백
 
-					var code = res.getCode();
+          var code = res.getCode();
 
-					if (code === 200) {
-						window.mapDraw = res.getPayload().mapDraw;
+          if (code === 200) {
+            window.mapDraw = res.getPayload().mapDraw;
 
-						var convertedNodePositions = [];
+            var convertedNodePositions = [];
 
-						nodeListWrapper.nodeList.forEach(function(node) {
-							var convertOptions = {
-								position : {
-									x:node.position.x, // 고객이 구하려고 하는 x 좌표 (고객의 위치 수집장치를 통해 수집되는 m 단위의 좌표)
-									y:node.position.y // 고객이 구하려고 하는 y 좌표 (고객의 위치 수집장치를 통해 수집되는 m 단위의 좌표)
-								},
-								degree : -5.27, // 고객의 지도를 기준으로 다비오(원도) 의 회전각도 (시계방향이 +, 시계 반대방향이 -)
-								zeroPoint : {
-									x : -284,
-									y : 286.5
-								}, // 고객의 지도를 기준으로 다비오(원도) 의 영점 이동 좌표
-								xDirection : 1, // 고객의 지도를 기준으로 다비오지도의 x 축 진행방향 (순방향)
-								yDirection : -1 // 고객의 지도를 기준으로 다비오지도의 y 축 진행방향 (역방향)
-							};
+            nodeListWrapper.nodeList.forEach(function (node) {
+              var convertOptions = {
+                position: {
+                  x: node.position.x, // 고객이 구하려고 하는 x 좌표 (고객의 위치 수집장치를 통해 수집되는 m 단위의 좌표)
+                  y: node.position.y // 고객이 구하려고 하는 y 좌표 (고객의 위치 수집장치를 통해 수집되는 m 단위의 좌표)
+                },
+                degree: -5.27, // 고객의 지도를 기준으로 다비오(원도) 의 회전각도 (시계방향이 +, 시계 반대방향이 -)
+                zeroPoint: {
+                  x: -284,
+                  y: 286.5
+                }, // 고객의 지도를 기준으로 다비오(원도) 의 영점 이동 좌표
+                xDirection: 1, // 고객의 지도를 기준으로 다비오지도의 x 축 진행방향 (순방향)
+                yDirection: -1 // 고객의 지도를 기준으로 다비오지도의 y 축 진행방향 (역방향)
+              };
 
-							var p = mapDraw.convertPosition(convertOptions); // 좌표 변경 함수 호출
-							convertedNodePositions.push({
-								position:{
-									x: p.x,
-									y: p.y,
-									z: 5}
-							});
-						});
+              var p = mapDraw.convertPosition(convertOptions); // 좌표 변경 함수 호출
+              convertedNodePositions.push({
+                position: {
+                  x: p.x,
+                  y: p.y,
+                  z: 5
+                }
+              });
+            });
 
-						nodeListWrapper2.nodeList.forEach(function(node) {
-							var convertOptions = {
-								position : {
-									x:node.position.x, // 고객이 구하려고 하는 x 좌표 (고객의 위치 수집장치를 통해 수집되는 m 단위의 좌표)
-									y:node.position.y // 고객이 구하려고 하는 y 좌표 (고객의 위치 수집장치를 통해 수집되는 m 단위의 좌표)
-								},
-								degree : -5.27, // 고객의 지도를 기준으로 다비오(원도) 의 회전각도 (시계방향이 +, 시계 반대방향이 -)
-								zeroPoint : {
-									x : -284,
-									y : 286.5
-								}, // 고객의 지도를 기준으로 다비오(원도) 의 영점 이동 좌표
-								xDirection : 1, // 고객의 지도를 기준으로 다비오지도의 x 축 진행방향 (순방향)
-								yDirection : -1 // 고객의 지도를 기준으로 다비오지도의 y 축 진행방향 (역방향)
-							};
-							var p = mapDraw.convertPosition(convertOptions); // 좌표 변환
-							convertedNodePositions.push({
-								position:{
-									x: p.x,
-									y: p.y,
-									z: 5},
-								image : "https://assets.dabeeomaps.com/image/ico/img_person-3x.png"
-							});
-						});
+            nodeListWrapper2.nodeList.forEach(function (node) {
+              var convertOptions = {
+                position: {
+                  x: node.position.x, // 고객이 구하려고 하는 x 좌표 (고객의 위치 수집장치를 통해 수집되는 m 단위의 좌표)
+                  y: node.position.y // 고객이 구하려고 하는 y 좌표 (고객의 위치 수집장치를 통해 수집되는 m 단위의 좌표)
+                },
+                degree: -5.27, // 고객의 지도를 기준으로 다비오(원도) 의 회전각도 (시계방향이 +, 시계 반대방향이 -)
+                zeroPoint: {
+                  x: -284,
+                  y: 286.5
+                }, // 고객의 지도를 기준으로 다비오(원도) 의 영점 이동 좌표
+                xDirection: 1, // 고객의 지도를 기준으로 다비오지도의 x 축 진행방향 (순방향)
+                yDirection: -1 // 고객의 지도를 기준으로 다비오지도의 y 축 진행방향 (역방향)
+              };
+              var p = mapDraw.convertPosition(convertOptions); // 좌표 변환
+              convertedNodePositions.push({
+                position: {
+                  x: p.x,
+                  y: p.y,
+                  z: 5
+                },
+                image: "https://assets.dabeeomaps.com/image/ico/img_person-3x.png"
+              });
+            });
 
-						mapDraw.setMarker({marker:convertedNodePositions});
-					}
-				}
-		);
+            mapDraw.setMarker({ marker: convertedNodePositions });
+          }
+        }
+      );
 
-	};
-</script>
+    };
+  </script>
 </body>
+
 </html>

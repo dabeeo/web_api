@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MapInfo sample</title>
+  <!-- dabeeo js api test url 사용. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+  <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .section-container {
+      display:flex;
+
+    }
+    .section{
+      flex-grow: 1;
+    }
+    .title {
+      margin:1em;
+      background-color: chocolate;
+      color:white;
+      padding:0.5em;
+    }
+    .result {
+      margin : 1em;
+      background-color: antiquewhite;
+    }
+    .code {
+      overflow-y: auto;
+      max-height: 60vh;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="title">getVersion 결과</div>
+  <div class="result"><pre class="code" id="getVersion"></pre></div>
+  <div class="section-container">
+    <div class="section">
+  <div class="title">getPoi 결과</div>
+  <div class="result"><pre class="code" id="getPoi"></pre></div>
+</div>
+<div class="column">
+  <div class="title">getAll 결과</div>
+  <div class="result"><pre class="code" id="getAll"></pre></div>
+</div>
+</div>
+  <script>
+    window.onload = function () {
+
+      // 지도 인증정보
+      let authorization = new indoorMapApi.Authorization({
+        clientId: "6Lwuu9wa4wta0NiHwy1fO5",
+        clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
+      });
+
+      let mapOptions = {
+        authorization: authorization
+      };
+
+      // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+      new indoorMapApi.MapInfo(mapOptions).getVersion(
+        function (response) {
+          if (response.code === 200) {
+            console.log(response.getPayload());
+            text = JSON.stringify(response.getPayload(), null, 4);
+            document.querySelector("#getVersion").innerHTML = text;
+
+          }
+        }
+      );
+      new indoorMapApi.MapInfo(mapOptions).getPoi(
+        function (response) {
+          if (response.code === 200) {
+            console.log(response.getPayload());
+            text = JSON.stringify(response.getPayload(), null, 4);
+            document.querySelector("#getPoi").innerHTML = text;
+
+          }
+        }
+      );
+      new indoorMapApi.MapInfo(mapOptions).getAll(
+        function (response) {
+          if (response.code === 200) {
+            console.log(response.getPayload());
+            text = JSON.stringify(response.getPayload(), null, 4);
+            document.querySelector("#getAll").innerHTML = text;
+          }
+        }
+      );
+
+    };
+
+  </script>
+</body>
+
+</html>

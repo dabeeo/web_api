@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>mapPositionMoveCamera sample</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <!-- dabeeo js api test url 사용. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+  <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="button-container">
+    <button type="button" class="button-menu">
+      mapPositionMoveCamera 
+    </button>
+  </div>
+  <div class="control-container">
+    <div class="inline-label">지도 좌표</div>
+    <div class="inline-container">
+      <div class="inline-label">X 좌표</div>
+      <input type="text" class="inline-input " id="X" value="3000">
+    </div>
+    <div class="inline-container">
+      <div class="inline-label">Y 좌표</div>
+      <input type="text" class="inline-input " id="Y" value="1000">
+    </div>
+    <div class="inline-container">
+      <input type="button" class="inline-input" id="mapPositionMoveCamera" value="지도좌표로 카메라 이동">
+    </div>
+
+    <div class="divider"></div>
+    <div class="inline-label">지도의 poi로 이동</div>
+    <div id="poiList">
+      <div class="inline-container">
+        <input type="button" class="inline-input" id="myLocationOn" value="On">
+      </div>
+    </div>
+  </div>
+  <div id="map"></div>
+
+  <script>
+    window.addEventListener("load", function () {
+      initMap();
+    });
+
+    function initMap() {
+      var mapContainer = document.getElementById('map'); // 지도를 표시할 div
+
+      // 지도 인증정보
+      var authorization = new indoorMapApi.Authorization({
+        clientId: "d79yA5YW4Ii8ZwrtBkWFe5",
+        clientSecret: "f6dae72e8c2a24d89e0d8353e8875758",
+      });
+
+      var mapOptions = {
+        authorization: authorization
+      };
+
+
+      // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+      new indoorMapApi.MapView(
+        mapContainer, // 컨테이너
+        mapOptions, // 옵션
+        function (response) { // 맵 로드 콜백
+          var code = response.getCode();
+
+          if (code === 200) {
+            mapDraw = response.getPayload().mapDraw;
+            // do something
+            console.log("map view success!")
+            initmoveCamera();
+            makeBtn(mapDraw.response.poiInfo);
+          }
+        }
+      );
+    };
+    function initmoveCamera() {
+      /* 지도 x, y 로 이동 */
+      document.querySelector("#mapPositionMoveCamera").addEventListener("click", function (e) {
+        let x=Number(document.querySelector("#X").value);
+        let y=Number(document.querySelector("#Y").value);
+        console.log(x,y)
+        mapDraw.mapPositionMoveCamera(x,y);
+      });
+    }
+
+    function makeBtn(pois) {
+      pois.forEach(function (ele) {
+        let divElement = document.createElement("div");
+        let inputButton = document.createElement("input");
+
+        inputButton.type = "button";
+        inputButton.classList.add("inline-input");
+        inputButton.value = ele.title;
+        divElement.classList.add("inline-container");
+        document.querySelector("#poiList").appendChild(divElement);
+        divElement.appendChild(inputButton);
+        inputButton.addEventListener("click", function() {
+          console.log(ele.position);
+          mapDraw.mapPositionMoveCamera(ele.position.x, ele.position.y)
+        });
+      });
+    }
+
+  </script>
+</body>
+
+</html>

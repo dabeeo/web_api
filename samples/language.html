@@ -1,87 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>showPoi sample</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
-		<style>
-            body {
-                background-color: #f0f0f0;
-                color: #aaaaaa;
-                margin:0;
-                overflow:hidden; 
-            }
-            
-            .langs{
-                /* float:left; */
-                position:absolute;
-                left: 10px;
-                top: 10px;
-            }            
+<head>
+  <title>language sample</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <!-- dabeeo js api test url 사용. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+  <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
+  <link rel="stylesheet" href="style.css">
 
-		</style>
-        <script src="[다비오개발문서의 api 링크]"></script>
-    </head>
-	<body>
-        <div id="map"></div>        
-        <script>
+</head>
 
-            window.addEventListener("load", function () {  
-                initMap();
-            });
+<body>
+  <div class="button-container">
+    <button type="button" class="button-menu">
+      language
+    </button>
+  </div>
+  <div class="control-container">
+    <div class="inline-container">
+      <select type="text" class="inline-input" name="language">
+        <option selected value="default">default</option>
+      </select>
+    </div>
+  </div>
 
-            function initMap() {
-                var mapContainer = document.getElementById('map'); // 지도를 표시할 div
-                    
-                    // 지도 인증정보
-                    var authorization = new indoorMapApi.Authorization({
-                    clientId: "28AXw_veA2YbNKDP6poTpT",
-                    clientSecret: "70c540c169af62808f4da3709e988e06"
-                    });
-                
-                    var mapOptions = {
-                    authorization: authorization
-                    };
-                
+  <div id="map"></div>
+  <script>
 
-                // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
-                new indoorMapApi.MapView(
-                    mapContainer, // 컨테이너
-                    mapOptions, // 옵션
-                    function (response) { // 맵 로드 콜백
-                        var code = response.getCode();
-            
-                        if (code === 200) {
-                            mapView = response.getPayload().mapView;
-                            mapDraw = response.getPayload().mapDraw;
-                            // do something
-                            console.log("map view success!")
-                            initLangBtn();
-                        }
-                    } 
-                );
-            };
-            function initLangBtn() {
-                var $select = document.createElement("select");
-                $select.classList.add('langs');
-                
-                var mapElement = document.querySelector("#map");
+    window.addEventListener("load", function () {
+      initMap();
+    });
 
-                mapElement.insertAdjacentElement("afterbegin", $select);
-                
-                mapDraw.mapInfo.languageSets.forEach(function(item) {
-                    var newOption = document.createElement("option");
-                    newOption.value = item.lang;
-                    newOption.appendChild(document.createTextNode(item.lang));
-                    document.querySelector(".langs").appendChild(newOption);
-                });
-                document.querySelector(".langs").addEventListener("change", function(e) {
-                    mapDraw.changeLanguage(e.target.value); // 언어 변경
-                });
-            }
+    function initMap() {
+      let mapContainer = document.getElementById('map'); // 지도를 표시할 div
 
-        </script>		
-    </body>
+      // 지도 인증정보
+      let authorization = new indoorMapApi.Authorization({
+        clientId: "6Lwuu9wa4wta0NiHwy1fO5",
+        clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
+      });
+
+      let mapOptions = {
+        authorization: authorization
+      };
+
+
+      // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+      new indoorMapApi.MapView(
+        mapContainer, // 컨테이너
+        mapOptions, // 옵션
+        function (response) { // 맵 로드 콜백
+          let code = response.getCode();
+
+          if (code === 200) {
+            mapDraw = response.getPayload().mapDraw;
+            // do something
+            console.log("map view success!")
+            handleLanguageInfo(mapDraw.response);
+          }
+        }
+      );
+    };
+    //////////////////////////////////////////////////////////////////////////////////
+    //poi 언어 상태 및 언어 선택
+    //poi 언어 변경 : changeLanguage
+    function handleLanguageInfo(response) {
+      let langElement = document.querySelector("[name='language']");
+
+      let langInfo = response.langInfo;
+      // 언어 추가하기
+      for (let index = 0; index < langInfo.length; index++) {
+        let lang = langInfo[index];
+        let newOption = document.createElement("option");
+        newOption.value = lang.lang;
+        if (lang.defaultYn == true) {
+          newOption.selected = true;
+        }
+        newOption.appendChild(document.createTextNode(lang.name));
+        langElement.appendChild(newOption);
+      }
+
+      langElement.addEventListener("change", function (e) {
+        mapDraw.changeLanguage(e.target.value);
+      });
+    }
+
+  </script>
+</body>
+
 </html>

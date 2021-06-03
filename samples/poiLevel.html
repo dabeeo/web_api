@@ -1,119 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>camera sample</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
-		<style>
-            body {
-                background-color: #f0f0f0;
-                color: #aaaaaa;
-                margin:0;
-                overflow:hidden; 
-            }
+<head>
+  <title>poiLevel sample</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <!-- dabeeo js api test url 사용. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+  <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-            .mymaker{
-                position: absolute; 
-                left: 10px;
-                top: 10px;
-				padding-right: 10px;
-				font-size: 13px;
-			}
-			.mymaker button {
-				background: #FFFFFF;
-				font-size: 13px;
-				color: #B7B9C1;
-				border: none;
-				cursor: pointer;
-			}
-			.mymaker button.on {
-				color: red;
-			}
-			.mymaker-title{
-				margin-top: 10px;
-				margin-bottom: 5px;
-			}
-			.mymaker-box{
-				margin-bottom: 5px;
-			}
-			.mymaker-input{
-				width: 100px;
-				margin-left: 5px;
-			}
-		</style>
-        <script src="[다비오개발문서의 api 링크]"></script>
-    </head>
-	<body>
-        <div id="map"></div>        
-        <div class="mymaker">
-            <p class="mymaker-title">
-                poi 중요도 설정
-            </p>
-            <p>
-                <input type="number" id="cluster1" style="margin-right:5px; width: 40px;" value="0">
-                <input type="number" id="cluster2" style="margin-right:5px; width: 40px;" value="0">
-                <input type="number" id="cluster3" style="width: 40px;" value="0">
-            </p>
-            <button id="clusterOn">설정 추가</button>
-            <button class="on" id="clusterOff">설정 초기화</button>
-        </div>
-        <script>
+<body>
+  <div class="button-container">
+    <button type="button" class="button-menu">
+      setPoiLevel Test
+    </button>
+  </div>
+  <div class="control-container">
+    <div class="inline-container">
+      <input type="button" class="inline-input" name="clusterOn" value="On">
+      <input type="button" class="inline-input on" name="clusterOff" value="Off">
+    </div>
+    <div class="inline-container">
+      <div class="inline-label">level1 Zoom</div>
+      <input type="text" class="inline-input" name="level1" value="100">
+    </div>
+    <div class="inline-container">
+      <div class="inline-label">level2 Zoom</div>
+      <input type="text" class="inline-input" name="level2" value="200">
+    </div>
+    <div class="inline-container">
+      <div class="inline-label">level3 Zoom</div>
+      <input type="text" class="inline-input" name="level3" value="300">
+    </div>
+  </div>
+  <div id="map"></div>
 
-            window.addEventListener("load", function () {  
-                initMap();
-            });
+  <script>
+    window.addEventListener("load", function () {
+      initMap();
+    });
 
-            function initMap() {
-                var mapContainer = document.getElementById('map'); // 지도를 표시할 div
-                    
-                // 지도 인증정보
-                var authorization = new indoorMapApi.Authorization({
-                clientId: "28AXw_veA2YbNKDP6poTpT",
-                clientSecret: "70c540c169af62808f4da3709e988e06"
-                });
-            
-                var mapOptions = {
-                authorization: authorization
-                };
-            
+    function initMap() {
+      var mapContainer = document.getElementById('map'); // 지도를 표시할 div
 
-                // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
-                new indoorMapApi.MapView(
-                    mapContainer, // 컨테이너
-                    mapOptions, // 옵션
-                    function (response) { // 맵 로드 콜백
-                        console.log(response)
-                        var code = response.getCode();
-            
-                        if (code === 200) {
-                            mapView = response.getPayload().mapView;
-                            mapDraw = response.getPayload().mapDraw;
-                            // do something
-                            console.log("map view success!")
-                            initsetPoiLevel();
-                        }
-                    } 
-                );
-            };
-            function initsetPoiLevel() {
-                /* 줌레벨에 따른 POI 보여주기 */
-                document.querySelector("#clusterOn").addEventListener("click", function (e) {
-                    var top = Number(document.querySelector("#cluster1").value),
-                        middle = Number(document.querySelector("#cluster2").value),
-                        bottom = Number(document.querySelector("#cluster3").value);
-                    mapDraw.setPoiLevelOn(top, middle, bottom); // 중요도 레벨 1, 중요도 레벨 2, 중요도 레벨 3
-                    document.querySelector("#clusterOn").classList.remove("on");
-                    document.querySelector("#clusterOff").classList.add("on");
-                });
-                document.querySelector("#clusterOff").addEventListener("click", function (e) {
-                    mapDraw.setPoiLevelOff();
-                    document.querySelector("#clusterOn").classList.add("on");
-                    document.querySelector("#clusterOff").classList.remove("on");
-                });
-            }
+      // 지도 인증정보
+      var authorization = new indoorMapApi.Authorization({
+        clientId: "6Lwuu9wa4wta0NiHwy1fO5",
+        clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
+      });
+      var mapOptions = {
+        authorization: authorization
+      };
 
-        </script>		
-    </body>
+      // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+      new indoorMapApi.MapView(
+        mapContainer, // 컨테이너
+        mapOptions, // 옵션
+        function (response) { // 맵 로드 콜백
+          var code = response.getCode();
+
+          if (code === 200) {
+            mapDraw = response.getPayload().mapDraw;
+            // do something
+            console.log("map view success!")
+            initSetPoiLevel();
+          }
+        }
+      );
+    };
+
+    function initSetPoiLevel() {
+      /* 줌레벨에 따른 POI 보여주기 */
+      document.querySelector("[name='clusterOn']").addEventListener("click", function (e) {
+        var top = Number(document.querySelector("[name='level1']").value);
+        var middle = Number(document.querySelector("[name='level2']").value);
+        var bottom = Number(document.querySelector("[name='level3']").value);
+        mapDraw.setPoiLevelOn(top, middle, bottom); // 중요도 레벨 1, 중요도 레벨 2, 중요도 레벨 3
+        e.target.classList.add("on");
+        document.querySelector("[name='clusterOff']").classList.remove("on");
+      });
+      document.querySelector("[name='clusterOff']").addEventListener("click", function (e) {
+        mapDraw.setPoiLevelOff();
+        e.target.classList.add("on");
+        document.querySelector("[name='clusterOn']").classList.remove("on");
+
+      });
+    }
+
+  </script>
+</body>
+
 </html>

@@ -14,7 +14,7 @@
   font-size: 1rem;
   font-weight: 400;
   font-family: arial, verdana, Helvetica;
-  word-break: keep-all;
+  /* word-break: keep-all; */
   box-sizing: border-box;
   border-radius: 5px;
 }
@@ -64,28 +64,42 @@ body {
   padding: 0.1rem 0.2rem;
 }
 
-input {
-  padding:0rem 0.3rem;
-}
-input:focus {
-  outline:none;
-}
-.inline-input {
-  width: 100%;
-  border: 1px solid var(--light-color);
-  color: var(--title-dark-color);
-  background-color: #ffffff;
-}
-.inline-input:hover {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--title-light-color);
-
-}
 
 .inline-label {
   color: var(--title-light-color);
   padding: 0.2rem 0.2rem;
+}
+
+input {
+  padding:0rem 0.3rem;
+}
+
+input:focus {
+  outline:none;
+}
+
+select:focus {
+  outline:none;
+}
+
+.inline-input {
+  width: 30px;
+  border: 1px solid var(--light-color);
+  color: var(--title-dark-color);
+  background-color: #ffffff;
+  flex-grow: 1;
+}
+
+.inline-input:hover {
+  background-color: var(--light-color);
+  border-color: var(--light-color);
+  color: var(--title-light-color);
+}
+
+ .on {
+  background-color: var(--dark-color);
+  border-color: var(--light-color);
+  color: var(--title-light-color);
 }
 
 .divider {
