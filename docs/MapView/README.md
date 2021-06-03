@@ -56,4 +56,6 @@ mapDraw의 정보와 메소드는 해당문서에 자세히 설명되어 있습�
   </script>
 ~~~
 - example: https://github.com/dabeeo/web_api/blob/master/samples/index.html
+- 실행 : https://dabeeo.github.io/web_api/samples/index.html
 - example: https://github.com/dabeeo/web_api/blob/master/samples/mapName.html
+- 실행 : https://dabeeo.github.io/web_api/samples/mapName.html
