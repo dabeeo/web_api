@@ -8,6 +8,7 @@ mapDraw.redrawMap() 메소드를 이용하여 지도에 그려줄 층을 변경�
 mapDraw.redrawMap({floor: floorId});
 ~~~
 - example: https://github.com/dabeeo/web_api/blob/master/samples/floor.html   
+- 실행 : https://dabeeo.github.io/web_api/samples/floor.html
 #
 
 ### 테마 선택  
@@ -16,6 +17,7 @@ mapDraw.redrawMap() 메소드를 이용하여 테마를 변경할 수 있습니�
 mapDraw.redrawMap({theme: themeId});
 ~~~
 - example: https://github.com/dabeeo/web_api/blob/master/samples/theme.html   
+- 실행 : https://dabeeo.github.io/web_api/samples/theme.html
 
 ## 카메라 관련
 
@@ -26,7 +28,8 @@ mapDraw.changeCamera() 메소드를 이용하여 2d/3d 지도로 변경할 수 �
 ~~~javascript
 mapDraw.changeCamera({camera:"2d"});
 ~~~
-- example:  https://github.com/dabeeo/web_api/blob/master/samples/camera.html   
+- example:  https://github.com/dabeeo/web_api/blob/master/samples/camera.html  
+- 실행 : https://dabeeo.github.io/web_api/samples/camera.html 
 #
 
 ### 카메라 초기화 기능
@@ -51,6 +54,9 @@ mapDraw.init3DCameraInfo();
 ~~~javascript
 mapDraw.mapPositionMoveCamera(x, y); // 지도 scene 좌표 x, y 
 ~~~
+지도기준 좌표로 이동 또는 지도의 Poi로 이동하는 예제    
+- example:  https://github.com/dabeeo/web_api/blob/master/samples/mapPositionMoveCamera.html  
+- 실행 : https://dabeeo.github.io/web_api/samples/mapPositionMoveCamera.html
 
 #
 ### 카메라 좌표 기준 x,y좌표로 카메라 이동 (방위각이 있는 지도에서 사용시 주의!)
@@ -66,8 +72,6 @@ mapDraw.moveCamera({
     "y": 0
 });
 ~~~
-
-- example: https://github.com/dabeeo/web_api/blob/master/samples/moveCamera.html
 
 ## 마우스 관련
 
@@ -91,7 +95,8 @@ mapDraw.changeLanguage()를 이용하여 언어를 변경할 수 있습니다.(_
 ~~~javascript
 mapDraw.changeLanguage("ko");
 ~~~
-- example: https://github.com/dabeeo/web_api/blob/master/samples/language.html
+- example: https://github.com/dabeeo/web_api/blob/master/samples/language.html   
+- 실행 : https://dabeeo.github.io/web_api/samples/language.html   
 
 
 #
@@ -106,6 +111,7 @@ mapDraw.changeShowPoi({showPoi: true});
 mapDraw.changeShowPoi({showPoi: false});
 ~~~
 - example: https://github.com/dabeeo/web_api/blob/master/samples/showPoi.html   
+- 실행 : https://dabeeo.github.io/web_api/samples/showPoi.html     
 
 #         
 
@@ -124,16 +130,14 @@ POI 의 clusterLevel이 3인 POI 가 보이게 되는 시점의 지도 확대 �
 ~~~javascript
 mapDraw.setPoiLevelOn(clusterLevel_1, clusterLevel_2, clusterLevel_3);
 ~~~
-
-
-
-### 중요도에 따른 POI 노출 줌 설정 해제
+# 중요도에 따른 POI 노출 줌 설정 해제
 mapDraw.setPoiLevelOff()를 이용하여 mapDraw.setPoiLevelOn 설정을 해제 합니다.   
 
 ~~~javascript
 mapDraw.setPoiLevelOff();
 ~~~
 - example: https://github.com/dabeeo/web_api/blob/master/samples/poiLevel.html
+- 실행 : https://dabeeo.github.io/web_api/samples/poiLevel.html
 
 #
 
@@ -160,6 +164,7 @@ mapDraw.ZoomOut() 메소드를 이용하여 지도를 축소할 수 있습니다
 mapDraw.zoomOut();
 ~~~
 - example: https://github.com/dabeeo/web_api/blob/master/samples/zoom.html   
+- 실행 : https://dabeeo.github.io/web_api/samples/zoom.html   
 
 ### 지도 비율 지정하여 확대/축소   
 mapDraw.ZoomControl() 메소드를 이용하여 지도를 확대나 축소시 그 비율을 지정할 수 있습니다.   
@@ -173,7 +178,7 @@ mapDraw.zoomControl(120);
 #
 
 ### 마우스로 zoom 기능 끄기
-mapDraw.zoomOff()를 이용하여 마우스로 zoom기능을 비활성화할 수 있습니다 .
+mapDraw.zoomOff()를 이용하여 마우스로 zoom기능을 비활성화할 수 있습니다.   
 ~~~javascript
 mapDraw.zoomOff();
 ~~~
@@ -328,6 +333,7 @@ mapDraw.getRouteOff() 메소드를 이용하여 길찾기 경로를 삭제할 �
 let a = mapDraw.getRouteOff();
 ~~~
 - example: https://github.com/dabeeo/web_api/blob/master/samples/navigation.html   
+- 실행 : https://dabeeo.github.io/web_api/samples/navigation.html   
 
 #
 
@@ -416,8 +422,6 @@ let list = mapDraw.getNavigation();
 list[0].move(); // 항목에 move() 호출시 해당하는 위치로 카메라가 이동합니다.
 ~~~
 
-- example: https://github.com/dabeeo/web_api/blob/master/samples/navigation.html   
-
 #
 
 ### 모의주행  
@@ -439,8 +443,6 @@ mapDraw.stopRouteAnimation();
 ~~~javascript
 mapDraw.startRouteAnimation({zoom: 200});
 ~~~
-
-- example: https://github.com/dabeeo/web_api/blob/master/samples/navigation.html   
 
 #
 
@@ -547,6 +549,7 @@ mapDraw.myLocationOff()메소드로 좌표에 표시된 아이콘을 삭제할 �
 mapDraw.myLocationOff();
 ~~~
 - example: https://github.com/dabeeo/web_api/blob/master/samples/myLocation.html   
+- 실행 : https://dabeeo.github.io/web_api/samples/myLocation.html   
 
 #
 
@@ -586,7 +589,8 @@ mapDraw.clearMarker로 표시한 마커를 삭제할 수 있습니다.
 ~~~javascript
 mapDraw.clearMarker();
 ~~~
-- example: https://github.com/dabeeo/web_api/blob/master/samples/marker.html
+- example: https://github.com/dabeeo/web_api/blob/master/samples/marker.html  
+- 실행 : https://dabeeo.github.io/web_api/samples/marker.html   
 
 ### 등록된 마커사이즈 실시간 동기화 
 mapDraw.setAsyncMarker (isAsync:boolean) 맵에 표시된 마커의 사이즈를 줌 배율에 맞게 동기화 여부를 설정할 수 있습니다.   
@@ -646,8 +650,6 @@ mapDraw.moveCamera({
 });
 ~~~
 
-- example: https://github.com/dabeeo/web_api/blob/master/samples/moveCamera.html
-
 
 #
    
@@ -670,8 +672,6 @@ mapDraw.convert2img();
 - xDirection : 원도와 비교 한 x 축 진행방향
 - yDirection : 원도와 비교 한 y 축 진행 방향
 
-* example : https://github.com/dabeeo/web_api/blob/master/samples/convert_position_debug.html
-
 ~~~ javascript
 let convertOptions = {
 	position : {
@@ -688,5 +688,8 @@ let convertOptions = {
 };
 let p = mapDraw.convertPosition(convertOptions); // 좌표 변경 함수 호출
 ~~~
+
+* example : https://github.com/dabeeo/web_api/blob/master/samples/convert_position_debug.html
+* 실행 : https://dabeeo.github.io/web_api/samples/convert_position_debug.html   
 
 
