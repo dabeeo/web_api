@@ -58,7 +58,8 @@ poi 정보는 MapDraw의 속성에 담겨 있습니다. 여러개의 poi가 있�
 poi 정보에 담긴 타이틀에는 new line 과 같은 특수 문자들이 포함되어 있습니다. 검색을 사용할 경우 이러한 특수문자를 제거한 후 사용하기 바랍니다. 
 
 - id: 고유 아이디
-- floorId: poi가 속한 층아이디   
+- floorId: poi가 속한 층아이디
+- title : poi 이름    
 - categoryCode : 카테고리 코드
 - iconUrl : icon Url
 - position : x,y,z position
@@ -70,6 +71,7 @@ MapDraw.response.poiInfo
 [{
       "id": "PO-4JvSQCWHC2270",
       "floorId": "FL-qhndqjlqhu7p3894",
+      "title": "남자화장실",
       "categoryCode": "",
       "icoUrl": "https://assets.dabeeomaps.com/upload/poiMarker/MansToilet.png",
       "position": {
