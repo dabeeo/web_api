@@ -1,10 +1,13 @@
 # MapInfo
 
-MapInfo 클래스는 지도 데이터에 대한 정보를 가져오는 기능을 제공합니다.
+MapInfo 클래스는 지도 데이터에 대한 정보를 가져오는 기능을 제공합니다. 지도를 그리기전에 먼저 지도의 정보를 확인하기 위해 사용할 수 있습니다.   
 
 - 지도의 Version 가져오기
 - 지도의 Poi 정보 가져오기
-- 지도의 모든 response 정보 가져오기
+- 지도의 모든 정보 가져오기
+
+- example: https://github.com/dabeeo/web_api/blob/master/samples/mapInfo.html
+- 실행 : https://dabeeo.github.io/web_api/samples/mapInfo.html   
 
 ## Version 가져오기
 - MapInfo 생성시 옵션으로 지도의 클라이언트아이디와 시크릿 정보를 전달합니다. 
@@ -85,11 +88,12 @@ poi: {
     </script>
 ~~~
 
-## 모든 response 가져오기
-- MapInfo 생성시 옵션으로 지도의 클라이언트아이디와 시크릿 정보를 전달합니다. 
-- getAll(callback_func)을 호출하면 인자로 넘겨진 callback function으로 서버에서 받은 지도의 response 정보를 전달합니다. 
-- 지도에 있는 response 정보를 가져오기 위해서 아래 예제를 참조하시면 됩니다.
-- [response 정보]는 MapDraw의 response(아래 페이지)의 모든 정보를 한번에 전달합니다.
+## 지도의 모든 정보 가져오기
+- MapInfo 생성시 옵션으로 지도의 클라이언트아이디와 시크릿 정보를 전달합니다.   
+- getAll(callback_func)을 호출하면 인자로 넘겨진 callback function으로 서버에서 받은 지도의 모든 정보를 전달합니다.  
+- 지도에 있는 모든 정보를 가져오기 위해서 아래 예제를 참조하시면 됩니다.  
+- 정보의 내용은 mapView호출시 반환되는 mapDraw의 response와 동일합니다. 
+- [response 정보]는 아래 링크를 확인하세요.    
     https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/response.md
 
 ~~~javascript
