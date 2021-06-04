@@ -6,7 +6,7 @@ MapInfo 클래스는 지도 데이터에 대한 정보를 가져오는 기능을
 - 지도의 Poi 정보 가져오기
 - 지도의 모든 정보 가져오기
 
-- example: https://github.com/dabeeo/web_api/blob/master/samples/mapInfo.html   
+- example: https://github.com/dabeeo/web_api/blob/master/samples/mapInfo.html
 - 실행 : https://dabeeo.github.io/web_api/samples/mapInfo.html   
 
 ## Version 가져오기
