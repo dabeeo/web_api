@@ -183,7 +183,7 @@ function getMapOptions() {
     getSelectBooleanOptions("rotationTouch2d", mapOptions);
     getSelectBooleanOptions("rotationMouse2d", mapOptions);
 
-    let camera = mapOptionElement.querySelector("select[name='camera'").value;
+    let camera = mapOptionElement.querySelector("select[name='camera']").value;
     if (camera !== "") mapOptions["camera"] = camera;
 
     let poiLevel1 = mapOptionElement.querySelector("input[name='poiLevel1']").value;
@@ -313,7 +313,7 @@ function setButton(category) {
             btn.value = i;
             btn.addEventListener("click", moveMyLocation);
             btn.innerText += mapFloorName[poi.floorId] + " " + poi.title;
-            document.querySelector("#poiButton").append(btn);
+            document.querySelector("#poiButton").appendChild(btn);
         }
     }
 }
@@ -553,7 +553,7 @@ function initClickEvent() {
     function parseJsonPoiMeta(poiData, modalBody) {
         let spanElement = document.createElement("span");
         spanElement.innerHTML = "<h5>title : " + poiData.titleByLanguages[0].text + "</h5>";
-        modalBody.append(spanElement);
+        modalBody.appendChild(spanElement);
 
         let element = document.createElement("p");
         element.innerHTML = "<h6>Metadata</h6>";
@@ -581,7 +581,7 @@ function initClickEvent() {
                 }
             }
         }
-        modalBody.append(element);
+        modalBody.appendChild(element);
     }
 
     document.querySelector("#objectModalClose").addEventListener("click", function (e) {
@@ -873,7 +873,7 @@ function getNavigation(retResult) {
             "미터";
     else btn.innerText = "도착시간 " + (retResult / (1000 * 60)).toFixed(1) + "분";
 
-    document.querySelector("#navigationButton").append(btn);
+    document.querySelector("#navigationButton").appendChild(btn);
 
     for (let i = 0; i < list.length; i++) {
         let btn = document.createElement("button");
@@ -884,7 +884,7 @@ function getNavigation(retResult) {
         btn.innerText = "";
         if (list[i].isDestination) {
             btn.innerText += list[i].title + " " + list[i].distance / 100 + "m";
-            document.querySelector("#navigationButton").append(btn);
+            document.querySelector("#navigationButton").appendChild(btn);
         } else {
             if (list[i].title) {
                 btn.innerText += list[i].title + " ";
@@ -898,7 +898,7 @@ function getNavigation(retResult) {
             if (list[i].direction) {
                 btn.innerText += " 후 " + transDirectCode(list[i].direction);
             }
-            document.querySelector("#navigationButton").append(btn);
+            document.querySelector("#navigationButton").appendChild(btn);
         }
     }
 }
