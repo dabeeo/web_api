@@ -11,7 +11,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 400;
   font-family: arial, verdana, Helvetica;
   /* word-break: keep-all; */
@@ -23,13 +23,20 @@ body {
   background-color: var(--body-backgroud-color);
   overflow: hidden;
 }
+button, input, select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
 
 .button-container {
   position: absolute;
   right: 10px;
   top: 10px;
   width: var(--menu-width);
-  margin: 0.2rem 0.2rem;
+  background-color:var(--dark-color);
+  /* padding:0.2rem 0.2rem */
+  /* margin: 0.2rem 0.2rem; */
 
 }
 
@@ -37,9 +44,9 @@ body {
   width: 100%;
   background-color: var(--dark-color);
   color: var(--title-light-color);
-  padding: 0.2rem 0.3rem;
   border: 1px solid var(--dark-color);
-  margin: 0.2rem 0.2rem;
+  /* margin: 0.2rem 0.2rem; */
+  padding: 0.2rem 0.2rem;
 }
 
 .button-menu:hover {
@@ -55,13 +62,13 @@ body {
   width: var(--menu-width);
   max-height: 80vh;
   background-color: var(--primary-color);
-  padding: 0.2rem 0rem;
   overflow-x:hidden;
+  /* padding: 0.2rem 0rem; */
 }
 
 .inline-container {
   display: flex;
-  padding: 0.1rem 0.2rem;
+  padding: 0.2rem 0.2rem;
 }
 
 
@@ -88,6 +95,7 @@ select:focus {
   color: var(--title-dark-color);
   background-color: #ffffff;
   flex-grow: 1;
+  padding:0.2rem 0.2rem;
 }
 
 .inline-input:hover {
