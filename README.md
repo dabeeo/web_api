@@ -23,8 +23,6 @@ https://github.com/dabeeo/web_api/blob/master/release_history.md
 3. 상세 지도 정보에서 인증접근 정보를 확인합니다.
 ~~~
 
-
-
 ## Getting Started
 
 ~~~javascript
@@ -36,6 +34,10 @@ https://github.com/dabeeo/web_api/blob/master/release_history.md
 ## Demo Site
 - 최신 버전의 js 기능을 테스트해볼 수 있습니다.  
 https://dabeeo.github.io/web_api/demo/
+
+## Examle Site
+- 최신 버전의 js 사용 예제를 볼 수 있습니다.   
+https://dabeeo.github.io/web_api/example/
 
 ## 샘플
 - 간단히 지도만 렌더링하는 샘플 코드 및 실행화면입니다. 
