@@ -35,8 +35,8 @@ https://github.com/dabeeo/web_api/blob/master/release_history.md
 - 최신 버전의 js 기능을 테스트해볼 수 있습니다.  
 https://dabeeo.github.io/web_api/demo/
 
-## Examle Site
-- 최신 버전의 js 사용 예제를 볼 수 있습니다.   
+## Example Site
+- 최신 버전의 다양한 js 사용 예제를 볼 수 있습니다.   
 https://dabeeo.github.io/web_api/example/
 
 ## 샘플
