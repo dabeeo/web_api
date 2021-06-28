@@ -97,7 +97,7 @@ true로 지정하면 poi가 항상 정면을 바라봄.
 Type: Boolean   
 Default : false
 ~~~javascript
-sPoiSprite: true
+isPoiSprite: true
 ~~~
 
 ### isPoiAngle (Deprecated)
