@@ -91,7 +91,17 @@ Default : true
 showPoi : false
 ~~~
 
-### isPoiAngle
+### isPoiSprite
+실내지도 3d 모드에서 지도의 각을 변화시켜도 poi를 항상 정면을 바라보게 할 지 여부 결정.   
+true로 지정하면 poi가 항상 정면을 바라봄. 
+Type: Boolean   
+Default : false
+~~~javascript
+isPoiAngle: true
+~~~
+
+### isPoiAngle (Deprecated)
+poi 정면 바라보는 기능을 사용하기 위해 isPoiAngle 대신 isPoiSprite를 사용하기 바랍니다. 
 실내지도 3d 모드에서 지도의 각을 변화시켜도 poi를 항상 정면을 바라보게 할 지 여부 결정.   
 true로 지정하면 poi가 항상 정면을 바라봄. 
 Type: Boolean   
