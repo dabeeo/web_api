@@ -102,6 +102,7 @@
 
           if (code === 200) {
             mapDraw = response.getPayload().mapDraw;
+            window.mapDraw = mapDraw;
             // do something
             console.log("map view success!")
             handleFloorInfo(mapDraw.response);
@@ -161,9 +162,9 @@
         mapDraw.setNavigationOption({solidLineEnabled:true});
         result = mapDraw.getRouteOn(originPoi, destPoi);
         if (result === undefined) alert("요청하신 경로가 존재하지 않습니다.");
-        const option = createSimulateOption();
-        console.log(option);
+        const option = createSimulateOption();        
         mapDraw.startRouteAnimation(option);
+        mapDraw.changeCamera({camera:document.getElementById("navi-camera-angle").value});
       });
 
       document.querySelector("#getRouteOff").addEventListener("click", function (e) {
@@ -175,8 +176,7 @@
 
     function createSimulateOption() {
       return {
-        zoom : document.getElementById("animationZoom").value,
-        camera: document.getElementById("navi-camera-angle").value,
+        zoom : document.getElementById("animationZoom").value,        
         destOption: {
           activeDest: document.getElementById("active-dest").value === "true",
           color: document.getElementById("dest-color").value ?? "#ff0000",
