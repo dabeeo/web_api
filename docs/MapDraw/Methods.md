@@ -438,10 +438,36 @@ mapDraw.stopRouteAnimation();
 ~~~
 모의주행이 완료되면 "navi-complete" 이벤트가 반환됩니다.  
 
+
+### 모의주행 옵션 
 - 모의주행 카메라 애니메이션 추가   
 함수 파라미터에 { zoom: number } 입력시 모의주행중 카메라 이동이 해당 zoom 입력값으로 됩니다. 카메라 이동중 마우스로 지도위치를 변경할 수 없습니다.
 ~~~javascript
 mapDraw.startRouteAnimation({zoom: 200});
+~~~
+
+- 카메라 설정 변경 옵션 추가   
+함수 파라미터에 {camera: "2d" or "3d" } 입력시 모의주행 시 카메라 설정이 변경됩니다.
+- "2d": 2d 모드
+- "3d": 3d 모드
+~~~javascript
+mapDraw.startRouteAnimation(camera: "3d"});
+~~~
+- 도착지 오브젝트 active 옵션 추가   
+함수 파라미터에 {destOption:{activeDest:boolean, color:변경하고자 하는 색상, opacity:변경하고자 하는 투명도}} 입력시 도착지 오브젝트의 색상 및 투명도가 변경됩니다.
+단, activeDest가 false 인경우 색상 및 투명도가 반영되지 않습니다.
+
+- activeDest = active 여부
+- color = 변경하고자 하는 색상값  ex) "#ff0000"
+- opacity = 변경하고자 하는 투명도 값 ex) 0 ~ 1 사이의 실수 값 으로 0 투명 1 불투명
+
+~~~ javascript 
+mapDraw.startRouteAnimation({destOption:{activeDest:true, color:"#ff0000", opacity:0.78}});
+~~~
+
+- 사용자 예
+~~~ javascript 
+mapDraw.startRouteAnimation({zoom:200, camera:"2d", destOption:{activeDest:true, color:"#ff0000", opacity:0.78}});
 ~~~
 
 #
@@ -600,6 +626,15 @@ mapDraw.setAsyncMarker (isAsync:boolean) 맵에 표시된 마커의 사이즈를
 ~~~javascript
 mapDraw.setAsyncMarker(true); // 줌배율에 상관없이 마커 크기 유지
 mapDraw.setAsyncMarker(false); // 줌배율에 따라 마커 크기 변함
+~~~
+
+### 특정 오브젝트 속성 변경
+mapDraw.updateObjectStateByIds({ids:[string], color:변경하고자 하는 색상 값, opacity:변경하고자 하는 투명도}) 함수를 사용하면 특정 오브젝트의 색상, 투명도를 변경할 수 있습니다   
+- ids: 오브젝트의 ID 또는 오브젝트가 연결된 poi ID 배열 로 poi ID의 경우 연결된 오브젝트가 없을 경우 건너뛰고 진행합니다.   
+- color : 변경 하고 싶은 색상 값 ex) "#ff0000"   
+- opacity: 변경하고 싶은 투명도 값 ex) 0 ~ 1 사이의 실수 값   
+~~~javascript
+mapDraw.updateObjectStateByIds({ids:["OB-qnwjwjsnsnsj", "PO-qnwnwnwuwuw"...], color:#efefef, opacity:1});
 ~~~
 
 ## 좌표 관련
