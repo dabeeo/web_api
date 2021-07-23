@@ -158,6 +158,7 @@
         let originPoi = getPoi("poiOrigin");
         let destPoi = getPoi("poiDestination");
         if (originPoi === undefined || destPoi === undefined) return;
+        mapDraw.setNavigationOption({solidLineEnabled:true});
         result = mapDraw.getRouteOn(originPoi, destPoi);
         if (result === undefined) alert("요청하신 경로가 존재하지 않습니다.");
         const option = createSimulateOption();
