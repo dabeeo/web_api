@@ -29,6 +29,28 @@ button, input, select {
   appearance: none;
 }
 
+.margin-tb-5 {
+  margin: 5px 0px;
+}
+.margin-tb-10 {
+  margin: 10px 0px;
+}
+
+.margin-top-5 {
+  margin-top:5px;
+}
+
+.ft-14 {
+  font-size: 14px;
+}
+.ft-16 {
+  font-size: 16px;
+}
+
+.fc-white {
+  color: #ffffff;
+}
+
 .button-container {
   position: absolute;
   right: 10px;
