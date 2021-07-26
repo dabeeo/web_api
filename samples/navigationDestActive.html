@@ -90,7 +90,11 @@
       });
       var mapOptions = {
         authorization: authorization,
-        camera: "2d"
+        camera: "2d",
+        angle: {
+          vertical:30,
+          horizontal:0
+        }
       };
 
       // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
