@@ -446,13 +446,6 @@ mapDraw.stopRouteAnimation();
 mapDraw.startRouteAnimation({zoom: 200});
 ~~~
 
-- 카메라 설정 변경 옵션 추가   
-함수 파라미터에 {camera: "2d" or "3d" } 입력시 모의주행 시 카메라 설정이 변경됩니다.
-- "2d": 2d 모드
-- "3d": 3d 모드
-~~~javascript
-mapDraw.startRouteAnimation(camera: "3d"});
-~~~
 - 도착지 오브젝트 active 옵션 추가   
 함수 파라미터에 {destOption:{activeDest:boolean, color:변경하고자 하는 색상, opacity:변경하고자 하는 투명도}} 입력시 도착지 오브젝트의 색상 및 투명도가 변경됩니다.
 단, activeDest가 false 인경우 색상 및 투명도가 반영되지 않습니다.
