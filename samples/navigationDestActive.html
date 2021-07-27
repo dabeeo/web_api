@@ -43,10 +43,10 @@
         <input type="number" class="inline-input" id="animationZoom" placeholder="10 ~ 1000 사이의 값" min="10" max="1000">
       </div>      
       <div class="inline-container">  
-        <div class="inline-label">Dimention</div>
+        <div class="inline-label">Dimension</div>
         <select class="inline-input" id="navi-camera-angle">
-          <option value="2d" selected="">2D</option>
-          <option value="3d">3D</option>
+          <option value="2d" >2D</option>
+          <option value="3d" selected="" >3D</option>
         </select>
       </div>      
     </div>
@@ -54,8 +54,8 @@
       <div class="inline-container">  
         <div class="inline-label">활성화 여부</div>
         <select class="inline-input" id="active-dest">
-          <option value="false" selected="">비활성화</option>
-          <option value="true">활성화</option>
+          <option value="false" >비활성화</option>
+          <option value="true" selected="">활성화</option>
         </select>
       </div>           
       <div class="inline-container">  
@@ -92,9 +92,10 @@
         authorization: authorization,
         camera: "2d", // 초기 demention 
         angle: {
-          vertical:30, // 3D 모드일때 tilt 30 
+          vertical:35, // 3D 모드일때 tilt 30 
           horizontal:0 
-        }
+        },
+        zoom:90
       };
 
       // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
@@ -163,7 +164,7 @@
         let originPoi = getPoi("poiOrigin");
         let destPoi = getPoi("poiDestination");
         if (originPoi === undefined || destPoi === undefined) return;
-        mapDraw.setNavigationOption({solidLineEnabled:true, lineZ: 2.5, originPositionZ:2.7, destinationPositionZ:2.7});
+        mapDraw.setNavigationOption({solidLineEnabled:true, solidLineWidth:2, speedRate:2, lineZ: 2.5, originPositionZ:2.7, destinationPositionZ:2.7});
         result = mapDraw.getRouteOn(originPoi, destPoi);
         if (result === undefined) alert("요청하신 경로가 존재하지 않습니다.");
         const option = createSimulateOption();        

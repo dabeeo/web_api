@@ -8,6 +8,8 @@ function init() {
     });
 
     let list = document.querySelectorAll("nav a");
+    var selectOption = window.location.href.split("#")[1];
+    document.querySelector("iframe").src="../samples/"+selectOption+".html";
     for (let i = 0; i < list.length; i++) {
         list[i].addEventListener("click", function (e) {
             let fileName = e.target.href.split("#")[1] + ".html";

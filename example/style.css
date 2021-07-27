@@ -32,15 +32,17 @@ header {
   background-color: whitesmoke;
   height: 50px;
   padding:0.5rem 0rem ;
+  justify-content: space-around;
 }
 header p {
   /* background-color: aqua; */
   font-size: 1.2rem;
 }
 header img{
-  padding-left: 2rem;
-  max-width:300px;
-  height:80%;
+  /* padding-left: 2rem; */
+  padding-right: 0.8rem;
+  max-width:200px;
+  height:60%;
 }
 header .largeLogo {
   display: block;
@@ -111,6 +113,7 @@ iframe {
   }
   header .largeLogo {
     display: none;
+    padding-right: 10px;
   }
   header .smallLogo, .hamburger {
     display: block;
