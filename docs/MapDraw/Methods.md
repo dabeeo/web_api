@@ -460,7 +460,7 @@ mapDraw.startRouteAnimation({destOption:{activeDest:true, color:"#ff0000", opaci
 
 - 사용자 예
 ~~~ javascript 
-mapDraw.startRouteAnimation({zoom:200, camera:"2d", destOption:{activeDest:true, color:"#ff0000", opacity:0.78}});
+mapDraw.startRouteAnimation({zoom:200, destOption:{activeDest:true, color:"#ff0000", opacity:0.78}});
 ~~~
 
 #
