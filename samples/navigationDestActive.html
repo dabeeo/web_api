@@ -90,10 +90,10 @@
       });
       var mapOptions = {
         authorization: authorization,
-        camera: "2d",
+        camera: "2d", // 초기 demention 
         angle: {
-          vertical:30,
-          horizontal:0
+          vertical:30, // 3D 모드일때 tilt 30 
+          horizontal:0 
         }
       };
 
@@ -163,7 +163,7 @@
         let originPoi = getPoi("poiOrigin");
         let destPoi = getPoi("poiDestination");
         if (originPoi === undefined || destPoi === undefined) return;
-        mapDraw.setNavigationOption({solidLineEnabled:true});
+        mapDraw.setNavigationOption({solidLineEnabled:true, lineZ: 2.5, originPositionZ:2.7, destinationPositionZ:2.7});
         result = mapDraw.getRouteOn(originPoi, destPoi);
         if (result === undefined) alert("요청하신 경로가 존재하지 않습니다.");
         const option = createSimulateOption();        
