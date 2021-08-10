@@ -65,6 +65,34 @@
       <div class="inline-container">  
         <div class="inline-label">투명도</div>
         <input type="number" class="inline-input" min="0" max="1" id="dest-opacity" placeholder="0 ~ 1 사이의 값">
+      </div>
+      <p style="padding: 0px 2px; font-size: 10px;">* 애니메이션 사용시 투명도를 0.5 보다 작게 해주세요</p>      
+    </div>
+    <div class="dropdown-item margin-tb-10 ft-16 fc-white">애니메이션 옵션      
+      <div class="inline-container">  
+        <div class="inline-label">활성화 여부</div>
+        <select class="inline-input" id="animate-active-yn">
+          <option value="false" selected="">비활성화</option>
+          <option value="true">활성화</option>
+        </select>
+      </div>
+      <div class="inline-container">  
+        <div class="inline-label">Duration</div>
+        <input type="number" class="inline-input" id="animate-duration" placeholder="(ms 단위) 1초 => 1000">
+      </div>           
+      <div class="inline-container">  
+        <div class="inline-label">반복여부</div>
+        <select class="inline-input" id="animate-repeat-yn">
+          <option value="false" selected="">반복안함</option>
+          <option value="true" >반복</option>
+        </select>
+      </div>
+      <div class="inline-container">  
+        <div class="inline-label">애니메이션 방식</div>        
+        <select class="inline-input" id="animate-yoyo-yn">
+          <option value="false" selected="">NONE</option>
+          <option value="true" >YOYO</option>
+        </select>
       </div>                    
     </div>
   </div>
@@ -185,7 +213,11 @@
         destOption: {
           activeDest: document.getElementById("active-dest").value === "true",
           color: document.getElementById("dest-color").value ?? "#ff0000",
-          opacity: document.getElementById("dest-opacity").value ?? 1 
+          opacity: document.getElementById("dest-opacity").value ?? 1,
+          isAnimate: document.getElementById("animate-active-yn").value === "true",
+          duration: parseInt(document.getElementById("animate-duration").value) ?? 0,
+          isRepeat: document.getElementById("animate-repeat-yn").value === "true",
+          isYoyo: document.getElementById("animate-yoyo-yn").value === "true"          
         }
       };
     }
