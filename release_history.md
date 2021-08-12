@@ -4,6 +4,20 @@
 - 공식 api 링크는 다비오 사이트에 올라가 있습니다. 
 - https://dabeeomaps.com/docs
 
+
+#
+### jsMapAPI_03.11.01_R_2021.07.23
+
+#### change description  
+- 모의주행 옵션에서 도착지의 poi의 object의 색상,투명도를 변경 가능하며 색상애니메이션 효과를 줄 수 있도록 옵션 추가
+- Poi에 연결된 특정 object의 색상 및 오브젝트의 색상, 투명도를 변경 가능하며 색상애니메이션 효과를 줄 수 있는 메소드 추가
+
+#### changed API
+- 모의주행 옵션에서 도착지의 poi의 object의 색상,투명도를 변경 가능하며 색상애니메이션 효과를 줄 수 있도록 옵션 추가
+  https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#특정-오브젝트-속성-변경
+- Poi에 연결된 특정 object의 색상, 투명도를 변경 가능하며 색상애니메이션 효과를 줄 수 있는 메소드 추가
+  https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#모의주행-옵션
+
 #
 ### jsMapAPI_03.06.01_R_2021.05.28
 
