@@ -625,12 +625,18 @@ mapDraw.setAsyncMarker(false); // 줌배율에 따라 마커 크기 변함
 ~~~
 
 ### 특정 오브젝트 속성 변경
-mapDraw.updateObjectStateByIds({ids:[string], color:변경하고자 하는 색상 값, opacity:변경하고자 하는 투명도}) 함수를 사용하면 특정 오브젝트의 색상, 투명도를 변경할 수 있습니다   
+mapDraw.updateObjectStateByIds({ids:[string], color:Color, opacity:number, isAnimate:boolean, duration:number, isRepeat:boolean, isYoyo:boolean}) 함수를 사용하면 특정 오브젝트의 색상, 투명도를 변경 가능하며 색상애니메이션 효과를 줄 수 있습니다   
+단, activeDest가 false 인경우 색상 및 투명도가 반영되지 않고, isAnimate가 false 인경우 애니메이션 효과가 반영되지 않습니다.
 - ids: 오브젝트의 ID 또는 오브젝트가 연결된 poi ID 배열 로 poi ID의 경우 연결된 오브젝트가 없을 경우 건너뛰고 진행합니다.   
 - color : 변경 하고 싶은 색상 값 ex) "#ff0000"   
-- opacity: 변경하고 싶은 투명도 값 ex) 0 ~ 1 사이의 실수 값   
+- opacity: 변경하고 싶은 투명도 값 ex) 0 ~ 1 사이의 실수 값, 색상 애니메이션 을 사용하는(isAnimate true) 경우 0.5 이하로 설정하는 것을 권장드립니다. 
+- isAnimate = 색상 애니메이션 효과 적용 여부 
+- duration = 애니메이션 complete 까지의 시간 ms단위 (1초 => 1000) 으로 default 1000 입니다. 
+- isRepeat = 애니메이션 반복 여부 true 반복 false 반복 으로 default false 입니다.
+- isYoyo = 애니메이션이 complete 됬을때 isRepeat 옵션이 true 인경우 반복 방법, true 이경우 역순진행 되며 default false 입니다.
+   
 ~~~javascript
-mapDraw.updateObjectStateByIds({ids:["OB-qnwjwjsnsnsj", "PO-qnwnwnwuwuw"...], color:#efefef, opacity:1});
+mapDraw.updateObjectStateByIds({ids:["OB-qnwjwjsnsnsj", "PO-qnwnwnwuwuw"...], color:#efefef, opacity:1, , isAnimate:true, duration:1500, isRepeat:true, isYoyo:false}});});
 ~~~
 
 ## 좌표 관련
