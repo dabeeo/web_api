@@ -465,6 +465,8 @@ mapDraw.startRouteAnimation({destOption:{activeDest:true, color:"#ff0000", opaci
 ~~~ javascript 
 mapDraw.startRouteAnimation({destOption:{activeDest:true, color:"#ff0000", opacity:0.78, isAnimate:true, duration:1500, isRepeat:true, isYoyo:false}});
 ~~~
+- example: https://github.com/dabeeo/web_api/blob/master/samples/navigationDestActive.html  
+- 실행 : https://dabeeo.github.io/web_api/samples/navigationDestActive.html  
 
 #
 
