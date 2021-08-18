@@ -9,11 +9,13 @@
 ### jsMapAPI_03.12.01_R_2021.08.20
 
 #### change description  
-- mapView에 할당된 메모리를 해제하는 dispose()메소드 추가
+- mapView 호출시 할당된 메모리를 해제하는 dispose()메소드 추가
 - 길찾기에서 엘레베이터등의 이동수단 사용후 바로 도착지가 나오는 경우 층이동경로가 누락되는 버그 수정
 - 길찾기에서 에스컬레이터 양방향으로 설정되어 있는 경우 생기는 버그 수정
 
 #### changed API
+- mapView시 할당된 메모리를 해제하는 dispose()메소드 추가     
+  https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#메모리-해제
 
 
 
@@ -25,9 +27,9 @@
 - Poi에 연결된 특정 object의 색상 및 오브젝트의 색상, 투명도를 변경 가능하며 색상애니메이션 효과를 줄 수 있는 메소드 추가
 
 #### changed API
-- 모의주행 옵션에서 도착지의 poi의 object의 색상,투명도를 변경 가능하며 색상애니메이션 효과를 줄 수 있도록 옵션 추가
+- 모의주행 옵션에서 도착지의 poi의 object의 색상,투명도를 변경 가능하며 색상애니메이션 효과를 줄 수 있도록 옵션 추가    
   https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#특정-오브젝트-속성-변경
-- Poi에 연결된 특정 object의 색상, 투명도를 변경 가능하며 색상애니메이션 효과를 줄 수 있는 메소드 추가
+- Poi에 연결된 특정 object의 색상, 투명도를 변경 가능하며 색상애니메이션 효과를 줄 수 있는 메소드 추가    
   https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#모의주행-옵션
 
 #
