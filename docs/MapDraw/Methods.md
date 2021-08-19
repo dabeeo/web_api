@@ -1,7 +1,7 @@
 ## MapDraw methods : 지도 속성 변경 및 길찾기 등 기능 수행
 MapDraw의 메소드를 이용하여 지도에 대한 속성을 변경하거나 특정 기능을 동작시킬 수 있습니다. 
 
-## 지도 메모리 및 이벤트 해제
+## 지도 메모리/이벤트 해제
 mapDraw.dispose() 메소드를 이용하여 map을 그리기 위해 사용하던 모든 geometry, material 등을 메모리에서 해제합니다.
 dispose를 호출한 뒤 다시 지도를 그리려면 new indoorMapApi.mapView을 통해 새롭게 mapView를 생성하셔야 합니다.
 
