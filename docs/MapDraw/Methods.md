@@ -2,8 +2,13 @@
 MapDraw의 메소드를 이용하여 지도에 대한 속성을 변경하거나 특정 기능을 동작시킬 수 있습니다. 
 
 ## 메모리 해제
-mapDraw.dispose() 메소드를 이용하여 mapView 호출시 할당된 메모리를 해제할 수 있습니다. 
-dispose를 호출한 뒤 다시 지도를 이용하기 위해서는 mapView를 호출하셔야 합니다. 
+mapDraw.dispose() 메소드를 이용하여 map을 그리기 위해 사용하던 모든 geometry, material 등을 메모리에서 해제합니다.
+dispose를 호출한 뒤 다시 지도를 그리려면 new indoorMapApi.mapView을 통해 새롭게 mapView를 생성하셔야 합니다.
+
+~~~javascript
+mapDraw.dispose();
+~~~
+
 
 ## 지도 다시 그리기
 ### 층 선택     
