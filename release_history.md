@@ -14,8 +14,8 @@
 - 길찾기에서 에스컬레이터 양방향으로 설정되어 있는 경우 생기는 버그 수정
 
 #### changed API
-- mapView시 할당된 메모리를 해제하는 dispose()메소드 추가     
-  https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#메모리-해제
+- mapView시 할당된 메모리를 해제하는 dispose()메소드 추가    
+- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#지도-메모리이벤트-해제
 
 
 
