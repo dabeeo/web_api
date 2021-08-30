@@ -506,7 +506,7 @@ mapDraw.setNavigationOption() 메소드를 이용하여 네비게이션 관련 �
 - solidLineEnabled : default는 false. 주행라인의 속성을 결정. false일 때는 점선, true일 때 실선으로 그려짐. 
 - solidLineWidth : 실선의 굵기. default는 1.
 <!-- 2021.08-30 모의주행 아이콘 높이설정 옵션 추가 -->
-#### 2021.08.30 이후 배포버전에서 추가 
+#### jsMapAPI_03.13.01_R_2021.08.27 이후 배포버전에서 추가 
 - moveIconZ : 모의주행 아이콘의 z측 값을 지정합니다. 입력하지 않을 경우 default 값으로 자동 설정됩니다. 
 
 점선으로 표시되는 예입니다.    
