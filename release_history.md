@@ -6,6 +6,16 @@
 
 
 #
+### jsMapAPI_03.13.02_R_2021.08.27
+
+#### change description  
+- mapDraw.setNavigationOption()에 길찾기 모의주행 아이콘 Z값 옵션 추가(moveIconZ)
+
+#### changed API
+- mapDraw.setNavigationOption()에 길찾기 모의주행 아이콘 Z값 옵션 추가(moveIconZ)
+- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기--옵션   
+
+#
 ### jsMapAPI_03.12.01_R_2021.08.20
 
 #### change description  
