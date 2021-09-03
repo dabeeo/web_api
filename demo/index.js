@@ -8,37 +8,41 @@ let mapFloorName = {};
 
 (function () {
     "use strict";
-    //icon
-    feather.replace();
-    // mapSelect 구성 및 parameter로 넘어온 value setting
-    initMapIndex();
-    // aTest : mapView option API test
-    initMapOptionTest();
 
-    // mapView로 지도그리기
-    initMap();
-    // click event api test
-    initClickEvent();
-    // sidebar menu event 등록
-    initSidebar();
-    // toggling
-    initMenuToggling();
-    // camera api test
-    initCameraTest();
-    // mouse api test
-    initMouseTest();
-    // poi api test
-    initPoiTest();
-    // zoom api test
-    initZoomTest();
-    // 길찾기 api test
-    initNavigationOptionTest();
-    // 모의주행 api test
-    initAnimationRouteOptionTest();
-    // 내위치 api test
-    initMyLocationTest();
-    // 마커 api 테스트
-    initMarkerTest();
+    window.addEventListener("load", function () {
+        //icon
+        feather.replace();
+        // mapSelect 구성 및 parameter로 넘어온 value setting
+        initMapIndex();
+        // aTest : mapView option API test
+        initMapOptionTest();
+
+        // mapView로 지도그리기
+        initMap();
+        // click event api test
+        initClickEvent();
+        // sidebar menu event 등록
+        initSidebar();
+        // toggling
+        initMenuToggling();
+        // camera api test
+        initCameraTest();
+        // mouse api test
+        initMouseTest();
+        // poi api test
+        initPoiTest();
+        // zoom api test
+        initZoomTest();
+        // 길찾기 api test
+        initNavigationOptionTest();
+        // 모의주행 api test
+        initAnimationRouteOptionTest();
+        // 내위치 api test
+        initMyLocationTest();
+        // 마커 api 테스트
+        initMarkerTest();
+    });
+
 })();
 
 function getParam(sname) {
@@ -178,6 +182,7 @@ function getMapOptions() {
 
     getSelectBooleanOptions("showPoi", mapOptions);
     getSelectBooleanOptions("isPoiAngle", mapOptions);
+    getSelectBooleanOptions("isPoiSprite", mapOptions);
     getSelectBooleanOptions("controlZoom", mapOptions);
 
     getSelectBooleanOptions("rotationTouch2d", mapOptions);
@@ -687,6 +692,9 @@ function initPoiTest() {
         mapDraw.setPoiRotateDistance(Number(document.querySelector("input#poiDistance").value));
     });
 
+    document.getElementById("active-cnnt-obj").addEventListener("click", onActiveState.bind(this));
+    document.getElementById("deactive-cnnt-obj").addEventListener("click", onActiveState.bind(this));
+
     document.querySelector("#setPoiLevelOn").addEventListener("change", function (e) {
         mapDraw.setPoiLevelOn(
             Number(document.querySelector("input#poiLevel1").value),
@@ -697,7 +705,24 @@ function initPoiTest() {
     document.querySelector("#poiLevelOff").addEventListener("click", function (e) {
         mapDraw.setPoiLevelOff();
     });
+
+    function onActiveState(event) {
+        const type = event.target.getAttribute("data-type");
+        const idx = document.getElementById("poi").value;
+        const color = document.getElementById("active-obj-color").value;
+        const opacity = document.getElementById("active-obj-opacity").value;
+        if (type === "deactive") {
+            mapDraw.redrawMap();
+        } else {
+            mapDraw.updateObjectStateByIds({
+                ids: [mapDraw.response.poiInfo[idx].id],
+                color:color,
+                opacity:opacity
+            });
+        }
+    }    
 }
+
 
 //////////////////////////////////////////////////////////////////////////////////
 //Zoom API 테스트
@@ -943,9 +968,29 @@ function setNavigationOption() {
     if (destWidth !== "") destOption["width"] = Number(destWidth);
     if (destHeight !== "") destOption["height"] = Number(destHeight);
     if (destIconUrl !== "") navigationOption["destination"] = destOption;
-
-
+    if (document.getElementById("move-icon-z").value !== "") {
+        navigationOption["moveIconZ"] = parseFloat(document.getElementById("move-icon-z").value);
+    }
     if (Object.keys(navigationOption).length !== 0) mapDraw.setNavigationOption(navigationOption);
+}
+
+/**
+ * @description 2021.07.22 added by yhj 
+ *              모의주행시 도착지 옵션을 사용자가 지정한 값으로 생성하여 반환한다.
+ */
+function createSimulateOption() {
+    return {
+        zoom:document.getElementById("animationZoom").value,
+        destOption : {
+            activeDest: document.getElementById("active-dest").value === "true",
+            color:document.getElementById("dest-color").value === "" ?  "#ff0000" : document.getElementById("dest-color").value,
+            opacity: document.getElementById("dest-opacity").value === "" ? 1 : parseFloat(document.getElementById("dest-opacity").value).toFixed(2),
+            isAnimate: document.getElementById("animate-active-yn").value === "true",
+            duration: parseFloat(document.getElementById("duration-value").value),
+            isYoyo: document.getElementById("animate-state").value === "true",
+            isRepeat: document.getElementById("animate-repeat").value === "true"
+        }
+    };
 }
 
 function getRouteOnTrigger() {
@@ -1001,19 +1046,48 @@ function initAnimationRouteOptionTest() {
     document.querySelector("#startRouteAnimation").addEventListener("click", function (e) {
         setNavigationOption();
         startRouteAnimationTrigger();
-    });
+    });    
 
     document.querySelector("#stopRouteAnimation").addEventListener("click", function (e) {
         mapDraw.stopRouteAnimation();
     });
+
+    // document.querySelector("#start-animate-objects").addEventListener("click", function(e) {
+    //     startAnimateObjects();
+    // });
+    // document.querySelector("#stop-animate-objects").addEventListener("click", function(e){
+    //     stopAnimateObjects();
+    // })
 }
+
 function startRouteAnimationTrigger() {
     let zoom = document.querySelector("input#animationZoom").value;
-    if (zoom !== "") {
-        mapDraw.startRouteAnimation({zoom: Number(zoom)});
-    } else {
-        mapDraw.startRouteAnimation();
+    const options = createSimulateOption();
+    mapDraw.startRouteAnimation(options);
+}
+
+function startAnimateObjects(ids) {
+    if (!ids || ids.length === 0) {
+        ids = [];
+        const endPoint = getPoi("poiDestination");
+        if (endPoint) {
+            ids.push(endPoint.poiId);
+        }        
+        const wayPoint = getPoi("poiWaypoints");
+        if (wayPoint) {
+            ids.push(wayPoint.poiId);
+        }        
     }
+    const option = {
+        duration: parseFloat(document.getElementById("duration-value").value),
+        isYoyo: document.getElementById("animate-state").value === "true",
+        isRepeat: document.getElementById("animate-repeat").value === "true"
+    };
+    mapDraw.startAnimateOfObjects(ids, option);
+}
+
+function stopAnimateObjects() {
+    mapDraw.stopAnimateOfObjects();
 }
 
 //////////////////////////////////////////////////////////////////////////////////
