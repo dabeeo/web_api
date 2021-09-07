@@ -113,8 +113,8 @@
 
       // 지도 인증정보
       var authorization = new indoorMapApi.Authorization({
-        clientId: "9POzlaty4PcaQVCwnfmv2q",
-        clientSecret: "686e860071ae238bb0554beb1c4c24ee"
+        clientId: "1NiZzKTekKPaWDC3BpGFuJ",
+        clientSecret: "7fec32f55c6d8eb1c9db19911c5503f4"
       });
       var mapOptions = {
         authorization: authorization,
@@ -192,7 +192,7 @@
         let originPoi = getPoi("poiOrigin");
         let destPoi = getPoi("poiDestination");
         if (originPoi === undefined || destPoi === undefined) return;
-        mapDraw.setNavigationOption({solidLineEnabled:true, solidLineWidth:2, speedRate:2, lineZ: 2.5, moveIconZ:7, originPositionZ:5, destinationPositionZ:5});
+        mapDraw.setNavigationOption({solidLineEnabled:true, solidLineWidth:2, speedRate:2, lineZ: 1, moveIconZ:3, originPositionZ:2, destinationPositionZ:2});
         result = mapDraw.getRouteOn(originPoi, destPoi);
         if (result === undefined) alert("요청하신 경로가 존재하지 않습니다.");
         const option = createSimulateOption();        
