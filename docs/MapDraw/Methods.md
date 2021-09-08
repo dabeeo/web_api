@@ -711,8 +711,9 @@ mapDraw.moveCamera({
 .png 파일로 저장됩니다.
 
 useMapOption : mapView의 Option대로 캡쳐할지 여부 ( default는 false )
-- useMapOption를 false로하면 map의 original size대로 캡쳐됩니다.
-- useMapOption를 true로하면 mapView의 Option대로 캡쳐됩니다.
+- useMapOption를 넣지 않거나 false로 하면 map의 original size대로 캡쳐됩니다.
+- useMapOption를 true로하면 mapView의 Option대로 캡쳐됩니다. 
+(mapView option의 canvasSize, zoom, center, angle에 영향을 받습니다)
 
 ~~~javascript
 mapDraw.convert2img();
