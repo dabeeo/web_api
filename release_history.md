@@ -6,6 +6,17 @@
 
 
 #
+### jsMapAPI_03.14.02_R_2021.09.07
+
+#### change description  
+- 지도를 이미지 파일로 다운로드할 때 사용하는 mapDraw.convert2img()에 지도전체 원본 사이즈가 아니라 mapView의 Option대로 캡쳐할 수 있는 설정 옵션 추가. 
+
+#### changed API
+- 지도를 이미지 파일로 다운로드할 때 mapView의 Option대로 캡쳐할 수 있는 설정 옵션 추가. 
+  - https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#지도-이미지-다운로드
+
+
+#
 ### jsMapAPI_03.13.02_R_2021.08.27
 
 #### change description  
@@ -13,7 +24,7 @@
 
 #### changed API
 - mapDraw.setNavigationOption()에 길찾기 모의주행 아이콘 Z값 옵션 추가(moveIconZ)
-- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기--옵션   
+  - https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기--옵션   
 
 #
 ### jsMapAPI_03.12.01_R_2021.08.20
@@ -25,7 +36,7 @@
 
 #### changed API
 - mapView시 할당된 메모리를 해제하는 dispose()메소드 추가    
-- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#지도-메모리이벤트-해제
+  - https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#지도-메모리이벤트-해제
 
 
 
@@ -38,9 +49,9 @@
 
 #### changed API
 - 모의주행 옵션에서 도착지의 poi의 object의 색상,투명도를 변경 가능하며 색상애니메이션 효과를 줄 수 있도록 옵션 추가    
-  https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#특정-오브젝트-속성-변경
+  - https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#특정-오브젝트-속성-변경
 - Poi에 연결된 특정 object의 색상, 투명도를 변경 가능하며 색상애니메이션 효과를 줄 수 있는 메소드 추가    
-  https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#모의주행-옵션
+  - https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#모의주행-옵션
 
 #
 ### jsMapAPI_03.06.01_R_2021.05.28
@@ -51,7 +62,7 @@
 
 #### changed API
 - 길찾기 목록 함수 (mapDraw.getNavigation())호출시 경로에 대하여 simplify 적용 및 방향에 대한 정보 추가 
-  https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기-목록
+  - https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기-목록
 
 #
 ### jsMapAPI_03.05.01_R_2021.05.21
@@ -59,7 +70,7 @@
 - mapView 호출시 response에 현재 MapDraw option return
 #### changed API
 - mapView 호출시 response에 현재 MapDraw option return
-  https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/response.md#mapoption-정보
+  - https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/response.md#mapoption-정보
 
 
 #
@@ -72,13 +83,13 @@
 - mapDraw.init2DCameraInfo()와 mapDraw.init3DCameraInfo() 호출시 카메라 회전상태 초기상태로 가도록 수정
 #### changed API
 - mapDraw 클래스의 response에 section 정보 추가   
-  https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/response.md#section-정보
+  - https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/response.md#section-정보
 - mapInfo 클래스에서 mapView.response와 동일한 모든 map에 관련된 정보 반환하는 메소드 추가
-  https://github.com/dabeeo/web_api/tree/master/docs/MapInfo#모든-response-가져오기  
+  - https://github.com/dabeeo/web_api/tree/master/docs/MapInfo#모든-response-가져오기  
 - mapDraw.setMarker()에 각 마커의 사이즈를 줌 배율에 맞춰서 동기화 할 지 여부를 결정할 수 있는 option추가 
-  https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#여러개의-마커표시
+  - https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#여러개의-마커표시
 - mapDraw.init2DCameraInfo()와 mapDraw.init3DCameraInfo() 호출시 카메라 회전상태 초기상태로 가도록 수정
-  https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#카메라-초기화-기능
+  - https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#카메라-초기화-기능
   
  
 #
