@@ -710,8 +710,13 @@ mapDraw.moveCamera({
 현재 보이는 지도를 이미지로 다운로드 합니다.   
 .png 파일로 저장됩니다.
 
+useMapOption : mapView의 Option대로 캡쳐할지 여부 ( default는 false )
+- useMapOption를 false로하면 map의 original size대로 캡쳐됩니다.
+- useMapOption를 true로하면 mapView의 Option대로 캡쳐됩니다.
+
 ~~~javascript
 mapDraw.convert2img();
+mapDraw.convert2img({useMapOption : true});
 ~~~
 
 ### 좌표 변환
