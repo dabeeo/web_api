@@ -4,8 +4,12 @@
  <img src="https://indoor.dabeeomaps.com/upload/demo/CI.png" />
 </h1>
 
+# 공식 api 링크는 다비오 사이트에 올라가 있습니다. 
+- 기능 개선 성능향상이 실시간 업데이트되니, 공식 api 링크를 사용하시기 바랍니다. 
+- https://dabeeomaps.com/docs
+
 # Release History
-https://github.com/dabeeo/web_api/blob/master/release_history.md
+- https://github.com/dabeeo/web_api/blob/master/release_history.md
 
 ## DABEEO MAPS JavaScript API 기능정의서 
 
@@ -15,10 +19,10 @@ https://github.com/dabeeo/web_api/blob/master/release_history.md
 
 ## Issue Client ID / Secret
 
-##### 다비오맵스 API는 Client ID / Secret 발급을 받아야 사용할 수 있습니다. 아래의 절차에 따라 키 발급을 진행하세요.
+##### 다비오맵스 API에서 지도를 불러오기 위해서는 해당 지도의 Client ID / Secret 를 알아야 합니다. 아래의 절차에 정보를 확인하세요.
 
 ~~~
-1. 다비오맵스 실내지도플랫폼 > 실내지도 > 지도관리에서 지도를 생성 합니다.
+1. 다비오맵스 실내지도플랫폼 > 실내지도 > 지도관리 메뉴로 이동합니다.
 2. 지도관리 목록에서 지도 정보를 클릭합니다.
 3. 상세 지도 정보에서 인증접근 정보를 확인합니다.
 ~~~
@@ -28,6 +32,7 @@ https://github.com/dabeeo/web_api/blob/master/release_history.md
 ~~~javascript
  <script type="text/javascript" src="[다비오기술문서의 api 링크]" ></script>
 ~~~
+- 다비오기술문서의 api 링크는 https://dabeeomaps.com/docs 에서 확인할 수 있습니다. 
 
 * API 를 로딩하는 스크립트의 위치는 head, body등 어디에 위치해도 상관없으나 실행코드보다 항상 먼저 선언되어야 합니다.
 
