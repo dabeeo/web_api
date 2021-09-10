@@ -169,9 +169,9 @@ angle이 설정되면 마우스로 3D앵글을 움직일 수 없습니다.
 Default : 위에서 본 정면이 초기화면 입니다. ( vertical: 0, horizontal: 0 )    
 마우스로 3D앵글을 움직이고 싶지 않을 경우 fixed 옵션을 사용합니다.  
 
-- vertical : number 타입으로 angle 값을 입력합니다.
-- horizontal : number 타입으로 angle 값을 입력합니다.
-- fixed : Boolean 타입으로 true 일시 각도가 고정되며 마우스로 3D앵글을 움직일 수 없습니다. false 일때에는 초기 각만 지정됩니다. Default는 false 입니다.
+- vertical : number 타입으로 angle 값을 입력합니다. 0에서 35까지 가능합니다. 
+- horizontal : number 타입으로 angle 값을 입력합니다. (아직은 0으로 고정되어 있습니다. 향후 구현 예정) 
+- fixed : Boolean 타입으로 true로 설정시  각도가 고정되며 마우스로 3D앵글을 움직일 수 없습니다. false 일때에는 초기 각만 지정됩니다. Default는 false 입니다.
 
 ~~~javascript
 angle: {
