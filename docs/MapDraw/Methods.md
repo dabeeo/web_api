@@ -650,7 +650,20 @@ mapDraw.updateObjectStateByIds({ids:[string], color:Color, opacity:number, isAni
 - isYoyo = 애니메이션이 complete 됬을때 isRepeat 옵션이 true 인경우 반복 방법, true 이경우 역순진행 되며 default false 입니다.
    
 ~~~javascript
-mapDraw.updateObjectStateByIds({ids:["OB-qnwjwjsnsnsj", "PO-qnwnwnwuwuw"...], color:#efefef, opacity:1, , isAnimate:true, duration:1500, isRepeat:true, isYoyo:false}});});
+mapDraw.updateObjectStateByIds(
+            {
+                ids:[
+                "OB--QDxNdSuV2784",
+                "OB-qKLSARLpKQ1959",
+                "PO-qnwnwnwuwuw"], 
+                color:"#efefef", 
+                opacity:0.3, 
+                isAnimate:true, 
+                duration:1500, 
+                isRepeat:true, 
+                isYoyo:false
+            }
+        );
 ~~~
 
 ## 좌표 관련
