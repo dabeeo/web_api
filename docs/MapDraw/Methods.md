@@ -655,7 +655,8 @@ mapDraw.updateObjectStateByIds(
                 ids:[
                 "OB--QDxNdSuV2784",
                 "OB-qKLSARLpKQ1959",
-                "PO-qnwnwnwuwuw"], 
+                "PO-qnwnwnwuwuw"
+		], 
                 color:"#efefef", 
                 opacity:0.3, 
                 isAnimate:true, 
