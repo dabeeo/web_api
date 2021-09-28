@@ -456,7 +456,7 @@ mapDraw.startRouteAnimation({zoom: 200});
 ~~~
 
 - 도착지 오브젝트 active 옵션 추가   
-함수 파라미터에 {destOption:{activeDest:boolean, color:Color, opacity:number, isAnimate:boolean, duration:number, isRepeat:boolean, isYoyo:boolean}} 입력시 도착지 오브젝트의 색상 및 투명도, 도착지 색상 애니메이션 효과 등이 변경됩니다.
+함수 파라미터에 {destOption:{activeDest:boolean, color:Color, opacity:number, isAnimate:boolean, duration:number, isRepeat:boolean, isYoyo:boolean, ids:Array<string>}} 입력시 도착지 오브젝트의 색상 및 투명도, 도착지 색상 애니메이션 효과 등이 변경됩니다.
 단, activeDest가 false 인경우 색상 및 투명도가 반영되지 않고, isAnimate가 false 인경우 애니메이션 효과가 반영되지 않습니다.
 
 - activeDest = active 여부
@@ -466,6 +466,8 @@ mapDraw.startRouteAnimation({zoom: 200});
 - duration = 애니메이션 complete 까지의 시간 ms단위 (1초 => 1000) 으로 default 1000 입니다. 
 - isRepeat = 애니메이션 반복 여부 true 반복 false 반복 으로 default false 입니다.
 - isYoyo = 애니메이션이 complete 됬을때 isRepeat 옵션이 true 인경우 반복 방법, true 이경우 역순진행 되며 default false 입니다.
+<!-- 2021-09-28 animation target 사용자 지정 기능 추가 -->
+- ids = 애니메이션을 주고 싶은 object의 id 또는 object와 연결된 poi Id 배열 (mixed 되어있어도 가능합니다.)
 ~~~ javascript 
 mapDraw.startRouteAnimation({destOption:{activeDest:true, color:"#ff0000", opacity:0.78, isAnimate:true, duration:1500, isRepeat:true, isYoyo:false}});
 ~~~
@@ -474,6 +476,10 @@ mapDraw.startRouteAnimation({destOption:{activeDest:true, color:"#ff0000", opaci
 ~~~ javascript 
 mapDraw.startRouteAnimation({destOption:{activeDest:true, color:"#ff0000", opacity:0.78, isAnimate:true, duration:1500, isRepeat:true, isYoyo:false}});
 ~~~
+- 애니메이션 target 사용자 지정
+~~~ javascript 
+mapDraw.startRouteAnimation({destOption:{activeDest:true, color:"#ff0000", opacity:0.78, isAnimate:true, duration:1500, isRepeat:true, isYoyo:false, ids:["OB-jai102782n192", "PO-192nqpwbwyq0_12", "OB-nqi201n21ws_an", ...]}});
+~~~	
 - example: https://github.com/dabeeo/web_api/blob/master/samples/navigationDestActive.html  
 - 실행 : https://dabeeo.github.io/web_api/samples/navigationDestActive.html  
 
