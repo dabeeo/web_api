@@ -466,7 +466,7 @@ mapDraw.startRouteAnimation({zoom: 200});
 - duration = 애니메이션 complete 까지의 시간 ms단위 (1초 => 1000) 으로 default 1000 입니다. 
 - isRepeat = 애니메이션 반복 여부 true 반복 false 반복 으로 default false 입니다.
 - isYoyo = 애니메이션이 complete 됬을때 isRepeat 옵션이 true 인경우 반복 방법, true 이경우 역순진행 되며 default false 입니다.
-- ids = 애니메이션을 주고 싶은 object의 id 또는 object와 연결된 poi Id 배열 (mixed 되어있어도 가능합니다.)
+- ids = 애니메이션을 주고 싶은 object의 id 또는 object와 연결된 poi Id 배열 (mixed 되어있어도 가능합니다.) -> 미지정시 도착지 오브젝트에 애니메이션이 적용됩니다. 
 ~~~ javascript 
 mapDraw.startRouteAnimation({destOption:{activeDest:true, color:"#ff0000", opacity:0.78, isAnimate:true, duration:1500, isRepeat:true, isYoyo:false}});
 ~~~
