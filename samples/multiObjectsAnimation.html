@@ -278,7 +278,7 @@
 
             const result = mapDraw.getRouteOn({ poiId: startPoi.id, floorId: startPoi.floorId }, { poiId: endPoi.id, floorId: endPoi.floorId }, "recommendation", [], false);
             if (result === undefined) {
-                this.clobotTestGetRouteOn();
+                this.callingGetRouteOn();
             } else {
                 mapDraw.getNavigation(result);
             }
