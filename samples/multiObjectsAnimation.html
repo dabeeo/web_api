@@ -119,12 +119,18 @@
             });
             var mapOptions = {
                 authorization: authorization,
-                camera: "2d", // 초기 demention 
+                camera: "3d", // 초기 demention
+                center: {
+                    // 임시 console Booth 좌표
+                    x: 1001.76733,
+                    y: 1750.3491,
+                },
                 angle: {
-                    vertical: 35, // 3D 모드일때 tilt 30 
+                    vertical: 20, // 3D 모드일때 tilt 30 
                     horizontal: 0
                 },
-                zoom: 90
+                zoom: 100,
+                isPoiSprite: true
             };
 
             // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
