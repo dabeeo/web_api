@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>navigation sample</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- dabeeo js api test url 사용. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+    <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="button-container">
+        <button type="button" class="button-menu">
+            Clobot Object Animation Test
+        </button>
+    </div>
+    <div class="control-container" style="display:none;">
+        <div class="inline-container">
+            <select type="text" class="inline-input" name="floor">
+                <option selected value="default">default</option>
+            </select>
+        </div>
+        <div class="divider"></div>
+        <div class="inline-container">
+            <input type="button" class="inline-input" id="getRouteOn" value="길찾기 & 모의주행">
+            <input type="button" class="inline-input" id="getRouteOff" value="종료">
+        </div>
+        <div class="inline-container">
+            <div class="inline-label">출발지</div>
+            <select type="text" class="inline-input" id="poiOrigin">
+            </select>
+        </div>
+        <div class="inline-container">
+            <div class="inline-label">도착지</div>
+            <select type="text" class="inline-input" id="poiDestination">
+            </select>
+        </div>
+        <div class="dropdown-item margin-tb-10 ft-16 fc-white">모의주행 옵션
+            <div class="inline-container">
+                <div class="inline-label">카메라이동줌</div>
+                <input type="number" class="inline-input" id="animationZoom" placeholder="10 ~ 1000 사이의 값" min="10"
+                    max="1000">
+            </div>
+            <div class="inline-container">
+                <div class="inline-label">Dimension</div>
+                <select class="inline-input" id="navi-camera-angle">
+                    <option value="2d">2D</option>
+                    <option value="3d" selected="">3D</option>
+                </select>
+            </div>
+        </div>
+        <div class="dropdown-item margin-tb-10 ft-16 fc-white">도착지 옵션
+            <div class="inline-container">
+                <div class="inline-label">활성화 여부</div>
+                <select class="inline-input" id="active-dest">
+                    <option value="false">비활성화</option>
+                    <option value="true" selected="">활성화</option>
+                </select>
+            </div>
+            <div class="inline-container">
+                <div class="inline-label">색상</div>
+                <input type="text" class="inline-input" id="dest-color" placeholder="ex) #ffffff">
+            </div>
+            <div class="inline-container">
+                <div class="inline-label">투명도</div>
+                <input type="number" class="inline-input" min="0" max="1" id="dest-opacity" placeholder="0 ~ 1 사이의 값">
+            </div>
+            <p style="padding: 0px 2px; font-size: 10px;">* 애니메이션 사용시 투명도를 0.5 보다 작게 해주세요</p>
+        </div>
+        <div class="dropdown-item margin-tb-10 ft-16 fc-white">애니메이션 옵션
+            <div class="inline-container">
+                <div class="inline-label">활성화 여부</div>
+                <select class="inline-input" id="animate-active-yn">
+                    <option value="false" selected="">비활성화</option>
+                    <option value="true">활성화</option>
+                </select>
+            </div>
+            <div class="inline-container">
+                <div class="inline-label">Duration</div>
+                <input type="number" class="inline-input" id="animate-duration" placeholder="(ms 단위) 1초 => 1000">
+            </div>
+            <div class="inline-container">
+                <div class="inline-label">반복여부</div>
+                <select class="inline-input" id="animate-repeat-yn">
+                    <option value="false" selected="">반복안함</option>
+                    <option value="true">반복</option>
+                </select>
+            </div>
+            <div class="inline-container">
+                <div class="inline-label">애니메이션 방식</div>
+                <select class="inline-input" id="animate-yoyo-yn">
+                    <option value="false" selected="">NONE</option>
+                    <option value="true">YOYO</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div id="map"></div>
+    <!-- 길찾기 목록 -->
+    </div>
+
+    <script>
+        let mapFloorName = {};
+
+        window.addEventListener("load", function () {
+            initMap();
+        });
+
+        function initMap() {
+            var mapContainer = document.getElementById('map'); // 지도를 표시할 div
+
+            // 지도 인증정보
+            var authorization = new indoorMapApi.Authorization({
+                clientId: "1NiZzKTekKPaWDC3BpGFuJ",
+                clientSecret: "7fec32f55c6d8eb1c9db19911c5503f4"
+            });
+            var mapOptions = {
+                authorization: authorization,
+                camera: "2d", // 초기 demention 
+                angle: {
+                    vertical: 35, // 3D 모드일때 tilt 30 
+                    horizontal: 0
+                },
+                zoom: 90
+            };
+
+            // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+            new indoorMapApi.MapView(
+                mapContainer, // 컨테이너
+                mapOptions, // 옵션
+                function (response) { // 맵 로드 콜백
+                    var code = response.getCode();
+
+                    if (code === 200) {
+                        mapDraw = response.getPayload().mapDraw;
+                        window.mapDraw = mapDraw;
+                        // do something
+                        console.log("map view success!")
+                        handleFloorInfo(mapDraw.response);
+                        handlePoiInfo(mapDraw.response);
+                        const result = clobotTestGetRouteOn();
+                        if (result) {
+                            const option = {
+                                zoom: 130,
+                                destOption: clobotTestSimulationOption(result.start, result.end)
+                            }
+                            console.log("clobot test option ::", option);
+                            mapDraw.startRouteAnimation(option);
+                        }
+                    }
+                }
+            );
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////
+        //지도 층 정보 처리
+        function handleFloorInfo(response) {
+            let floorElement = document.querySelector("[name='floor']");
+            let floorInfo = response.floorInfo;
+            for (let i = 0; i < floorInfo.length; i++) {
+                var floor = floorInfo[i];
+                mapFloorName[floor.id] = floor.name[0].text;
+            }
+            // 옵션창에 층 추가하기
+
+            for (let index = 0; index < floorInfo.length; index++) {
+                let floor = floorInfo[index];
+                let newOption = document.createElement("option");
+                newOption.value = floor.id;
+                if (floor.defaultYn == true) {
+                    newOption.selected = true;
+                }
+                newOption.appendChild(document.createTextNode(floor.name[0].text));
+                floorElement.appendChild(newOption);
+            }
+            floorElement.addEventListener("change", function (e) {
+                mapDraw.redrawMap({ floor: e.target.value });
+            });
+
+            document.addEventListener("floor-changed", function (e) {
+                var floorId = e.detail;
+                floorElement.value = floorId;
+            });
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////
+        // poi select 만들기
+        function handlePoiInfo(response) {
+            //floor name으로 object 만들기
+
+            mapPoiInfo = response.poiInfo;
+
+            //상단 poi select 만들기
+            //side origin, detination 만들기
+            //poi select 만들기
+            makePoiSelect("poiOrigin");
+            makePoiSelect("poiDestination");
+            document.querySelector("#getRouteOn").addEventListener("click", function (e) {
+                let originPoi = getPoi("poiOrigin");
+                let destPoi = getPoi("poiDestination");
+                if (originPoi === undefined || destPoi === undefined) return;
+                mapDraw.setNavigationOption({ solidLineEnabled: true, solidLineWidth: 2, speedRate: 2, lineZ: 1, moveIconZ: 3, originPositionZ: 2, destinationPositionZ: 2 });
+                result = mapDraw.getRouteOn(originPoi, destPoi);
+                if (result === undefined) alert("요청하신 경로가 존재하지 않습니다.");
+                const option = createSimulateOption();
+                mapDraw.startRouteAnimation(option);
+                mapDraw.changeCamera({ camera: document.getElementById("navi-camera-angle").value });
+            });
+
+            document.querySelector("#getRouteOff").addEventListener("click", function (e) {
+                mapDraw.getRouteOff();
+                mapDraw.stopRouteAnimation();
+                mapDraw.changeCamera({ camera: "2d" });
+            });
+        }
+
+        function createSimulateOption() {
+            return {
+                zoom: document.getElementById("animationZoom").value,
+                destOption: {
+                    activeDest: document.getElementById("active-dest").value === "true",
+                    color: document.getElementById("dest-color").value ?? "#ff0000",
+                    opacity: document.getElementById("dest-opacity").value ?? 1,
+                    isAnimate: document.getElementById("animate-active-yn").value === "true",
+                    duration: parseInt(document.getElementById("animate-duration").value) ?? 0,
+                    isRepeat: document.getElementById("animate-repeat-yn").value === "true",
+                    isYoyo: document.getElementById("animate-yoyo-yn").value === "true"
+                }
+            };
+        }
+
+
+        function getPoi(id) {
+            let index = document.querySelector("select#" + id).value;
+            if (index === "") return;
+            let poi = {
+                poiId: mapPoiInfo[index].id,
+                floorId: mapPoiInfo[index].floorId
+            };
+            return poi;
+        }
+
+        function makePoiSelect(id) {
+            let element = document.querySelector("select#" + id);
+            for (let index = 0; index < mapPoiInfo.length; index++) {
+                let poi = mapPoiInfo[index];
+                if (poi.title === "") continue;
+
+                let option = document.createElement("option");
+                option.value = index;
+                option.innerHTML = mapFloorName[poi.floorId] + "&nbsp;&nbsp;&nbsp;" + poi.title;
+                element.appendChild(option);
+            }
+        }
+
+        function getRandomPoi() {
+            const max = mapDraw.defaultFloor.pois.length;
+            const createIdx = Math.floor((Math.random() * (max - 0) + 0));
+            return mapDraw.defaultFloor.pois[createIdx];
+        }
+
+        function clobotTestGetRouteOn() {
+            const startPoi = this.getRandomPoi();
+            let endPoi = null;
+            do {
+                endPoi = this.getRandomPoi();
+            } while ((startPoi.poiId === endPoi.poiId) && (startPoi.objectId !== "" && endPoi.objectId !== "")) {
+                endPoi = this.getRandomPoi();
+            }
+
+            const result = mapDraw.getRouteOn({ poiId: startPoi.id, floorId: startPoi.floorId }, { poiId: endPoi.id, floorId: endPoi.floorId }, "recommendation", [], false);
+            if (result === undefined) {
+                this.clobotTestGetRouteOn();
+            } else {
+                mapDraw.getNavigation(result);
+            }
+            return { start: startPoi.id, end: endPoi.id };
+        }
+
+        function clobotTestSimulationOption(start, end) {
+            return {
+                activeDest: true,
+                color: '#ff0000',
+                opacity: 0.3,
+                isAnimate: true,
+                duration: 1000,
+                isRepeat: true,
+                isYoyo: true,
+                ids: [
+                    'OB-LqSnFRXbbsw2838',
+                    'OB-C-U9wvLjB8F2838',
+                    'OB-I4SjJDYOQJR2837',
+                    'OB-SYbcyzYgTQs2837',
+                    'OB-pKFkLzE5QmZ2837',
+                    'OB-CPCWJWosGY92836',
+                    'OB-EugbdeCLFR22833',
+                    'OB-0y1Ll1l7y3t2833',
+                    'OB-F1sEP59yRXw2832',
+                    'OB-Fl8SE4swFjr2832',
+                    'OB-ZmdpCuVQQx02831',
+                    'OB-dJFN8XRf2Fc2831',
+                ]
+                //ids:[start, end]
+            }
+        }
+
+    </script>
+</body>
+
+</html>
