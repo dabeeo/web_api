@@ -147,13 +147,12 @@
                         console.log("map view success!")
                         handleFloorInfo(mapDraw.response);
                         handlePoiInfo(mapDraw.response);
-                        const result = clobotTestGetRouteOn();
+                        const result = callingGetRouteOn();
                         if (result) {
                             const option = {
                                 zoom: 130,
-                                destOption: clobotTestSimulationOption(result.start, result.end)
-                            }
-                            console.log("clobot test option ::", option);
+                                destOption: createSimulationOption(result.start, result.end)
+                            }                            
                             mapDraw.startRouteAnimation(option);
                         }
                     }
@@ -268,7 +267,7 @@
             return mapDraw.defaultFloor.pois[createIdx];
         }
 
-        function clobotTestGetRouteOn() {
+        function callingGetRouteOn() {
             const startPoi = this.getRandomPoi();
             let endPoi = null;
             do {
@@ -286,7 +285,7 @@
             return { start: startPoi.id, end: endPoi.id };
         }
 
-        function clobotTestSimulationOption(start, end) {
+        function createSimulationOption(start, end) {
             return {
                 activeDest: true,
                 color: '#ff0000',
