@@ -144,10 +144,8 @@
                         mapDraw = response.getPayload().mapDraw;
                         window.mapDraw = mapDraw;
                         // do something
-                        console.log("map view success!")
-                        handleFloorInfo(mapDraw.response);
-                        handlePoiInfo(mapDraw.response);
-                        const result = callingGetRouteOn();
+                        console.log("map view success!")                        
+                        const result = setNaviOpInfos();
                         if (result) {
                             const option = {
                                 zoom: 130,
@@ -160,67 +158,7 @@
             );
         }
 
-        //////////////////////////////////////////////////////////////////////////////////
-        //지도 층 정보 처리
-        function handleFloorInfo(response) {
-            let floorElement = document.querySelector("[name='floor']");
-            let floorInfo = response.floorInfo;
-            for (let i = 0; i < floorInfo.length; i++) {
-                var floor = floorInfo[i];
-                mapFloorName[floor.id] = floor.name[0].text;
-            }
-            // 옵션창에 층 추가하기
-
-            for (let index = 0; index < floorInfo.length; index++) {
-                let floor = floorInfo[index];
-                let newOption = document.createElement("option");
-                newOption.value = floor.id;
-                if (floor.defaultYn == true) {
-                    newOption.selected = true;
-                }
-                newOption.appendChild(document.createTextNode(floor.name[0].text));
-                floorElement.appendChild(newOption);
-            }
-            floorElement.addEventListener("change", function (e) {
-                mapDraw.redrawMap({ floor: e.target.value });
-            });
-
-            document.addEventListener("floor-changed", function (e) {
-                var floorId = e.detail;
-                floorElement.value = floorId;
-            });
-        }
-
-        //////////////////////////////////////////////////////////////////////////////////
-        // poi select 만들기
-        function handlePoiInfo(response) {
-            //floor name으로 object 만들기
-
-            mapPoiInfo = response.poiInfo;
-
-            //상단 poi select 만들기
-            //side origin, detination 만들기
-            //poi select 만들기
-            makePoiSelect("poiOrigin");
-            makePoiSelect("poiDestination");
-            document.querySelector("#getRouteOn").addEventListener("click", function (e) {
-                let originPoi = getPoi("poiOrigin");
-                let destPoi = getPoi("poiDestination");
-                if (originPoi === undefined || destPoi === undefined) return;
-                mapDraw.setNavigationOption({ solidLineEnabled: true, solidLineWidth: 2, speedRate: 2, lineZ: 1, moveIconZ: 3, originPositionZ: 2, destinationPositionZ: 2 });
-                result = mapDraw.getRouteOn(originPoi, destPoi);
-                if (result === undefined) alert("요청하신 경로가 존재하지 않습니다.");
-                const option = createSimulateOption();
-                mapDraw.startRouteAnimation(option);
-                mapDraw.changeCamera({ camera: document.getElementById("navi-camera-angle").value });
-            });
-
-            document.querySelector("#getRouteOff").addEventListener("click", function (e) {
-                mapDraw.getRouteOff();
-                mapDraw.stopRouteAnimation();
-                mapDraw.changeCamera({ camera: "2d" });
-            });
-        }
+        //////////////////////////////////////////////////////////////////////////////////        
 
         function createSimulateOption() {
             return {
@@ -235,31 +173,7 @@
                     isYoyo: document.getElementById("animate-yoyo-yn").value === "true"
                 }
             };
-        }
-
-
-        function getPoi(id) {
-            let index = document.querySelector("select#" + id).value;
-            if (index === "") return;
-            let poi = {
-                poiId: mapPoiInfo[index].id,
-                floorId: mapPoiInfo[index].floorId
-            };
-            return poi;
-        }
-
-        function makePoiSelect(id) {
-            let element = document.querySelector("select#" + id);
-            for (let index = 0; index < mapPoiInfo.length; index++) {
-                let poi = mapPoiInfo[index];
-                if (poi.title === "") continue;
-
-                let option = document.createElement("option");
-                option.value = index;
-                option.innerHTML = mapFloorName[poi.floorId] + "&nbsp;&nbsp;&nbsp;" + poi.title;
-                element.appendChild(option);
-            }
-        }
+        }        
 
         function getRandomPoi() {
             const max = mapDraw.defaultFloor.pois.length;
@@ -267,7 +181,7 @@
             return mapDraw.defaultFloor.pois[createIdx];
         }
 
-        function callingGetRouteOn() {
+        function setNaviOpInfos() {
             const startPoi = this.getRandomPoi();
             let endPoi = null;
             do {
@@ -275,26 +189,56 @@
             } while ((startPoi.poiId === endPoi.poiId) && (startPoi.objectId !== "" && endPoi.objectId !== "")) {
                 endPoi = this.getRandomPoi();
             }
-
+            mapDraw.setNavigationOption(createNaviOptions());
             const result = mapDraw.getRouteOn({ poiId: startPoi.id, floorId: startPoi.floorId }, { poiId: endPoi.id, floorId: endPoi.floorId }, "recommendation", [], false);
             if (result === undefined) {
-                this.callingGetRouteOn();
+                this.setNaviOpInfos();
             } else {
                 mapDraw.getNavigation(result);
             }
             return { start: startPoi.id, end: endPoi.id };
         }
 
+        function createNaviOptions() {
+            return {
+                lineColor: '#dc3545',
+                lineSpotSize: 3,
+                lineSpotInterval: 3000,
+                //lineZ: 20,
+                // iconUrl: wheelChair // 아이콘이 없으므로 주석 
+                //     ? '/imgs/dabeeo/ic-wheelchair.svg'
+                //     : '/imgs/dabeeo/ic-walking.svg',
+                speedRate: 5, // 주행 속도
+                originPositionZ: 5,
+                destinationPositionZ: 5,
+                origin: {
+                    // 시작지 아이콘
+                    iconUrl: "",
+                    width: 15,
+                    height: 15,
+                },
+                destination: {
+                    // 도착지 아이콘
+                    iconUrl: "",
+                    width: 15,
+                    height: 15,
+                },
+                visibleIcon: true, // 경로 표시할때 시작지, 도착지 아이콘 없애기 / 보이기
+                moveIconZ: 12,
+            }
+        }
+
         function createSimulationOption(start, end) {
             return {
                 activeDest: true,
-                color: '#ff0000',
+                color: '#dc3545',
                 opacity: 0.3,
                 isAnimate: true,
                 duration: 1000,
                 isRepeat: true,
                 isYoyo: true,
-                ids: [
+                // ids 필드가 없을 경우 도착지 오브젝트에 애니메이션 합니다. 
+                ids: [  
                     'OB-LqSnFRXbbsw2838',
                     'OB-C-U9wvLjB8F2838',
                     'OB-I4SjJDYOQJR2837',
@@ -308,7 +252,7 @@
                     'OB-ZmdpCuVQQx02831',
                     'OB-dJFN8XRf2Fc2831',
                 ]
-                //ids:[start, end]
+                //ids:[start, end] // 출발지 도착지 애니메이션 하고 싶을때 사용
             }
         }
 
