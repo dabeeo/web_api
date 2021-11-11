@@ -18,19 +18,21 @@
   </div>
   <div class="control-container">
     <div class="inline-container">
+      <div class="inline-label">카메라</div>
+      <select type="text" class="inline-input" name="camera">
+        <option selected value="default">default</option>
+        <option value="2d">2d</option>
+        <option value="3d">3d</option>
+      </select>
+    </div>
+
+    <div class="inline-container">
+      <div class="inline-label">층선택</div>
       <select type="text" class="inline-input" name="floor">
         <option selected value="default">default</option>
       </select>
     </div>
     <div class="divider"></div>
-    <div class="inline-container">
-      <input type="button" class="inline-input" id="getRouteOn" value="길찾기">
-      <input type="button" class="inline-input" id="getRouteOff" value="끄기">
-    </div>
-    <div class="inline-container">
-      <input type="button" class="inline-input" id="startRouteAnimation" value="모의주행">
-      <input type="button" class="inline-input" id="stopRouteAnimation" value="끄기">
-    </div>
     <div class="inline-container">
       <div class="inline-label">출발지</div>
       <select type="text" class="inline-input" id="poiOrigin">
@@ -40,6 +42,14 @@
       <div class="inline-label">도착지</div>
       <select type="text" class="inline-input" id="poiDestination">
       </select>
+    </div>
+    <div class="inline-container">
+      <input type="button" class="inline-input" id="getRouteOn" value="길찾기">
+      <input type="button" class="inline-input" id="getRouteOff" value="끄기">
+    </div>
+    <div class="inline-container">
+      <input type="button" class="inline-input" id="startRouteAnimation" value="모의주행">
+      <input type="button" class="inline-input" id="stopRouteAnimation" value="끄기">
     </div>
     <div id="navi_path_wrap" style="display:none;">
       <div class="divider"></div>
@@ -85,6 +95,7 @@
             mapDraw = response.getPayload().mapDraw;
             // do something
             console.log("map view success!")
+            hanldeCameraInfo(mapDraw.response);
             handleFloorInfo(mapDraw.response);
             handlePoiInfo(mapDraw.response);
           }
@@ -93,6 +104,15 @@
     }
 
     //////////////////////////////////////////////////////////////////////////////////
+    function hanldeCameraInfo(response) {
+      let cameraElement = document.querySelector("[name='camera']");
+      cameraElement.value = response.mapOptions.camera;
+
+      cameraElement.addEventListener("change", function (e) {
+        mapDraw.changeCamera({ camera: e.target.value });
+      });
+    }
+
     //지도 층 정보 처리
     function handleFloorInfo(response) {
       let floorElement = document.querySelector("[name='floor']");
@@ -139,9 +159,9 @@
         let originPoi = getPoi("poiOrigin");
         let destPoi = getPoi("poiDestination");
         if (originPoi === undefined || destPoi === undefined) return;
-        result = mapDraw.getRouteOn(originPoi, destPoi,  "recommendation", [], retResponse=true);
-        if (result === undefined){
-          alert("요청하신 경로가 존재하지 않습니다.");
+        result = mapDraw.getRouteOn(originPoi, destPoi, "recommendation", [], retResponse = true);
+        if (result === undefined) {
+          alert("요청하신 경로가 존재하지 않습니다.\n출발지와 도착지를 확인하세요");
           return;
         }
         // 길찾기 path 가져오기
@@ -189,112 +209,112 @@
     }
 
     function getNavigation(retResult) {
-        let transCode = function (type) {
-            let result = "걷기";
-            /*
-            * transCode: 이동수단 코드
-            * OB-ELEVATOR : 엘리베이터
-            * OB-ESCALATOR : 에스컬레이터 양방향
-            * OB-ESCALATOR_UP : 에스컬레이터 상행
-            * OB-ESCALATOR_DOWN : 에스컬레이터 하행
-            * OB-STAIRS : 계단
-            */
-            switch (type) {
-                case "OB-STAIRS":
-                    result = "계단";
-                    break;
-                case "OB-ELEVATOR":
-                    result = "엘리베이터";
-                    break;
-                case "OB-ESCALATOR":
-                    result = "에스컬레이터 양방향";
-                    break;
-                case "OB-ESCALATOR_UP":
-                    result = "에스컬레이터 상행";
-                    break;
-                case "OB-ESCALATOR_DOWN":
-                    result = "에스컬레이터 하행";
-                    break;
-                default:
-                    result = "걷기";
-                    break;
-            }
-            return result;
-        };
-
-        let transDirectCode = function (type) {
-            let result = "";
-            switch (type) {
-                case "STRAIGHT":
-                    result = "직진";
-                    break;
-                case "LEFT":
-                    result = "좌회전";
-                    break;
-                case "RIGHT":
-                    result = "우회전";
-                    break;
-                default:
-                    result = "";
-                    break;
-            }
-            return result;
-        };
-
-        document.querySelector("#navi_path_wrap").style.display = "block";
-        let list = mapDraw.getNavigation();
-        document.querySelector("#navigationButton").innerHTML = "";
-        let div = document.createElement("div");
-        let btn = document.createElement("button");
-        btn.type = "button";
-        btn.classList.add("inline-input");
-        div.classList.add("inline-container");
-        div.appendChild(btn);
-
-        btn.style.height = "30px";
-        btn.style.backgroundColor = "#a7a7a7";
-        btn.style.color = "#fff";
-        btn.style.borderColor = "#fff";
-        if (typeof retResult === "object")
-            btn.innerText =
-                (retResult.totalTime / (1000 * 60)).toFixed(1) +
-                "분, 거리: " +
-                (retResult.totalDistance / 100).toFixed(0) +
-                "미터";
-        else btn.innerText = "도착시간 " + (retResult / (1000 * 60)).toFixed(1) + "분";
-
-        document.querySelector("#navigationButton").appendChild(div);
-
-        for (let i = 0; i < list.length; i++) {
-
-            let divElement = document.createElement("div");
-            let inputButton = document.createElement("input");
-
-            inputButton.type = "button";
-            inputButton.classList.add("inline-input");
-            divElement.classList.add("inline-container");
-            divElement.appendChild(inputButton);
-            inputButton.addEventListener("click", list[i].move);
-            inputButton.value = "";
-            if (list[i].isDestination) {
-                inputButton.value += list[i].title + " " + list[i].distance / 100 + "m";
-                document.querySelector("#navigationButton").appendChild(divElement);
-            } else {
-                if (list[i].title) {
-                    inputButton.value += list[i].title + " ";
-                }
-                if (typeof list[i].distance === "object") {
-                    // 이동수단 진입 후 층변경시 distance: 이동된 floor object
-                    inputButton.value += transCode(list[i].transCode) + " " + list[i].distance.name[0].text + " 으로 이동";
-                } else {
-                    inputButton.value += transCode(list[i].transCode) + " " + list[i].distance / 100 + "m";
-                }
-                if (list[i].direction) {
-                    inputButton.value += " 후 " + transDirectCode(list[i].direction);
-                }
-                document.querySelector("#navigationButton").appendChild(divElement);
-            }
+      let transCode = function (type) {
+        let result = "걷기";
+        /*
+        * transCode: 이동수단 코드
+        * OB-ELEVATOR : 엘리베이터
+        * OB-ESCALATOR : 에스컬레이터 양방향
+        * OB-ESCALATOR_UP : 에스컬레이터 상행
+        * OB-ESCALATOR_DOWN : 에스컬레이터 하행
+        * OB-STAIRS : 계단
+        */
+        switch (type) {
+          case "OB-STAIRS":
+            result = "계단";
+            break;
+          case "OB-ELEVATOR":
+            result = "엘리베이터";
+            break;
+          case "OB-ESCALATOR":
+            result = "에스컬레이터 양방향";
+            break;
+          case "OB-ESCALATOR_UP":
+            result = "에스컬레이터 상행";
+            break;
+          case "OB-ESCALATOR_DOWN":
+            result = "에스컬레이터 하행";
+            break;
+          default:
+            result = "걷기";
+            break;
         }
+        return result;
+      };
+
+      let transDirectCode = function (type) {
+        let result = "";
+        switch (type) {
+          case "STRAIGHT":
+            result = "직진";
+            break;
+          case "LEFT":
+            result = "좌회전";
+            break;
+          case "RIGHT":
+            result = "우회전";
+            break;
+          default:
+            result = "";
+            break;
+        }
+        return result;
+      };
+
+      document.querySelector("#navi_path_wrap").style.display = "block";
+      let list = mapDraw.getNavigation();
+      document.querySelector("#navigationButton").innerHTML = "";
+      let div = document.createElement("div");
+      let btn = document.createElement("button");
+      btn.type = "button";
+      btn.classList.add("inline-input");
+      div.classList.add("inline-container");
+      div.appendChild(btn);
+
+      btn.style.height = "30px";
+      btn.style.backgroundColor = "#a7a7a7";
+      btn.style.color = "#fff";
+      btn.style.borderColor = "#fff";
+      if (typeof retResult === "object")
+        btn.innerText =
+          (retResult.totalTime / (1000 * 60)).toFixed(1) +
+          "분, 거리: " +
+          (retResult.totalDistance / 100).toFixed(0) +
+          "미터";
+      else btn.innerText = "도착시간 " + (retResult / (1000 * 60)).toFixed(1) + "분";
+
+      document.querySelector("#navigationButton").appendChild(div);
+
+      for (let i = 0; i < list.length; i++) {
+
+        let divElement = document.createElement("div");
+        let inputButton = document.createElement("input");
+
+        inputButton.type = "button";
+        inputButton.classList.add("inline-input");
+        divElement.classList.add("inline-container");
+        divElement.appendChild(inputButton);
+        inputButton.addEventListener("click", list[i].move);
+        inputButton.value = "";
+        if (list[i].isDestination) {
+          inputButton.value += list[i].title + " " + list[i].distance / 100 + "m";
+          document.querySelector("#navigationButton").appendChild(divElement);
+        } else {
+          if (list[i].title) {
+            inputButton.value += list[i].title + " ";
+          }
+          if (typeof list[i].distance === "object") {
+            // 이동수단 진입 후 층변경시 distance: 이동된 floor object
+            inputButton.value += transCode(list[i].transCode) + " " + list[i].distance.name[0].text + " 으로 이동";
+          } else {
+            inputButton.value += transCode(list[i].transCode) + " " + list[i].distance / 100 + "m";
+          }
+          if (list[i].direction) {
+            inputButton.value += " 후 " + transDirectCode(list[i].direction);
+          }
+          document.querySelector("#navigationButton").appendChild(divElement);
+        }
+      }
     }
 
   </script>
