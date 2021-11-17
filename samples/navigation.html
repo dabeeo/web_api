@@ -156,8 +156,8 @@
       makePoiSelect("poiOrigin");
       makePoiSelect("poiDestination");
       document.querySelector("#getRouteOn").addEventListener("click", function (e) {
-        let originPoi = getPoi("poiOrigin");
-        let destPoi = getPoi("poiDestination");
+        let originPoi = getPosition("poiOrigin"); //지도상의 좌표 또는 POI id 
+        let destPoi = getPoi("poiDestination"); //지도상의 좌표 또는 POI id 
         if (originPoi === undefined || destPoi === undefined) return;
         result = mapDraw.getRouteOn(originPoi, destPoi, "recommendation", [], retResponse = true);
         if (result === undefined) {
@@ -183,6 +183,20 @@
         document.querySelector("#navi_path_wrap").style.display = "none";
 
       });
+
+    }
+    function getPosition(id) {
+      let index = document.querySelector("select#" + id).value;
+      if (index === "") return;
+      let poi = {
+        position :{
+          x:mapPoiInfo[index].position.x+10,
+          y:mapPoiInfo[index].position.y,
+          z:mapPoiInfo[index].position.z
+        },
+        floorId: mapPoiInfo[index].floorId
+      };
+      return poi;
 
     }
     function getPoi(id) {

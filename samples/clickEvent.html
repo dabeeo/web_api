@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>click Event Sample</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <!-- dabeeo js api test url 사용. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+  <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <div class="button-container">
+    <button type="button" class="button-menu">
+      Click Event Test
+    </button>
+  </div>
+  <div id="map"></div>
+
+  <script>
+
+    window.addEventListener("load", function () {
+      initMap();
+    });
+
+    function initMap() {
+      var mapContainer = document.getElementById('map'); // 지도를 표시할 div
+
+      // 지도 인증정보
+      var authorization = new indoorMapApi.Authorization({
+        clientId: "6Lwuu9wa4wta0NiHwy1fO5",
+        clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
+      });
+
+      var mapOptions = {
+        authorization: authorization
+      };
+
+
+      // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+      new indoorMapApi.MapView(
+        mapContainer, // 컨테이너
+        mapOptions, // 옵션
+        function (response) { // 맵 로드 콜백
+          var code = response.getCode();
+
+          if (code === 200) {
+            mapDraw = response.getPayload().mapDraw;
+            // do something
+            console.log("map view success!")
+            initSetMarker();
+            initClickEvent();
+          }
+        }
+      );
+    };
+    function initSetMarker() {
+      /* marker */
+        var marker = [];
+        mapDraw.response.poiInfo.forEach(function (i) {
+          marker.push({
+            position: {
+              x: i.position.x + 200,
+              y: i.position.y,
+              z: 60,
+            },
+            floorId: i.floorId, // 층을 지정할 때 : 지정하지 않을 경우 현재 보이는 층
+            data: {
+              position: {
+                x: i.position.x + 200,
+                y: i.position.y
+              }
+            }
+          });
+        });
+        mapDraw.setMarker({ marker: marker }); // 마커 그리기
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////
+    // click event init
+    function initClickEvent() {
+      /* poi 클릭시 poi 정보 전달 */
+      document.querySelector("#map").addEventListener("poi-click", function (e) {
+        console.log("poi click ", e.detail);
+        if (e.detail === null) return;
+        alert("[POI CLICK] \npoi title: " + e.detail[0].title +  
+        "\npoi position : " + JSON.stringify(e.detail[0].position));
+
+      });
+
+      /* object 클릭시 poi 정보 전달 */
+      document.querySelector("#map").addEventListener("object-click", function (e) {
+        console.log("object click ", e.detail);
+        if (e.detail === null) return;
+        alert("[OBJECT CLICK] \nobject title: " + e.detail[0].title + 
+        "\npoi title: "+JSON.stringify(e.detail[0].poiData.title)+ 
+        "\npoi position: "+JSON.stringify(e.detail[0].poiData.position));
+      });
+
+      /* marker 클릭시 poi 정보 전달 */
+      document.querySelector("#map").addEventListener("marker-click", function (e) {
+        console.log("marker click ", e.detail);
+        if (e.detail === null) return;
+        alert("[MARKER CLICK] \ndata : " + JSON.stringify(e.detail[0].position));
+      });
+
+    }
+  </script>
+</body>
+
+</html>

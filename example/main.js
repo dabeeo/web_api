@@ -8,7 +8,8 @@ function init() {
     });
 
     let list = document.querySelectorAll("nav a");
-    var selectOption = window.location.href.split("#")[1];
+    let selectOption = window.location.href.split("#")[1];
+    if (!selectOption) selectOption = "index";
     document.querySelector("iframe").src="../samples/"+selectOption+".html";
     for (let i = 0; i < list.length; i++) {
         list[i].addEventListener("click", function (e) {
