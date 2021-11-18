@@ -431,6 +431,10 @@ let list = mapDraw.getNavigation();
 list[0].move(); // 항목에 move() 호출시 해당하는 위치로 카메라가 이동합니다.
 ~~~
 
+- example: https://github.com/dabeeo/web_api/blob/master/samples/navigation.html   
+- 실행 : https://dabeeo.github.io/web_api/samples/navigation.html   
+
+
 #
 
 ### 모의주행  
@@ -454,8 +458,11 @@ mapDraw.stopRouteAnimation();
 ~~~javascript
 mapDraw.startRouteAnimation({zoom: 200});
 ~~~
+- example: https://github.com/dabeeo/web_api/blob/master/samples/navigation.html   
+- 실행 : https://dabeeo.github.io/web_api/samples/navigation.html   
 
-- 도착지 오브젝트 active 옵션 추가   
+
+####  도착지 오브젝트 active 옵션 추가   
 함수 파라미터에 {destOption:{activeDest:boolean, color:Color, opacity:number, isAnimate:boolean, duration:number, isRepeat:boolean, isYoyo:boolean, ids:Array<string>}} 입력시 도착지 오브젝트의 색상 및 투명도, 도착지 색상 애니메이션 효과 등이 변경됩니다.
 단, activeDest가 false 인경우 색상 및 투명도가 반영되지 않고, isAnimate가 false 인경우 애니메이션 효과가 반영되지 않습니다.
 
@@ -479,8 +486,9 @@ mapDraw.startRouteAnimation({destOption:{activeDest:true, color:"#ff0000", opaci
 ~~~ javascript 
 mapDraw.startRouteAnimation({destOption:{activeDest:true, color:"#ff0000", opacity:0.78, isAnimate:true, duration:1500, isRepeat:true, isYoyo:false, ids:["OB-jai102782n192", "PO-192nqpwbwyq0_12", "OB-nqi201n21ws_an", ...]}});
 ~~~	
-- example: https://github.com/dabeeo/web_api/blob/master/samples/navigationDestActive.html  
-- 실행 : https://dabeeo.github.io/web_api/samples/navigationDestActive.html  
+
+- example: https://github.com/dabeeo/web_api/blob/master/samples/navigationObjectAnimation.html  
+- 실행 : https://dabeeo.github.io/web_api/samples/navigationObjectAnimation.html  
 
 #
 
@@ -539,7 +547,8 @@ mapDraw.setNavigationOption ({
     moveIconZ: 101
 });
 ~~~
-
+- example: https://github.com/dabeeo/web_api/blob/master/samples/navigationObjectAnimation.html  
+- 실행 : https://dabeeo.github.io/web_api/samples/navigationObjectAnimation.html  
 
 
 ## 마커 관련
@@ -671,6 +680,9 @@ mapDraw.updateObjectStateByIds(
             }
         );
 ~~~
+
+- example: https://github.com/dabeeo/web_api/blob/master/samples/multiObjectsAnimation.html  
+- 실행 : https://dabeeo.github.io/web_api/samples/multiObjectsAnimation.html  
 
 ## 좌표 관련
 

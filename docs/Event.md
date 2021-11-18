@@ -15,6 +15,10 @@ document.addEventListener("floor-changed", (e) => {
 
 ~~~
 
+* example : https://github.com/dabeeo/web_api/blob/master/samples/floor.html
+* 실행 : https://dabeeo.github.io/web_api/samples/floor.html   
+
+
 ### navi-complete
 네비게이션의 모의주행이 완료된 경우 모의주행이 완료되었다는 이벤트가 발생합니다. 
 사용법은 다음과 같습니다. 
@@ -49,6 +53,9 @@ document.querySelector("#map").addEventListener("poi-click", (e) => { // 캔버�
   }
 ]
 ~~~
+* example : https://github.com/dabeeo/web_api/blob/master/samples/clickEvent.html
+* 실행 : https://dabeeo.github.io/web_api/samples/clickEvent.html   
+
 
 ### object-click
 지도에서 object 클릭 이벤트를 실행하면 obejct의 id, title, type, 연결된 poi 정보를 반환합니다.   
@@ -85,6 +92,10 @@ document.querySelector("#map").addEventListener("object-click", (e) => { // 캔�
     }
 ]
 ~~~
+* example : https://github.com/dabeeo/web_api/blob/master/samples/clickEvent.html
+* 실행 : https://dabeeo.github.io/web_api/samples/clickEvent.html   
+
+
 
 ### marker-click
 지도에서 marker 클릭시 선택된 marker 정보를 반환합니다.   
@@ -95,4 +106,7 @@ document.querySelector("#map").addEventListener("marker-click", (e) => { // 캔�
         console.log(e.detail); // 해당하는 marker 정보 반환
 });
 ~~~
+
+* example : https://github.com/dabeeo/web_api/blob/master/samples/clickEvent.html
+* 실행 : https://dabeeo.github.io/web_api/samples/clickEvent.html   
 
