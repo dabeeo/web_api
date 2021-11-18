@@ -16,7 +16,7 @@
 <body>
   <div class="button-container">
     <button type="button" class="button-menu">
-      Multi Object Animation Test
+      Navigation Object Animation Test
     </button>
   </div>
   <div class="control-container">
@@ -118,7 +118,7 @@
         alert("요청하신 경로가 존재하지 않습니다.\n출발지와 도착지를 확인하세요");
         return false;
       }
-      return { origin: originPoi.poiId, dest: destPoi.poiId };
+      return { originPoi, destPoi };
     }
 
     function startRouteAnimation(result) {
@@ -134,7 +134,7 @@
           isRepeat: true,
           isYoyo: true,
           // ids 필드가 없을 경우 도착지 오브젝트에 애니메이션 합니다. 
-          ids: [result.origin, result.dest] // 출발지 도착지 애니메이션 하고 싶을때 사용
+          ids: [result.originPoi.poiId, result.destPoi.poiId] // 출발지 도착지 애니메이션 하고 싶을때 사용
         }
       });
     }
