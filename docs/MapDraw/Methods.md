@@ -500,6 +500,8 @@ mapDraw.setNavigationOption() 메소드를 이용하여 네비게이션 관련 �
 - lineSpotInterval : 주행선의 점간의 간격을 지정합니다. 숫자가 커질수록 실선에 가깝게 보입니다. 주행선의 속성이 점선일 경우 적용됩니다.         
 - lineZ : 주행선의 z축값 지정합니다.   
 - iconUrl : 모의주행의 icon을 지정
+- movingWidth : 모의주행의 icon의 width 값을 설정합니다. number를 받습니다.   
+- movingHeight : 모의주행의 icon을 height 값을 설정합니다. number를 받습니다.  
 <!-- 2020-11-20 모의주행 속도 옵셪 추가 -->
 - speedRate : 모의주행 속도 지정. 예를 들어 1.5로 지정한 경우 default대비 1.5배 속도
 <!-- 2020-10-15 길찾기 옵션 추가 -->
