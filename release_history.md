@@ -6,6 +6,30 @@
 
 
 #
+### jsMapAPI_03.19.01_R_2021.11.26
+
+#### change description  
+- 길찾기 주행 아이콘 사이즈 조절옵션 추가.    
+
+#### changed API
+- 길찾기 주행 아이콘 사이즈 조절옵션 추가(movingWidth, movingHeight)    
+- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기--옵션
+
+#
+
+### jsMapAPI_03.18.01_S_2021.10.29
+
+#### change description  
+- 3d tilt maximum, minum 값 조정
+  - 기존 
+    - 앞뒤 : 38도     
+    - 양옆 : 회전 안됨
+  - 수정
+    - 앞뒤 : 80도 
+    - 양옆 : -18도~ 18도  
+
+
+#
 ### jsMapAPI_03.14.02_R_2021.09.07
 
 #### change description  
