@@ -4,12 +4,13 @@
 - 공식 api 링크는 다비오 사이트에 올라가 있습니다. 
 - https://dabeeomaps.com/docs
 
-
 #
 ### jsMapAPI_03.19.01_R_2021.11.26
 
 #### change description  
 - 길찾기 주행 아이콘 사이즈 조절옵션 추가.    
+- 지도 가져오는 내부 rest api verion 변경
+  -  local version 사용하는 사용자는 공식 사이트에서 다시 다운받아 사용해야 함.      
 
 #### changed API
 - 길찾기 주행 아이콘 사이즈 조절옵션 추가(movingWidth, movingHeight)    
