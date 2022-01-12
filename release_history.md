@@ -5,6 +5,15 @@
 - https://dabeeomaps.com/docs
 
 #
+### jsMapAPI_03.22.01_S_2022.01.14
+
+#### change description  
+- 이동수단코드에 연결통로로 사용할 수 있도록 OB-OTHER_TRANSPORT 추가     
+
+#### changed API
+- 이동수단코드에 연결통로로 사용할 수 있도록 OB-OTHER_TRANSPORT 추가     
+
+#
 ### jsMapAPI_03.19.01_R_2021.11.26
 
 #### change description  
