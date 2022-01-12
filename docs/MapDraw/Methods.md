@@ -359,6 +359,7 @@ let a = mapDraw.getRouteOff();
 * OB-ESCALATOR_UP : 에스컬레이터 상행
 * OB-ESCALATOR_DOWN : 에스컬레이터 하행
 * OB-STAIRS : 계단
+* OB-OTHER_TRANSPORT : 연결통로 등 기타 이동 수단      
 * null : 걷기
 
 **방향 코드**
