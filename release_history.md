@@ -11,7 +11,8 @@
 - 이동수단코드에 연결통로로 사용할 수 있도록 OB-OTHER_TRANSPORT 추가     
 
 #### changed API
-- 이동수단코드에 연결통로로 사용할 수 있도록 OB-OTHER_TRANSPORT 추가     
+- 이동수단코드에 연결통로로 사용할 수 있도록 OB-OTHER_TRANSPORT 추가
+  https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기-목록     
 
 #
 ### jsMapAPI_03.19.01_R_2021.11.26
