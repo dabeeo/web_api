@@ -94,9 +94,16 @@
       document.querySelector("#map").addEventListener("object-click", function (e) {
         console.log("object click ", e.detail);
         if (e.detail === null) return;
-        alert("[OBJECT CLICK] \nobject title: " + e.detail[0].title + 
-        "\npoi title: "+JSON.stringify(e.detail[0].poiData.title)+ 
-        "\npoi position: "+JSON.stringify(e.detail[0].poiData.position));
+        let alertMessage = "[OBJECT CLICK]";
+
+        //클릭시 좌표에 연결 된 object가 여러개 올수 있으므로 array를 순회하면서 확인 후  poi 처리 
+        for (let index of e.detail) {
+          //하나의 Object에 여러개의 poi가 연결된 경우
+          for (let p of index.poiDataArr) {
+            alertMessage += `\npoi title : ${JSON.stringify(p.title)} \npoi position : ${JSON.stringify(p.position)}` 
+          }
+        }
+        alert (alertMessage);
       });
 
       /* marker 클릭시 poi 정보 전달 */
