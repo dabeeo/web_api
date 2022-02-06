@@ -160,7 +160,7 @@ center: {
 
 #
 ### angle
-3D 지도 설정일 때 화면의 angle을 설정합니다        
+3D 지도 설정일 때 화면의 초기 angle을 설정합니다        
 Type: 객체     
 <!-- 2020-10-08 수정
 Default : angle 이 지정되지 않으면 3D 지도일 때 마우스로 3D앵글을 움직일 수 있지만     
@@ -180,6 +180,19 @@ angle: {
     fixed : true
 }    
 ~~~
+
+#
+### limit angle
+3D 지도 설정일 때 화면의 (vertical)angle limit을 설정합니다.
+Type : number
+Default : 80
+
+- tiltLimitAngle : number 타입으로 (vertical)angle limit 값을 입력합니다. 0에서 80까지 가능합니다.
+
+~~~javascript
+tiltLimitAngle: 80   
+~~~
+
 
 <!-- 2020-11-03 드래그마우스버튼설정/줌마우스 활성화 설정/poi 중요도에 따라 설정한 지도 확대 백분율에 맞게 보이기 -->
 #
