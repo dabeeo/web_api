@@ -4,8 +4,19 @@
 - 공식 api 링크는 다비오 사이트에 올라가 있습니다. 
 - https://dabeeomaps.com/docs
 
+
 #
-### jsMapAPI_03.22.01_S_2022.01.14
+### jsMapAPI_03.23.01_R_2022.02.11
+
+#### change description  
+- MapView에 tilt 최대각 설정하는 옵션 추가
+
+#### changed API
+- MapView에 tilt 최대각 설정하는 옵션 추가   
+  https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#limit-angle
+
+#
+### jsMapAPI_03.22.01_R_2022.01.14
 
 #### change description  
 - 이동수단코드에 연결통로로 사용할 수 있도록 OB-OTHER_TRANSPORT 추가     
