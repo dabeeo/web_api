@@ -121,6 +121,7 @@ main section article h4 {
 }
 main section article p {
   font-size: 0.9rem;
+  padding-left: 20px;
 }
 main section article iframe {
   width: 90%;
