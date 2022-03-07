@@ -482,7 +482,7 @@ document.addEventListener("will-floor-change", function (e) {
         let nextFloor = e.detail.floor.next;
         let transCode = e.detail.transCode;
 })
-~~
+~~~
 - example: https://dabeeo.github.io/web_api/example/#navigationWillFloorChange
 - 실행 : https://dabeeo.github.io/web_api/samples/navigationWillFloorChange.html   
 
