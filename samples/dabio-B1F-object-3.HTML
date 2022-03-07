@@ -1,0 +1,111 @@
+﻿<button id="imgDownBtn">이미지 다운로드</button>
+
+<div id="map"></div>
+<!-- <script type="application/javascript" src="https://assets.dabeeomaps.com/upload/JS/dabeeo_jsMapAPI_v03.js"></script> -->
+<script type="application/javascript" src="https://web-api.dabeeomaps.com/dist/jsMapAPI_pre_release.js"></script>
+
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+	let mapView = null;
+	let mapDraw = null;
+	
+	window.onload = function () {
+		let mapContainer = document.getElementById('map'); // 지도를 표시할 div
+	
+		// 지도 인증정보
+		let authorization = new indoorMapApi.Authorization({
+			clientId: "6Udd5BsqAd88ea6RUBWzc-",
+			clientSecret: "2dc47c3d93fd8dd7df3617b98cde7969"
+		});
+	
+		let mapOptions = {
+			authorization: authorization,
+			camera : "3d",
+			floor : "FL-qxlil1hangpu7108",
+			//controlZoom : false,
+      zoom: 300,
+      center :  {
+        x:0,
+        y:0
+      },
+      angle: {
+      vertical : 100, 
+      horizontal : 100,
+      fixed : true
+    } ,
+
+			canvasSize: {
+				width : 800,
+				height : 600
+			}
+			//,controlZoom: false
+		};	
+		
+		// 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+		new indoorMapApi.MapView(
+		mapContainer, // 컨테이너
+		mapOptions, // 옵션
+		function (response) { // 맵 로드 콜백
+			let code = response.getCode();
+	
+			if (code === 200) {
+				mapView = response.getPayload().mapView;
+				mapDraw = response.getPayload().mapDraw;
+			
+				//mapDraw.zoomOff();
+				
+				let floorInfo = mapDraw.response.floorInfo;
+				console.log(floorInfo);
+				
+				
+				//let poiArr = mapDraw.response.poiInfo;
+				//for (let i = 0; i < poiArr.length; i++) {
+				//	console.log(poiArr[i]);
+				//}
+				
+			}
+		}
+		);
+		
+	};
+	
+	$("#floorBtn").click( function() {
+		
+		let floorId = $("#floor option:selected").val();
+		console.log(floorId);
+		
+		if (mapDraw != null) {
+			mapDraw.redrawMap({floor: floorId});
+		}
+	}); 
+	
+	$("#imgDownBtn").click( function() {
+		
+		if (mapDraw != null) {
+			mapDraw.convert2img({useMapOption : true});
+		}
+	}); 
+	
+	document.querySelector("#map").addEventListener("object-click", (e) => { // 캔버스가 그려지는 container
+			console.log(e.detail); // 해당하는 object의 정보와 해당 object에 연결된 poi 정보가 반환
+			
+			if (e.detail !== null) {
+				var metadatas = e.detail[0].poiData.metadatas[0].metadatas;
+								
+				if (typeof metadatas == "object") {
+				
+					for (let i = 0; i < metadatas.length; i++) {
+					
+						var curData = JSON.parse(metadatas[i].text);
+						console.log(curData);
+						
+						if (curData.facID !== undefined) {
+							alert(curData.facID);
+							break;
+						}
+						
+					}
+				}
+			}
+	});	
+</script>

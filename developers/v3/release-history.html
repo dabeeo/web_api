@@ -1,0 +1,444 @@
+<style>
+  h3 {
+    font-weight: 600;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background-color: #aaa;
+  }
+
+  h4 {
+    color: #035e03;
+  }
+</style>
+</br>
+<h1> Release History</h1></br>
+</br>
+</br>
+<h3> jsMapAPI_03.23.01_R_2022.02.11</h3></br>
+<h4> change description</h4></br>
+- MapView에 tilt 최대각 설정하는 옵션 추가</br>
+</br>
+<h4> changed API</h4></br>
+- MapView에 tilt 최대각 설정하는 옵션 추가</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#limit-angle</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.22.01_R_2022.01.14</h3></br>
+<h4> change description</h4></br>
+- 이동수단코드에 연결통로로 사용할 수 있도록 OB-OTHER_TRANSPORT 추가</br>
+</br>
+<h4> changed API</h4></br>
+- 이동수단코드에 연결통로로 사용할 수 있도록 OB-OTHER_TRANSPORT 추가</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기-목록</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.19.01_R_2021.11.26</h3></br>
+<h4> change description</h4></br>
+- 길찾기 주행 아이콘 사이즈 조절옵션 추가.</br>
+- 지도 가져오는 내부 rest api verion 변경</br>
+- local version 사용하는 사용자는 공식 사이트에서 다시 다운받아 사용해야 함.</br>
+</br>
+<h4> changed API</h4></br>
+- 길찾기 주행 아이콘 사이즈 조절옵션 추가(movingWidth, movingHeight)</br>
+- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기--옵션</br>
+</br>
+<hr></br>
+</br>
+<h3> jsMapAPI_03.18.01_S_2021.10.29</h3></br>
+<h4> change description</h4></br>
+- 3d tilt maximum, minum 값 조정</br>
+- 기존</br>
+- 앞뒤 : 38도</br>
+- 양옆 : 회전 안됨</br>
+- 수정</br>
+- 앞뒤 : 80도</br>
+- 양옆 : -18도~ 18도</br>
+</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.14.02_R_2021.09.07</h3></br>
+<h4> change description</h4></br>
+- 지도를 이미지 파일로 다운로드할 때 사용하는 mapDraw.convert2img()에 지도전체 원본 사이즈가 아니라 mapView의 Option대로 캡쳐할 수 있는 설정 옵션 추가.</br>
+</br>
+<h4> changed API</h4></br>
+- 지도를 이미지 파일로 다운로드할 때 mapView의 Option대로 캡쳐할 수 있는 설정 옵션 추가.</br>
+- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#지도-이미지-다운로드</br>
+</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.13.02_R_2021.08.27</h3></br>
+<h4> change description</h4></br>
+- mapDraw.setNavigationOption()에 길찾기 모의주행 아이콘 Z값 옵션 추가(moveIconZ)</br>
+</br>
+<h4> changed API</h4></br>
+- mapDraw.setNavigationOption()에 길찾기 모의주행 아이콘 Z값 옵션 추가(moveIconZ)</br>
+- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기--옵션</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.12.01_R_2021.08.20</h3></br>
+<h4> change description</h4></br>
+- mapView 호출시 할당된 메모리를 해제하는 dispose()메소드 추가</br>
+- 길찾기에서 엘레베이터등의 이동수단 사용후 바로 도착지가 나오는 경우 층이동경로가 누락되는 버그 수정</br>
+- 길찾기에서 에스컬레이터 양방향으로 설정되어 있는 경우 생기는 버그 수정</br>
+</br>
+<h4> changed API</h4></br>
+- mapView시 할당된 메모리를 해제하는 dispose()메소드 추가</br>
+- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#지도-메모리이벤트-해제</br>
+</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.11.01_R_2021.07.23</h3></br>
+<h4> change description</h4></br>
+- 모의주행 옵션에서 도착지의 poi의 object의 색상,투명도를 변경 가능하며 색상애니메이션 효과를 줄 수 있도록 옵션 추가</br>
+- Poi에 연결된 특정 object의 색상 및 오브젝트의 색상, 투명도를 변경 가능하며 색상애니메이션 효과를 줄 수 있는 메소드 추가</br>
+</br>
+<h4> changed API</h4></br>
+- 모의주행 옵션에서 도착지의 poi의 object의 색상,투명도를 변경 가능하며 색상애니메이션 효과를 줄 수 있도록 옵션 추가</br>
+- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#모의주행-옵션</br>
+- Poi에 연결된 특정 object의 색상, 투명도를 변경 가능하며 색상애니메이션 효과를 줄 수 있는 메소드 추가</br>
+- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#특정-오브젝트-속성-변경</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.06.01_R_2021.05.28</h3></br>
+<h4> change description</h4></br>
+- 길찾기 목록 함수 (mapDraw.getNavigation())호출시 경로에 대하여 simplify 적용 및 방향에 대한 정보 추가</br>
+- poi title의 행간 간격 조정 반영</br>
+</br>
+<h4> changed API</h4></br>
+- 길찾기 목록 함수 (mapDraw.getNavigation())호출시 경로에 대하여 simplify 적용 및 방향에 대한 정보 추가</br>
+- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기-목록</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.05.01_R_2021.05.21</h3></br>
+<h4> change description</h4></br>
+- mapView 호출시 response에 현재 MapDraw option return</br>
+<h4> changed API</h4></br>
+- mapView 호출시 response에 현재 MapDraw option return</br>
+- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/response.md#mapoption-정보</br>
+</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.02.27_R_2021.04.16</h3></br>
+<h4> change description</h4></br>
+- iFrame밖에서의 드래그 마우스 이벤트 처리하도록 라컨트롤 모듈 업데이트</br>
+- mapDraw 클래스의 response에 section 정보 추가 - sectionInfo</br>
+- mapInfo 클래스에서 mapView.response와 동일한 모든 map에 관련된 정보 반환하는 메소드 추가 - mapInfo.getAll()</br>
+- mapDraw.setMarker()에 각 마커의 사이즈를 줌 배율에 맞춰서 동기화 할 지 여부를 결정할 수 있는 option 추가</br>
+- mapDraw.init2DCameraInfo()와 mapDraw.init3DCameraInfo() 호출시 카메라 회전상태 초기상태로 가도록 수정</br>
+<h4> changed API</h4></br>
+- mapDraw 클래스의 response에 section 정보 추가</br>
+- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/response.md#section-정보</br>
+- mapInfo 클래스에서 mapView.response와 동일한 모든 map에 관련된 정보 반환하는 메소드 추가</br>
+- https://github.com/dabeeo/web_api/tree/master/docs/MapInfo#모든-response-가져오기</br>
+- mapDraw.setMarker()에 각 마커의 사이즈를 줌 배율에 맞춰서 동기화 할 지 여부를 결정할 수 있는 option추가</br>
+- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#여러개의-마커표시</br>
+- mapDraw.init2DCameraInfo()와 mapDraw.init3DCameraInfo() 호출시 카메라 회전상태 초기상태로 가도록 수정</br>
+- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#카메라-초기화-기능</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.02.26_R_2021.04.09</h3></br>
+<h4> change description</h4></br>
+- mapView 클래스에 카메라가 최대 움직 일 수 있는 영역을 설정하는 옵션 추가 - 드래그시 보여주는 공백 조정</br>
+</br>
+<h4> changed API</h4></br>
+- mapView 클래스에 카메라가 최대 움직 일 수 있는 영역을 설정하는 옵션 추가</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#panningpercent</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.02.25_R_2021.03.26</h3></br>
+<h4> change description</h4></br>
+- mapDraw.myLocationOn()에 animate option 추가</br>
+- 미리보기 처음 화면에서 폰트 굵게 나오는 현상 해결</br>
+</br>
+<h4> changed API</h4></br>
+- mapDraw.myLocationOn()에 animate option 추가</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#내-위치-마커-옵션</br>
+</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.02.24_R_2021.03.19</h3></br>
+<h4> change description</h4></br>
+</br>
+- POI font 8pt에서도 선명하게 보이도록 개선</br>
+- object click시 object에 연결된 poi가 여러개인 경우를 처리할 수 있도록 배열형태로도 poi를 반환하도록 반환속성 추가</br>
+- rest API 무응답시 S3에서 데이터 가져오도록 예외처리</br>
+</br>
+<h4> changed API</h4></br>
+- object click시 배열형태로 poi 반환 추가</br>
+https://github.com/dabeeo/web_api/blob/master/docs/Event.md#object-click</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.02.23_R_2021.03.12</h3></br>
+<h4> change description</h4></br>
+- 사용자가 2d상에서 마우스로 회전기능을 활성화 / 비활성화 할 것인지 결정할 수 있는 옵션 추가</br>
+- poi click event 동작 이상 해결</br>
+- MapLocal class 삭제</br>
+- 경로별 시간과 총거리 알 수 있는 메소드 추가</br>
+- MapInfo로 poi 가져올 때 속도 느려지는 현상 수정</br>
+- 지도 object line이 일부 모바일 브라우저에서 깨져보이는 현상 수정</br>
+</br>
+<h4> changed API</h4></br>
+- 사용자가 2d상에서 마우스로 회전기능을 활성화 / 비활성화 할 것인지 결정할 수 있는 옵션 추가</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#rotationmouse2d</br>
+- 경로별 시간과 총거리 알 수 있는 메소드 추가</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#이동수단별-길찾기-정보-구하기</br>
+</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.02.22_R_2021.02.26</h3></br>
+<h4> change description</h4></br>
+- 바닥판 poi 들의 아이콘이 바닥판 아래로 뭍히는 에러 해결</br>
+- 옵션없이 default로 길찾기 기능 실행시 주행아이콘이 높이 뜨는 문제 해결</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.02.21_R_2021.02.19</h3></br>
+<h4> change description</h4></br>
+- 모의 보행 시, 길 안내 정보를 POI 타이틀로 가져오는 기능</br>
+- 모의 보행 시 실선으로 주행선 그릴 수 있도록 옵션 추가</br>
+- 멀티뷰상태에서 터치 동작 오류</br>
+- 같은 층에 경로가 여러개일 때 생기는 길찾기 오류 해결</br>
+</br>
+<h4> changed API</h4></br>
+- 모의 보행 시, 길 안내 정보를 POI 타이틀로 가져오는 기능</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기-목록</br>
+- 모의 보행 시 실선으로 주행선 그릴 수 있도록 옵션 추가 (solidLineEnabled, solidLineWidth 추가)</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기--옵션</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.02.20_R_2021.02.05</h3></br>
+<h4> change description</h4></br>
+- 여러개의 map을 동시에 사용할 수 있도록 수정</br>
+- 카메라의 설정 (zoom과 rotation)을 초기화할 수 있도록 메소드 제공</br>
+</br>
+<h4> changed API</h4></br>
+- 카메라의 설정 (zoom과 rotation)을 초기화할 수 있도록 메소드 제공</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#카메라-모드-변경</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.02.19_R_2021.01.29</h3></br>
+<h4> change description</h4></br>
+- 중문폰트 동일한 굵기로 보이지 않는 문제 해결</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.02.18_R_2021.01.26</h3></br>
+<h4> change description</h4></br>
+- 지도 정보를 불러오는 새로운 클래스 추가 (MapInfo)- 버전, poi</br>
+- 지도 방위각 설정하는 MapView option 추가</br>
+- 지도 렌더링시 poi 안보이는 문제 해결</br>
+</br>
+<h4> changed API</h4></br>
+- 지도 정보를 불러오는 새로운 클래스 추가 (MapInfo)</br>
+https://github.com/dabeeo/web_api/tree/master/docs/MapInfo</br>
+- 지도 방위각 설정하는 MapView option 추가</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#northreference</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.02.17_R_2021.01.08</h3></br>
+<h4> change description</h4></br>
+- 지도 로딩을 빠르게 하는 새로운 클래스 추가 (MapLocal)</br>
+- 길찾기시 (getRouteOn()) 총거리 반환하도록 옵션 추가</br>
+- 마커 클릭시 이벤트 안올라오는 버그 수정</br>
+</br>
+<h4> changed API</h4></br>
+- 지도 로딩을 빠르게 하는 새로운 인터페이스 추가 (MapLocal)</br>
+https://github.com/dabeeo/web_api/tree/master/docs/MapLocal</br>
+- 길찾기시 (getRouteOn()) 총거리 반환하도록 옵션 추가</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기</br>
+</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.02.16_R_2020.12.24</h3></br>
+<h4> change description</h4></br>
+- POI 숨긴 상태에서 드래그시 멈추는 현상 수정</br>
+- 지도 로딩시 3d지도에서 항상 poi를 정면으로 보이게 하는 옵션 추가 (isPoiAngle)</br>
+<h4> changed API</h4></br>
+- 지도 로딩시 3d지도에서 항상 poi를 정면으로 보이게 하는 옵션 추가 (isPoiAngle)</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#ispoiangle</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.02.15_R_2020.12.18</h3></br>
+<h4> change description</h4></br>
+- POI 보이기/숨기기에서 같은 기능을 여러번 불렀을 때 나는 오류 수정</br>
+- 모의보행시 노드 안내선에 대한 옵션 추가(점선을 실선으로 보일 수 있도록) (lineSpotSize, lineSpotInterval, lineZ)</br>
+- 길찾기 시 거리 소숫점2자리로 제한</br>
+- 웹브라우저 기본배율 변경시 좌표 변환 (POI/Object click event)</br>
+<h4> changed API</h4></br>
+- 모의보행시 노드 안내선 점선을 실선으로 보일 수 있도록 옵션 추가</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기--옵션</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.02.14_R_2020.12.11</h3></br>
+<h4> change description</h4></br>
+- touch로 회전기능 끄거나 켤 수 있도록 mapView에 option 추가 (rotationTouch2d)</br>
+- 길찾기 기능에서 출발지와 도착지의 아이콘의 z축 좌표를 설정할 수 있도록 option 추가 (originPositionZ, destinationPositionZ)</br>
+</br>
+<h4> changed API</h4></br>
+- touch로 회전기능 끄거나 켤 수 있도록 mapView에 option 추가</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#rotationtouch2d</br>
+- 길찾기 기능에서 출발지와 도착지의 아이콘의 z축 좌표를 설정할 수 있도록 option추가</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기--옵션</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.02.13_R_2020.12.04</h3></br>
+<h4> change description</h4></br>
+- 내위치 마커표시 기능에 층변경시에도 항상 내 위치를 표시할 수 있도록 option 추가</br>
+</br>
+<h4> changed API</h4></br>
+- 내위치 마커표시 기능에 층변경시에도 항상 내 위치를 표시할 수 있도록 option 추가</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#내위치-마커-표시</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.02.12_R_2020.11.27</h3></br>
+<h4> change description</h4></br>
+- 길찾기 - 모의보행 시 속도 지정 옵션 추가</br>
+</br>
+<h4> changed API</h4></br>
+- 길찾기 - 모의보행 시 속도 지정 옵션 추가</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md</br>
+<hr>길찾기--옵션</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.02.11_R_2020.11.20</h3></br>
+<h4> change description</h4></br>
+- canvasSize 설정시 화면 왜곡 이슈</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.02.10_R_2020.11.13</h3></br>
+<h4> change description</h4></br>
+- 줌 레벨 관계없이 3d에서 마커 사이즈 고정 기능</br>
+- 지도 좌표기준으로 카메라 이동 함수 생성</br>
+- 3D지도 모드 시, POI 타이틀도 같이 회전 및 각도 반영 기능 삭제</br>
+- 일부 지도에서 지도 드래그 안되는 현상 수정</br>
+</br>
+<h4> changed API</h4></br>
+</br>
+- 지도 좌표기준으로 카메라 이동 함수 생성</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#지도-좌표-기준으로-x-y좌표로-이동</br>
+<hr></br>
+</br>
+<h3> jsMapAPI_03.02.09_R_2020.11.06</h3></br>
+<h4> change description</h4></br>
+- internet explorer 11 동작</br>
+- 지도 드래그시 캔버스 밖으로 벗어나지 않도록 수정</br>
+- 맵 그릴 때 주는 option 추가 :</br>
+- 드래그마우스 버튼</br>
+- 줌마우스 활성화</br>
+- poi중요도에 따라 지도에 보져울 백분율 설정</br>
+- 3D지도 모드 시, POI 타이틀도 같이 회전 및 각도 반영</br>
+</br>
+<h4> changed API</h4></br>
+</br>
+- 3D지도 모드 시, POI 타이틀도 같이 회전 및 각도 반영</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#3d모드에서-poi-높이값-설정</br>
+- 맵 그릴 때 주는 option 추가 :</br>
+- 드래그마우스 버튼</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#controldrag</br>
+- 줌마우스 활성화</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#controlzoom</br>
+- poi중요도에 따라 지도에 보져울 백분율 설정</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#poilevel</br>
+</br>
+<hr></br>
+</br>
+<h3> jsMapAPI_03.02.08_R_2020.10.30</h3></br>
+<h4> change description</h4></br>
+- 모바일에서 폰트 align</br>
+- 마커 클릭 이벤트 추가</br>
+- 마커 클릭시 반환할 정보를 마커그릴 때 주도록 option 추가</br>
+- zoom 최대최소 상태에서 지도 깜빡임 현상 개선</br>
+- 슬램용 좌표 변환 api 추가</br>
+- 네비게이션 시 좌표 이외에 poi로 지정할 수 있도록 option 추가</br>
+</br>
+<h4> changed API</h4></br>
+- 마커 클릭 이벤트 추가</br>
+https://github.com/dabeeo/web_api/blob/master/docs/Event.md#marker-click</br>
+- 마커 클릭시 반환할 정보를 마커그릴 때 주도록 option 추가</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#여러개의-마커표시</br>
+- 슬램용 좌표 변환 api 추가</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#좌표-변환</br>
+- 네비게이션 시 좌표 이외에 poi로 지정할 수 있도록 option 추가</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기</br>
+</br>
+<hr></br>
+</br>
+<h3> jsMapAPI_03.02.07_R_2020.10.22</h3></br>
+<h4> change description</h4></br>
+- 2d 회전 기능 추가 (두손가락 swipe)</br>
+- zoom 최대치/최소치 설정</br>
+- 줌 레벨 관계없이 2d에서 마커 사이즈 고정</br>
+- object 클릭시 poi 메타데이터 반환</br>
+</br>
+<h4> changed API</h4></br>
+- zoom 최대치/최소치 설정</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#maxzoom</br>
+- object 클릭시 poi 메타데이터 반환</br>
+https://github.com/dabeeo/web_api/blob/master/docs/Event.md#object-click</br>
+- 줌 레벨 관계없이 2d에서 마커 사이즈 고정</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#등록된-마커사이즈-실시간-동기화</br>
+</br>
+<hr></br>
+</br>
+<h3> jsMapAPI_03.02.06_R_2020.10.16</h3></br>
+<h4> change description</h4></br>
+- 2d 회전 기능 제거</br>
+- 길찾기 시 출발/도착 마커 변경/삭제 기능 추가</br>
+- 폰트 수정 - 노트산스 적용, 중국어, 일본어 지원, bold체</br>
+- 속도 개선</br>
+<h4> changed API</h4></br>
+- 길찾기 시 출발/도착 마커 변경/삭제 기능 추가</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#길찾기--옵션</br>
+</br>
+<hr></br>
+</br>
+<h3> jsMapAPI_03.02.05_R_2020.10.08</h3></br>
+<h4> change description</h4></br>
+- 3d모드에서 moveCamera 함수 실행 시 지도 기울어짐(같은 위치 연속 호출) 이슈 해결</br>
+- 아이콘 사이즈가 미리보기 화면에서 작게 보이는 문제 해결</br>
+- 지도회전 구현 - 3 손가락으로 동작</br>
+- 3D지도에서 핀치 줌 아웃 or 드래그 시 초기 각도가 변경되지 않게 지정 - angle option 추가 필요</br>
+<h4> changed API</h4></br>
+- MapView의 option 수정 : anlge option 에 fixed 설정 추가</br>
+https://github.com/dabeeo/web_api/blob/master/docs/MapView/options.md#angle</br>
+</br>
+<hr></br>
+</br>
+<h3> jsMapAPI_03.02.04_R_2020.09.29</h3></br>
+- 2D 모드에서 네비게이션 실행시 지도 돌아감</br>
+- 네비게이션 종료후 카메라 목적지에 멈춰야 함</br>
+</br>
+<hr></br>
+<h3> jsMapAPI_03.02.03_R_2020.09.25</h3></br>
+- 지도회전(2d상태로 회전) 구현</br>
+- 모의주행시 라인 색 및 길안내 애니메이션 아이콘 변경 api 추가</br>
+mapDraw.setNavigationOption()</br>
+- 모의주행시 카메라 따라 움직임 설정하도록 option 추가</br>
+mapDraw.startRouteAnimation()</br>
+- poi 좌표 변환 api 추가</br>
+mapDraw.getCameraPosition(x, y)</br>
+- 길찾기 루트 반환 API 추가 mapDraw.getNavigation()</br>
+- 내위치 보기 오류 수정</br>
+</br>
+<hr></br>
+</br>
+<h3> jsMapAPI_03.02.02_s_2020.09.18</h3></br>
+- 길찾기 메소드에 경유지 옵션 추가</br>
+- 경로 안내시 튀는 문제 해결</br>
+- 방위각 설정후 poi 위치 달라지는 문제 해결</br>
+- 특정 x,y 좌표로 지도 이동하는 기능 추가</br>
+- 지도로딩 전에 콜백 함수 불려지는 이슈 해결</br>
+- 3d 기울기 옵션 - 내비실행시 지도 기울어지는 문제 해결</br>
+- 경로안내시 줌 확대되어 표시되아가 층바뀌면 줌 아웃되는 문제 해결</br>
+<hr></br>
+<h3> javascript_03.02.01_S_2020.09.11</h3></br>
+- poi 마커 클릭 이벤트 in 모바일</br>
+- zoom 형식을 절대값으로 받을 수 있게, 현재 zoom 정보를 반환하도록</br>
+- 마커 사이즈 조정</br>
+- 줌레벨에 따른 POI 보여주기 기능</br>
+<hr></br>
+<h3> javascript_03.01.10_S_2020.09.04</h3></br>
+- 지도 option 추가 : center{x,y} ,angle{vertical, horizonatal}</br>
+- poi click시 poi 정보 return 해주는 api 추가</br>
+- 모바일에서 drag시 한손가락 touch로 drag, 두손가락 touch로 회전되게 수정</br>

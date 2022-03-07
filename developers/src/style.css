@@ -1,0 +1,161 @@
+@charset "UTF-8";
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border : 1px solid red;  */
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  height: 100vh;
+}
+
+a {
+  text-decoration-line: none;
+}
+
+/* ********************************************* */
+/* header */
+header {
+  height: 60px;
+  padding: 10px;
+  width: 100%;
+  background-color: #111;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header img {
+  height: 90%;
+}
+header ul {
+  list-style: none;
+}
+header ul li {
+  display: inline-block;
+  margin: 0 5px;
+}
+header ul li button {
+  border-radius: 3px;
+  border: 0;
+  padding: 2px 4px;
+  background-color: #fff;
+  color: #111;
+}
+
+/* ********************************************* */
+/* main  */
+main {
+  display: flex;
+  /* nav */
+  /* ********************************************* */
+  /* section */
+}
+main nav {
+  flex: 0 0 300px;
+  /* flex-grow:0, flex-shrink: 0, fiex-basis:300px; */
+  /* flex-grow=0: 늘어나지 않음 (기본값 0)  
+  /* flex-shrink=0: 작아지지 않음 (기본값 1) 
+  /* flex-basis=300px : 기본크기 300px  (기본값: auto) */
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100vh - 60px);
+  padding: 5px;
+}
+main nav ul {
+  list-style: none;
+}
+main nav ul li {
+  padding: 5px 5px;
+  margin: 0 10px;
+}
+main nav ul li a {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  color: #111;
+  transition: all 1s ease;
+}
+main nav ul li a.active {
+  background-color: #111;
+  color: #fff;
+  border-radius: 5px;
+}
+main section {
+  width: calc(100vw - 300px);
+  margin-left: 10px;
+  overflow-y: auto;
+  padding: 10px;
+  height: calc(100vh - 60px);
+}
+main section article {
+  font-size: 0.9rem;
+  line-height: 2rem;
+  width: 80%;
+}
+main section article ul,
+main section article ol {
+  margin-left: 10px;
+}
+main section article ul li,
+main section article ol li {
+  margin-left: 10px;
+}
+main section article hr {
+  width: 80%;
+}
+main section article h1 {
+  font-size: 1.7rem;
+}
+main section article h2 {
+  font-size: 1.3rem;
+}
+main section article h3 {
+  font-size: 1.2rem;
+}
+main section article h4 {
+  font-size: 1.1rem;
+}
+main section article p {
+  font-size: 0.9rem;
+}
+main section article iframe {
+  width: 100%;
+  height: 500px;
+  border: 1px solid #eee;
+}
+main section article code {
+  overflow: auto;
+  overflow-wrap: break-word;
+  font-family: monospace;
+  font-size: 0.8rem;
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  background-color: #333333;
+  color: #fff;
+  padding-right: 20px;
+  line-height: 1.2rem;
+}
+main section article code span {
+  color: #ff5100;
+  font-weight: bold;
+}
+main section article code span.value {
+  font-family: monospace;
+  color: #00ff00;
+  font-weight: normal;
+}
+main section article code span.reserved {
+  font-weight: normal;
+  color: #00ffff;
+}
+
+.center {
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */
