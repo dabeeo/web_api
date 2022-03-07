@@ -468,23 +468,8 @@ mapDraw.startRouteAnimation({zoom: 200});
 mapDraw.startRouteAnimation({changeFloorDelay: 3000});
 ~~
 
-will-floor-change 이벤트를 통해 층이 변경되는 시점, 층 id정보, 층 변경 이동수단을 알 수 있습니다.
-**이동수단 코드**
-* OB-ELEVATOR : 엘리베이터
-* OB-ESCALATOR : 에스컬레이터 양방향
-* OB-ESCALATOR_UP : 에스컬레이터 상행
-* OB-ESCALATOR_DOWN : 에스컬레이터 하행
-* OB-STAIRS : 계단
-* OB-OTHER_TRANSPORT : 연결통로 등 기타 이동 수단
-~~~javascript
-document.addEventListener("will-floor-change", function (e) {
-    let currentFloor = e.detail.floor.current;
-        let nextFloor = e.detail.floor.next;
-        let transCode = e.detail.transCode;
-})
-~~~
-- example: https://dabeeo.github.io/web_api/example/#navigationWillFloorChange
-- 실행 : https://dabeeo.github.io/web_api/samples/navigationWillFloorChange.html   
+will-floor-change 이벤트를 통해 모의주행중 층이 변경되는 시점에 층 id정보, 층 변경 이동수단을 알 수 있습니다.
+https://github.com/dabeeo/web_api/blob/master/docs/Event.md#will-floor-change
 
 
 ####  도착지 오브젝트 active 옵션 추가   
