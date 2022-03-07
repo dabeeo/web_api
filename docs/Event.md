@@ -28,6 +28,25 @@ document.addEventListener("navi-complete", (e) => {
 });
 ~~~
 
+
+### will-floor-change 모의주행중 층이 변경되는 시점에 이벤트가 발생합니다. 층 id정보, 층 변경 이동수단을 알 수 있습니다.
+**이동수단 코드**
+* OB-ELEVATOR : 엘리베이터
+* OB-ESCALATOR : 에스컬레이터 양방향
+* OB-ESCALATOR_UP : 에스컬레이터 상행
+* OB-ESCALATOR_DOWN : 에스컬레이터 하행
+* OB-STAIRS : 계단
+* OB-OTHER_TRANSPORT : 연결통로 등 기타 이동 수단
+~~~javascript
+document.addEventListener("will-floor-change", function (e) {
+    let currentFloor = e.detail.floor.current;
+    let nextFloor = e.detail.floor.next;
+    let transCode = e.detail.transCode;
+})
+~~~
+- example: https://dabeeo.github.io/web_api/example/#navigationWillFloorChange
+- 실행 : https://dabeeo.github.io/web_api/samples/navigationWillFloorChange.html  
+
 ### poi-click
 지도에서 poi 클릭 이벤트를 실행하면 poi 정보를 전달합니다.
 사용법은 다음과 같습니다. 
