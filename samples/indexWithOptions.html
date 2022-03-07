@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dabeeo Map JS Sample</title>
+  <!-- dabeeo js api test url 사용 : 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+  <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #map {
+      margin-top: 100px;
+      text-align: center;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="map"></div>
+  <script>
+    let mapContainer = document.getElementById('map'); // 지도를 표시할 div
+
+    // 지도 인증정보
+    let authorization = new indoorMapApi.Authorization({
+      clientId: "6Lwuu9wa4wta0NiHwy1fO5",
+      clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
+    });
+
+    let mapOptions = {
+      authorization: authorization,
+      canvasSize: { width: 800, height: 500 }, //size 설정
+      "controlDrag": {
+        "3d": "left"
+      },
+      isPoiSprite: true,
+      language: "en",
+      camera: "2d",
+      floor: "FL-qxlil1hangpu7108",
+      zoom: 200,
+      center: {
+        x: 2230, // 지도 내 좌표 x 
+        y: 1605 // 지도 내 좌표 y
+      }
+    };
+
+    // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+    new indoorMapApi.MapView(
+      mapContainer, // 컨테이너
+      mapOptions, // 옵션
+      function (response) { // 맵 로드 콜백
+        let code = response.getCode();
+
+        if (code === 200) {
+          let mapDraw = response.getPayload().mapDraw;
+          // do something
+          console.log("map view success!")
+        }
+      }
+    );
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<h1>MapView : 지도그리기 (서버에서 지도파일 가져와서 지도 그리기)</h1>
+</br>다비오 지도서버에 있는 지도를 불러와 그립니다.
+</br>
+</br>indoorMapApi.MapView를 이용하여 지도를 그립니다.
+</br>지도를 불러오기 위해서는 지도 사용을 위한 인증 정보가 필요합니다.
+초기 option을 지정하여 지도를 어떻게 그릴지 설정할 수 있습니다.
+</br>zoom level 등 지도를 그리기 위한 설정이 여기에 해당합니다. 자세한 정보는 해당문서에 설명되어 있으니 이를 참조하세요.
+</br>MapView API를 호출시 지도에 관한 모든 정보가 mapDraw 객체로 반환되므로 이를 이용하여 지도를 제어할 수 있습니다.
+반환된 정보에는 맵이름, 층정보, poi정보, 테마정보 등이 있습니다.
+</br>자세한 정보와 메소드는 해당문서에 설명되어 있으니 이를 참조하세요.
+</br>
+</br>실행화면
+</br>
+<iframe src="https://dabeeo.github.io/web_api/samples/index.html"></iframe>
+</br>
+</br>
+</br>코드는 아래와 같습니다.
+<pre>
+  <code>
+<div id="map"></div>
+<script src="[다비오기술문서의 api 링크]"></script>
+    
+
+<script>
+
+  window.addEventListener("load", function () {
+    initMap();
+  });
+
+  function initMap() {
+    let mapContainer = document.getElementById('map'); // 지도를 표시할 div
+
+    // 지도 인증정보
+    let authorization = new indoorMapApi.Authorization({
+      clientId: "6Lwuu9wa4wta0NiHwy1fO5",
+      clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
+    });
+
+    let mapOptions = {
+      authorization: authorization
+    };
+
+
+    // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+    new indoorMapApi.MapView(
+      mapContainer, // 컨테이너
+      mapOptions, // 옵션
+      function (response) { // 맵 로드 콜백
+        let code = response.getCode();
+
+        if (code === 200) {
+          mapDraw = response.getPayload().mapDraw;
+          // do something
+          console.log("map view success!")
+        }
+      }
+    );
+  }
+</script>

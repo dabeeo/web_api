@@ -123,16 +123,16 @@ main section article p {
   font-size: 0.9rem;
 }
 main section article iframe {
-  width: 100%;
+  width: 90%;
   height: 500px;
   border: 1px solid #eee;
 }
 main section article code {
+  width: 90%;
   overflow: auto;
   overflow-wrap: break-word;
   font-family: monospace;
   font-size: 0.8rem;
-  width: 100%;
   display: block;
   border-radius: 10px;
   background-color: #333333;

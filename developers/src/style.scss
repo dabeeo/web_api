@@ -140,16 +140,16 @@ main {
                 font-size: 0.9 * $fontSize;
             }
             iframe {
-                width: 100%;
+                width: 90%;
                 height: 500px;
                 border: 1px solid #eee;
             }
             code {
+                width: 90%;
                 overflow: auto;
                 overflow-wrap: break-word;
                 font-family: monospace;
                 font-size: 0.8 * $fontSize;
-                width: 100%;
                 // min-width: 900px;
                 display: block;
                 border-radius: 10px;
