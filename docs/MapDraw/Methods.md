@@ -466,7 +466,7 @@ mapDraw.startRouteAnimation({zoom: 200});
 함수 파라미터에 { changeFloorDelay: number } 입력시 모의주행중 층 이동이 일어나기전에 지연시간 값(millisecond)만큼 생깁니다. 
 ~~~javascript
 mapDraw.startRouteAnimation({changeFloorDelay: 3000});
-~~
+~~~
 
 will-floor-change 이벤트를 통해 모의주행중 층이 변경되는 시점에 층 id정보, 층 변경 이동수단을 알 수 있습니다.
 https://github.com/dabeeo/web_api/blob/master/docs/Event.md#will-floor-change
