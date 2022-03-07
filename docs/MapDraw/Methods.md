@@ -462,6 +462,30 @@ mapDraw.startRouteAnimation({zoom: 200});
 - example: https://github.com/dabeeo/web_api/blob/master/samples/navigation.html   
 - 실행 : https://dabeeo.github.io/web_api/samples/navigation.html   
 
+- 모의주행 층 이동 전에 지연시간 추가
+함수 파라미터에 { changeFloorDelay: number } 입력시 모의주행중 층 이동이 일어나기전에 지연시간 값(millisecond)만큼 생깁니다. 
+~~~javascript
+mapDraw.startRouteAnimation({changeFloorDelay: 3000});
+~~
+
+will-floor-change 이벤트를 통해 층이 변경되는 시점, 층 id정보, 층 변경 이동수단을 알 수 있습니다.
+**이동수단 코드**
+* OB-ELEVATOR : 엘리베이터
+* OB-ESCALATOR : 에스컬레이터 양방향
+* OB-ESCALATOR_UP : 에스컬레이터 상행
+* OB-ESCALATOR_DOWN : 에스컬레이터 하행
+* OB-STAIRS : 계단
+* OB-OTHER_TRANSPORT : 연결통로 등 기타 이동 수단
+~~~javascript
+document.addEventListener("will-floor-change", function (e) {
+    let currentFloor = e.detail.floor.current;
+        let nextFloor = e.detail.floor.next;
+        let transCode = e.detail.transCode;
+})
+~~
+- example: https://dabeeo.github.io/web_api/example/#navigationWillFloorChange
+- 실행 : https://dabeeo.github.io/web_api/samples/navigationWillFloorChange.html   
+
 
 ####  도착지 오브젝트 active 옵션 추가   
 함수 파라미터에 {destOption:{activeDest:boolean, color:Color, opacity:number, isAnimate:boolean, duration:number, isRepeat:boolean, isYoyo:boolean, ids:Array<string>}} 입력시 도착지 오브젝트의 색상 및 투명도, 도착지 색상 애니메이션 효과 등이 변경됩니다.
