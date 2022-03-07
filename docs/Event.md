@@ -29,7 +29,11 @@ document.addEventListener("navi-complete", (e) => {
 ~~~
 
 
-### will-floor-change 모의주행중 층이 변경되는 시점에 이벤트가 발생합니다. 층 id정보, 층 변경 이동수단을 알 수 있습니다.
+### will-floor-change 
+모의주행중 층이 변경되는 시점에 이벤트가 발생합니다. 층 id정보, 층 변경 이동수단의 정보를 알 수 있습니다.
+mapDraw.startRouteAnimation({changeFloorDelay: 3000});
+changeFloorDelay 옵션과 같이 사용하면 will-floor-change이벤트 이후 층 변경 전에 delay를 줄 수 있습니다.
+
 **이동수단 코드**
 * OB-ELEVATOR : 엘리베이터
 * OB-ESCALATOR : 에스컬레이터 양방향
