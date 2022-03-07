@@ -454,7 +454,7 @@ mapDraw.stopRouteAnimation();
 
 
 ### 모의주행 옵션 
-# 모의주행 카메라 애니메이션 추가   
+#### 모의주행 카메라 애니메이션 추가   
 함수 파라미터에 { zoom: number } 입력시 모의주행중 카메라 이동이 해당 zoom 입력값으로 됩니다. 카메라 이동중 마우스로 지도위치를 변경할 수 없습니다.
 ~~~javascript
 mapDraw.startRouteAnimation({zoom: 200});
@@ -462,7 +462,7 @@ mapDraw.startRouteAnimation({zoom: 200});
 - example: https://github.com/dabeeo/web_api/blob/master/samples/navigation.html   
 - 실행 : https://dabeeo.github.io/web_api/samples/navigation.html   
 
-# 모의주행 층 이동 전에 지연시간 추가
+#### 모의주행 층 이동 전에 지연시간 추가
 함수 파라미터에 { changeFloorDelay: number } 입력시 모의주행중 층 이동이 일어나기전에 옵션값(millisecond)만큼 지연시간이생깁니다. 
 ~~~javascript
 mapDraw.startRouteAnimation({changeFloorDelay: 3000});
