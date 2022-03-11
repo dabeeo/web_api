@@ -2,177 +2,241 @@
 <html lang="en">
 
 <head>
-  <title>navigation sample</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>navigation sample</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
-  <!-- dabeeo js api test url입니다. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
-  <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
+    <!-- dabeeo js api test url입니다. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+    <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
 
 
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .modal {
+            position: fixed;
+            font-size: 1.2rem;
+            left: calc(100vw / 2 - 200px);
+            top: calc(100vh / 2 - 100px);
+            width: 400px;
+            height: 100px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding-top: 40px;
+            text-align: center;
+            opacity: 0;
+            /* visibility: hidden; */
+            transform: scale(1.1);
+            transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+        }
+
+        .hide {
+            opacity: 0;
+        }
+    </style>
 </head>
 
 <body>
-  <div class="button-container">
-    <button type="button" class="button-menu">
-      Navigation Will Floor Change
-    </button>
-  </div>
-  <div class="control-container">
-    <div class="inline-container">
-      <div class="inline-label">지연시간</div>
-      <input type="text" class="inline-input " id="changeFloorDelay" value="3000">
+    <div class='modal'>teset
     </div>
-    <div class="inline-container">
-      <input type="button" class="inline-input" name="navigation" value="Start Navigation">
+    <div class="button-container">
+        <button type="button" class="button-menu">
+            Navigation Will Floor Change
+        </button>
     </div>
-  </div>
+    <div class="control-container">
+        <div class="inline-container">
+            <div class="inline-label">지연시간</div>
+            <input type="text" class="inline-input " id="changeFloorDelay" value="3000">
+        </div>
+        <div class="inline-container">
+            <input type="button" class="inline-input" name="navigation" value="Start Navigation">
+        </div>
+    </div>
 
 
-  <div id="map"></div>
-  </div>
+    <div id="map"></div>
+    </div>
 
-  <script>
+    <script>
 
-    window.addEventListener("load", function () {
-      initMap();
-    });
-
-    function initMap() {
-      var mapContainer = document.getElementById('map'); // 지도를 표시할 div
-
-      // 지도 인증정보
-      var authorization = new indoorMapApi.Authorization({
-        clientId: "6Lwuu9wa4wta0NiHwy1fO5",
-        clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
-      });
-      var mapOptions = {
-        authorization: authorization,
-        camera: "3d", // 초기 demention
-        angle: {
-          vertical: 10, // 3D 모드일때 tilt 30 
-          horizontal: 0
-        },
-        zoom: 100,
-        isPoiSprite: true
-      };
-
-      // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
-      new indoorMapApi.MapView(
-        mapContainer, // 컨테이너
-        mapOptions, // 옵션
-        function (response) { // 맵 로드 콜백
-          var code = response.getCode();
-
-          if (code === 200) {
-
-            console.log("response")
-            mapDraw = response.getPayload().mapDraw;
-            mapPoiInfo = mapDraw.response.poiInfo;
-            floorInfo = mapDraw.response.floorInfo;
-            window.mapDraw = mapDraw;
-            // do something
-            console.log("map view success!")
-            initNavigationBtn();
-            initWillChangeFloor();
-          }
-        }
-      );
-    }
-
-    //////////////////////////////////////////////////////////////////////////////////    
-    function initNavigationBtn() {
-      const initNaviBtn = document.querySelector("[name='navigation']");
-      initNaviBtn.addEventListener("click", function (e) {
-        console.log("click")
-        mapDraw.getRouteOff();
-        initNavigation();
-      });
-    }
-
-    function initWillChangeFloor(){
-      document.addEventListener("will-floor-change", function (e) {
-          if (e.detail === null) return;
-          let currentFloor = e.detail.floor.current.name;
-          let nextFloor = e.detail.floor.next.name;
-          let transCode = e.detail.transCode;
-          alert("현재 " + currentFloor + "에서 " + transCode+ "를 이용하여 "+ nextFloor + "로 이동하세요" )
-      });
-    }
-
-    function initNavigation() {
-      //set navigation option 
-      setNavigationOption();
-      
-      //draw navigation route
-      const result = getRouteOn();
-
-      //start navigate simulation 
-      if (result) startRouteAnimation(result);
-    }
-
-    function setNavigationOption() {
-      mapDraw.setNavigationOption(
-        {
-          lineColor: '#dc3545',
-          lineSpotSize: 3,
-          lineSpotInterval: 3000,
-          //lineZ: 20,
-          speedRate: 3, // 주행 속도
-          originPositionZ: 5,
-          destinationPositionZ: 5,
-          visibleIcon: true, // 경로 표시할때 시작지, 도착지 아이콘 없애기 / 보이기
-          moveIconZ: 12,
-
+        window.addEventListener("load", function () {
+            initMap();
         });
-    }
 
-    function getRouteOn() {
+        function initMap() {
+            var mapContainer = document.getElementById('map'); // 지도를 표시할 div
 
-      let fInfo = floorInfo.slice();
-      let max = fInfo.length;
-      let index = Math.floor((Math.random() * (max - 0) + 0));
-      let originFloorId = fInfo[index].id;
-      fInfo.splice(index,1);
-      max = fInfo.length;
-      index = Math.floor((Math.random() * (max - 0) + 0));
-      let destFloorId = fInfo[index].id;
+            // 지도 인증정보
+            var authorization = new indoorMapApi.Authorization({
+                clientId: "6Lwuu9wa4wta0NiHwy1fO5",
+                clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
+            });
+            var mapOptions = {
+                authorization: authorization,
+                camera: "3d", // 초기 demention
+                angle: {
+                    vertical: 10, // 3D 모드일때 tilt 30 
+                    horizontal: 0
+                },
+                zoom: 100,
+                isPoiSprite: true
+            };
 
-      const originPois = mapPoiInfo.filter(poi => poi.floorId == originFloorId);
-      const destPois = mapPoiInfo.filter(poi => poi.floorId == destFloorId);
+            // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+            new indoorMapApi.MapView(
+                mapContainer, // 컨테이너
+                mapOptions, // 옵션
+                function (response) { // 맵 로드 콜백
+                    var code = response.getCode();
 
-      let originPoi = getPoi(originPois);
-      let destPoi = getPoi(destPois); 
+                    if (code === 200) {
 
-      const result = mapDraw.getRouteOn(originPoi, destPoi, "recommendation",[],false);
-      if (result === undefined) {
-        alert("요청하신 경로가 존재하지 않습니다.\n출발지와 도착지를 확인하세요");
-        return false;
-      }
-      return { originPoi, destPoi };
-    }
+                        console.log("response")
+                        mapDraw = response.getPayload().mapDraw;
+                        mapPoiInfo = mapDraw.response.poiInfo;
+                        floorInfo = mapDraw.response.floorInfo;
+                        window.mapDraw = mapDraw;
+                        // do something
+                        console.log("map view success!")
+                        initNavigationBtn();
+                        initWillChangeFloor();
+                    }
+                }
+            );
+        }
 
-    function startRouteAnimation(result) {
-      let changeFloorDelay=Number(document.querySelector("#changeFloorDelay").value);
-      mapDraw.startRouteAnimation({
-        zoom: 130,
-        changeFloorDelay:changeFloorDelay,
-      });
-    }
+        //////////////////////////////////////////////////////////////////////////////////    
+        function initNavigationBtn() {
+            const initNaviBtn = document.querySelector("[name='navigation']");
+            initNaviBtn.addEventListener("click", function (e) {
+                console.log("click")
+                mapDraw.getRouteOff();
+                initNavigation();
+            });
+        }
+        function transCodeName(type) {
+            let result = "걷기";
+            /*
+            * transCode: 이동수단 코드
+            * OB-ELEVATOR : 엘리베이터
+            * OB-ESCALATOR : 에스컬레이터 양방향
+            * OB-ESCALATOR_UP : 에스컬레이터 상행
+            * OB-ESCALATOR_DOWN : 에스컬레이터 하행
+            * OB-STAIRS : 계단
+            */
+            switch (type) {
+                case "OB-STAIRS":
+                    result = "계단";
+                    break;
+                case "OB-ELEVATOR":
+                    result = "엘리베이터";
+                    break;
+                case "OB-ESCALATOR":
+                    result = "에스컬레이터 양방향";
+                    break;
+                case "OB-ESCALATOR_UP":
+                    result = "에스컬레이터 상행";
+                    break;
+                case "OB-ESCALATOR_DOWN":
+                    result = "에스컬레이터 하행";
+                    break;
+                case "OB-OTHER_TRANSPORT":
+                    result = "연결통로";
+                    break;
+                default:
+                    result = "걷기";
+                    break;
+            }
+            return result;
+        };
 
-    function getPoi(pois) {
-      const max = pois.length;
-      const index = Math.floor((Math.random() * (max - 0) + 0));
-      let poi = {
-        poiId: pois[index].id,
-        floorId: pois[index].floorId
-      };
-      return poi;
-    }
+
+        function initWillChangeFloor() {
+            document.addEventListener("will-floor-change", function (e) {
+                if (e.detail === null) return;
+                let currentFloor = e.detail.floor.current.name;
+                let nextFloor = e.detail.floor.next.name;
+                let transCode = e.detail.transCode;
+                let modal = document.querySelector('.modal');
+                modal.innerHTML = transCodeName(transCode) + "를 이용하여 " + currentFloor + "에서 " + nextFloor + "로 이동합니다";
+                modal.style.opacity = "100";
+                let delay = Number(document.querySelector("#changeFloorDelay").value);
+                setTimeout(() => { modal.style.opacity = 0; }, delay);
+            });
+        }
+
+        function initNavigation() {
+            //set navigation option 
+            setNavigationOption();
+
+            //draw navigation route
+            const result = getRouteOn();
+
+            //start navigate simulation 
+            if (result) startRouteAnimation(result);
+        }
+
+        function setNavigationOption() {
+            mapDraw.setNavigationOption(
+                {
+                    lineColor: '#dc3545',
+                    lineSpotSize: 3,
+                    lineSpotInterval: 100,
+                    //lineZ: 20,
+                    speedRate: 4, // 주행 속도
+                    originPositionZ: 5,
+                    destinationPositionZ: 5,
+                    visibleIcon: true, // 경로 표시할때 시작지, 도착지 아이콘 없애기 / 보이기
+                    moveIconZ: 12,
+
+                });
+        }
+
+        function getRouteOn() {
+
+            let fInfo = floorInfo.slice();
+            let max = fInfo.length;
+            let index = Math.floor((Math.random() * (max - 0) + 0));
+            let originFloorId = fInfo[index].id;
+            fInfo.splice(index, 1);
+            max = fInfo.length;
+            index = Math.floor((Math.random() * (max - 0) + 0));
+            let destFloorId = fInfo[index].id;
+
+            const originPois = mapPoiInfo.filter(poi => poi.floorId == originFloorId);
+            const destPois = mapPoiInfo.filter(poi => poi.floorId == destFloorId);
+
+            let originPoi = getPoi(originPois);
+            let destPoi = getPoi(destPois);
+            const result = mapDraw.getRouteOn(originPoi, destPoi, "recommendation", [], false);
+            if (result === undefined) {
+                alert("요청하신 경로가 존재하지 않습니다.\n출발지와 도착지를 확인하세요");
+                return false;
+            }
+            return { originPoi, destPoi };
+        }
+
+        function startRouteAnimation(result) {
+            let changeFloorDelay = Number(document.querySelector("#changeFloorDelay").value);
+            mapDraw.startRouteAnimation({
+                // zoom: 130,
+                changeFloorDelay: changeFloorDelay,
+            });
+        }
+
+        function getPoi(pois) {
+            const max = pois.length;
+            const index = Math.floor((Math.random() * (max - 0) + 0));
+            let poi = {
+                poiId: pois[index].id,
+                floorId: pois[index].floorId
+            };
+            console.log(poi)
+            return poi;
+        }
 
 
-  </script>
+    </script>
 </body>
 
 </html>
