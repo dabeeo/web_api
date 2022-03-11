@@ -73,12 +73,19 @@ main {
         overflow-x: hidden;
         height: calc(100vh - $headerHeight);
         padding: 5px;
+        .title {
+            padding: 5px 5px;
+            margin: 0 10px;
+            font-weight: bold;
+            color: #682404;
+        }
         ul {
             list-style: none;
+            font-size: 0.9 * $fontSize;
 
             li {
-                padding: 5px 5px;
-                margin: 0 10px;
+                padding: 5px 5px 5px 30px;
+                margin: 0 0px 0 0px;
 
                 a {
                     display: block;

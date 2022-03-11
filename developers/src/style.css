@@ -65,12 +65,19 @@ main nav {
   height: calc(100vh - 60px);
   padding: 5px;
 }
-main nav ul {
-  list-style: none;
-}
-main nav ul li {
+main nav .title {
   padding: 5px 5px;
   margin: 0 10px;
+  font-weight: bold;
+  color: #682404;
+}
+main nav ul {
+  list-style: none;
+  font-size: 0.9rem;
+}
+main nav ul li {
+  padding: 5px 5px 5px 30px;
+  margin: 0 0px 0 0px;
 }
 main nav ul li a {
   display: block;

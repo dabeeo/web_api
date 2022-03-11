@@ -1,9 +1,39 @@
 <h1 class='center'>
-  <img src="https://indoor.dabeeomaps.com/upload/demo/CI.png" width='300px' />
-  </br></br>
+    <img src="https://indoor.dabeeomaps.com/upload/demo/CI.png" width='300px' />
+    </br></br>
 </h1>
 다비오맵스 JS API 는 다비오맵스 실내지도 플랫폼 지도를 활용하여 지도 서비스를 쉽고 빠르게 구축 할 수 있게 JavaScript 형태로 공개한 기술입니다.
 </br></br>
 공식 api 링크는 다비오 사이트에 올라가 있습니다.</br>
 기능 개선 성능 향상이 실시간 업데이트되니, 아래 링크로 연결된 공식 api 링크를 사용하시기 바랍니다.</br>
 <a href="https://dabeeomaps.com/docs">https://dabeeomaps.com/docs</a>
+</br>
+</br>
+</br>
+<h1> dabeeo javascript api에 대한 설명</h1>
+</br>api를 사용하기 위한 요약된 설명입니다. 자세한 내용은 해당 파일을 참고하세요.
+</br>
+</br>
+<h2>MapView : 지도그리기 (서버에서 지도파일 가져와서 지도 그리기)</h2>
+</br>다비오 지도서버에서 지도를 다운로드하여 지도를 그리는 방법입니다.
+</br>https://github.com/dabeeo/web_api/tree/master/docs/MapView
+</br>indoorMapApi.MapView를 이용하여 지도를 그립니다.
+</br>이 때 모든 지도 정보를 가져오므로 이 이후에는 반환된 값을 (MapDraw) 이용하여 지도를 제어할 수 있습니다.
+</br>초기 option을 지정할 수 있습니다.
+</br>
+</br>
+<h2>MapDraw : 지도 속성 가져오기 및 지도 설정 변경하기</h2>
+</br>자세한 설명은 아래 링크에 있습니다.
+</br>https://github.com/dabeeo/web_api/tree/master/docs/MapDraw
+</br>MapView를 호출시 mapDraw를 반환하며 여기에 여러 지도에 관한 정보들이 담겨있습니다. 이 정보를 이용하여 지도 설정을 변경하거나 필요한 지도정보를 사용자에게 보여줄 수 있습니다.
+</br>
+</br>
+<h2>MapInfo : 지도 데이터 가져오기 </h2>
+</br>지도 데이터의 특정 정보를 가져올 수 있습니다.
+</br>버전을 체크하거나 poi 정보를 가져올 수 있습니다.
+</br>https://github.com/dabeeo/web_api/tree/master/docs/MapInfo
+</br>
+</br>
+<h2>Event : api 호출시 반환되는 event에 대한 설명</h2>
+</br>자세한 설명은 아래 링크에 있습니다.
+</br>https://github.com/dabeeo/web_api/blob/master/docs/Event.md

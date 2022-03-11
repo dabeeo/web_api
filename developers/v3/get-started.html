@@ -7,9 +7,9 @@
 <h4> Issue Client ID / Secret</h4>
 
 <ol>
-  <li>다비오맵스 실내지도플랫폼 > 실내지도 > 지도관리 메뉴로 이동합니다.</li>
-  <li>지도관리 목록에서 지도 정보를 클릭합니다.</li>
-  <li>상세 지도 정보에서 인증접근 정보를 확인합니다.</li>
+    <li>다비오맵스 실내지도플랫폼 > 실내지도 > 지도관리 메뉴로 이동합니다.</li>
+    <li>지도관리 목록에서 지도 정보를 클릭합니다.</li>
+    <li>상세 지도 정보에서 인증접근 정보를 확인합니다.</li>
 </ol>
 </br>
 </br>아래 예제는 다비오맵스 JS API를 사용하여 렌더링한 지도 페이지입니다.
@@ -25,34 +25,34 @@ api를 호출하는 샘플 코드는 아래와 같습니다.
     <script src="[다비오기술문서의 api 링크]"></script>
     
     <script>
-      window.onload = function () {
-        var mapContainer = document.getElementById('map'); // 지도를 표시할 div
+        window.onload = function () {
+            var mapContainer = document.getElementById('map'); // 지도를 표시할 div
 
-        // 지도 인증정보
-        var authorization = new indoorMapApi.Authorization({
-          clientId: "28AXw_veA2YbNKDP6poTpT",
-          clientSecret: "70c540c169af62808f4da3709e988e06"
-        });
+            // 지도 인증정보
+            var authorization = new indoorMapApi.Authorization({
+                clientId: "28AXw_veA2YbNKDP6poTpT",
+                clientSecret: "70c540c169af62808f4da3709e988e06"
+            });
 
-        var mapOptions = {
-          authorization: authorization
+            var mapOptions = {
+                authorization: authorization
+            };
+
+            // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+            new indoorMapApi.MapView(
+                mapContainer, // 컨테이너
+                mapOptions, // 옵션
+                function (response) { // 맵 로드 콜백
+                    var code = response.getCode();
+
+                    if (code === 200) {
+                        var mapDraw = response.getPayload().mapDraw;
+                        // do something
+                        console.log("map view success!")
+                    }
+                }
+            );
         };
-
-        // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
-        new indoorMapApi.MapView(
-          mapContainer, // 컨테이너
-          mapOptions, // 옵션
-          function (response) { // 맵 로드 콜백
-            var code = response.getCode();
-
-            if (code === 200) {
-              var mapDraw = response.getPayload().mapDraw;
-              // do something
-              console.log("map view success!")
-            }
-          }
-        );
-      };
     </script>
   </code>
 </pre>
