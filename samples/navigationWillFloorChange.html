@@ -94,8 +94,8 @@
     function initWillChangeFloor(){
       document.addEventListener("will-floor-change", function (e) {
           if (e.detail === null) return;
-          let currentFloor = e.detail.floor.current.name;
-          let nextFloor = e.detail.floor.next.name;
+          let currentFloor = e.detail.floor.current;
+          let nextFloor = e.detail.floor.next;
           let transCode = e.detail.transCode;
           alert("현재 " + currentFloor + "에서 " + transCode+ "를 이용하여 "+ nextFloor + "로 이동하세요" )
       });
