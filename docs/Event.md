@@ -43,8 +43,8 @@ changeFloorDelay 옵션과 같이 사용하면 will-floor-change이벤트 이후
 * OB-OTHER_TRANSPORT : 연결통로 등 기타 이동 수단
 ~~~javascript
 document.addEventListener("will-floor-change", function (e) {
-    let currentFloor = e.detail.floor.current;
-    let nextFloor = e.detail.floor.next;
+    let currentFloor = e.detail.floor.current.name;
+    let nextFloor = e.detail.floor.next.name;
     let transCode = e.detail.transCode;
 })
 ~~~
