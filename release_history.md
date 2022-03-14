@@ -6,6 +6,19 @@
 
 
 #
+### jsMapAPI_03.24.01_R_2022.03.04
+
+#### change description  
+- 층변경시 딜레이 설정 추가 
+- 에스컬레이터로 이동시 경유층 생략
+ 
+#### changed API
+- 층변경시 딜레이 설정 추가 
+  - https://github.com/dabeeo/web_api/blob/master/docs/Event.md#will-floor-change
+  - https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#모의주행-층-이동-전에-지연시간-추가
+  - https://dabeeo.github.io/web_api/example/#navigationWillFloorChange
+
+#
 ### jsMapAPI_03.23.01_R_2022.02.11
 
 #### change description  
