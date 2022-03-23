@@ -14,6 +14,7 @@ body {
 
 a {
   text-decoration-line: none;
+  text-decoration: none;
 }
 
 /* ********************************************* */
@@ -37,6 +38,9 @@ header ul {
 header ul li {
   display: inline-block;
   margin: 0 5px;
+}
+header ul li a {
+  color: #fff;
 }
 header ul li button {
   border-radius: 3px;

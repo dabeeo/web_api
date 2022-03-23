@@ -11,13 +11,20 @@ function init() {
     let selectOption = window.location.href.split("#")[1];
     if (!selectOption) selectOption = "index";
     document.querySelector("iframe").src="../samples/"+selectOption+".html";
+    document.querySelector(".code").href = "https://github.com/dabeeo/web_api/blob/master/samples/" + selectOption+".html";
+    let current = document.querySelector("nav a[href$='"+ selectOption+"']");
+    current.classList.add("on");
+    console.log(current);
+
     for (let i = 0; i < list.length; i++) {
         list[i].addEventListener("click", function (e) {
             let fileName = e.target.href.split("#")[1] + ".html";
             let filePath = "../samples/" + fileName;
             console.log(filePath);
             document.querySelector("iframe").src = filePath;
-            document.querySelector("nav").classList.toggle("on");
+            let current = document.querySelector("nav a.on");
+            current.className = current.className.replace("on", "");
+            e.target.classList.add("on");
             document.querySelector(".code").href = "https://github.com/dabeeo/web_api/blob/master/samples/" + fileName;
             // fetch("../docs/README.md")
             //     .then((response) => response.text())

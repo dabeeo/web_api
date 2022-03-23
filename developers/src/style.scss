@@ -21,6 +21,7 @@ body {
 }
 a {
     text-decoration-line: none;
+    text-decoration: none;
 }
 
 /* ********************************************* */
@@ -45,6 +46,9 @@ header {
         li {
             display: inline-block;
             margin: 0 5px;
+            a {
+                color: $color;
+            }
 
             button {
                 border-radius: 3px;
