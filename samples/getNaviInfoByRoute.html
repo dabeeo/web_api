@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>navigation sample</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- dabeeo js api test url 사용. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+    <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="button-container">
+        <button type="button" class="button-menu">
+            Navigation Test
+        </button>
+    </div>
+    <div class="control-container">
+        <div class="inline-container">
+            <div class="inline-label">카메라</div>
+            <select type="text" class="inline-input" name="camera">
+                <option selected value="default">default</option>
+                <option value="2d">2d</option>
+                <option value="3d">3d</option>
+            </select>
+        </div>
+
+        <div class="inline-container">
+            <div class="inline-label">층선택</div>
+            <select type="text" class="inline-input" name="floor">
+                <option selected value="default">default</option>
+            </select>
+        </div>
+        <div class="divider"></div>
+        <div class="inline-container">
+            <div class="inline-label">출발지</div>
+            <select type="text" class="inline-input" id="poiOrigin">
+            </select>
+        </div>
+        <div class="inline-container">
+            <div class="inline-label">도착지</div>
+            <select type="text" class="inline-input" id="poiDestination">
+            </select>
+        </div>
+        <div class="inline-container">
+            <button id="getNaviInfoByRoute" type="button" class="inline-input">경로별시간과 거리</button>
+
+        </div>
+        <div class="inline-container">
+            <input type="button" class="inline-input" id="getRouteOff" value="끄기">
+        </div>
+        <div id="navi_path_wrap" style="display:none;">
+            <div class="divider"></div>
+            <div id="navigationButton">
+                <div class="inline-container">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="map"></div>
+    <!-- 길찾기 목록 -->
+    </div>
+
+    <script>
+        let mapFloorName = {};
+
+        window.addEventListener("load", function () {
+            initMap();
+        });
+
+        function initMap () {
+            var mapContainer = document.getElementById('map'); // 지도를 표시할 div
+
+            // 지도 인증정보
+            var authorization = new indoorMapApi.Authorization({
+                clientId: "6Lwuu9wa4wta0NiHwy1fO5",
+                clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
+            });
+            var mapOptions = {
+                authorization: authorization
+            };
+
+            // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+            new indoorMapApi.MapView(
+                mapContainer, // 컨테이너
+                mapOptions, // 옵션
+                function (response) { // 맵 로드 콜백
+                    var code = response.getCode();
+
+                    if (code === 200) {
+                        mapDraw = response.getPayload().mapDraw;
+                        // do something
+                        console.log("map view success!")
+                        hanldeCameraInfo(mapDraw.response);
+                        handleFloorInfo(mapDraw.response);
+                        handlePoiInfo(mapDraw.response);
+                    }
+                }
+            );
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////
+        function hanldeCameraInfo (response) {
+            let cameraElement = document.querySelector("[name='camera']");
+            cameraElement.value = response.mapOptions.camera;
+
+            cameraElement.addEventListener("change", function (e) {
+                mapDraw.changeCamera({ camera: e.target.value });
+            });
+        }
+
+        //지도 층 정보 처리
+        function handleFloorInfo (response) {
+            let floorElement = document.querySelector("[name='floor']");
+            let floorInfo = response.floorInfo;
+            for (let i = 0; i < floorInfo.length; i++) {
+                var floor = floorInfo[i];
+                mapFloorName[floor.id] = floor.name[0].text;
+            }
+            // 옵션창에 층 추가하기
+
+            for (let index = 0; index < floorInfo.length; index++) {
+                let floor = floorInfo[index];
+                let newOption = document.createElement("option");
+                newOption.value = floor.id;
+                if (floor.defaultYn == true) {
+                    newOption.selected = true;
+                }
+                newOption.appendChild(document.createTextNode(floor.name[0].text));
+                floorElement.appendChild(newOption);
+            }
+            floorElement.addEventListener("change", function (e) {
+                mapDraw.redrawMap({ floor: e.target.value });
+            });
+
+            document.addEventListener("floor-changed", function (e) {
+                var floorId = e.detail;
+                floorElement.value = floorId;
+            });
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////
+        // poi select 만들기
+        function handlePoiInfo (response) {
+            //floor name으로 object 만들기
+
+            mapPoiInfo = response.poiInfo;
+
+            //상단 poi select 만들기
+            //side origin, detination 만들기
+            //poi select 만들기
+            makePoiSelect("poiOrigin");
+            makePoiSelect("poiDestination");
+            document.querySelector("#getNaviInfoByRoute").addEventListener("click", function (e) {
+                // 이동수단별 길찾기 정보 가져오기
+                let originPoi = getPoi("poiOrigin"); //지도상의 좌표 또는 POI id 
+                let destPoi = getPoi("poiDestination"); //지도상의 좌표 또는 POI id 
+                if (originPoi === undefined || destPoi === undefined) return;
+                let pathInfo = mapDraw.getNaviInfoByRoute(originPoi, destPoi);
+                getNaviInfoByRoute(pathInfo);
+            });
+
+            document.querySelector("#getRouteOff").addEventListener("click", function (e) {
+                mapDraw.getRouteOff();
+                document.querySelector("#navi_path_wrap").style.display = "none";
+            });
+
+        }
+        function getPoi (id) {
+            let index = document.querySelector("select#" + id).value;
+            if (index === "") return;
+            return mapPoiInfo[index];
+        }
+
+        function makePoiSelect (id) {
+            let element = document.querySelector("select#" + id);
+            for (let index = 0; index < mapPoiInfo.length; index++) {
+                let poi = mapPoiInfo[index];
+                if (poi.title === "") continue;
+
+                let option = document.createElement("option");
+                option.value = index;
+                option.innerHTML = mapFloorName[poi.floorId] + "&nbsp;&nbsp;&nbsp;" + poi.title;
+                element.appendChild(option);
+            }
+        }
+
+        function getNaviInfoByRoute (pathInfo) {
+            document.querySelector("#navi_path_wrap").style.display = "block";
+            document.querySelector("#navigationButton").innerHTML = "";
+            let div = document.createElement("div");
+            let btn = document.createElement("button");
+            btn.type = "button";
+            btn.classList.add("inline-input");
+            div.classList.add("inline-container");
+            div.appendChild(btn);
+
+            btn.style.height = "30px";
+            btn.style.backgroundColor = "#a7a7a7";
+            btn.style.color = "#fff";
+            btn.style.borderColor = "#fff";
+            btn.innerText = "경로별 길찾기 아래 버튼 클릭"
+
+            document.querySelector("#navigationButton").appendChild(div);
+
+            for (let key in pathInfo) {
+
+                let divElement = document.createElement("div");
+                let inputButton = document.createElement("input");
+
+                inputButton.type = "button";
+                inputButton.classList.add("inline-input");
+                divElement.classList.add("inline-container");
+                divElement.appendChild(inputButton);
+                inputButton.addEventListener("click", () => {
+                    console.log(key);
+                    let originPoi = getPoi("poiOrigin"); //지도상의 좌표 또는 POI id 
+                    let destPoi = getPoi("poiDestination"); //지도상의 좌표 또는 POI id 
+                    if (originPoi === undefined || destPoi === undefined) return;
+                    mapDraw.getRouteOff();
+
+                    let result = mapDraw.getRouteOn(originPoi, destPoi, key, [], retResponse = true);
+                    if (result === undefined) {
+                        alert("요청하신 경로가 존재하지 않습니다.\n출발지와 도착지를 확인하세요");
+                        return;
+                    }
+                    mapDraw.startRouteAnimation();
+
+                });
+
+                let text = key + "--" +
+                    (pathInfo[key].totalTime / (1000 * 60)).toFixed(1) + "분/  총거리: " +
+                    (pathInfo[key].totalDistance / 100).toFixed(0) + "m";
+
+                inputButton.value = text;
+                document.querySelector("#navigationButton").appendChild(divElement);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
