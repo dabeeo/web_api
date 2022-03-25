@@ -159,8 +159,8 @@
                 let originPoi = getPoi("poiOrigin"); //지도상의 좌표 또는 POI id 
                 let destPoi = getPoi("poiDestination"); //지도상의 좌표 또는 POI id 
                 if (originPoi === undefined || destPoi === undefined) return;
-                let pathInfo = mapDraw.getNaviInfoByRoute(originPoi, destPoi);
-                getNaviInfoByRoute(pathInfo);
+                let routeInfo = mapDraw.getNaviInfoByRoute(originPoi, destPoi);
+                getNaviInfoByRoute(routeInfo);
             });
 
             document.querySelector("#getRouteOff").addEventListener("click", function (e) {
@@ -188,7 +188,7 @@
             }
         }
 
-        function getNaviInfoByRoute (pathInfo) {
+        function getNaviInfoByRoute (routeInfo) {
             document.querySelector("#navi_path_wrap").style.display = "block";
             document.querySelector("#navigationButton").innerHTML = "";
             let div = document.createElement("div");
@@ -206,7 +206,7 @@
 
             document.querySelector("#navigationButton").appendChild(div);
 
-            for (let key in pathInfo) {
+            for (let key in routeInfo) {
 
                 let divElement = document.createElement("div");
                 let inputButton = document.createElement("input");
@@ -232,8 +232,8 @@
                 });
 
                 let text = key + "--" +
-                    (pathInfo[key].totalTime / (1000 * 60)).toFixed(1) + "분/  총거리: " +
-                    (pathInfo[key].totalDistance / 100).toFixed(0) + "m";
+                    (routeInfo[key].totalTime / (1000 * 60)).toFixed(1) + "분/  총거리: " +
+                    (routeInfo[key].totalDistance / 100).toFixed(0) + "m";
 
                 inputButton.value = text;
                 document.querySelector("#navigationButton").appendChild(divElement);
