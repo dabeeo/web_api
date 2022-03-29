@@ -159,6 +159,33 @@
                 let originPoi = getPosition("poiOrigin"); //지도상의 좌표 또는 POI id 
                 let destPoi = getPoi("poiDestination"); //지도상의 좌표 또는 POI id 
                 if (originPoi === undefined || destPoi === undefined) return;
+                mapDraw.setNavigationOption(
+                    {
+                        lineColor: "#00008b",
+                        lineZ: 40,
+                        speedRate: 3, // 주행 속도
+                        // solidLineEnabled: true,   //길찾기 경로를 실선으로 enable
+                        // solidLineWidth: 3, // 길찾기 경로를 실선으로 하는 경우 두께  
+                        lineSpotSize: 3,
+                        lineSpotInterval: 100,
+                        // iconUrl: "./person.png",
+                        moveIconZ: 50,
+                        visibleIcon: true, // 경로 표시할때 시작지, 도착지 아이콘 없애기 / 보이기
+                        originPositionZ: 55,
+                        destinationPositionZ: 55,
+                        origin: { // 출발지 아이콘 
+                            iconUrl: "./origin.png",
+                            width: 20,
+                            height: 20
+                        },
+                        destination: { // 도찾기 아이콘 
+                            iconUrl: "./map-marker.png",
+                            width: 20,
+                            height: 20
+                        },
+
+                    });
+
                 result = mapDraw.getRouteOn(originPoi, destPoi, "recommendation", [], retResponse = true);
                 if (result === undefined) {
                     alert("요청하신 경로가 존재하지 않습니다.\n출발지와 도착지를 확인하세요");

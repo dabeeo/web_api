@@ -2,105 +2,106 @@
 <html lang="en">
 
 <head>
-  <title>myLocation sample</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-  <!-- dabeeo js api test url 사용. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
-  <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
-  <link rel="stylesheet" href="style.css">
+    <title>myLocation sample</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- dabeeo js api test url 사용. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+    <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="button-container">
-    <button type="button" class="button-menu">
-      myLocation Test
-    </button>
-  </div>
-  <div class="control-container">
-    <div class="inline-container">
-      <input type="button" class="inline-input" id="myLocationOn" value="On">
-      <input type="button" class="inline-input on" id="myLocationOff" value="Off">
+    <div class="button-container">
+        <button type="button" class="button-menu">
+            myLocation Test
+        </button>
     </div>
-    <div class="inline-container">
-      <div class="inline-label">X 좌표</div>
-      <input type="text" class="inline-input  myLocation" id="myLocationX" value="3000">
+    <div class="control-container">
+        <div class="inline-container">
+            <div class="inline-label">X 좌표</div>
+            <input type="text" class="inline-input  myLocation" id="myLocationX" value="3000">
+        </div>
+        <div class="inline-container">
+            <div class="inline-label">Y 좌표</div>
+            <input type="text" class="inline-input  myLocation" id="myLocationY" value="1000">
+        </div>
+        <div class="inline-container">
+            <div class="inline-label">Z 좌표</div>
+            <input type="text" class="inline-input  myLocation" id="myLocationZ" value="60">
+        </div>
+        <div class="inline-container">
+            <input type="button" class="inline-input" id="myLocationOn" value="On">
+            <input type="button" class="inline-input on" id="myLocationOff" value="Off">
+        </div>
     </div>
-    <div class="inline-container">
-      <div class="inline-label">Y 좌표</div>
-      <input type="text" class="inline-input  myLocation" id="myLocationY" value="1000">
-    </div>
-    <div class="inline-container">
-      <div class="inline-label">Z 좌표</div>
-      <input type="text" class="inline-input  myLocation" id="myLocationZ" value="60">
-    </div>
-  </div>
-  <div id="map"></div>
-  <script>
-    window.addEventListener("load", function () {
-      initMap();
-    });
-
-    function initMap() {
-      var mapContainer = document.getElementById('map'); // 지도를 표시할 div
-
-      // 지도 인증정보
-      var authorization = new indoorMapApi.Authorization({
-        clientId: "6Lwuu9wa4wta0NiHwy1fO5",
-        clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
-      });
-
-      var mapOptions = {
-        authorization: authorization
-      };
-
-      // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
-      new indoorMapApi.MapView(
-        mapContainer, // 컨테이너
-        mapOptions, // 옵션
-        function (response) { // 맵 로드 콜백
-          var code = response.getCode();
-          if (code === 200) {
-            mapDraw = response.getPayload().mapDraw;
-            // do something
-            console.log("map view success!")
-            initMylocationBtn();
-          }
-        }
-      );
-    };
-    function initMylocationBtn() {
-      let isOn = false;
-      document.querySelector("#myLocationOn").addEventListener("click", function (e) {
-        let posX = document.querySelector("#myLocationX").value;
-        let posY = document.querySelector("#myLocationY").value;
-        let posZ = document.querySelector("#myLocationZ").value;
-        document.querySelector("#myLocationOn").classList.add("on");
-        document.querySelector("#myLocationOff").classList.remove("on");
-        isOn = true;
-        mapDraw.myLocationOn(posX, posY, posZ); // 내위치 표시
-      });
-
-      document.querySelector("#myLocationOff").addEventListener("click", function (e) {
-        document.querySelector("#myLocationOff").classList.add("on");
-        document.querySelector("#myLocationOn").classList.remove("on");
-        isOn = false;
-        mapDraw.myLocationOff(); // 내위치 삭제
-      });
-
-      document.querySelectorAll(".myLocation").forEach(function (ele) {
-        ele.addEventListener("change", function (e) {
-          let posX = document.querySelector("#myLocationX").value;
-          let posY = document.querySelector("#myLocationY").value;
-          let posZ = document.querySelector("#myLocationZ").value;
-
-          if (isOn) {
-            mapDraw.myLocationOn(posX, posY, posZ); // 내위치 표시
-          }
+    <div id="map"></div>
+    <script>
+        window.addEventListener("load", function () {
+            initMap();
         });
-      });
-    }
 
-  </script>
+        function initMap () {
+            var mapContainer = document.getElementById('map'); // 지도를 표시할 div
+
+            // 지도 인증정보
+            var authorization = new indoorMapApi.Authorization({
+                clientId: "6Lwuu9wa4wta0NiHwy1fO5",
+                clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
+            });
+
+            var mapOptions = {
+                authorization: authorization
+            };
+
+            // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+            new indoorMapApi.MapView(
+                mapContainer, // 컨테이너
+                mapOptions, // 옵션
+                function (response) { // 맵 로드 콜백
+                    var code = response.getCode();
+                    if (code === 200) {
+                        mapDraw = response.getPayload().mapDraw;
+                        // do something
+                        console.log("map view success!")
+                        initMylocationBtn();
+                    }
+                }
+            );
+        };
+        function initMylocationBtn () {
+            let isOn = false;
+            document.querySelector("#myLocationOn").addEventListener("click", function (e) {
+                let posX = document.querySelector("#myLocationX").value;
+                let posY = document.querySelector("#myLocationY").value;
+                let posZ = document.querySelector("#myLocationZ").value;
+                document.querySelector("#myLocationOn").classList.add("on");
+                document.querySelector("#myLocationOff").classList.remove("on");
+                mapDraw.myLocationOn(posX, posY, posZ, true,
+                    {
+                        icon: {
+                            size: {
+                                width: 30,
+                                height: 30
+                            }
+                        },
+                        animate: {
+                            color: "#ff00ff",
+                            opacity: 0.3,
+                            desireScale: 5.5
+                        }
+                    }); // 내위치 표시
+            });
+
+            document.querySelector("#myLocationOff").addEventListener("click", function (e) {
+                document.querySelector("#myLocationOff").classList.add("on");
+                document.querySelector("#myLocationOn").classList.remove("on");
+                isOn = false;
+                mapDraw.myLocationOff(); // 내위치 삭제
+            });
+
+        }
+
+    </script>
 </body>
 
 </html>

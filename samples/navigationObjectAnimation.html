@@ -2,155 +2,154 @@
 <html lang="en">
 
 <head>
-  <title>navigation sample</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>navigation sample</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
-  <!-- dabeeo js api test url입니다. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
-  <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
+    <!-- dabeeo js api test url입니다. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+    <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
 
 
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="button-container">
-    <button type="button" class="button-menu">
-      Navigation Object Animation Test
-    </button>
-  </div>
-  <div class="control-container">
-    <div class="inline-container">
-      <input type="button" class="inline-input" name="navigation" value="Start Navigation">
+    <div class="button-container">
+        <button type="button" class="button-menu">
+            Navigation Object Animation Test
+        </button>
     </div>
-  </div>
+    <div class="control-container">
+        <div class="inline-container">
+            <input type="button" class="inline-input" name="navigation" value="Start Navigation">
+        </div>
+    </div>
 
 
-  <div id="map"></div>
-  </div>
+    <div id="map"></div>
+    </div>
 
-  <script>
+    <script>
 
-    window.addEventListener("load", function () {
-      initMap();
-    });
-
-    function initMap() {
-      var mapContainer = document.getElementById('map'); // 지도를 표시할 div
-
-      // 지도 인증정보
-      var authorization = new indoorMapApi.Authorization({
-        clientId: "6Lwuu9wa4wta0NiHwy1fO5",
-        clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
-      });
-      var mapOptions = {
-        authorization: authorization,
-        camera: "3d", // 초기 demention
-        angle: {
-          vertical: 10, // 3D 모드일때 tilt 30 
-          horizontal: 0
-        },
-        zoom: 100,
-        isPoiSprite: true
-      };
-
-      // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
-      new indoorMapApi.MapView(
-        mapContainer, // 컨테이너
-        mapOptions, // 옵션
-        function (response) { // 맵 로드 콜백
-          var code = response.getCode();
-
-          if (code === 200) {
-            mapDraw = response.getPayload().mapDraw;
-            mapPoiInfo = mapDraw.response.poiInfo;
-            window.mapDraw = mapDraw;
-            // do something
-            console.log("map view success!")
-            initNavigationBtn();
-          }
-        }
-      );
-    }
-
-    //////////////////////////////////////////////////////////////////////////////////    
-    function initNavigationBtn() {
-      const initNaviBtn = document.querySelector("[name='navigation']");
-      initNaviBtn.addEventListener("click", function (e) {
-        mapDraw.getRouteOff();
-        initNavigation();
-      });
-    }
-
-    function initNavigation() {
-      //set navigation option 
-      setNavigationOption();
-      
-      //draw navigation route
-      const result = getRouteOn();
-
-      //start navigate simulation 
-      if (result) startRouteAnimation(result);
-    }
-
-    function setNavigationOption() {
-      mapDraw.setNavigationOption(
-        {
-          lineColor: '#dc3545',
-          lineSpotSize: 3,
-          lineSpotInterval: 3000,
-          //lineZ: 20,
-          speedRate: 3, // 주행 속도
-          originPositionZ: 5,
-          destinationPositionZ: 5,
-          visibleIcon: true, // 경로 표시할때 시작지, 도착지 아이콘 없애기 / 보이기
-          moveIconZ: 12,
-
+        window.addEventListener("load", function () {
+            initMap();
         });
-    }
 
-    function getRouteOn() {
-      let originPoi = getPoi();
-      let destPoi = getPoi(); 
+        function initMap () {
+            var mapContainer = document.getElementById('map'); // 지도를 표시할 div
 
-      const result = mapDraw.getRouteOn(originPoi, destPoi, "recommendation",[],false);
-      if (result === undefined) {
-        alert("요청하신 경로가 존재하지 않습니다.\n출발지와 도착지를 확인하세요");
-        return false;
-      }
-      return { originPoi, destPoi };
-    }
+            // 지도 인증정보
+            var authorization = new indoorMapApi.Authorization({
+                clientId: "6Lwuu9wa4wta0NiHwy1fO5",
+                clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
+            });
+            var mapOptions = {
+                authorization: authorization,
+                camera: "3d", // 초기 demention
+                angle: {
+                    vertical: 10, // 3D 모드일때 tilt 30 
+                    horizontal: 0
+                },
+                zoom: 100,
+                isPoiSprite: true
+            };
 
-    function startRouteAnimation(result) {
-      mapDraw.startRouteAnimation({
-        zoom: 130,
-        destOption:
-        {
-          activeDest: true,
-          color: '#dc3545',
-          opacity: 0.3,
-          isAnimate: true,
-          duration: 1000,
-          isRepeat: true,
-          isYoyo: true,
-          // ids 필드가 없을 경우 도착지 오브젝트에 애니메이션 합니다. 
-          ids: [result.originPoi.poiId, result.destPoi.poiId] // 출발지 도착지 애니메이션 하고 싶을때 사용
+            // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+            new indoorMapApi.MapView(
+                mapContainer, // 컨테이너
+                mapOptions, // 옵션
+                function (response) { // 맵 로드 콜백
+                    var code = response.getCode();
+
+                    if (code === 200) {
+                        mapDraw = response.getPayload().mapDraw;
+                        mapPoiInfo = mapDraw.response.poiInfo;
+                        window.mapDraw = mapDraw;
+                        // do something
+                        console.log("map view success!")
+                        initNavigationBtn();
+                    }
+                }
+            );
         }
-      });
-    }
 
-    function getPoi() {
-      const max = mapPoiInfo.length;
-      const index = Math.floor((Math.random() * (max - 0) + 0));
-      let poi = {
-        poiId: mapPoiInfo[index].id,
-        floorId: mapPoiInfo[index].floorId
-      };
-      return poi;
-    }
+        //////////////////////////////////////////////////////////////////////////////////    
+        function initNavigationBtn () {
+            const initNaviBtn = document.querySelector("[name='navigation']");
+            initNaviBtn.addEventListener("click", function (e) {
+                mapDraw.getRouteOff();
+                initNavigation();
+            });
+        }
+
+        function initNavigation () {
+            //set navigation option 
+            setNavigationOption();
+
+            //draw navigation route
+            const result = getRouteOn();
+
+            //start navigate simulation 
+            if (result) startRouteAnimation(result);
+        }
+
+        function setNavigationOption () {
+            mapDraw.setNavigationOption(
+                {
+                    lineColor: '#ffff00',
+                    lineZ: 20,
+                    speedRate: 3, // 주행 속도
+                    lineSpotSize: 3,
+                    lineSpotInterval: 3000,
+                    originPositionZ: 5,
+                    destinationPositionZ: 5,
+                    visibleIcon: true, // 경로 표시할때 시작지, 도착지 아이콘 없애기 / 보이기
+                    moveIconZ: 12,
+                });
+        }
+
+        function getRouteOn () {
+            let originPoi = getPoi();
+            let destPoi = getPoi();
+
+            const result = mapDraw.getRouteOn(originPoi, destPoi, "recommendation", [], false);
+            if (result === undefined) {
+                alert("요청하신 경로가 존재하지 않습니다.\n출발지와 도착지를 확인하세요");
+                return false;
+            }
+            return { originPoi, destPoi };
+        }
+
+        function startRouteAnimation (result) {
+            mapDraw.startRouteAnimation({
+                zoom: 130, // 설정된 줌값으로 카메라 이동 
+                destOption:
+                {
+                    activeDest: true,
+                    color: '#0000ff',
+                    opacity: 0.3,
+                    isAnimate: true,
+                    duration: 2000,
+                    isRepeat: true,
+                    isYoyo: true,
+                    // ids 필드가 없을 경우 도착지 오브젝트에 애니메이션 합니다. 
+                    ids: [result.originPoi.poiId, result.destPoi.poiId] // 출발지 도착지 애니메이션 하고 싶을때 사용
+                }
+            });
+        }
+
+        function getPoi () {
+            const max = mapPoiInfo.length;
+            const index = Math.floor((Math.random() * (max - 0) + 0));
+            let poi = {
+                poiId: mapPoiInfo[index].id,
+                floorId: mapPoiInfo[index].floorId
+            };
+            return poi;
+        }
 
 
-  </script>
+    </script>
 </body>
 
 </html>

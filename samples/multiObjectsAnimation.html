@@ -2,150 +2,150 @@
 <html lang="en">
 
 <head>
-  <title>navigation sample</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>navigation sample</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
-  <!-- dabeeo js api test url입니다. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
-  <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
+    <!-- dabeeo js api test url입니다. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+    <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
 
 
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="button-container">
-    <button type="button" class="button-menu">
-      Multi Object Animation Test
-    </button>
-  </div>
-  <div class="control-container">
-    <div class="inline-container">
-      <select type="text" class="inline-input" name="floor">
-        <option selected value="default">default</option>
-      </select>
+    <div class="button-container">
+        <button type="button" class="button-menu">
+            Multi Object Animation Test
+        </button>
     </div>
-    <div class="divider"></div>
-    <div class="inline-container">
-      <input type="button" class="inline-input" name="objectAnimation" value="Start object Animation">
+    <div class="control-container">
+        <div class="inline-container">
+            <select type="text" class="inline-input" name="floor">
+                <option selected value="default">default</option>
+            </select>
+        </div>
+        <div class="divider"></div>
+        <div class="inline-container">
+            <input type="button" class="inline-input" name="objectAnimation" value="Start object Animation">
+        </div>
+        <div class="inline-container">
+            <input type="button" class="inline-input" name="redrawFloor" value="Refresh Floor">
+        </div>
     </div>
-    <div class="inline-container">
-      <input type="button" class="inline-input" name="redrawFloor" value="Refresh Floor">
+
+
+    <div id="map"></div>
     </div>
-  </div>
 
+    <script>
 
-  <div id="map"></div>
-  </div>
+        window.addEventListener("load", function () {
+            initMap();
+        });
 
-  <script>
+        function initMap () {
+            var mapContainer = document.getElementById('map'); // 지도를 표시할 div
 
-    window.addEventListener("load", function () {
-      initMap();
-    });
+            // 지도 인증정보
+            var authorization = new indoorMapApi.Authorization({
+                clientId: "6Lwuu9wa4wta0NiHwy1fO5",
+                clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
+            });
+            var mapOptions = {
+                authorization: authorization,
+                camera: "3d", // 초기 demention
+                angle: {
+                    vertical: 10, // 3D 모드일때 tilt 30 
+                    horizontal: 0
+                },
+                zoom: 100,
+                isPoiSprite: true
+            };
 
-    function initMap() {
-      var mapContainer = document.getElementById('map'); // 지도를 표시할 div
+            // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+            new indoorMapApi.MapView(
+                mapContainer, // 컨테이너
+                mapOptions, // 옵션
+                function (response) { // 맵 로드 콜백
+                    var code = response.getCode();
 
-      // 지도 인증정보
-      var authorization = new indoorMapApi.Authorization({
-        clientId: "6Lwuu9wa4wta0NiHwy1fO5",
-        clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
-      });
-      var mapOptions = {
-        authorization: authorization,
-        camera: "3d", // 초기 demention
-        angle: {
-          vertical: 10, // 3D 모드일때 tilt 30 
-          horizontal: 0
-        },
-        zoom: 100,
-        isPoiSprite: true
-      };
-
-      // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
-      new indoorMapApi.MapView(
-        mapContainer, // 컨테이너
-        mapOptions, // 옵션
-        function (response) { // 맵 로드 콜백
-          var code = response.getCode();
-
-          if (code === 200) {
-            mapDraw = response.getPayload().mapDraw;
-            mapPoiInfo = mapDraw.response.poiInfo;
-            window.mapDraw = mapDraw;
-            // do something
-            console.log("map view success!")
-            handleFloorInfo(mapDraw.response);
-            initObjectBtn();
-          }
+                    if (code === 200) {
+                        mapDraw = response.getPayload().mapDraw;
+                        mapPoiInfo = mapDraw.response.poiInfo;
+                        window.mapDraw = mapDraw;
+                        // do something
+                        console.log("map view success!")
+                        handleFloorInfo(mapDraw.response);
+                        initObjectBtn();
+                    }
+                }
+            );
         }
-      );
-    }
 
-    //////////////////////////////////////////////////////////////////////////////////    
-    function initObjectBtn() {
-      const objectAnimation = document.querySelector("[name='objectAnimation']");
-      objectAnimation.addEventListener("click", function (e) {
-        objectAnimationStart();
-      });
-      const redrawFloor = document.querySelector("[name='redrawFloor']");
-      redrawFloor.addEventListener("click", function (e) {
-      mapDraw.redrawMap({ floor: currentFloor });
-      });
-    }
-
-    function objectAnimationStart() {
-      let poi1 = getPoiId();
-      let poi2 = getPoiId();
-      console.log(poi1, poi2);
-      mapDraw.updateObjectStateByIds({
-        ids: [poi1, poi2],
-        color: '#dc3545',
-        opacity: 0.3,
-        isAnimate: true,
-        duration: 1000,
-        isRepeat: true,
-        isYoyo: true
-      });
-    }
-
-    function getPoiId() {
-      const max = mapPoiInfo.length;
-      let index = Math.floor((Math.random() * (max - 0) + 0));
-      while (mapPoiInfo[index].floorId != currentFloor) {
-        index = Math.floor((Math.random() * (max - 0) + 0));
-      }
-      return mapPoiInfo[index].id;
-    }
-    //////////////////////////////////////////////////////////////////////////////////
-    //지도 층 정보 처리
-    function handleFloorInfo(response) {
-      let floorElement = document.querySelector("[name='floor']");
-      let floorInfo = response.floorInfo;
-      // 옵션창에 층 추가하기
-
-      for (let index = 0; index < floorInfo.length; index++) {
-        let floor = floorInfo[index];
-        let newOption = document.createElement("option");
-        newOption.value = floor.id;
-        if (floor.defaultYn == true) {
-          currentFloor = floor.id;
-          newOption.selected = true;
+        //////////////////////////////////////////////////////////////////////////////////    
+        function initObjectBtn () {
+            const objectAnimation = document.querySelector("[name='objectAnimation']");
+            objectAnimation.addEventListener("click", function (e) {
+                objectAnimationStart();
+            });
+            const redrawFloor = document.querySelector("[name='redrawFloor']");
+            redrawFloor.addEventListener("click", function (e) {
+                mapDraw.redrawMap({ floor: currentFloor });
+            });
         }
-        newOption.appendChild(document.createTextNode(floor.name[0].text));
-        floorElement.appendChild(newOption);
-      }
-      floorElement.addEventListener("change", function (e) {
-        console.log(e.target.value);
-        mapDraw.redrawMap({ floor: e.target.value });
-        currentFloor=e.target.value; 
-      });
-    }
+
+        function objectAnimationStart () {
+            let poi1 = getPoiId();
+            let poi2 = getPoiId();
+            let poi3 = getPoiId();
+            mapDraw.updateObjectStateByIds({
+                ids: [poi1, poi2, poi3],
+                color: '#dc3545',
+                opacity: 0.3,
+                isAnimate: true,
+                duration: 1000,
+                isRepeat: true,
+                isYoyo: true
+            });
+        }
+
+        function getPoiId () {
+            const max = mapPoiInfo.length;
+            let index = Math.floor((Math.random() * (max - 0) + 0));
+            while (mapPoiInfo[index].floorId != currentFloor) {
+                index = Math.floor((Math.random() * (max - 0) + 0));
+            }
+            return mapPoiInfo[index].id;
+        }
+        //////////////////////////////////////////////////////////////////////////////////
+        //지도 층 정보 처리
+        function handleFloorInfo (response) {
+            let floorElement = document.querySelector("[name='floor']");
+            let floorInfo = response.floorInfo;
+            // 옵션창에 층 추가하기
+
+            for (let index = 0; index < floorInfo.length; index++) {
+                let floor = floorInfo[index];
+                let newOption = document.createElement("option");
+                newOption.value = floor.id;
+                if (floor.defaultYn == true) {
+                    currentFloor = floor.id;
+                    newOption.selected = true;
+                }
+                newOption.appendChild(document.createTextNode(floor.name[0].text));
+                floorElement.appendChild(newOption);
+            }
+            floorElement.addEventListener("change", function (e) {
+                console.log(e.target.value);
+                mapDraw.redrawMap({ floor: e.target.value });
+                currentFloor = e.target.value;
+            });
+        }
 
 
 
-  </script>
+    </script>
 </body>
 
 </html>
