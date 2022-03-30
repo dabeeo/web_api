@@ -98,12 +98,19 @@
                         hanldeCameraInfo(mapDraw.response);
                         handleFloorInfo(mapDraw.response);
                         handlePoiInfo(mapDraw.response);
+                        handleEvent(mapDraw.response);
                     }
                 }
             );
         }
 
         //////////////////////////////////////////////////////////////////////////////////
+        function handleEvent (response) {
+            document.addEventListener("navi-complete", (e) => {
+                console.log(e.detail);
+            });
+        }
+
         function hanldeCameraInfo (response) {
             let cameraElement = document.querySelector("[name='camera']");
             cameraElement.value = response.mapOptions.camera;
