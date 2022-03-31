@@ -1,0 +1,5597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> MapDraw</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="Authorization.html">Authorization</a></li><li><a href="MapDraw.html">MapDraw</a></li><li><a href="MapView.html">MapView</a></li><li><a href="Response.html">Response</a></li></ul><h3>Events</h3><ul><li><a href="global.html#event:floor-changed">floor-changed</a></li><li><a href="global.html#event:marker-click">marker-click</a></li><li><a href="global.html#event:navi-complete">navi-complete</a></li><li><a href="global.html#event:object-click">object-click</a></li><li><a href="global.html#event:poi-click">poi-click</a></li><li><a href="global.html#event:will-floor-change">will-floor-change</a></li></ul><h3><a href="global.html">Global</a></h3></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Class</p>
+                    <h1>MapDraw</h1>
+                </header>
+                
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>MapDraw</h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+    </div>
+    
+    
+
+    
+
+    
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="MapDraw.html">MapDraw</a></dt>
+            <dd></dd>
+        </dl>
+    
+
+    
+
+    
+
+    
+
+    
+        <div class='vertical-section'>
+            <h1>Members</h1>
+            <div class="members">
+            
+                <div class="member">
+
+<h4 class="name" id="response">
+    <a class="href-link" href="#response">#</a>
+    
+    <span class="code-name">
+        response
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>지도가 가지고 있는 속성과 정보</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>mapName</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>지도 이름</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>langInfo</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Array.&lt;<a href="global.html#LangInfo">LangInfo</a>></code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>언어 정보</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>floorInfo</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Array.&lt;<a href="global.html#FloorInfo">FloorInfo</a>></code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>지도 층 정보</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>themeInfo</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Array.&lt;<a href="global.html#ThemeInfo">ThemeInfo</a>></code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>테마 정보</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>poiInfo</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Array.&lt;<a href="global.html#PoiInfo">PoiInfo</a>></code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>poi 정보</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>sectionInfo</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Array.&lt;<a href="global.html#SectionInfo">SectionInfo</a>></code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>섹션 정보</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>poiCategories</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Array.&lt;<a href="global.html#PoiCategory">PoiCategory</a>></code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>poi 카테고리 정보</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>mapOptions</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type"><a href="global.html#MapOption">MapOption</a></code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>지도 설정 옵션</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+</div>
+            
+            </div>
+        </div>
+    
+
+    
+        <div class='vertical-section'>
+            <h1>Methods</h1>
+            <div class="members">
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="changeCamera">
+        <a class="href-link" href="#changeCamera">#</a>
+        
+        <span class="code-name">
+            
+                changeCamera<span class="signature">(cameraOption)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>지도의 카메라 모드를 2d 또는 3d로 변경합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>cameraOption</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type"><a href="global.html#CameraMode">CameraMode</a></code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>2d 또는 3d 지정</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>실행 및 전체 코드 보기 : <a href="https://dabeeo.github.io/web_api/example/#camera">https://dabeeo.github.io/web_api/example/#camera</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.changeCamera({camera:"2d"});</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="changeLanguage">
+        <a class="href-link" href="#changeLanguage">#</a>
+        
+        <span class="code-name">
+            
+                changeLanguage<span class="signature">(language)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>지도의 poi 언어를 변경합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>language</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type"><a href="global.html#LangType">LangType</a></code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>변경할 언어.</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>실행 및 전체 코드 보기 : <a href="https://dabeeo.github.io/web_api/example/#language">https://dabeeo.github.io/web_api/example/#language</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.changeLanguage("ko");</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="changeShowPoi">
+        <a class="href-link" href="#changeShowPoi">#</a>
+        
+        <span class="code-name">
+            
+                changeShowPoi<span class="signature">(poiOption)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>poi를 보이거나 숨기도록 설정합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>poiOption</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type"><a href="global.html#ShowPoiOption">ShowPoiOption</a></code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>실행 및 전체 코드 보기 : <a href="https://dabeeo.github.io/web_api/example/#showPoi">https://dabeeo.github.io/web_api/example/#showPoi</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.changeShowPoi({showPoi: true});</code></pre>
+    
+
+    
+        <pre class="prettyprint"><code>mapDraw.changeShowPoi({showPoi: false});</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="clearMarker">
+        <a class="href-link" href="#clearMarker">#</a>
+        
+        <span class="code-name">
+            
+                clearMarker<span class="signature">()</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>setMarker()로 그린 마커를 삭제합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.clearMarker();</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="controlDragLeft">
+        <a class="href-link" href="#controlDragLeft">#</a>
+        
+        <span class="code-name">
+            
+                controlDragLeft<span class="signature">()</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>drag 기능을 3d, 2d 모두 마우스의 왼쪽 버튼으로 변경합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.controlDragLeft();</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="controlDragRight">
+        <a class="href-link" href="#controlDragRight">#</a>
+        
+        <span class="code-name">
+            
+                controlDragRight<span class="signature">()</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>drag 기능을 3d, 2d 모두 마우스의 오른쪽 버튼으로 변경합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.controlDragRight();</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="convert2img">
+        <a class="href-link" href="#convert2img">#</a>
+        
+        <span class="code-name">
+            
+                convert2img<span class="signature">(option<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>지도를 png형태의 이미지로 다운로드합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>option</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type"><a href="global.html#ImageConvertOption">ImageConvertOption</a></code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+          &lt;optional><br>
+      
+
+      
+
+      
+      </td>
+  
+
+  
+
+  <td class="description last"></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>실행 및 전체 코드 보기 <a href="https://dabeeo.github.io/web_api/example/#mapDownload">https://dabeeo.github.io/web_api/example/#mapDownload</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.convert2img();</code></pre>
+    
+
+    
+        <pre class="prettyprint"><code>mapDraw.convert2img({useMapOption : true});</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="convertPosition">
+        <a class="href-link" href="#convertPosition">#</a>
+        
+        <span class="code-name">
+            
+                convertPosition<span class="signature">(options)</span><span class="type-signature"> &rarr; {<a href="global.html#Position2d">Position2d</a>}</span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>고객의 좌표계의 좌표를 다비오 지도(원도) 기준의 좌표로 변환합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>options</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type"><a href="global.html#ConvertPositionOption">ConvertPositionOption</a></code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>실행 및 전체 코드 보기 <a href="https://dabeeo.github.io/web_api/example/#convertPosition">https://dabeeo.github.io/web_api/example/#convertPosition</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'><ul>
+<li>변환된 좌표 (2d)</li>
+</ul></div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type"><a href="global.html#Position2d">Position2d</a></code>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>let convertOptions = {
+     position : {
+		    x:node.position.x, // 고객이 구하려고 하는 x 좌표 (고객의 위치 수집장치를 통해 수집되는 m 단위의 좌표)
+		    y:node.position.y // 고객이 구하려고 하는 y 좌표 (고객의 위치 수집장치를 통해 수집되는 m 단위의 좌표)
+	    },
+	    degree : -5.27, // 고객의 지도를 기준으로 다비오(원도) 의 회전각도 (시계방향이 +, 시계 반대방향이 -)
+	    zeroPoint : {
+		    x : -284,
+		    y : 286.5
+	    }, // 고객의 지도를 기준으로 다비오(원도) 의 영점 이동 좌표
+	    xDirection : 1, // 고객의 지도를 기준으로 다비오지도의 x 축 진행방향 (순방향)
+	    yDirection : -1 // 고객의 지도를 기준으로 다비오지도의 y 축 진행방향 (역방향)
+};
+let p = mapDraw.convertPosition(convertOptions); // 좌표 변경 함수 호출</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="dispose">
+        <a class="href-link" href="#dispose">#</a>
+        
+        <span class="code-name">
+            
+                dispose<span class="signature">()</span><span class="type-signature"> &rarr; {void}</span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>map을 그리기 위해 사용하던 모든 geometry, material 등을 메모리에서 해제합니다.
+dispose를 호출한 뒤 다시 지도를 그리려면 new indoorMapApi.mapView을 통해 새롭게 mapView를 생성해야 합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type">void</code>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.dispose();</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="getNavigation">
+        <a class="href-link" href="#getNavigation">#</a>
+        
+        <span class="code-name">
+            
+                getNavigation<span class="signature">()</span><span class="type-signature"> &rarr; {Array.&lt;<a href="global.html#RoutePath">RoutePath</a>>}</span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>지도에 그려진 노드를 기반으로 텍스트로 길찾기 경로를 표현할 수 있는 경로 목록이 배열형태로 반환합니다.
+배열의 항목에서 move()를 사용하면 카메라를 해당위치로 이동시킬 수 있습니다.
+이동수단을 이용하여 층이 변경된 경우 배열의 항목에서 distance가 number가 아닌 층 object로 표현됩니다.
+mapDraw.getRouteOn() 호출 후 사용하여야 합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>실행 및 전체 코드 보기  <a href="https://dabeeo.github.io/web_api/example/#navigation">https://dabeeo.github.io/web_api/example/#navigation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'><p>길찾기 경로 목록</p></div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type">Array.&lt;<a href="global.html#RoutePath">RoutePath</a>></code>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>let list = mapDraw.getNavigation();</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="getNaviInfoByRoute">
+        <a class="href-link" href="#getNaviInfoByRoute">#</a>
+        
+        <span class="code-name">
+            
+                getNaviInfoByRoute<span class="signature">(origin, destination, waypoints<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="global.html#RouteInfoByTrans">RouteInfoByTrans</a>}</span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>이동수단별 길찾기 정보를 반환합니다.
+길찾기 정보는 전체 소요시간과 전체거리입니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>origin</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type"><a href="global.html#Location">Location</a></code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+
+      
+
+      
+      </td>
+  
+
+  
+      <td class="default">
+      
+      </td>
+  
+
+  <td class="description last"><p>출발지 poi 아이디 또는 좌표</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>destination</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type"><a href="global.html#Location">Location</a></code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+
+      
+
+      
+      </td>
+  
+
+  
+      <td class="default">
+      
+      </td>
+  
+
+  <td class="description last"><p>도착지 poi 아이디 또는 좌표</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>waypoints</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">Array.&lt;<a href="global.html#Location">Location</a>></code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+          &lt;optional><br>
+      
+
+      
+
+      
+      </td>
+  
+
+  
+      <td class="default">
+      
+          []
+      
+      </td>
+  
+
+  <td class="description last"><p>경유지 poi 아이디 또는 좌표. 한 개이상의 경유지도 가능. 생략 가능</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>실행 및 전체 코드 보기 : <a href="https://dabeeo.github.io/web_api/example/#getNaviInfoByRoute">https://dabeeo.github.io/web_api/example/#getNaviInfoByRoute</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'><p>경로별 길찾기 정보</p></div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type"><a href="global.html#RouteInfoByTrans">RouteInfoByTrans</a></code>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>let pathInfo = mapDraw.getNaviInfoByRoute(originPoi, destPoi);</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="getRouteOff">
+        <a class="href-link" href="#getRouteOff">#</a>
+        
+        <span class="code-name">
+            
+                getRouteOff<span class="signature">()</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>mapDraw.getRouteOn()으로 지도에 그린 길찾기 경로를 삭제합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.getRouteOff();</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="getRouteOn">
+        <a class="href-link" href="#getRouteOn">#</a>
+        
+        <span class="code-name">
+            
+                getRouteOn<span class="signature">(origin, destination, type<span class="signature-attributes">opt</span>, waypoints<span class="signature-attributes">opt</span>, retResponse<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="global.html#RouteInfo">RouteInfo</a>|number}</span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>길찾기 경로를 지도에 표현합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>origin</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type"><a href="global.html#Location">Location</a></code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+
+      
+
+      
+      </td>
+  
+
+  
+      <td class="default">
+      
+      </td>
+  
+
+  <td class="description last"><p>출발지</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>destination</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type"><a href="global.html#Location">Location</a></code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+
+      
+
+      
+      </td>
+  
+
+  
+      <td class="default">
+      
+      </td>
+  
+
+  <td class="description last"><p>경유지</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>type</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">"recommendation"</code>
+|
+
+<code class="param-type">"stairs"</code>
+|
+
+<code class="param-type">"escalator"</code>
+|
+
+<code class="param-type">"elevator"</code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+          &lt;optional><br>
+      
+
+      
+
+      
+      </td>
+  
+
+  
+      <td class="default">
+      
+          "recommendation"
+      
+      </td>
+  
+
+  <td class="description last"><p>층간이동 수단. 지정하지 않은 경우 추천경로로 그려집니다.</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>waypoints</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">Array.&lt;<a href="global.html#Location">Location</a>></code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+          &lt;optional><br>
+      
+
+      
+
+      
+      </td>
+  
+
+  
+      <td class="default">
+      
+          []
+      
+      </td>
+  
+
+  <td class="description last"><p>경유지. 복수의 경유지가 가능합니다.</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>retResponse</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">boolean</code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+          &lt;optional><br>
+      
+
+      
+
+      
+      </td>
+  
+
+  
+      <td class="default">
+      
+          false
+      
+      </td>
+  
+
+  <td class="description last"><p>true로 설정할 경우 object로 경유포인트와 소요시간, 거리를 반환받게 되며 false로 설정할 경우 소요시간만 반환받습니다. 소요시간은 밀리세컨드 단위입니다.</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>실행 및 전체 코드 보기 : <a href="https://dabeeo.github.io/web_api/example/#navigation">https://dabeeo.github.io/web_api/example/#navigation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'><p>retResponse의 설정에 따른 반환</p></div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type"><a href="global.html#RouteInfo">RouteInfo</a></code>
+|
+
+<code class="param-type">number</code>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+    <h5>Examples</h5>
+    
+    
+        <pre class="prettyprint"><code>let time = mapDraw.getRouteOn(origin,destination);</code></pre>
+    
+
+    
+        <pre class="prettyprint"><code>let time = mapDraw.getRouteOn(origin,destination,"elevator");</code></pre>
+    
+
+    
+        <pre class="prettyprint"><code>let time = mapDraw.getRouteOn(origin,destination,"elevator", waypoints);</code></pre>
+    
+
+    
+        <pre class="prettyprint"><code>let naviResponse =  mapDraw.getRouteOn(origin,destination,"recommendation",[], true); </code></pre>
+    
+
+    
+        <pre class="prettyprint"><code>let naviResponse =  mapDraw.getRouteOn(origin,destination,"elevator",[], true); </code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="init2DCameraInfo">
+        <a class="href-link" href="#init2DCameraInfo">#</a>
+        
+        <span class="code-name">
+            
+                init2DCameraInfo<span class="signature">()</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>2D 모드에서 카메라의 zoom, position, rotate를 초기화합니다.
+만약 mapViewOption의 초기값에 zoom, center, northReference 값이 있다면 해당 값으로 초기화 됩니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.init2DCameraInfo();</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="init3DCameraInfo">
+        <a class="href-link" href="#init3DCameraInfo">#</a>
+        
+        <span class="code-name">
+            
+                init3DCameraInfo<span class="signature">()</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>3D 모드에서 카메라의 zoom, position, rotate를 초기화합니다.
+만약 mapViewOption의 초기값에 zoom, center, northReference 값이 있다면 해당 값으로 초기화 됩니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.init3DCameraInfo();</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="mapCordInfo">
+        <a class="href-link" href="#mapCordInfo">#</a>
+        
+        <span class="code-name">
+            
+                mapCordInfo<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="global.html#MapCordInfo">MapCordInfo</a>}</span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>지도좌표계를 매핑하기 위한 기본 정보를 제공합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'><ul>
+<li>지도좌표계에 대한 정보</li>
+</ul></div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type"><a href="global.html#MapCordInfo">MapCordInfo</a></code>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="mapPositionMoveCamera">
+        <a class="href-link" href="#mapPositionMoveCamera">#</a>
+        
+        <span class="code-name">
+            
+                mapPositionMoveCamera<span class="signature">(x, y)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>지도 좌표기준으로 카메라를 이동합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>x</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">number</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>지도상의 x 좌표</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>y</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">number</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>지도상의 y 좌표</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>실행 및 전체 코드 보기 : <a href="https://dabeeo.github.io/web_api/example/#mapPositionMoveCamera">https://dabeeo.github.io/web_api/example/#mapPositionMoveCamera</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.mapPositionMoveCamera(x, y); // 지도 scene 좌표 x, y </code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="myLocationOff">
+        <a class="href-link" href="#myLocationOff">#</a>
+        
+        <span class="code-name">
+            
+                myLocationOff<span class="signature">()</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>mapDraw.myLocationOff()메소드로 좌표에 표시된 아이콘을 삭제할 수 있습니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.myLocationOff();</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="myLocationOn">
+        <a class="href-link" href="#myLocationOn">#</a>
+        
+        <span class="code-name">
+            
+                myLocationOn<span class="signature">(x, y, z, onActive<span class="signature-attributes">opt</span>, markerOption<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>내 위치 마커를 원하는 좌표에 표시할 수 있습니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>x</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">number</code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+
+      
+
+      
+      </td>
+  
+
+  
+      <td class="default">
+      
+          0
+      
+      </td>
+  
+
+  <td class="description last"><p>내위치 마커의 x 좌표</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>y</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">number</code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+
+      
+
+      
+      </td>
+  
+
+  
+      <td class="default">
+      
+          0
+      
+      </td>
+  
+
+  <td class="description last"><p>내위치 마커의 y 좌표</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>z</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">number</code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+
+      
+
+      
+      </td>
+  
+
+  
+      <td class="default">
+      
+          1
+      
+      </td>
+  
+
+  <td class="description last"><p>내위치 마커의 z 좌표. z좌표가 오브젝트보다 높아야 지도에 노출됨.</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>onActive</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">boolean</code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+          &lt;optional><br>
+      
+
+      
+
+      
+      </td>
+  
+
+  
+      <td class="default">
+      
+          false
+      
+      </td>
+  
+
+  <td class="description last"><p>타층 이동후 다시 돌아왔을 때 계속 표시 여부.</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>markerOption</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type"><a href="global.html#MarkerOption">MarkerOption</a></code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+          &lt;optional><br>
+      
+
+      
+
+      
+      </td>
+  
+
+  
+      <td class="default">
+      
+      </td>
+  
+
+  <td class="description last"><p>내위치 마커의 옵션. 애니메이션과 사용자 지정 아이콘</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>실행 및 전체 코드 보기 : <a href="https://dabeeo.github.io/web_api/example/#myLocation">https://dabeeo.github.io/web_api/example/#myLocation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.myLocationOn(x, y, z); // 층변경 후 함수 호출층 복귀시 다시 내위치 표시 안함.</code></pre>
+    
+
+    
+        <pre class="prettyprint"><code>mapDraw.myLocationOn(x, y, z, true); // 층변경 후 함수 호출층 복귀시 다시 내위치 표시함.</code></pre>
+    
+
+    
+        <pre class="prettyprint"><code>mapDraw.myLocationOn(x, y, z, false); // 층변경 후 함수 호출층 복귀시 다시 내위치 표시 안함. </code></pre>
+    
+
+    
+        <pre class="prettyprint"><code>// default 마커에 default animation 적용
+mapDraw.myLocationOn(x, y, z, false, {
+animate : true
+});</code></pre>
+    
+
+    
+        <pre class="prettyprint"><code>// 마커 옵션 및 animation 옵션 적용
+mapDraw.myLocationOn(x, y, z, false, {
+    icon :  {
+        image : "https://assets.dabeeomaps.com/image/ico/img_mylocation.png",
+        size : {
+            width:12, 
+            height:12
+        }
+    },
+    animate : {
+        color : '#96c4e1',
+        opacity : 0.8, // 초기 opacity ( 0 으로 animation 됨)
+        desireScale : 3.0 // icon 대비 사이즈 배수
+    }
+});</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="redrawMap">
+        <a class="href-link" href="#redrawMap">#</a>
+        
+        <span class="code-name">
+            
+                redrawMap<span class="signature">(mapDrawOptions)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>층을 변경하거나 테마를 변경하여 지도를 그릴 때 사용합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>mapDrawOptions</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type"><a href="global.html#MapRedrawOption">MapRedrawOption</a></code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>층변경 실행 및 전체 코드 보기 : <a href="https://dabeeo.github.io/web_api/example/#floor">https://dabeeo.github.io/web_api/example/#floor</a></li>
+        
+            <li>테마변경 실행 및 전체 코드 보기 :<a href="https://dabeeo.github.io/web_api/example/#theme">https://dabeeo.github.io/web_api/example/#theme</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.redrawMap({floor: "FL-qhndqjlqhu7p3894"});</code></pre>
+    
+
+    
+        <pre class="prettyprint"><code>mapDraw.redrawMap({theme: 1919});</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="setMarker">
+        <a class="href-link" href="#setMarker">#</a>
+        
+        <span class="code-name">
+            
+                setMarker<span class="signature">(marker)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>위치를 지정하여 마커를 한개 또는 여러개 표시할 수 있습니다. 각 마커에 원하는 아이콘을 각각 지정하여 줄 수 있습니다.
+여러개의 마커를 지정하기 위하여 배열 형태로 인자를 받습니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>marker</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type"><a href="global.html#Markers">Markers</a></code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>실행 및 전체 코드 보기 <a href="https://dabeeo.github.io/web_api/example/#marker">https://dabeeo.github.io/web_api/example/#marker</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.setMarker({
+    marker: [
+        { 
+            position:{
+                x: 1000,
+                y: 2000,
+                z: 50
+            },
+            image: "img_marker_blue-3x.png", // 이미지 지정하지 않을 경우 기본 이미지로 표시
+            size: { // size 가 없을 경우 지도 비율에 맞춰 이미지 사이즈가 정의
+                width:20, 
+                height: 20
+            },
+            data: i // marker를 클릭했을 때 반환할 정보 
+            async: true // 마커의 사이즈를 줌배율에 따라 실시간 동기화(마커 크기 일정) : 지정하지 않을 경우 동기화 하지 않음(마커 크기 변동)
+        }
+    ]
+});</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="setNavigationOption">
+        <a class="href-link" href="#setNavigationOption">#</a>
+        
+        <span class="code-name">
+            
+                setNavigationOption<span class="signature">(options)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>길찾기가 지도에 그려질 때 관련하여 옵션을 설정할 수 있습니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>options</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type"><a href="global.html#NavigationOption">NavigationOption</a></code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>실행 및 전체 코드 보기 : <a href="https://dabeeo.github.io/web_api/example/#navigation">https://dabeeo.github.io/web_api/example/#navigation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.setNavigationOption ({ 
+    lineColor:"#0000ff", 
+    lineSpotSize:3,
+    lineSpotInterval:100,
+    lineZ : 20,
+    iconUrl: "./person.png",
+    speedRate: 1.5,
+    originPositionZ: 20,
+    destinationPositionZ: 20,
+    origin: { // 시작지 아이콘 
+        iconUrl: "origin.png", 
+        width: 100,
+        height: 100
+    },
+    destination: { // 도착지 아이콘 
+        iconUrl: "destination.png",
+        width: 100,
+        height: 100
+    },
+    visibleIcon: false,  // 경로 표시할때 시작지, 도착지 아이콘 없애기 / 보이기
+    moveIconZ: 101
+});</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="setPoiLevelOff">
+        <a class="href-link" href="#setPoiLevelOff">#</a>
+        
+        <span class="code-name">
+            
+                setPoiLevelOff<span class="signature">()</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>setPoiLevelOn() 설정을 해제합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>실행 및 전체 코드 보기 : <a href="https://dabeeo.github.io/web_api/example/#poiLevel">https://dabeeo.github.io/web_api/example/#poiLevel</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.setPoiLevelOff();</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="setPoiLevelOn">
+        <a class="href-link" href="#setPoiLevelOn">#</a>
+        
+        <span class="code-name">
+            
+                setPoiLevelOn<span class="signature">(top, middle, bottom)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>poi 중요도에 따라 해당 poi를 노출하도록 zoom 값을 설정합니다. 설정한 줌값보다 지도가 확대되면 poi가 노출됩니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>top</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">number</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>poi 중요도 상에 해당하는 poi가 보이게 되는 시점의 zoom값</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>middle</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">number</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>poi 중요도 중에 해당하는 poi가 보이게 되는 시점의 zoom값</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>bottom</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">number</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>poi 중요도 하에 해당하는 poi가 보이게 되는 시점의 zoom값</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>실행 및 전체 코드 보기 : <a href="https://dabeeo.github.io/web_api/example/#poiLevel">https://dabeeo.github.io/web_api/example/#poiLevel</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.setPoiLevelOn(100, 200, 300);</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="setPoiRotateDistance">
+        <a class="href-link" href="#setPoiRotateDistance">#</a>
+        
+        <span class="code-name">
+            
+                setPoiRotateDistance<span class="signature">(spacing)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>3d 모드에서 poi의 높이값을 설정합니다. .
+poi 객체의 높이값을 조정할 수 있습니다. 맵에 적용되어 있는 poi의 높이 값을 0으로 인식합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>spacing</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">number</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>소숫점 2자리까지 반영</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.setPoiRotateDistance(5.55);</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="startRouteAnimation">
+        <a class="href-link" href="#startRouteAnimation">#</a>
+        
+        <span class="code-name">
+            
+                startRouteAnimation<span class="signature">(option)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>길찾기 경로가 표시된 후 경로를 따라 모의주행을 그립니다. 경로를 따라가다가 층이 변환되는 경우 &quot;floor-changed&quot; event와 &quot;will-floor-change&quot; event가 발생합니다.
+옵션 없이 사용할 수도 있고 옵션을 주어 모의주행에 관련된 설정을 할 수도 있습니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>option</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type"><a href="global.html#RouteAnimationOption">RouteAnimationOption</a></code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>일반 모의주행 실행 및 전체 코드 보기 : <a href="https://dabeeo.github.io/web_api/example/#navigation">https://dabeeo.github.io/web_api/example/#navigation</a></li>
+        
+            <li>줌과 애니메이션 옵션을 이용한 모의주행 실행 및 전체 코드 보기 : <a href="https://dabeeo.github.io/web_api/example/#navigationObjectAnimation">https://dabeeo.github.io/web_api/example/#navigationObjectAnimation</a></li>
+        
+            <li>지연시간 옵션을 이용하여 층간 이동을 알려주는 모의주행 실행 및 전체 코드 보기  : <a href="https://dabeeo.github.io/web_api/example/#navigationWillFloorChange">https://dabeeo.github.io/web_api/example/#navigationWillFloorChange</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.startRouteAnimation();</code></pre>
+    
+
+    
+        <pre class="prettyprint"><code>mapDraw.startRouteAnimation({zoom: 200});</code></pre>
+    
+
+    
+        <pre class="prettyprint"><code>mapDraw.startRouteAnimation({changeFloorDelay: 3000});</code></pre>
+    
+
+    
+        <pre class="prettyprint"><code>mapDraw.startRouteAnimation({
+     destOption:{
+              activeDest:true, 
+              color:"#ff0000", 
+              opacity:0.78, 
+              isAnimate:true, 
+              duration:1500, 
+              isRepeat:true, 
+              isYoyo:false,
+              ids:["OB-jai102782n192", "PO-192nqpwbwyq0_12"]
+     }});</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="stopRouteAnimation">
+        <a class="href-link" href="#stopRouteAnimation">#</a>
+        
+        <span class="code-name">
+            
+                stopRouteAnimation<span class="signature">()</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>현재 진행중인 모의주행을 멈출 수 있습니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.stopRouteAnimation();</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="updateObjectStateByIds">
+        <a class="href-link" href="#updateObjectStateByIds">#</a>
+        
+        <span class="code-name">
+            
+                updateObjectStateByIds<span class="signature">(option)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>특정 오브젝트의 속성을 변경하고 색상 애니메이션 효과를 줄 수 있습니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>option</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type"><a href="global.html#ObjectOption">ObjectOption</a></code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>실행 및 전체 코드 보기 <a href="https://dabeeo.github.io/web_api/example/#multiObjectsAnimation">https://dabeeo.github.io/web_api/example/#multiObjectsAnimation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.updateObjectStateByIds(
+            {
+                ids:[
+                     "OB--QDxNdSuV2784",
+                     "OB-qKLSARLpKQ1959",
+                     "PO-qnwnwnwuwuw"
+		            ], 
+                color:"#efefef", 
+                opacity:0.3, 
+                isAnimate:true, 
+                duration:1500, 
+                isRepeat:true, 
+                isYoyo:false
+            }
+        );</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="zoomControl">
+        <a class="href-link" href="#zoomControl">#</a>
+        
+        <span class="code-name">
+            
+                zoomControl<span class="signature">(zoom<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {number}</span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>줌값을 설정하거나 현재의 줌값을 반환합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>zoom</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">number</code>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+          &lt;optional><br>
+      
+
+      
+
+      
+      </td>
+  
+
+  
+
+  <td class="description last"><p>줌값을 설정. 지정하지 않을 경우 현재의 줌값을 반환</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'><p>현재의 줌설정값</p></div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type">number</code>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+    <h5>Examples</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.zoomControl(120);</code></pre>
+    
+
+    
+        <pre class="prettyprint"><code>mapDraw.zoomControl(); //현재 비율 리턴 </code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="zoomIn">
+        <a class="href-link" href="#zoomIn">#</a>
+        
+        <span class="code-name">
+            
+                zoomIn<span class="signature">()</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>지도를 확대합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.zoomIn();</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="zoomOff">
+        <a class="href-link" href="#zoomOff">#</a>
+        
+        <span class="code-name">
+            
+                zoomOff<span class="signature">()</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>줌 기능을 마우스로 제어할 수 없도록 비활성화합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.zoomOff();</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="zoomOn">
+        <a class="href-link" href="#zoomOn">#</a>
+        
+        <span class="code-name">
+            
+                zoomOn<span class="signature">()</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>줌 기능을 마우스로 제어할 수 있도록 활성화합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.zoomOn();</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="zoomOut">
+        <a class="href-link" href="#zoomOut">#</a>
+        
+        <span class="code-name">
+            
+                zoomOut<span class="signature">()</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>지도를 축소합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.zoomOut();</code></pre>
+    
+
+
+</div>
+            
+            </div>
+        </div>
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>
