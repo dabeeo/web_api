@@ -1,39 +1,44 @@
-<h1 class='center'>
-    <img src="https://indoor.dabeeomaps.com/upload/demo/CI.png" width='300px' />
-    </br></br>
-</h1>
-다비오맵스 JS API 는 다비오맵스 실내지도 플랫폼 지도를 활용하여 지도 서비스를 쉽고 빠르게 구축 할 수 있게 JavaScript 형태로 공개한 기술입니다.
-</br></br>
+<h1 class='center'><img src="https://indoor.dabeeomaps.com/upload/demo/CI.png" width='300px' /></h1>
+</br>
+</br>
+<h4>다비오맵스 JS API 는 다비오맵스 실내지도 플랫폼 지도를 활용하여 지도 서비스를 쉽고 빠르게 구축 할 수 있게 JavaScript 형태로 공개한 기술입니다.</h4>
+</br>
 공식 api 링크는 다비오 사이트에 올라가 있습니다.</br>
-기능 개선 성능 향상이 실시간 업데이트되니, 아래 링크로 연결된 공식 api 링크를 사용하시기 바랍니다.</br>
-<a href="https://dabeeomaps.com/docs">https://dabeeomaps.com/docs</a>
+기능 개선 성능 향상이 실시간 업데이트되니, <a href="https://dabeeomaps.com/docs">[다비오맵스 실내지도 플랫폼]</a>에 연결된 공식 api 링크를 사용하시기 바랍니다.</br>
+
 </br>
 </br>
 </br>
-<h1> dabeeo javascript api에 대한 설명</h1>
-</br>api를 사용하기 위한 요약된 설명입니다. 자세한 내용은 해당 파일을 참고하세요.
+<h1> Example Site</h1>
+</br>다비오 맵스 JS API를 쉽게 이해하고 활용을 돕고자 최신 버전의 다양한 JS 사용예제를 제공합니다.
+</br>주요 기능에 대하여 실행해 볼 수 있으며 실행되는 페이지의 전체 코드를 볼 수 있습니다. <a href="https://dabeeo.github.io/web_api/example/#index">[Examples Site]</a>를 참고하세요.
+</br>
+</br>
+<h1> Dabeeo Maps Javascript API Classes</h1>
+</br>다비오맵스 JS API의 주요 클래스입니다. 자세한 내용은 <a href="https://dabeeo.github.io/web_api/jsdocs/index.html">[API Reference]</a>를 참고하세요.
 </br>
 </br>
 <h2>MapView : 지도그리기 (서버에서 지도파일 가져와서 지도 그리기)</h2>
-</br>다비오 지도서버에서 지도를 다운로드하여 지도를 그리는 방법입니다.
-</br>https://github.com/dabeeo/web_api/tree/master/docs/MapView
-</br>indoorMapApi.MapView를 이용하여 지도를 그립니다.
+</br>다비오맵스 실내지도 플랫폼 서버에서 지도를 가져와서 지정된 영역에 지도를 그립니다.
+</br>indoorMapApi.MapView를 이용시 초기 옵션을 지정할 수 있습니다.
 </br>이 때 모든 지도 정보를 가져오므로 이 이후에는 반환된 값을 (MapDraw) 이용하여 지도를 제어할 수 있습니다.
-</br>초기 option을 지정할 수 있습니다.
 </br>
 </br>
-<h2>MapDraw : 지도 속성 가져오기 및 지도 설정 변경하기</h2>
-</br>자세한 설명은 아래 링크에 있습니다.
-</br>https://github.com/dabeeo/web_api/tree/master/docs/MapDraw
-</br>MapView를 호출시 mapDraw를 반환하며 여기에 여러 지도에 관한 정보들이 담겨있습니다. 이 정보를 이용하여 지도 설정을 변경하거나 필요한 지도정보를 사용자에게 보여줄 수 있습니다.
+<h2>MapDraw : 지도 속성 및 지도 설정 변경하기</h2>
+</br>MapView를 호출시 mapDraw가 반환되며 지도에 관한 정보들이 속성에 담겨있습니다.
+</br>이 정보를 바탕으로 메소드를 이용하여 지도를 제어하거나 필요한 지도정보를 사용자에게 보여줄 수 있습니다.
 </br>
 </br>
-<h2>MapInfo : 지도 데이터 가져오기 </h2>
-</br>지도 데이터의 특정 정보를 가져올 수 있습니다.
-</br>버전을 체크하거나 poi 정보를 가져올 수 있습니다.
-</br>https://github.com/dabeeo/web_api/tree/master/docs/MapInfo
+<h2>Event : api 호출시 반환되는 event</h2>
+</br>지도제어 중에 층변경, 클릭, 모의주행완료 시 이벤트가 발생됩니다. 이벤트를 받아 이벤트내의 정보를 활용할 수 있습니다.
 </br>
 </br>
-<h2>Event : api 호출시 반환되는 event에 대한 설명</h2>
-</br>자세한 설명은 아래 링크에 있습니다.
-</br>https://github.com/dabeeo/web_api/blob/master/docs/Event.md
+<h1> Support</h1>
+</br>기능이나 개발에 대한 문의사항이 있으신 경우 이메일[cs.imstudio@dabeeo.com] 로 보내주시면 안내해 드리도록 하겠습니다.
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>

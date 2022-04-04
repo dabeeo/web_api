@@ -21,8 +21,9 @@ li.forEach((item) => {
                 document.querySelector("article").innerHTML = data;
             })
             .then(() => {
-                let data = document.querySelector("code");
-                if (!data) return;
+                let codeElement = document.querySelectorAll("code");
+                if (!codeElement) return;
+                codeElement.forEach((data) => {
                 console.log(data.innerHTML);
                 let text = data.innerHTML;
                 let text1 = text.replace(/[<>]/g, "<span>$&</span>");
@@ -33,6 +34,7 @@ li.forEach((item) => {
                 let text3 = text2.replace(/ var | if | return| let | const | function | new | window| document/g, "<span class='reserved'>$&</span>");
                 console.log(text3)
                 data.innerHTML = text3;
+                })
             });
     });
 });

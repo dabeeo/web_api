@@ -1,9 +1,9 @@
 * {
     margin: 0;
     padding: 0;
-    color: #666666;
+    color: #faf3f3;
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 2px;
     font-family: "Noto Sans KR", sans-serif;
 }
 
@@ -31,7 +31,7 @@ select {
 
 header {
     display: flex;
-    background-color: whitesmoke;
+    background-color: rgb(7, 0, 0);
     height: 50px;
     padding: 0.5rem 0rem;
     justify-content: space-around;
@@ -68,7 +68,9 @@ main {
 
 nav {
     width: 300px;
-    background-color: rgb(236, 228, 218);
+    background-color: #fff;
+    color: rgb(7, 0, 0);
+    padding: 4px 4px;
 }
 nav.on {
     display: block;
@@ -76,12 +78,14 @@ nav.on {
 
 nav li a {
     /* background-color: gray; */
+    color: rgb(7, 0, 0);
     padding: 3px 5px;
     display: block;
     width: 100%;
 }
 nav li a.on {
-    background-color: #ffffff;
+    background-color: #111111;
+    color: #fff;
 }
 
 nav li a:hover {
