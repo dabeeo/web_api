@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <style>
         #map {
-            margin-top: 100px;
+            margin-top: 50px;
             text-align: center;
         }
     </style>
@@ -30,17 +30,17 @@
 
         let mapOptions = {
             authorization: authorization,
-            canvasSize: { width: 700, height: 500 }, //size 설정
+            canvasSize: { width: 800, height: 300 }, //size 설정
             isPoiSprite: true, //Poi를 항상 정면으로 보이게 함. 
             language: "en", //초기 poi 언어 설정 
             camera: "3d", //초기 카메라 설정
             zoom: 200, //초기 줌 설정
             center: {
                 x: 3030, // 지도 내 좌표 x 
-                y: 1005 // 지도 내 좌표 y
+                y: 1505 // 지도 내 좌표 y
             },
             angle: {
-                vertical: 20,
+                vertical: 40,
                 horizontal: 0,
                 fixed: false
             }
