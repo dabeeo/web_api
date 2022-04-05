@@ -145,12 +145,13 @@ main section article code {
   overflow-wrap: break-word;
   font-family: monospace;
   font-size: 0.8rem;
+  max-width: 800px;
   display: block;
   border-radius: 10px;
   background-color: #333333;
   color: #fff;
   padding-right: 20px;
-  line-height: 1.2rem;
+  line-height: 1.15rem;
 }
 main section article code span {
   color: #ff5100;
@@ -168,6 +169,10 @@ main section article code span.reserved {
 main section article code span.special {
   font-weight: normal;
   color: #b18cf7;
+}
+main section article code span.comment {
+  font-weight: normal;
+  color: #cceecc;
 }
 
 .center {

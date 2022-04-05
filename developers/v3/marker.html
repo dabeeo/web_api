@@ -27,92 +27,90 @@
 </br>
 </br>아래는 각 층의 poi의 좌표를 구하여 poi의 위에 마커를 그리는 코드의 일부입니다.
 <br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#marker" target="_blank">[examples의 marker]</a>를 참조하세요.
-<pre>
-    <code>
-        <div class="button-container">
-            <button type="button" class="button-menu">
-                marker Test
-            </button>
+<pre><code>
+    <div class="button-container">
+        <button type="button" class="button-menu">
+            marker Test
+        </button>
+    </div>
+    <div class="control-container">
+        <div class="inline-container">
+            <input type="button" class="inline-input" id="markerOn" value="On">
+            <input type="button" class="inline-input on" id="markerOff" value="Off">
         </div>
-        <div class="control-container">
-            <div class="inline-container">
-                <input type="button" class="inline-input" id="markerOn" value="On">
-                <input type="button" class="inline-input on" id="markerOff" value="Off">
-            </div>
-        </div>
-        <div id="map"></div>
-    
-        <script>
+    </div>
+    <div id="map"></div>
 
-            window.addEventListener("load", function () {
-                initMap();
+    <script>
+
+        window.addEventListener("load", function () {
+            initMap();
+        });
+
+        function initMap () {
+            var mapContainer = document.getElementById('map'); // 지도를 표시할 div
+
+            // 지도 인증정보
+            var authorization = new indoorMapApi.Authorization({
+                clientId: "6Lwuu9wa4wta0NiHwy1fO5",
+                clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
             });
 
-            function initMap () {
-                var mapContainer = document.getElementById('map'); // 지도를 표시할 div
-
-                // 지도 인증정보
-                var authorization = new indoorMapApi.Authorization({
-                    clientId: "6Lwuu9wa4wta0NiHwy1fO5",
-                    clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
-                });
-
-                var mapOptions = {
-                    authorization: authorization
-                };
-                // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
-                new indoorMapApi.MapView(
-                    mapContainer, // 컨테이너
-                    mapOptions, // 옵션
-                    function (response) { // 맵 로드 콜백
-                        var code = response.getCode();
-
-                        if (code === 200) {
-                            mapDraw = response.getPayload().mapDraw;
-                            // do something
-                            console.log("map view success!");
-                            initSetMarker();
-                        }
-                    }
-                );
+            var mapOptions = {
+                authorization: authorization
             };
+            // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+            new indoorMapApi.MapView(
+                mapContainer, // 컨테이너
+                mapOptions, // 옵션
+                function (response) { // 맵 로드 콜백
+                    var code = response.getCode();
 
-            //////////////////////////////////////////////////////////////////////////////////
-            // 마커 그리기
-            function initSetMarker () {
-                /* marker */
-                document.querySelector("#markerOn").addEventListener("click", function (e) {
-                    var marker = [];
-                    mapDraw.response.poiInfo.forEach(function (i) {
-                        marker.push({
-                            position: {
-                                x: i.position.x, // 마커의 x좌표 
-                                y: i.position.y - 30, // 마커의 y좌표
-                                z: 60, // 마커의 z좌표 
-                            },
-                            size: {
-                                width: 30, // 아이콘의 넓이 
-                                height: 30 // 아이콘의 높이
-                            },
-                            image: "./img_marker_blue-3x.png", // 아이콘 지정
-                            floorId: i.floorId,// 각 마커의 층을 지정.  지정하지 않을 경우 현재 보이는 층에만 표시함.  
-                            async: true // 마커의 크기가 줌에 관계없이 동일한 크기로 보여줄지 여부. true인 경우에는 항상 동일한 크기로 보임. 디폴트는 false
-                        });
+                    if (code === 200) {
+                        mapDraw = response.getPayload().mapDraw;
+                        // do something
+                        console.log("map view success!");
+                        initSetMarker();
+                    }
+                }
+            );
+        };
+
+        //////////////////////////////////////////////////////////////////////////////////
+        // 마커 그리기
+        function initSetMarker () {
+            /* marker */
+            document.querySelector("#markerOn").addEventListener("click", function (e) {
+                var marker = [];
+                mapDraw.response.poiInfo.forEach(function (i) {
+                    marker.push({
+                        position: {
+                            x: i.position.x, // 마커의 x좌표 
+                            y: i.position.y - 30, // 마커의 y좌표
+                            z: 60, // 마커의 z좌표 
+                        },
+                        size: {
+                            width: 30, // 아이콘의 넓이 
+                            height: 30 // 아이콘의 높이
+                        },
+                        image: "./img_marker_blue-3x.png", // 아이콘 지정
+                        floorId: i.floorId,// 각 마커의 층을 지정.  지정하지 않을 경우 현재 보이는 층에만 표시함.  
+                        async: true // 마커의 크기가 줌에 관계없이 동일한 크기로 보여줄지 여부. true인 경우에는 항상 동일한 크기로 보임. 디폴트는 false
                     });
-                    document.querySelector("#markerOn").classList.add("on");
-                    document.querySelector("#markerOff").classList.remove("on");
-                    mapDraw.setMarker({ marker: marker }); // 마커 그리기
                 });
+                document.querySelector("#markerOn").classList.add("on");
+                document.querySelector("#markerOff").classList.remove("on");
+                mapDraw.setMarker({ marker: marker }); // 마커 그리기
+            });
 
-                document.querySelector("#markerOff").addEventListener("click", function (e) {
-                    document.querySelector("#markerOff").classList.add("on");
-                    document.querySelector("#markerOn").classList.remove("on");
-                    mapDraw.clearMarker(); // 마커 지우기
-                });
-            }
-        </script>
-    </code>
-</pre>
+            document.querySelector("#markerOff").addEventListener("click", function (e) {
+                document.querySelector("#markerOff").classList.add("on");
+                document.querySelector("#markerOn").classList.remove("on");
+                mapDraw.clearMarker(); // 마커 지우기
+            });
+        }
+    </script>
+</code></pre>
 
 </br>전체코드의 실행화면은 다음과 같습니다.
 </br>

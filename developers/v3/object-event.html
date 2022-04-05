@@ -1,9 +1,11 @@
-<h1>길찾기 경로 그리기와 모의주행 </h1>
+<h1>poi의 정보 표시하기 </h1>
 </br>
-<h4>MapDraw.getRouteOn()으로 지도에 출발지에서 목적지까지의 경로를 그릴 수 있습니다.</h4>
-</br>mapDraw.setNavigationOption()으로 경로를 그리는 주행선과 경로의 모의주행 등에 대하여 옵션을 설정할 수 있습니다. getRouteOn() 전에 먼저 호출해야 합니다.
-</br>옵션은 주행선, 모의주행, 아이콘 등에 대하여 줄 수 있으며 대표적인 예는 아래와 같습니다.
-</br>옵션에 대한 더 자세한 설명은 <a href="https://dabeeo.github.io/web_api/jsdocs/global.html#NavigationOption" target="_blank">[API Reference의 Navigation Option]</a>를 참조하세요.
+<h4>object-click 또는 poi-click 이벤트를 이용하여 지도의 POI내에 있는 정보를 사용자에게 표시할 수 있습니다. </h4>
+</br>다비오맵스 플랫폼에서 poi에 입력된 사용자 정보는 object가 클릭되거나 poi가 클릭될 때 event를 통해 전달됩니다.
+</br>이를 통해 poi의 여러가지 내용을 팝업창등을 통해 사용자에게 알릴 수 있습니다.
+</br>object 클릭시에는 object에 연결된 poi의 정보가 전달됩니다. 한개의 object에 여러개의 poi가 연결될 수 있습니다.
+</br>object 클릭 이벤트에 대한 자세한 설명은 <a href="https://dabeeo.github.io/web_api/jsdocs/global.html#event:object-click" target="_blank">[API Reference의 object click event]</a>를 참조하세요.
+</br>poi 클릭 이벤트에 대한 자세한 설명은 <a href="https://dabeeo.github.io/web_api/jsdocs/global.html#event:poi-click" target="_blank">[API Reference의 poi click event]</a>를 참조하세요.
 <pre>
     <code>
         //네비게이션 옵션 설정

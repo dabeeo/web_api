@@ -162,13 +162,13 @@ main {
                 overflow-wrap: break-word;
                 font-family: monospace;
                 font-size: 0.8 * $fontSize;
-                // min-width: 900px;
+                max-width: 800px;
                 display: block;
                 border-radius: 10px;
                 background-color: #333333;
                 color: $color;
                 padding-right: 20px;
-                line-height: 1.2 * $fontSize;
+                line-height: 1.15 * $fontSize;
 
                 span {
                     color: #ff5100;
@@ -185,6 +185,10 @@ main {
                     &.special {
                         font-weight: normal;
                         color: #b18cf7;
+                    }
+                    &.comment {
+                        font-weight: normal;
+                        color: #cceecc;
                     }
                 }
             }

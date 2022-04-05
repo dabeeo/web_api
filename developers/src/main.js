@@ -34,7 +34,8 @@ li.forEach((item) => {
                 let text3 = text2.replace(/ var | if | return| let | const | function | new | window| document| for /g, "<span class='reserved'>$&</span>");
                 // console.log(text3)
                 let text4 = text3.replace(/[{}\(\)]/g, "<span class='special'>$&</span>");
-                data.innerHTML = text4;
+                let text5 = text4.replace(/\/\/.+/g, "<span class='comment'>$&</span>")
+                data.innerHTML = text5;
                 })
             });
     });
