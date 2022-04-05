@@ -99,17 +99,17 @@
                 mapDraw.response.poiInfo.forEach(function (i) {
                     marker.push({
                         position: {
-                            x: i.position.x,
-                            y: i.position.y - 30,
-                            z: 60,
+                            x: i.position.x, // 마커의 x좌표 
+                            y: i.position.y - 30, // 마커의 y좌표
+                            z: 60, // 마커의 z좌표 
                         },
                         size: {
-                            width: 30,
-                            height: 30
+                            width: 30, // 아이콘의 넓이 
+                            height: 30 // 아이콘의 높이
                         },
-                        image: "./img_marker_blue-3x.png",
-                        floorId: i.floorId,// 층을 지정할 때 : 지정하지 않을 경우 현재 보이는 층 
-                        async: true
+                        image: "./img_marker_blue-3x.png", // 아이콘 지정
+                        floorId: i.floorId,// 각 마커의 층을 지정.  지정하지 않을 경우 현재 보이는 층에만 표시함.  
+                        async: true // 마커의 크기가 줌에 관계없이 항상 동일한 크기로 보여줄지 여부. true인 경우에는 항상 동일한 크기로 보임. 디폴트는 false
                     });
                 });
                 document.querySelector("#markerOn").classList.add("on");
@@ -123,6 +123,7 @@
                 mapDraw.clearMarker(); // 마커 지우기
             });
         }
+
 
     </script>
 </body>
