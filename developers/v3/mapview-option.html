@@ -1,34 +1,36 @@
 <h1>MapView Option </h1>
+</br>
+<h4>MapView 생성시 초기 option을 지정합니다.</h4>
 </br>다비오 지도서버에 있는 지도를 불러와 그릴 때 초기 option을 지정할 수 있습니다.
 </br>zoom level 등 지도를 그리기 위한 설정이 여기에 해당합니다. 자세한 정보는 <a href="https://dabeeo.github.io/web_api/jsdocs/global.html#MapOption">[API Reference의 Map Option]</a>에 설명되어 있으니 이를 참조하세요.
 </br>옵션은 아래와 같이 설정할 수 있습니다.
 <p>
 <pre>
-        <code>
+    <code>
             let mapOptions = {
                 authorization: authorization,
-                canvasSize: { width: 700, height: 500 }, //size 설정
+                canvasSize: { width: 800, height: 300 }, //size 설정
                 isPoiSprite: true, //Poi를 항상 정면으로 보이게 함. 
                 language: "en", //초기 poi 언어 설정 
                 camera: "3d", //초기 카메라 설정
                 zoom: 200, //초기 줌 설정
                 center: {
                     x: 3030, // 지도 내 좌표 x 
-                    y: 1005 // 지도 내 좌표 y
+                    y: 1505 // 지도 내 좌표 y
                 },
                 angle: {
-                    vertical: 20,
+                    vertical: 40,
                     horizontal: 0,
                     fixed: false
                 }
             };
-            </code>
-    </pre>
+    </code>
+</pre>
 </br>
 </br>
 </br>아래는 옵션을 사용한 예제입니다.
 </br>실행 코드는 아래와 같습니다.
-<br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#indexWithOptions.html">[examples index with options]</a>를 참조하세요.
+<br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#indexWithOptions">[examples index with options]</a>를 참조하세요.
 <pre>
     <code>
             <div id="map"></div>
@@ -43,17 +45,17 @@
 
                 let mapOptions = {
                     authorization: authorization,
-                    canvasSize: { width: 700, height: 500 }, //size 설정
+                    canvasSize: { width: 800, height: 300 }, //size 설정
                     isPoiSprite: true, //Poi를 항상 정면으로 보이게 함. 
                     language: "en", //초기 poi 언어 설정 
                     camera: "3d", //초기 카메라 설정
                     zoom: 200, //초기 줌 설정
                     center: {
                         x: 3030, // 지도 내 좌표 x 
-                        y: 1005 // 지도 내 좌표 y
+                        y: 1505 // 지도 내 좌표 y
                     },
                     angle: {
-                        vertical: 20,
+                        vertical: 40,
                         horizontal: 0,
                         fixed: false
                     }
@@ -81,4 +83,10 @@
 </br>실행화면은 다음과 같습니다.
 </br>
 <iframe src="https://dabeeo.github.io/web_api/samples/indexWithOptions.html"></iframe>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
 </br>

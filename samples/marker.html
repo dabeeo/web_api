@@ -19,6 +19,11 @@
     </div>
     <div class="control-container">
         <div class="inline-container">
+            <select type="text" class="inline-input" name="floor">
+                <option selected value="default">default</option>
+            </select>
+        </div>
+        <div class="inline-container">
             <input type="button" class="inline-input" id="markerOn" value="On">
             <input type="button" class="inline-input on" id="markerOff" value="Off">
         </div>
@@ -55,13 +60,39 @@
                     if (code === 200) {
                         mapDraw = response.getPayload().mapDraw;
                         // do something
-                        console.log("map view success!")
-                        initsetMarker();
+                        console.log("map view success!");
+                        handleFloorInfo(mapDraw.response);
+                        initSetMarker();
                     }
                 }
             );
         };
-        function initsetMarker () {
+        //////////////////////////////////////////////////////////////////////////////////
+        //지도 층 정보 처리
+        function handleFloorInfo (response) {
+            let floorElement = document.querySelector("[name='floor']");
+            let floorInfo = response.floorInfo;
+            // 옵션창에 층 추가하기
+
+            for (let index = 0; index < floorInfo.length; index++) {
+                let floor = floorInfo[index];
+                let newOption = document.createElement("option");
+                newOption.value = floor.id;
+                if (floor.defaultYn == true) {
+                    newOption.selected = true; //지도에 설정된 디폴트 층을 가져옴
+                }
+                newOption.appendChild(document.createTextNode(floor.name[0].text));
+                floorElement.appendChild(newOption);
+            }
+            floorElement.addEventListener("change", function (e) {
+                console.log(e.target.value);
+                mapDraw.redrawMap({ floor: e.target.value }); //층변경하여 지도 다시 그리기 
+            });
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////
+        // 마커 그리기
+        function initSetMarker () {
             /* marker */
             document.querySelector("#markerOn").addEventListener("click", function (e) {
                 var marker = [];

@@ -27,13 +27,14 @@ li.forEach((item) => {
                 console.log(data.innerHTML);
                 let text = data.innerHTML;
                 let text1 = text.replace(/[<>]/g, "<span>$&</span>");
-                console.log(text1);
+                // console.log(text1);
                 // "([^"]*)"
                 let text2 = text1.replace(/['"]([^'"]*)["']/g, "<span class='value'>$&</span>");
-                console.log(text2);
-                let text3 = text2.replace(/ var | if | return| let | const | function | new | window| document/g, "<span class='reserved'>$&</span>");
-                console.log(text3)
-                data.innerHTML = text3;
+                // console.log(text2);
+                let text3 = text2.replace(/ var | if | return| let | const | function | new | window| document| for /g, "<span class='reserved'>$&</span>");
+                // console.log(text3)
+                let text4 = text3.replace(/[{}\(\)]/g, "<span class='special'>$&</span>");
+                data.innerHTML = text4;
                 })
             });
     });

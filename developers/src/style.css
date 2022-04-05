@@ -165,6 +165,10 @@ main section article code span.reserved {
   font-weight: normal;
   color: #00ffff;
 }
+main section article code span.special {
+  font-weight: normal;
+  color: #b18cf7;
+}
 
 .center {
   text-align: center;
