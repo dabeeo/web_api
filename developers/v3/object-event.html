@@ -1,11 +1,12 @@
-<h1>poi의 정보 표시하기 </h1>
+<h1>클릭시 poi의 정보 표시하기 </h1>
 </br>
-<h4>object-click 또는 poi-click 이벤트를 이용하여 지도의 POI내에 있는 정보를 사용자에게 표시할 수 있습니다. </h4>
+<h4>object-click 또는 poi-click 이벤트를 이용하여 지도의 POI 정보를 사용자에게 표시할 수 있습니다. </h4>
 </br>다비오맵스 플랫폼에서 poi metadata에 입력된 정보는 object가 클릭되거나 poi가 클릭될 때 event를 통해 전달됩니다.
 </br>이를 통해 poi의 여러가지 내용을 팝업창 등을 통해 사용자에게 알릴 수 있습니다.
 </br>object 클릭시에는 object에 연결된 poi의 정보가 전달됩니다. 한개의 object에 여러개의 poi가 연결될 수 있습니다.
 </br>object 클릭 이벤트에 대한 자세한 설명은 <a href="https://dabeeo.github.io/web_api/jsdocs/global.html#event:object-click" target="_blank">[API Reference의 object click event]</a>를 참조하세요.
 </br>poi 클릭 이벤트에 대한 자세한 설명은 <a href="https://dabeeo.github.io/web_api/jsdocs/global.html#event:poi-click" target="_blank">[API Reference의 poi click event]</a>를 참조하세요.
+</br>이벤트는 아래와 같은 방법으로 받을 수 있습니다.
 <pre>
     <code>
         document.querySelector("#map").addEventListener("object-click", function (e) {
@@ -15,7 +16,7 @@
 </pre>
 
 </br>
-</br>아래는 지도에 포함된 object를 클릭하면 object에 연결된 poi를 보여주는 코드의 일부입니다.
+</br>아래는 지도에 포함된 object를 클릭하면 object에 연결된 poi의 정보를 보여주는 코드의 일부입니다.
 <br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#objectClickEvent" target="_blank">[examples의 object click event]</a>를 참조하세요.
 <pre><code>
     <!-- The Modal -->
@@ -116,7 +117,7 @@
     </script>    
 </code></pre>
 
-</br>전체코드의 실행화면은 다음과 같습니다.
+</br>전체코드의 실행화면은 다음과 같습니다. Object를 클릭하면 poi 정보가 팝업창으로 보입니다.
 </br>
 <iframe height=1000px src="https://dabeeo.github.io/web_api/samples/objectClickEvent.html"></iframe>
 </br>
