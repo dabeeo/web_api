@@ -51,6 +51,9 @@
             <input type="button" class="inline-input" id="startRouteAnimation" value="모의주행">
             <input type="button" class="inline-input" id="stopRouteAnimation" value="끄기">
         </div>
+        <div class="inline-container">
+            <button type="button" class="inline-input" id="retResult">주행시간</button>
+        </div>
         <div id="navi_path_wrap" style="display:none;">
             <div class="divider"></div>
             <div class="inline-label">이동경로</div>
@@ -62,8 +65,6 @@
     </div>
 
     <div id="map"></div>
-    <!-- 길찾기 목록 -->
-    </div>
 
     <script>
         let mapFloorName = {};
@@ -99,6 +100,8 @@
                         handleFloorInfo(mapDraw.response);
                         handlePoiInfo(mapDraw.response);
                         handleEvent(mapDraw.response);
+                        handleGetRouteOnEvent();
+                        handleRouteAnimationEvent();
                     }
                 }
             );
@@ -124,12 +127,8 @@
         function handleFloorInfo (response) {
             let floorElement = document.querySelector("[name='floor']");
             let floorInfo = response.floorInfo;
-            for (let i = 0; i < floorInfo.length; i++) {
-                var floor = floorInfo[i];
-                mapFloorName[floor.id] = floor.name[0].text;
-            }
-            // 옵션창에 층 추가하기
 
+            // 옵션창에 층 추가하기
             for (let index = 0; index < floorInfo.length; index++) {
                 let floor = floorInfo[index];
                 let newOption = document.createElement("option");
@@ -153,96 +152,19 @@
         //////////////////////////////////////////////////////////////////////////////////
         // poi select 만들기
         function handlePoiInfo (response) {
-            //floor name으로 object 만들기
-
             mapPoiInfo = response.poiInfo;
-
+            //poi select에서 사용할 층이름 만들기 
+            let floorInfo = response.floorInfo;
+            for (let i = 0; i < floorInfo.length; i++) {
+                var floor = floorInfo[i];
+                mapFloorName[floor.id] = floor.name[0].text;
+            }
             //상단 poi select 만들기
-            //side origin, detination 만들기
-            //poi select 만들기
             makePoiSelect("poiOrigin");
             makePoiSelect("poiDestination");
-            document.querySelector("#getRouteOn").addEventListener("click", function (e) {
-                let originPoi = getPosition("poiOrigin"); //지도상의 좌표 또는 POI id 
-                let destPoi = getPoi("poiDestination"); //지도상의 좌표 또는 POI id 
-                if (originPoi === undefined || destPoi === undefined) return;
-                mapDraw.setNavigationOption(
-                    {
-                        lineColor: "#00008b",
-                        lineZ: 40,
-                        speedRate: 3, // 주행 속도
-                        // solidLineEnabled: true,   //길찾기 경로를 실선으로 enable
-                        // solidLineWidth: 3, // 길찾기 경로를 실선으로 하는 경우 두께  
-                        lineSpotSize: 3,
-                        lineSpotInterval: 100,
-                        // iconUrl: "./person.png",
-                        moveIconZ: 50,
-                        visibleIcon: true, // 경로 표시할때 시작지, 도착지 아이콘 없애기 / 보이기
-                        originPositionZ: 55,
-                        destinationPositionZ: 55,
-                        origin: { // 출발지 아이콘 
-                            iconUrl: "./origin.png",
-                            width: 20,
-                            height: 20
-                        },
-                        destination: { // 도찾기 아이콘 
-                            iconUrl: "./map-marker.png",
-                            width: 20,
-                            height: 20
-                        },
-
-                    });
-
-                result = mapDraw.getRouteOn(originPoi, destPoi, "recommendation", [], retResponse = true);
-                if (result === undefined) {
-                    alert("요청하신 경로가 존재하지 않습니다.\n출발지와 도착지를 확인하세요");
-                    return;
-                }
-                // 길찾기 path 가져오기
-                getNavigation(result);
-            });
-
-            document.querySelector("#startRouteAnimation").addEventListener("click", function (e) {
-                mapDraw.startRouteAnimation();
-
-            });
-
-            document.querySelector("#stopRouteAnimation").addEventListener("click", function (e) {
-                mapDraw.stopRouteAnimation();
-
-            });
-
-            document.querySelector("#getRouteOff").addEventListener("click", function (e) {
-                mapDraw.getRouteOff();
-                document.querySelector("#navi_path_wrap").style.display = "none";
-
-            });
-
-        }
-        function getPosition (id) {
-            let index = document.querySelector("select#" + id).value;
-            if (index === "") return;
-            let poi = {
-                position: {
-                    x: mapPoiInfo[index].position.x + 10,
-                    y: mapPoiInfo[index].position.y,
-                    z: mapPoiInfo[index].position.z
-                },
-                floorId: mapPoiInfo[index].floorId
-            };
-            return poi;
-
-        }
-        function getPoi (id) {
-            let index = document.querySelector("select#" + id).value;
-            if (index === "") return;
-            let poi = {
-                poiId: mapPoiInfo[index].id,
-                floorId: mapPoiInfo[index].floorId
-            };
-            return poi;
         }
 
+        //poi select창에 poi list 만들기
         function makePoiSelect (id) {
             let element = document.querySelector("select#" + id);
             for (let index = 0; index < mapPoiInfo.length; index++) {
@@ -256,92 +178,77 @@
             }
         }
 
-        function getNavigation (retResult) {
-            let transCode = function (type) {
-                let result = "걷기";
-                /*
-                * transCode: 이동수단 코드
-                * OB-ELEVATOR : 엘리베이터
-                * OB-ESCALATOR : 에스컬레이터 양방향
-                * OB-ESCALATOR_UP : 에스컬레이터 상행
-                * OB-ESCALATOR_DOWN : 에스컬레이터 하행
-                * OB-STAIRS : 계단
-                */
-                switch (type) {
-                    case "OB-STAIRS":
-                        result = "계단";
-                        break;
-                    case "OB-ELEVATOR":
-                        result = "엘리베이터";
-                        break;
-                    case "OB-ESCALATOR":
-                        result = "에스컬레이터 양방향";
-                        break;
-                    case "OB-ESCALATOR_UP":
-                        result = "에스컬레이터 상행";
-                        break;
-                    case "OB-ESCALATOR_DOWN":
-                        result = "에스컬레이터 하행";
-                        break;
-                    default:
-                        result = "걷기";
-                        break;
-                }
-                return result;
-            };
+        function handleGetRouteOnEvent () {
+            document.querySelector("#getRouteOn").addEventListener("click", function (e) {
+                //출발지와 도착지 선택
+                let originPoi = getPoi("poiOrigin"); //출발지 POI id 
+                let destPoi = getPoi("poiDestination"); //도착지 POI id 
 
-            let transDirectCode = function (type) {
-                let result = "";
-                switch (type) {
-                    case "STRAIGHT":
-                        result = "직진";
-                        break;
-                    case "LEFT":
-                        result = "좌회전";
-                        break;
-                    case "RIGHT":
-                        result = "우회전";
-                        break;
-                    default:
-                        result = "";
-                        break;
-                }
-                return result;
-            };
+                //네비게이션 옵션 설정
+                mapDraw.setNavigationOption({
+                    lineColor: "#00008b",       // 길찾기 주행선 색상 
+                    lineZ: 40,                  // 길찾기 주행선 z축 높이 
+                    speedRate: 3,               // 모의주행 아이콘 속도
+                });
 
+                //길찾기 경로 그리기
+                result = mapDraw.getRouteOn(
+                    originPoi,            // 출발지
+                    destPoi,              // 도착지
+                    "recommendation",     // 층간이동경로
+                    [],                   // 경유지
+                    retResponse = true    // 반환값에 대한 옵션, true로 하는 경우 소요시간과 거리 반환받음. false인 경우 소요시간만 반환받음. 
+                );
+                //경로가 존재하지 않는 경우
+                if (result === undefined) {
+                    alert("요청하신 경로가 존재하지 않습니다.\n출발지와 도착지를 확인하세요");
+                    return;
+                }
+                if (typeof result === "object") {
+                    let retResult = document.querySelector("#retResult");
+                    retResult.innerText =
+                        (result.totalTime / (1000 * 60)).toFixed(1) + "분, 거리: " +
+                        (result.totalDistance / 100).toFixed(0) + "미터";
+                } else {
+                    retResult.innerText = "도착시간 " + (result / (1000 * 60)).toFixed(1) + "분";
+                }
+                getNavigation();
+            });
+            //길찾기 경로 지우기
+            document.querySelector("#getRouteOff").addEventListener("click", function (e) {
+                mapDraw.getRouteOff();
+            });
+        }
+
+        function getPoi (id) {
+            let index = document.querySelector("select#" + id).value;
+            return mapPoiInfo[index];
+        }
+        function handleRouteAnimationEvent () {
+            //모의주행 시작
+            document.querySelector("#startRouteAnimation").addEventListener("click", function (e) {
+                mapDraw.startRouteAnimation();
+            });
+            //모의주행 정지
+            document.querySelector("#stopRouteAnimation").addEventListener("click", function (e) {
+                mapDraw.stopRouteAnimation();
+            });
+        }
+        function getNavigation () {
             document.querySelector("#navi_path_wrap").style.display = "block";
+            //길찾기 경로 구하기
             let list = mapDraw.getNavigation();
+
             document.querySelector("#navigationButton").innerHTML = "";
-            let div = document.createElement("div");
-            let btn = document.createElement("button");
-            btn.type = "button";
-            btn.classList.add("inline-input");
-            div.classList.add("inline-container");
-            div.appendChild(btn);
-
-            btn.style.height = "30px";
-            btn.style.backgroundColor = "#a7a7a7";
-            btn.style.color = "#fff";
-            btn.style.borderColor = "#fff";
-            if (typeof retResult === "object")
-                btn.innerText =
-                    (retResult.totalTime / (1000 * 60)).toFixed(1) +
-                    "분, 거리: " +
-                    (retResult.totalDistance / 100).toFixed(0) +
-                    "미터";
-            else btn.innerText = "도착시간 " + (retResult / (1000 * 60)).toFixed(1) + "분";
-
-            document.querySelector("#navigationButton").appendChild(div);
-
             for (let i = 0; i < list.length; i++) {
-
                 let divElement = document.createElement("div");
                 let inputButton = document.createElement("input");
+                document.querySelector("#navigationButton").appendChild(divElement);
+                divElement.appendChild(inputButton);
+                divElement.classList.add("inline-container");
 
                 inputButton.type = "button";
                 inputButton.classList.add("inline-input");
-                divElement.classList.add("inline-container");
-                divElement.appendChild(inputButton);
                 inputButton.addEventListener("click", list[i].move);
                 inputButton.value = "";
                 if (list[i].isDestination) {
@@ -368,11 +275,51 @@
                         }
                         inputButton.value += transDirectCode(list[i].direction);
                     }
-                    document.querySelector("#navigationButton").appendChild(divElement);
                 }
             }
         }
-
+        function transCode (type) {
+            let result = "걷기";
+            switch (type) {
+                case "OB-STAIRS":
+                    result = "계단";
+                    break;
+                case "OB-ELEVATOR":
+                    result = "엘리베이터";
+                    break;
+                case "OB-ESCALATOR":
+                    result = "에스컬레이터 양방향";
+                    break;
+                case "OB-ESCALATOR_UP":
+                    result = "에스컬레이터 상행";
+                    break;
+                case "OB-ESCALATOR_DOWN":
+                    result = "에스컬레이터 하행";
+                    break;
+                default:
+                    result = "걷기";
+                    break;
+            }
+            return result;
+        }
+        function transDirectCode (type) {
+            let result = "";
+            switch (type) {
+                case "STRAIGHT":
+                    result = "직진";
+                    break;
+                case "LEFT":
+                    result = "좌회전";
+                    break;
+                case "RIGHT":
+                    result = "우회전";
+                    break;
+                default:
+                    result = "";
+                    break;
+            }
+            return result;
+        }
     </script>
 </body>
 

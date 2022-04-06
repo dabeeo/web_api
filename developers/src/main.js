@@ -24,7 +24,7 @@ li.forEach((item) => {
                 let codeElement = document.querySelectorAll("code");
                 if (!codeElement) return;
                 codeElement.forEach((data) => {
-                console.log(data.innerHTML);
+                // console.log(data.innerHTML);
                 let text = data.innerHTML;
                 let text1 = text.replace(/[<>]/g, "<span>$&</span>");
                 // console.log(text1);

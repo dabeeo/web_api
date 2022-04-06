@@ -1,16 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+<h1>내 위치 마커 표시하기 </h1>
+</br>
+<h4>MapDraw.myLocationOn()으로 지도에 현재 내위치 마커를 그릴 수 있습니다.</h4>
+</br>내위치 마커의 위치를 지정하고 마커 아이콘의 속성과 애니메이션 효과를 설정할 수 있습니다.
+</br>내위치 마커 아이콘의 속성을 지정하지 않는 경우 디폴트 값으로 표시되며 애니메이션 효과는 활성화되지 않습니다.
+</br>MapDraw.setMarker()에 대한 자세한 정보는 <a href="https://dabeeo.github.io/web_api/jsdocs/MapDraw.html#myLocationOn" target="_blank">[API Reference의 MapDraw.myLocationOn]</a>에 설명되어 있습니다.
+</br>내위치 마커의 속성은 아래 예제와 같습니다.
+<pre>
+    <code>
+        //내위치 표시 
+        mapDraw.myLocationOn(posX, posY, posZ, 
+            true,                       //타층 이동후 다시 돌아왔을 때 계속 표시 여부 
+            {
+                icon: {                 //내위치 마커의 아이콘 속성
+                    size: {             //내위치 마커 아이콘의 크기
+                        width: 30,
+                        height: 30
+                    }
+                },
+                animate: {              //내위치 마커 애니메이션 효과 속성 
+                    color: "#ff00ff",   //내위치 마커의 색상
+                    opacity: 0.3,       //내위치 마커의 투명도
+                    desireScale: 3.5    //내위치 마커의 최대 크기 
+                }
+            }
+        ); 
+        mapDraw.myLocationOff(); // 내위치 마커 삭제
 
-<head>
-    <title>myLocation sample</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <!-- dabeeo js api test url 사용. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
-    <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
+    </code>
+</pre>
+</br>
+</br>아래는 내위치마커의 속성을 설정하여 지도위에 내위치마커를 그리는 코드의 일부입니다.
+<br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#myLocation" target="_blank">[examples의 my location]</a>를 참조하세요.
+<pre><code>
     <div class="button-container">
         <button type="button" class="button-menu">
             myLocation Test
@@ -48,7 +69,6 @@
                 clientId: "6Lwuu9wa4wta0NiHwy1fO5",
                 clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
             });
-
             var mapOptions = {
                 authorization: authorization
             };
@@ -94,7 +114,6 @@
                     }
                 );
             });
-
             document.querySelector("#myLocationOff").addEventListener("click", function (e) {
                 document.querySelector("#myLocationOff").classList.add("on");
                 document.querySelector("#myLocationOn").classList.remove("on");
@@ -102,7 +121,16 @@
                 mapDraw.myLocationOff(); // 내위치 마커 삭제
             });
         }
-    </script>
-</body>
+    </script>    
+</code></pre>
 
-</html>
+</br>전체코드의 실행화면은 다음과 같습니다. 버튼을 클릭하면 내위치마커가 지도에 표시됩니다.
+</br>
+<iframe src="https://dabeeo.github.io/web_api/samples/myLocation.html"></iframe>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>

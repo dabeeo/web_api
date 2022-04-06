@@ -14,13 +14,13 @@ function init() {
     document.querySelector(".code").href = "https://github.com/dabeeo/web_api/blob/master/samples/" + selectOption+".html";
     let current = document.querySelector("nav a[href$='"+ selectOption+"']");
     current.classList.add("on");
-    console.log(current);
+    // console.log(current);
 
     for (let i = 0; i < list.length; i++) {
         list[i].addEventListener("click", function (e) {
             let fileName = e.target.href.split("#")[1] + ".html";
             let filePath = "../samples/" + fileName;
-            console.log(filePath);
+            // console.log(filePath);
             document.querySelector("iframe").src = filePath;
             let current = document.querySelector("nav a.on");
             current.className = current.className.replace("on", "");

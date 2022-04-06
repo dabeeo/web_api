@@ -1,0 +1,128 @@
+<h1>길찾기 경로 표시하기 </h1>
+</br>
+<h4>MapDraw.getNavigation()으로 지도에 출발지에서 목적지까지의 경로를 텍스트로 알려줄 수 있습니다.</h4>
+</br>단, MapDraw.getRouteOn()을 호출하여 경로를 찾은 후 사용하여야 합니다.
+</br>MapDraw.getNavigation()를 호출시 RoutePath로 경로에 대한 정보를 반환합니다.
+</br>RoutePath에 대한 자세한 정보는 <a href="https://dabeeo.github.io/web_api/jsdocs/global.html#RoutePath" target="_blank">[API Reference의 RoutePath]</a>에 설명되어 있습니다.
+<pre>
+    <code>
+        //길찾기 경로 구하기
+        let list = mapDraw.getNavigation();
+
+    </code>
+</pre>
+
+</br>
+</br>아래는 경로에 대한 정보를 알려주는 코드의 일부입니다. 길찾기와 모의주행 메뉴에서 MapDraw.getNavigation()을 호출하는 부분을 제외한 코드입니다.
+<br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#navigation" target="_blank">[examples의 simple navigation]</a>를 참조하세요.
+<pre><code>
+    <div id="navi_path_wrap" style="display:none;">
+        <div class="divider"></div>
+        <div class="inline-label">이동경로</div>
+        <div id="navigationButton">
+            <div class="inline-container">
+            </div>
+        </div>
+    </div>
+    <script>
+        function getNavigation () {
+            document.querySelector("#navi_path_wrap").style.display = "block";
+            //길찾기 경로 구하기
+            let list = mapDraw.getNavigation();
+
+            document.querySelector("#navigationButton").innerHTML = "";
+            for (let i = 0; i < list.length; i++) {
+                let divElement = document.createElement("div");
+                let inputButton = document.createElement("input");
+                document.querySelector("#navigationButton").appendChild(divElement);
+                divElement.appendChild(inputButton);
+                divElement.classList.add("inline-container");
+
+                inputButton.type = "button";
+                inputButton.classList.add("inline-input");
+                inputButton.addEventListener("click", list[i].move);
+                inputButton.value = "";
+                if (list[i].isDestination) {
+                    if (list[i].distance != 0) {
+                        inputButton.value += list[i].distance / 100 + "m" + " 걷기 후 ";
+                    }
+                    inputButton.value += list[i].title
+                    document.querySelector("#navigationButton").appendChild(divElement);
+                } else {
+                    if (typeof list[i].distance === "object") {
+                        // 이동수단 진입 후 층변경시 distance: 이동된 floor object
+                        inputButton.value += transCode(list[i].transCode) + " " + list[i].distance.name[0].text + " 으로 이동";
+                    } else {
+                        if (transCode(list[i].transCode) === "걷기") {
+                            inputButton.value += " " + list[i].distance / 100 + "m " + "걷기";
+                        } else {
+                            inputButton.value += " " + transCode(list[i].transCode) + "으로 " + list[i].distance / 100 + "m " + "걷기";
+                        }
+                    }
+                    if (list[i].direction) {
+                        inputButton.value += " 후 "
+                        if (list[i].title) {
+                            inputButton.value += list[i].title + "에서 ";
+                        }
+                        inputButton.value += transDirectCode(list[i].direction);
+                    }
+                }
+            }
+        }
+        function transCode (type) {
+            let result = "걷기";
+            switch (type) {
+                case "OB-STAIRS":
+                    result = "계단";
+                    break;
+                case "OB-ELEVATOR":
+                    result = "엘리베이터";
+                    break;
+                case "OB-ESCALATOR":
+                    result = "에스컬레이터 양방향";
+                    break;
+                case "OB-ESCALATOR_UP":
+                    result = "에스컬레이터 상행";
+                    break;
+                case "OB-ESCALATOR_DOWN":
+                    result = "에스컬레이터 하행";
+                    break;
+                default:
+                    result = "걷기";
+                    break;
+            }
+            return result;
+        }
+        function transDirectCode (type) {
+            let result = "";
+            switch (type) {
+                case "STRAIGHT":
+                    result = "직진";
+                    break;
+                case "LEFT":
+                    result = "좌회전";
+                    break;
+                case "RIGHT":
+                    result = "우회전";
+                    break;
+                default:
+                    result = "";
+                    break;
+            }
+            return result;
+        }
+
+    </script>
+
+</code></pre>
+
+</br>전체코드의 실행화면은 다음과 같습니다. 길찾기를 클릭하면 아래 경로가 표시되고 각 경로버튼을 클릭시 해당 경로가 중앙에 배치됩니다.
+</br>
+<iframe height=1000px src="https://dabeeo.github.io/web_api/samples/navigation.html"></iframe>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>

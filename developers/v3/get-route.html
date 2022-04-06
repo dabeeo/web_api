@@ -23,7 +23,13 @@
 <pre>
     <code>
         //길찾기 경로 그리기
-        result = mapDraw.getRouteOn(originPoi, destPoi, "recommendation", [], retResponse = true);
+        result = mapDraw.getRouteOn(
+            originPoi,            // 출발지
+            destPoi,              // 도착지
+            "recommendation",     // 층간이동경로
+            [],                   // 경유지
+            retResponse = true    // 반환값에 대한 옵션, true로 하는 경우 소요시간과 거리 반환받음. false인 경우 소요시간만 반환받음. 
+        );
 
     </code>
 </pre>
