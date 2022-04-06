@@ -1,88 +1,39 @@
 <h1>poi의 정보 표시하기 </h1>
 </br>
 <h4>object-click 또는 poi-click 이벤트를 이용하여 지도의 POI내에 있는 정보를 사용자에게 표시할 수 있습니다. </h4>
-</br>다비오맵스 플랫폼에서 poi에 입력된 사용자 정보는 object가 클릭되거나 poi가 클릭될 때 event를 통해 전달됩니다.
-</br>이를 통해 poi의 여러가지 내용을 팝업창등을 통해 사용자에게 알릴 수 있습니다.
+</br>다비오맵스 플랫폼에서 poi metadata에 입력된 정보는 object가 클릭되거나 poi가 클릭될 때 event를 통해 전달됩니다.
+</br>이를 통해 poi의 여러가지 내용을 팝업창 등을 통해 사용자에게 알릴 수 있습니다.
 </br>object 클릭시에는 object에 연결된 poi의 정보가 전달됩니다. 한개의 object에 여러개의 poi가 연결될 수 있습니다.
 </br>object 클릭 이벤트에 대한 자세한 설명은 <a href="https://dabeeo.github.io/web_api/jsdocs/global.html#event:object-click" target="_blank">[API Reference의 object click event]</a>를 참조하세요.
 </br>poi 클릭 이벤트에 대한 자세한 설명은 <a href="https://dabeeo.github.io/web_api/jsdocs/global.html#event:poi-click" target="_blank">[API Reference의 poi click event]</a>를 참조하세요.
 <pre>
     <code>
-        //네비게이션 옵션 설정
-        mapDraw.setNavigationOption({
-            lineColor: "#00008b",       // 길찾기 주행선 색상 
-            lineZ: 40,                  // 길찾기 주행선 z축 높이 
-            speedRate: 3,               // 모의주행 아이콘 속도
-        });
+        document.querySelector("#map").addEventListener("object-click", function (e) {
+            console.log("object click ", e.detail);
+        }    
     </code>
-</pre>
-</br>경로를 그리는 방법은 아래 예제에서 보는 바와 같이 mapDraw.getRouteOn()을 호출하면 됩니다.
-</br>인자로는 출발지, 목적지, 층간이동수단, 경유지, 반환값에 대한 옵션을 지정할 수 있습니다.
-</br>출발지와 목적지는 반드시 지정하여야 하며 나머지는 선택사항입니다. 지정하지 않을 경우 디폴트값이 적용됩니다.경유지는 복수가 지원되므로 배열형태로 입력해야 합니다.
-</br>출발지와 목적지, 경유지는 poiID로 하거나 특정좌표 모두 가능하며, poi 속성을 그대로 넘겨도 가능합니다.
-</br>층간이동경로는 추천, 계단, 엘리베이터, 에스컬레이터 4가지 타입이 존재합니다. 지정하지 않는 경우 추천으로 선택됩니다. 추천은 최단경로입니다.
-</br>MapDraw.getRouteOn()에 대한 자세한 정보는 <a href="https://dabeeo.github.io/web_api/jsdocs/MapDraw.html#getRouteOn" target="_blank">[API Reference의 MapDraw.getRouteOn]</a>에 설명되어 있습니다.
-<pre>
-    <code>
-        //길찾기 경로 그리기
-        result = mapDraw.getRouteOn(originPoi, destPoi, "recommendation", [], retResponse = true);
-
-    </code>
-</pre>
-</br>mapDraw.startRouteAnimation()으로 모의주행을 그릴 수 있습니다. 길찾기 경로를 따라 모의주행아이콘이 출발지에서 도착지까지 움직입니다.
-</br>모의주행아이콘에 대한 옵션은 앞서 얘기한 MapDraw.setNavigationOption()으로 줄 수 있으며
-</br>모의주행시 줌 설정과 카메라 설정, 모의주행중 층변경시 딜레이 설정과 도착지의 애니메이션 효과는 mapDraw.startRouteAnimation()에서 지정합니다.
-</br>MapDraw.startRouteAnimation()에 대한 자세한 정보는 <a href="https://dabeeo.github.io/web_api/jsdocs/MapDraw.html#startRouteAnimation" target="_blank">[API Reference의 MapDraw.startRouteAnimation]</a>을
-참조하세요.
-<pre>
-    <code>
-        mapDraw.startRouteAnimation();
-        mapDraw.stopRouteAnimation();
-        
-</code>
 </pre>
 
 </br>
-</br>아래는 지도에 포함된 poi를 select하여 길찾기 경로를 그리고 모의주행을 할 수 있는 코드의 일부입니다.
-<br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#getRouteOn" target="_blank">[examples의 simple navigation]</a>를 참조하세요.
+</br>아래는 지도에 포함된 object를 클릭하면 object에 연결된 poi를 보여주는 코드의 일부입니다.
+<br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#objectClickEvent" target="_blank">[examples의 object click event]</a>를 참조하세요.
 <pre><code>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+        </div>
+    </div>
     <div class="button-container">
         <button type="button" class="button-menu">
-            Navigation Test
+            Object Click Event Test
         </button>
     </div>
-    <div class="control-container">
-        <div class="inline-container">
-            <div class="inline-label">층선택</div>
-            <select type="text" class="inline-input" name="floor">
-                <option selected value="default">default</option>
-            </select>
-        </div>
-        <div class="divider"></div>
-        <div class="inline-container">
-            <div class="inline-label">출발지</div>
-            <select type="text" class="inline-input" id="poiOrigin">
-            </select>
-        </div>
-        <div class="inline-container">
-            <div class="inline-label">도착지</div>
-            <select type="text" class="inline-input" id="poiDestination">
-            </select>
-        </div>
-        <div class="inline-container">
-            <input type="button" class="inline-input" id="getRouteOn" value="길찾기">
-            <input type="button" class="inline-input" id="getRouteOff" value="끄기">
-        </div>
-        <div class="inline-container">
-            <input type="button" class="inline-input" id="startRouteAnimation" value="모의주행">
-            <input type="button" class="inline-input" id="stopRouteAnimation" value="끄기">
-        </div>
-    </div>
-
     <div id="map"></div>
 
     <script>
-        let mapFloorName = {};
 
         window.addEventListener("load", function () {
             initMap();
@@ -90,113 +41,84 @@
 
         function initMap () {
             var mapContainer = document.getElementById('map'); // 지도를 표시할 div
-
             // 지도 인증정보
             var authorization = new indoorMapApi.Authorization({
                 clientId: "6Lwuu9wa4wta0NiHwy1fO5",
                 clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
             });
             var mapOptions = {
-                authorization: authorization
+                authorization: authorization,
+                camera: "2d",
+                zoom: 200
             };
-
             // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
             new indoorMapApi.MapView(
                 mapContainer, // 컨테이너
                 mapOptions, // 옵션
                 function (response) { // 맵 로드 콜백
                     var code = response.getCode();
-
                     if (code === 200) {
                         mapDraw = response.getPayload().mapDraw;
                         // do something
                         console.log("map view success!")
-                        handlePoiInfo(mapDraw.response);
-                        handleGetRouteOnEvent();
-                        handleRouteAnimationEvent();
+                        initClickEvent();
                     }
                 }
             );
-        }
-
+        };
         //////////////////////////////////////////////////////////////////////////////////
-        // poi select 만들기
-        function handlePoiInfo (response) {
-            mapPoiInfo = response.poiInfo;
-            //poi select에서 사용할 층이름 만들기 
-            let floorInfo = response.floorInfo;
-            for (let i = 0; i < floorInfo.length; i++) {
-                var floor = floorInfo[i];
-                mapFloorName[floor.id] = floor.name[0].text;
-            }
-            //상단 poi select 만들기
-            makePoiSelect("poiOrigin");
-            makePoiSelect("poiDestination");
-        }
+        // click event init
+        function initClickEvent () {
+            var modal = document.querySelector("#myModal");
+            var span = document.querySelector(".close");
 
-        //poi select창에 poi list 만들기
-        function makePoiSelect (id) {
-            let element = document.querySelector("select#" + id);
-            for (let index = 0; index < mapPoiInfo.length; index++) {
-                let poi = mapPoiInfo[index];
-                if (poi.title === "") continue;
+            /* object 클릭시 poi 정보 전달 */
+            document.querySelector("#map").addEventListener("object-click", function (e) {
+                console.log("object click ", e.detail);
+                if (e.detail === null) return;
+                let message = "";
 
-                let option = document.createElement("option");
-                option.value = index;
-                option.innerHTML = mapFloorName[poi.floorId] + "&nbsp;&nbsp;&nbsp;" + poi.title;
-                element.appendChild(option);
-            }
-        }
-        //길찾기 경로 그리기와 지우기 
-        function handleGetRouteOnEvent () {
-            document.querySelector("#getRouteOn").addEventListener("click", function (e) {
-                //출발지와 도착지 선택
-                let originPoi = getPoi("poiOrigin"); //출발지 POI id 
-                let destPoi = getPoi("poiDestination"); //도착지 POI id 
-
-                //네비게이션 옵션 설정
-                mapDraw.setNavigationOption({
-                    lineColor: "#00008b",       // 길찾기 주행선 색상 
-                    lineZ: 40,                  // 길찾기 주행선 z축 높이 
-                    speedRate: 3,               // 모의주행 아이콘 속도
-                });
-
-                //길찾기 경로 그리기
-                result = mapDraw.getRouteOn(originPoi, destPoi, "recommendation", [], retResponse = true);
-                //경로가 존재하지 않는 경우
-                if (result === undefined) {
-                    alert("요청하신 경로가 존재하지 않습니다.\n출발지와 도착지를 확인하세요");
-                    return;
+                //클릭시 좌표에 연결 된 object가 여러개 올수 있으므로 array를 순회하면서 확인 후  poi 처리 
+                for (let index of e.detail) {
+                    //하나의 Object에 여러개의 poi가 연결된 경우
+                    for (let p of index.poiDataArr) {
+                        message += `poi title : ${JSON.stringify(p.title)} \npoi position : ${JSON.stringify(p.position)}`
+                        // poi의 메타데이터에 있는 내용
+                        for (let m of p.metadatas) {
+                            message += `\n${m.lang}`;
+                            for (let meta of m.metadatas) {
+                                if (meta.text == '') continue;
+                                data = JSON.parse(meta.text);
+                                for (key in data) {
+                                    console.log(key, ":", data[key])
+                                    message += `\n${key}  : ${data[key]}`;
+                                }
+                            }
+                        }
+                    }
                 }
+                // modal.innerHTML = alertMessage;
+                if (message === "") return;
+                let modalContent = document.querySelector(".modal-content p");
+                modalContent.innerText = message;
+                modal.style.display = "block";
             });
-            document.querySelector("#getRouteOff").addEventListener("click", function (e) {
-                //길찾기 경로 지우기
-                mapDraw.getRouteOff();
-            });
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
         }
-
-        function getPoi (id) {
-            let index = document.querySelector("select#" + id).value;
-            return mapPoiInfo[index];
-        }
-        //모의주행 시작과 정지
-        function handleRouteAnimationEvent () {
-            //모의주행 시작
-            document.querySelector("#startRouteAnimation").addEventListener("click", function (e) {
-                mapDraw.startRouteAnimation();
-            });
-            //모의주행 정지
-            document.querySelector("#stopRouteAnimation").addEventListener("click", function (e) {
-                mapDraw.stopRouteAnimation();
-            });
-        }
-    </script>
-    
+    </script>    
 </code></pre>
 
 </br>전체코드의 실행화면은 다음과 같습니다.
 </br>
-<iframe height=1000px src="https://dabeeo.github.io/web_api/samples/getRouteOn.html"></iframe>
+<iframe height=1000px src="https://dabeeo.github.io/web_api/samples/objectClickEvent.html"></iframe>
 </br>
 </br>
 </br>

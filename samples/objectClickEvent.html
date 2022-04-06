@@ -9,25 +9,43 @@
     <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* The Modal (background) */
         .modal {
+            display: none;
             position: fixed;
-            font-size: 1.2rem;
-            left: calc(100vw / 2 - 200px);
-            top: calc(100vh / 2 - 100px);
-            width: 400px;
-            height: 100px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            padding-top: 40px;
-            text-align: center;
-            opacity: 0;
-            /* visibility: hidden; */
-            transform: scale(1.1);
-            transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
         }
 
-        .hide {
-            opacity: 0;
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 
@@ -35,7 +53,14 @@
 </head>
 
 <body>
-    <div class='modal'>teset</div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+        </div>
+    </div>
     <div class="button-container">
         <button type="button" class="button-menu">
             Object Click Event Test
@@ -51,26 +76,22 @@
 
         function initMap () {
             var mapContainer = document.getElementById('map'); // 지도를 표시할 div
-
             // 지도 인증정보
             var authorization = new indoorMapApi.Authorization({
                 clientId: "6Lwuu9wa4wta0NiHwy1fO5",
                 clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
             });
-
             var mapOptions = {
                 authorization: authorization,
-                camera: "2d"
+                camera: "2d",
+                zoom: 200
             };
-
-
             // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
             new indoorMapApi.MapView(
                 mapContainer, // 컨테이너
                 mapOptions, // 옵션
                 function (response) { // 맵 로드 콜백
                     var code = response.getCode();
-
                     if (code === 200) {
                         mapDraw = response.getPayload().mapDraw;
                         // do something
@@ -83,26 +104,49 @@
         //////////////////////////////////////////////////////////////////////////////////
         // click event init
         function initClickEvent () {
+            var modal = document.querySelector("#myModal");
+            var span = document.querySelector(".close");
+
             /* object 클릭시 poi 정보 전달 */
             document.querySelector("#map").addEventListener("object-click", function (e) {
                 console.log("object click ", e.detail);
                 if (e.detail === null) return;
-                let alertMessage = "[OBJECT CLICK]";
-                let modal = document.querySelector('.modal');
+                let message = "";
 
                 //클릭시 좌표에 연결 된 object가 여러개 올수 있으므로 array를 순회하면서 확인 후  poi 처리 
                 for (let index of e.detail) {
-
                     //하나의 Object에 여러개의 poi가 연결된 경우
                     for (let p of index.poiDataArr) {
-                        alertMessage += `\npoi title : ${JSON.stringify(p.title)} \npoi position : ${JSON.stringify(p.position)}`
+                        message += `poi title : ${JSON.stringify(p.title)} \npoi position : ${JSON.stringify(p.position)}`
+                        // poi의 메타데이터에 있는 내용
+                        for (let m of p.metadatas) {
+                            message += `\n${m.lang}`;
+                            for (let meta of m.metadatas) {
+                                if (meta.text == '') continue;
+                                data = JSON.parse(meta.text);
+                                for (key in data) {
+                                    console.log(key, ":", data[key])
+                                    message += `\n${key}  : ${data[key]}`;
+                                }
+                            }
+                        }
                     }
                 }
-                modal.innerHTML = alertMessage;
-                modal.style.opacity = "100";
-                let delay = Number(3000);
-                setTimeout(() => { modal.style.opacity = 0; }, delay);
+                // modal.innerHTML = alertMessage;
+                if (message === "") return;
+                let modalContent = document.querySelector(".modal-content p");
+                modalContent.innerText = message;
+                modal.style.display = "block";
             });
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
         }
     </script>
 </body>
