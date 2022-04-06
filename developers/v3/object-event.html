@@ -83,7 +83,7 @@
                 for (let index of e.detail) {
                     //하나의 Object에 여러개의 poi가 연결된 경우
                     for (let p of index.poiDataArr) {
-                        message += `poi title : ${JSON.stringify(p.title)} \npoi position : ${JSON.stringify(p.position)}`
+                        message += `poi title : ${JSON.stringify(p.title)} `
                         // poi의 메타데이터에 있는 내용
                         for (let m of p.metadatas) {
                             message += `\n${m.lang}`;
