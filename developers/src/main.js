@@ -1,4 +1,3 @@
-// import a from './a.js';
 
 fetch("./developers/v3/introduction.html")
     .then((response) => response.text())
@@ -6,6 +5,15 @@ fetch("./developers/v3/introduction.html")
         // console.log(data);
         document.querySelector("article").innerHTML = data;
     });
+document.querySelector('#en').addEventListener("click", ()=> {
+    document.querySelectorAll('[lang="en"]').forEach(element=>element.style.display="block");
+    document.querySelectorAll('[lang="ko"]').forEach(element=>element.style.display="none");
+}) 
+
+document.querySelector('#ko').addEventListener("click", ()=> {
+    document.querySelectorAll('[lang="ko"]').forEach(element=>element.style.display="block");
+    document.querySelectorAll('[lang="en"]').forEach(element=>element.style.display="none");
+}) 
 
 const li = document.querySelectorAll("nav li a");
 li.forEach((item) => {
