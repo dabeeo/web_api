@@ -1,17 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<h1>오브젝트 애니메이션 효과주기 </h1>
+</br>
+<h4>MapDraw.updateObjectStateByIds()를 이용하여 지도의 오브젝트에 애니메이션 효과를 줄 수 있습니다. </h4>
+</br>복수개의 오브젝트를 직접 지정하거나 연결된 poi를 지정하여 색상 옵션을 주면 됩니다.
+</br>MapDraw.updateObjectStateByIds()에 대한 자세한 설명은 <a href="https://developers.dabeeomaps.com/jsdocs/MapDraw.html#updateObjectStateByIds" target="_blank">[API Reference의 update object status by
+    id]</a>를 참조하세요.
+</br>아래는 오브젝트의 속성을 설정하는 각 옵션과 그에 대한 설명입니다.
+<pre>
+    <code>
+        mapDraw.updateObjectStateByIds({
+            ids: [poi1, poi2, poi3],    // 애니메이션 효과를 주고자 하는 오브젝트의 아이디, 또는 연결된 poi의 아이디
+            color: '#dc3545',           // 오브젝트 색상
+            opacity: 0.3,               // 오브젝트 투명도
+            isAnimate: true,            // animation 적용 여부 
+            duration: 1000,             // animation 주기
+            isRepeat: true,             // animation 반복여부
+            isYoyo: true                // animation 반복형태. true로 할 때 보다 자연스러운 효과가 연출됨
+        });
 
-<head>
-    <title>multiple object animation sample</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </code>
+</pre>
 
-    <!-- dabeeo js api test url입니다. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
-    <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
+</br>
+</br>아래는 지도에 포함된 object중 random하게 선택하여 색상 정보를 변경하는 코드의 일부입니다.
+<br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#multiObjectsAnimation" target="_blank">[examples의 multi objects animation]</a>를 참조하세요.
+<pre><code>
     <div class="button-container">
         <button type="button" class="button-menu">
             Multi Object Animation Test
@@ -138,6 +150,15 @@
             });
         }
     </script>
-</body>
+</code></pre>
 
-</html>
+</br>전체코드의 실행화면은 다음과 같습니다. Start object animation 버튼을 클릭하면 복수개의 오브젝트에 애니메이션 효과가 나타납니다.
+</br>
+<iframe height=1000px src="https://dabeeo.github.io/web_api/samples/multiObjectsAnimation.html"></iframe>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>

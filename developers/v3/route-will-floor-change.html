@@ -1,39 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+<h1>모의주행과 층변경시 알림창 </h1>
+</br>
+<h4>MapDraw.startRouteAnimation()과 will-floor-change 이벤트를 이용하여 사용자에게 모의주행 중 층변경에 대한 알림을 줄 수 있습니다. </h4>
+</br>MapDraw.startRouteAnimation() 모의주행 옵션으로 층변경시 층 변경 전에 지연시간을 줄 수 있습니다.
+</br>옵션 설정시 모의주행 중 층변경 전에 will-floor-change가 발생하며 이를 이용하여 지연된 시간동안 사용자에게 층변경에 대한 알림을 줄 수 있습니다.
+</br>MapDraw.startRouteAnimation()은 MapDraw.getRouteOn()을 호출하여 경로를 찾은 후 사용하여야 합니다.
+<pre>
+    <code>
+        mapDraw.startRouteAnimation({
+            changeFloorDelay: changeFloorDelay, //층변경 전 지연시간
+        });
+    
+    </code>
+</pre>
+</br>모의주행으로 인하여 층 변경전에 발생하는 will-floor-change 이벤트는 아래와 같은 방법으로 받습니다.
+</br>이벤트 내에 현재층정보와 바뀌는 층정보, 층변경시 이동수단에 대한 정보가 들어 있습니다. 이를 이용하여 사용자에게 층변경에 대한 정보를 알려줍니다 .
+</br>will-floor-change()에 대한 자세한 정보는 <a href="https://developers.dabeeomaps.com/jsdocs/global.html#event:will-floor-change" target="_blank">[API Reference의 will-floor-change]</a>을
+참조하세요.
+<pre>
+    <code>
+        document.addEventListener("will-floor-change", function (e) {
+            let currentFloor = e.detail.floor.current.name;
+            let nextFloor = e.detail.floor.next.name;
+            let transCode = e.detail.transCode;
+    }
 
-<head>
-    <title>navigation sample</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-
-    <!-- dabeeo js api test url입니다. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
-    <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .modal {
-            position: fixed;
-            font-size: 1.2rem;
-            left: calc(100vw / 2 - 200px);
-            top: calc(100vh / 2 - 100px);
-            width: 400px;
-            height: 100px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            padding-top: 40px;
-            text-align: center;
-            opacity: 0;
-            /* visibility: hidden; */
-            transform: scale(1.1);
-            transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-        }
-
-        .hide {
-            opacity: 0;
-        }
-    </style>
-</head>
-
-<body>
+    </code>
+</pre>
+</br>
+</br>아래는 모의주행 중 층변경시 사용자에게 층변경에 대한 알림창을 띠워주는 코드의 일부입니다. MapDraw.startRouteAnimation()은 MapDraw.getRouteOn() 호출 후에 불러야 합니다.
+<br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#navigationWillFloorChange" target="_blank">[examples의 navigation with floor change]</a>를 참조하세요.
+<pre><code>
     <div class='modal'>modal</div>
     <div class="button-container">
         <button type="button" class="button-menu">
@@ -52,11 +48,9 @@
     <div id="map"></div>
 
     <script>
-
         window.addEventListener("load", function () {
             initMap();
         });
-
         function initMap () {
             var mapContainer = document.getElementById('map'); // 지도를 표시할 div
 
@@ -67,9 +61,9 @@
             });
             var mapOptions = {
                 authorization: authorization,
-                camera: "3d", // 초기 demention
+                camera: "3d", // 초기 카메라모드
                 angle: {
-                    vertical: 10, // 3D 모드일때 tilt 30 
+                    vertical: 10, // 3D 모드일때 tilt
                     horizontal: 0
                 },
                 zoom: 100,
@@ -84,7 +78,6 @@
                     var code = response.getCode();
 
                     if (code === 200) {
-
                         mapDraw = response.getPayload().mapDraw;
                         mapPoiInfo = mapDraw.response.poiInfo;
                         floorInfo = mapDraw.response.floorInfo;
@@ -108,14 +101,6 @@
         }
         function transCodeName (type) {
             let result = "걷기";
-            /*
-            * transCode: 이동수단 코드
-            * OB-ELEVATOR : 엘리베이터
-            * OB-ESCALATOR : 에스컬레이터 양방향
-            * OB-ESCALATOR_UP : 에스컬레이터 상행
-            * OB-ESCALATOR_DOWN : 에스컬레이터 하행
-            * OB-STAIRS : 계단
-            */
             switch (type) {
                 case "OB-STAIRS":
                     result = "계단";
@@ -142,7 +127,7 @@
             return result;
         };
 
-
+        //모의주행으로 인한 층변경시 층변경전에 오는 이벤트 처리
         function initWillChangeFloor () {
             document.addEventListener("will-floor-change", function (e) {
                 if (e.detail === null) return;
@@ -158,14 +143,9 @@
         }
 
         function initNavigation () {
-            //set navigation option 
-            setNavigationOption();
-
-            //draw navigation route
-            const result = getRouteOn();
-
-            //start navigate simulation 
-            if (result) startRouteAnimation(result);
+            setNavigationOption();//set navigation option 
+            const result = getRouteOn();//draw navigation route
+            if (result) startRouteAnimation(result);//start navigate simulation 
         }
 
         function setNavigationOption () {
@@ -179,12 +159,10 @@
                     destinationPositionZ: 5,
                     visibleIcon: true, // 경로 표시할때 시작지, 도착지 아이콘 없애기 / 보이기
                     moveIconZ: 12,
-
                 });
         }
 
         function getRouteOn () {
-
             let fInfo = floorInfo.slice();
             let max = fInfo.length;
             let index = Math.floor((Math.random() * (max - 0) + 0));
@@ -209,8 +187,9 @@
 
         function startRouteAnimation (result) {
             let changeFloorDelay = Number(document.querySelector("#changeFloorDelay").value);
+            //모의주행 시작. 옵션으로 층변경 전 지연시간 설정
             mapDraw.startRouteAnimation({
-                changeFloorDelay: changeFloorDelay, //층변경시 지연시간
+                changeFloorDelay: changeFloorDelay,
             });
         }
 
@@ -223,9 +202,16 @@
             };
             return poi;
         }
-
-
     </script>
-</body>
+</code></pre>
 
-</html>
+</br>전체코드의 실행화면은 다음과 같습니다. start navigation을 실행하면 모의주행 도중 층변경시 알림창이 뜹니다.
+</br>
+<iframe height=1000px src="https://dabeeo.github.io/web_api/samples/navigationWillFloorChange.html"></iframe>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
