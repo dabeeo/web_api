@@ -18,19 +18,24 @@
 </pre>
 
 
-<h4> 2. 다비오맵스 플랫폼 서버에서 지도인증정보를 획득합니다. </h4>
-* API에서 지도를 불러오기 위해서는 해당 지도의 Client ID / Secret code를 알아야 합니다. 아래의 절차에 따라 정보를 확인하세요.
+<h4 lang="ko"> 2. 다비오맵스 플랫폼 서버에서 지도인증정보를 획득합니다. </h4>
+<h4 lang="en"> 2. Obtain map authentication information from Dabiomaps platform server. </h4>
+<span lang='ko'>* API에서 지도를 불러오기 위해서는 해당 지도의 Client ID / Secret code를 알아야 합니다. 아래의 절차에 따라 정보를 확인하세요.</span>
+<span lang='en'>* To load a map from the API, you need to know the Client ID / Secret code of the map. Follow the steps below to check your information</span>
 </br>
 <h4> Issue Client ID / Secret</h4>
 <ol>
-    <li><a href="https://dabeeomaps.com/docs" target="_blank">[다비오맵스 실내지도 플랫폼] </a> > 실내지도 > 지도관리 메뉴로 이동합니다.</li>
-    <li>지도관리 목록에서 지도 정보를 클릭합니다.</li>
-    <li>상세 지도 정보에서 인증접근 정보를 확인합니다.</li>
-    <li>코드에 클라이언트아이디와 클라이언트시크릿을 입력합니다.</li>
+    <li lang="ko"><a href="https://dabeeomaps.com/docs" target="_blank">[다비오맵스 실내지도 플랫폼] </a> > 실내지도 > 지도관리 메뉴로 이동합니다.</li>
+    <li lang="en"><a href="https://dabeeomaps.com/docs" target="_blank">[Dabeeomaps platform] </a> goto > indoor map > indoor map management menu.</li>
+    <li lang="ko">지도관리 목록에서 지도 정보를 클릭합니다.</li>
+    <li lang="en">Click map information in the map management list.</li>
+    <li lang="ko">상세 지도 정보에서 인증접근 정보를 확인합니다.</li>
+    <li lang="en">Check the authentication access information in the detailed map information.</li>
+    <li lang="ko">코드에 클라이언트아이디와 클라이언트시크릿을 입력합니다.</li>
+    <li lang="en">Enter the client ID and client secret in the code.</li>
 </ol>
 <pre>
     <code>  
-        // 지도 인증정보
         var authorization = new indoorMapApi.Authorization({
             clientId: "28AXw_veA2YbNKDP6poTpT",
             clientSecret: "70c540c169af62808f4da3709e988e06"
@@ -39,10 +44,14 @@
 </code>
 </pre>
 </br>
-<h4>3. 다비오맵스 JS API를 사용하여 지도를 렌더링합니다.</h4>
-* 다비오맵스의 공식 api 링크는 <a href="https://dabeeomaps.com/docs" target="_blank">[다비오맵스 실내지도 플랫폼]</a> 에서 확인할 수 있습니다.
-</br>* API를 로딩하는 스크립트의 위치는 head, body등 어디에 위치해도 상관없으나 실행코드보다 항상 먼저 선언되어야 합니다.
-<br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#index" target="_blank">[examples index]</a>를 참조하세요.
+<h4 lang="ko">3. 다비오맵스 JS API를 사용하여 지도를 렌더링합니다.</h4>
+<h4 lang="en">3. Render the map using Dabeeomaps JS API.</h4>
+<span lang="ko">* 다비오맵스의 공식 api 링크는 <a href="https://dabeeomaps.com/docs" target="_blank">[다비오맵스 실내지도 플랫폼]</a> 에서 확인할 수 있습니다.</span>
+<span lang="en">* Dabeeomaps official JS API link is at <a href="https://dabeeomaps.com/docs" target="_blank">[Dabeeomaps platform]</a>.</span>
+<span lang="ko"></br>* API를 로딩하는 스크립트의 위치는 head, body등 어디에 위치해도 상관없으나 실행코드보다 항상 먼저 선언되어야 합니다.</span>
+<span lang="en"></br>* The location of the script that loads the API doesn't matter where it is located, such as head or body, but it must always be declared before the executable code.</span>
+<span lang="ko"><br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#index" target="_blank">[examples index]</a>를 참조하세요.</span>
+<span lang="en"><br>The example page and the full code are at <a href="https://dabeeo.github.io/web_api/example/#index" target="_blank">[examples index]</a>.</span>
 
 <pre>
   <code>
