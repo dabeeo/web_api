@@ -159,6 +159,51 @@ setPoiRotateDistance() 의 인자값은 소숫점 2자리 까지 반영 됩니�
 mapDraw.setPoiRotateDistance(5.55);
 ~~~
 
+#
+
+### poi Hover시 색상 변경
+mapDraw.onHoverObjectEvent(color, opacity); 메소드를 이용하여 해당 poi에 마우스 hover시 색상을 입혀줄 수 있습니다
+- color : poi Object에 입혀줄 색상
+- opacity : 입힐 색상의 투명도 조절
+~~~javascript
+mapDraw.onHoverObjectEvent('rgb(255,255,0)', 0.8);
+~~~
+
+#
+
+### poi Hover 색상 변경 이벤트 제거
+mapDraw.unHoverObjectEvent() 메소드를 이용하여 poi에 색상 변경 이벤트를 제거한다
+
+#
+
+### poi object tag box 생성 메소드
+mapDraw.setPOITag(poi, tag, width, height, pos, isResize) 메소드를 이용하여 poi 위치에 태그 생성
+- poi : 태그와 연동할 poi 정보
+- tag : 생성할 domelement
+- width : 생성할 tag의 width
+- height: 생성할 tag의 height
+- pos: 생성할 tag가 위치할 위치 정보 위치정보(top, bottom, left, right, center)
+- isResize: 태그가 zoom, 마우스의 wheel 상태에 따라 반응형으로 동작하는 지에 대한 boolean
+
+~~~javascript
+const poi = mapDraw.poiGroup.children.find((v) => v.userData.id === document.querySelector("#poiTagID").value);
+const tag = document.createElement('div');
+const width = document.querySelector('#poiTagWidth').value;
+const height = document.querySelector('#poiTagHeight').value;
+const pos = document.querySelector('#poiTagSelector').value;
+const isResize = JSON.parse(document.querySelector('#poiTagResize').value);
+mapDraw.setPOITag(poi, tag, width, height, pos, isResize);
+~~~
+
+#
+
+### poi object tag box 삭제 메소드
+mapDraw.deletePOITag(id) 메소드를 이용하여 해당 poi의 태그 삭제
+- id : 삭제할 태그를 가지고 있는 poi id
+
+~~~javascript
+ mapDraw.deletePOITag(id);
+~~~
 
 ## Zoom 
 
@@ -659,8 +704,9 @@ mapDraw.setMarker({
 	tag: tag,
 	width: 100,
 	height: 50,
-	pos: top // top, bottom, left, right
+	pos: top, // top, bottom, left, right
 	isResize: true // default는 false);
+});
 ~~~
 mapDraw.clearMarker로 표시한 마커를 삭제할 수 있습니다.
 마커와 함께 표시된 tag가 존재하면 함께 삭제됩니다.
