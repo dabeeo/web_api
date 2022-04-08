@@ -173,7 +173,9 @@ mapDraw.onHoverObjectEvent('rgb(255,255,0)', 0.8);
 
 ### poi Hover 색상 변경 이벤트 제거
 mapDraw.unHoverObjectEvent() 메소드를 이용하여 poi에 색상 변경 이벤트를 제거한다
-
+~~~javascript
+mapDraw.unHoverObjectEvent();
+~~~
 #
 
 ### poi object tag box 생성 메소드
