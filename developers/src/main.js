@@ -6,12 +6,12 @@ fetch("./developers/v3/introduction.html")
         document.querySelector("article").innerHTML = data;
     });
 document.querySelector('#en').addEventListener("click", ()=> {
-    document.querySelectorAll('[lang="en"]').forEach(element=>element.style.display="block");
+    document.querySelectorAll('[lang="en"]').forEach(element=>element.style.display="revert");
     document.querySelectorAll('[lang="ko"]').forEach(element=>element.style.display="none");
 }) 
 
 document.querySelector('#ko').addEventListener("click", ()=> {
-    document.querySelectorAll('[lang="ko"]').forEach(element=>element.style.display="block");
+    document.querySelectorAll('[lang="ko"]').forEach(element=>element.style.display="revert");
     document.querySelectorAll('[lang="en"]').forEach(element=>element.style.display="none");
 }) 
 
