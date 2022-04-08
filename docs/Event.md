@@ -138,3 +138,14 @@ document.querySelector("#map").addEventListener("marker-click", (e) => { // 캔�
 * example : https://github.com/dabeeo/web_api/blob/master/samples/clickEvent.html
 * 실행 : https://dabeeo.github.io/web_api/samples/clickEvent.html   
 
+
+
+### get-pos
+지도에서 클릭한 지점의 좌표값을 반환합니다.
+~~~ javascript 
+document.querySelector("#map").addEventListener("get-pos", (e) => { // 캔버스가 그려지는 container
+        console.log(e.detail); // x, y coordinate값 반환
+});
+~~~
+
+
