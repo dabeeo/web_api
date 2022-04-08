@@ -6,6 +6,31 @@
 
 
 #
+### jsMapAPI_03.26.01_S_2022.04.08
+
+#### change description  
+- hover시 색상 변경 설정
+- hover시 색상 변경 설정 해제 
+- poi object tag box 생성
+- poi object tag box 삭제
+- 해당마커에 tag box 표시하기
+- 클릭한 지점의 좌표값 반환
+ 
+#### changed API
+- hover시 색상 변경 설정
+- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#poi-hover시-색상-변경
+- hover시 색상 변경 설정 해제 
+- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#poi-hover-색상-변경-이벤트-제거
+- poi object tag box 생성
+- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#poi-object-tag-box-생성-메소드
+- poi object tag box 삭제
+- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#poi-object-tag-box-삭제-메소드
+- 해당마커에 tag box 표시하기
+- https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md#여러개의-마커표시-해당-마커에-tag-box표시하기
+- 클릭한 지점의 좌표값 반환
+- https://github.com/dabeeo/web_api/blob/master/docs/Event.md#get-pos
+
+#
 ### jsMapAPI_03.24.01_R_2022.03.04
 
 #### change description  
