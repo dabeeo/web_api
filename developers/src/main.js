@@ -1,4 +1,5 @@
 
+let lang='ko';
 fetch("./developers/v3/introduction.html")
     .then((response) => response.text())
     .then((data) => {
@@ -6,11 +7,13 @@ fetch("./developers/v3/introduction.html")
         document.querySelector("article").innerHTML = data;
     });
 document.querySelector('#en').addEventListener("click", ()=> {
+    lang='en';
     document.querySelectorAll('[lang="en"]').forEach(element=>element.style.display="revert");
     document.querySelectorAll('[lang="ko"]').forEach(element=>element.style.display="none");
 }) 
 
 document.querySelector('#ko').addEventListener("click", ()=> {
+    lang='ko';
     document.querySelectorAll('[lang="ko"]').forEach(element=>element.style.display="revert");
     document.querySelectorAll('[lang="en"]').forEach(element=>element.style.display="none");
 }) 
@@ -29,6 +32,10 @@ li.forEach((item) => {
                 document.querySelector("article").innerHTML = data;
             })
             .then(() => {
+                if (lang==='en') {
+                    document.querySelectorAll('[lang="en"]').forEach(element=>element.style.display="revert");
+                    document.querySelectorAll('[lang="ko"]').forEach(element=>element.style.display="none");                                    
+                }
                 let codeElement = document.querySelectorAll("code");
                 if (!codeElement) return;
                 codeElement.forEach((data) => {

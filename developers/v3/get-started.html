@@ -53,7 +53,7 @@
 <span lang="ko"><br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#index" target="_blank">[examples index]</a>를 참조하세요.</span>
 <span lang="en"><br>The example page and the full code are at <a href="https://dabeeo.github.io/web_api/example/#index" target="_blank">[examples index]</a>.</span>
 
-<pre>
+<pre lang="ko">
   <code>
     <div id="map"></div>
     <script src="[다비오맵스의 공식 api 링크]"></script>
@@ -72,7 +72,7 @@
                 authorization: authorization
             };
 
-            // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+            // 지도를 표시할 div, 옵션. 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
             new indoorMapApi.MapView(
                 mapContainer, // 컨테이너
                 mapOptions, // 옵션
@@ -90,9 +90,48 @@
     </script>
   </code>
 </pre>
+<pre lang="en">
+    <code>
+      <div id="map"></div>
+      <script src="[Official Dabeeomap JS API link]"></script>
+      
+      <script>
+        window.onload = function () {
+            var mapContainer = document.getElementById('map'); // div to display a map
+
+            // map authorization information
+            var authorization = new indoorMapApi.Authorization({
+                clientId: "28AXw_veA2YbNKDP6poTpT",
+                clientSecret: "70c540c169af62808f4da3709e988e06"
+            });
+
+            var mapOptions = {
+                authorization: authorization
+            };
+
+            // The div to display the map on. Option. after creation and loading, the result is returned as a callback.
+            new indoorMapApi.MapView(
+                mapContainer, // container 
+                mapOptions, // Option
+                function (response) { // map load callback
+                    var code = response.getCode();
+
+                    if (code === 200) {
+                        var mapDraw = response.getPayload().mapDraw;
+                        // do something
+                        console.log("map view success!")
+                    }
+                }
+            );
+        };
+    </script>
+    </code>
+</pre>
 </br>
-<h4> 4. 위 예제를 실행한 화면은 다음과 같습니다.</h4>
-* 디폴트로 3d모드로 설정되어 있으며 마우스를 이용하여 이동, 확대, 회전등이 가능합니다.
+<h4 lang="ko"> 4. 위 예제를 실행한 화면은 다음과 같습니다.</h4>
+<h4 lang="en"> 4. The result of the above code is below. </h4>
+<span lang="ko">* 디폴트로 3d모드로 설정되어 있으며 마우스를 이용하여 이동, 확대, 회전등이 가능합니다.</span>
+<span lang="en">* It is set to 3d mode by default and can be moved, enlarged, rotated, etc. using the mouse.</span>
 <iframe src="https://dabeeo.github.io/web_api/samples/index.html"></iframe>
 </br>
 </br>
