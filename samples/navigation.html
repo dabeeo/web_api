@@ -202,7 +202,7 @@
                 );
                 //경로가 존재하지 않는 경우
                 if (result === undefined) {
-                    alert("요청하신 경로가 존재하지 않습니다.\n출발지와 도착지를 확인하세요");
+                    alert("요청하신 경로가 존재하지 않습니다.\n출발지와 도착지를 확인하세요\nNo route\nCheck origination and destination");
                     return;
                 }
                 if (typeof result === "object") {
@@ -218,6 +218,9 @@
             //길찾기 경로 지우기
             document.querySelector("#getRouteOff").addEventListener("click", function (e) {
                 mapDraw.getRouteOff();
+                document.querySelector("#navi_path_wrap").style.display = "none";
+                document.querySelector("#retResult").innerText = "duration";
+
             });
         }
 
