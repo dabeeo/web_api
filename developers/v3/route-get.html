@@ -1,10 +1,15 @@
-<h1>길찾기 경로 지도에 그리기 </h1>
+<h1 lang="ko">길찾기 경로 지도에 그리기 </h1>
+<h1 lang="en">Drawing directions on a map</h1>
 </br>
-<h4>MapDraw.getRouteOn()으로 지도에 출발지에서 목적지까지의 경로를 그릴 수 있습니다.</h4>
-</br>mapDraw.setNavigationOption()으로 경로를 그리는 주행선과 모의주행 아이콘에 대한 옵션을 설정할 수 있습니다. getRouteOn() 전에 먼저 호출해야 합니다.
-</br>옵션은 주행선, 모의주행, 아이콘 등에 대하여 줄 수 있으며 대표적인 예는 아래와 같습니다.
-</br>옵션에 대한 더 자세한 설명은 <a href="https://dabeeo.github.io/web_api/jsdocs/global.html#NavigationOption" target="_blank">[API Reference의 Navigation Option]</a>를 참조하세요.
-<pre>
+<h4 lang="ko">MapDraw.getRouteOn()으로 지도에 출발지에서 목적지까지의 경로를 그릴 수 있습니다.</h4>
+<h4 lang="en">MapDraw.getRouteOn() allows you to draw a route from the origin to the destination on the map.</h4>
+<span lang="ko"></br>mapDraw.setNavigationOption()으로 경로를 그리는 주행선과 모의주행 아이콘에 대한 옵션을 설정할 수 있습니다. getRouteOn() 전에 먼저 호출해야 합니다.</span>
+<span lang="en"></br>With mapDraw.setNavigationOption(), you can set the options for the driving line drawing the route and the driving icon. It must be called before getRouteOn() first.</span>
+<span lang="ko"></br>옵션은 주행선, 모의주행, 아이콘 등에 대하여 줄 수 있으며 대표적인 예는 아래와 같습니다.</span>
+<span lang="en"></br>Options can be given for driving lines, simulation driving, icons, etc. A typical example is as follows.</span>
+<span lang="ko"></br>옵션에 대한 더 자세한 설명은 <a href="https://dabeeo.github.io/web_api/jsdocs/global.html#NavigationOption" target="_blank">[API Reference의 Navigation Option]</a>를 참조하세요.</span>
+<span lang="en"></br>For a more detailed description of the options, see <a href="https://dabeeo.github.io/web_api/jsdocs/global.html#NavigationOption" target="_blank">[API Reference Navigation Option]</a></span>
+<pre lang="ko">
     <code>
         //네비게이션 옵션 설정
         mapDraw.setNavigationOption({
@@ -14,13 +19,29 @@
         });
     </code>
 </pre>
-</br>경로를 그리는 방법은 아래 예제에서 보는 바와 같이 mapDraw.getRouteOn()을 호출하면 됩니다.
-</br>인자로는 출발지, 목적지, 층간이동수단, 경유지, 반환값에 대한 옵션을 지정할 수 있습니다.
-</br>출발지와 목적지는 반드시 지정하여야 하며 나머지는 선택사항입니다. 지정하지 않을 경우 디폴트값이 적용됩니다.경유지는 복수가 지원되므로 배열형태로 입력해야 합니다.
-</br>출발지와 목적지, 경유지는 poiID로 하거나 특정좌표 모두 가능하며, poi 속성을 그대로 넘겨도 가능합니다.
-</br>층간이동경로는 추천, 계단, 엘리베이터, 에스컬레이터 4가지 타입이 존재합니다. 지정하지 않는 경우 추천으로 선택됩니다. 추천은 최단경로입니다.
-</br>MapDraw.getRouteOn()에 대한 자세한 정보는 <a href="https://dabeeo.github.io/web_api/jsdocs/MapDraw.html#getRouteOn" target="_blank">[API Reference의 MapDraw.getRouteOn]</a>에 설명되어 있습니다.
-<pre>
+<pre lang="en">
+    <code>
+        //set navigation options
+        mapDraw.setNavigationOption({
+            lineColor: "#00008b",       // route line color 
+            lineZ: 40,                  // route line z 
+            speedRate: 3,               // simulation icon speed
+        });
+    </code>
+</pre>
+<span lang="ko"></br>경로를 그리는 방법은 아래 예제에서 보는 바와 같이 mapDraw.getRouteOn()을 호출하면 됩니다.</span>
+<span lang="en"></br>To draw a route, just call mapDraw.getRouteOn() as shown in the example below.</span>
+<span lang="ko"></br>인자로는 출발지, 목적지, 층간이동수단, 경유지, 반환값에 대한 옵션을 지정할 수 있습니다.</span>
+<span lang="en"></br>As an argument, you can specify options for the origin, destination, means of interfloor movement, waypoints, and return values.</span>
+<span lang="ko"></br>출발지와 목적지는 반드시 지정하여야 하며 나머지는 선택사항입니다. 지정하지 않을 경우 디폴트값이 적용됩니다.경유지는 복수가 지원되므로 배열형태로 입력해야 합니다.</span>
+<span lang="en"></br>The origin and destination must be specified, the rest are optional. If not specified, the default value is applied. Multiple waypoints are supported, so they must be entered in the form of an array.</span>
+<span lang="ko"></br>출발지와 목적지, 경유지는 poiID로 하거나 특정좌표 모두 가능하며, poi 속성을 그대로 넘겨도 가능합니다.</span>
+<span lang="en"></br>The starting point, destination, and waypoint can be poiID or specific coordinates, and you can pass the poi attribute as it is.</span>
+<span lang="ko"></br>층간이동경로는 추천, 계단, 엘리베이터, 에스컬레이터 4가지 타입이 존재합니다. 지정하지 않는 경우 추천으로 선택됩니다. 추천은 최단경로입니다.</span>
+<span lang="en"></br>There are 4 types of movement between floors: recommended, stairs, elevators, and escalators. If not specified, it will be selected as a recommendation. Recommendation is the shortest route.</span>
+<span lang="ko"></br>MapDraw.getRouteOn()에 대한 자세한 정보는 <a href="https://dabeeo.github.io/web_api/jsdocs/MapDraw.html#getRouteOn" target="_blank">[API Reference의 MapDraw.getRouteOn]</a>에 설명되어 있습니다.</span>
+<span lang="en"></br>For more information on MapDraw.getRouteOn(), see <a href="https://dabeeo.github.io/web_api/jsdocs/MapDraw.html#getRouteOn" target="_blank">[API Reference MapDraw.getRouteOn]</a>.</span>
+<pre lang="ko">
     <code>
         //길찾기 경로 그리기
         result = mapDraw.getRouteOn(
@@ -33,10 +54,26 @@
 
     </code>
 </pre>
+<pre lang="en">
+    <code>
+        //draw directions
+        result = mapDraw.getRouteOn(
+            originPoi,            // origination point
+            destPoi,              // destination point
+            "recommendation",     // means of moving between floors
+            [],                   // waypoints
+            retResponse = true    // Option for the return value, if set to true, the required time and distance are returned. 
+                                  // If false, only the required time is returned. 
+        );
+
+    </code>
+</pre>
 
 </br>
-</br>아래는 지도에 포함된 poi를 select하여 길찾기 경로를 그리고 모의주행을 할 수 있는 코드의 일부입니다.
-<br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#getRouteOn" target="_blank">[examples의 simple navigation]</a>를 참조하세요.
+<span lang="ko"></br>아래는 지도에 포함된 poi를 select하여 길찾기 경로를 그리고 모의주행을 할 수 있는 코드의 일부입니다.</span>
+<span lang="en"></br>아래는 지도에 포함된 poi를 select하여 길찾기 경로를 그리고 모의주행을 할 수 있는 코드의 일부입니다.</span>
+<span lang="ko"></br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#getRouteOn" target="_blank">[examples의 simple navigation]</a>를 참조하세요.</span>
+<span lang="en"></br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#getRouteOn" target="_blank">[examples의 simple navigation]</a>를 참조하세요.</span>
 <pre><code>
     <div class="button-container">
         <button type="button" class="button-menu">
@@ -77,9 +114,7 @@
         });
 
         function initMap () {
-            var mapContainer = document.getElementById('map'); // 지도를 표시할 div
-
-            // 지도 인증정보
+            var mapContainer = document.getElementById('map');
             var authorization = new indoorMapApi.Authorization({
                 clientId: "6Lwuu9wa4wta0NiHwy1fO5",
                 clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
@@ -87,12 +122,10 @@
             var mapOptions = {
                 authorization: authorization
             };
-
-            // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
             new indoorMapApi.MapView(
-                mapContainer, // 컨테이너
-                mapOptions, // 옵션
-                function (response) { // 맵 로드 콜백
+                mapContainer,
+                mapOptions,
+                function (response) {
                     var code = response.getCode();
 
                     if (code === 200) {
@@ -107,21 +140,19 @@
         }
 
         //////////////////////////////////////////////////////////////////////////////////
-        // poi select 만들기
+        // poi select
         function handlePoiInfo (response) {
             mapPoiInfo = response.poiInfo;
-            //poi select에서 사용할 층이름 만들기 
+
             let floorInfo = response.floorInfo;
             for (let i = 0; i < floorInfo.length; i++) {
                 var floor = floorInfo[i];
                 mapFloorName[floor.id] = floor.name[0].text;
             }
-            //상단 poi select 만들기
             makePoiSelect("poiOrigin");
             makePoiSelect("poiDestination");
         }
 
-        //poi select창에 poi list 만들기
         function makePoiSelect (id) {
             let element = document.querySelector("select#" + id);
             for (let index = 0; index < mapPoiInfo.length; index++) {
@@ -134,30 +165,29 @@
                 element.appendChild(option);
             }
         }
-        //길찾기 경로 그리기와 지우기 
+        // draw route and delete route
         function handleGetRouteOnEvent () {
             document.querySelector("#getRouteOn").addEventListener("click", function (e) {
-                //출발지와 도착지 선택
-                let originPoi = getPoi("poiOrigin"); //출발지 POI id 
-                let destPoi = getPoi("poiDestination"); //도착지 POI id 
+                // select origin poi and destination poi
+                let originPoi = getPoi("poiOrigin");
+                let destPoi = getPoi("poiDestination");
 
-                //네비게이션 옵션 설정
+                //set navigation option
                 mapDraw.setNavigationOption({
-                    lineColor: "#00008b",       // 길찾기 주행선 색상 
-                    lineZ: 40,                  // 길찾기 주행선 z축 높이 
-                    speedRate: 3,               // 모의주행 아이콘 속도
+                    lineColor: "#00008b",
+                    lineZ: 40,
+                    speedRate: 3,
                 });
 
-                //길찾기 경로 그리기
                 result = mapDraw.getRouteOn(originPoi, destPoi, "recommendation", [], retResponse = true);
-                //경로가 존재하지 않는 경우
+                // if route does not exist
                 if (result === undefined) {
                     alert("요청하신 경로가 존재하지 않습니다.\n출발지와 도착지를 확인하세요");
                     return;
                 }
             });
             document.querySelector("#getRouteOff").addEventListener("click", function (e) {
-                //길찾기 경로 지우기
+                // remove route from the map
                 mapDraw.getRouteOff();
             });
         }
@@ -170,8 +200,8 @@
     
 </code></pre>
 
-</br>전체코드의 실행화면은 다음과 같습니다.
-</br>
+<span lang="ko"></br>위 예제를 실행한 화면은 다음과 같습니다.</span>
+<span lang="en"></br>The result of the above code is below. </span>
 <iframe height=1000px src="https://dabeeo.github.io/web_api/samples/getRouteOn.html"></iframe>
 </br>
 </br>

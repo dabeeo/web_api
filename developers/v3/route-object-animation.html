@@ -1,7 +1,10 @@
-<h1>모의주행과 출도착지 애니메이션 </h1>
+<h1 lang="ko">모의주행과 출도착지 애니메이션 </h1>
+<h1 lang="en">Simulation driving and departure/arrival animation </h1>
 </br>
-<h4>MapDraw.startRouteAnimation()으로 길찾기 경로를 따라 모의주행을 그릴 수 있습니다. 모의주행아이콘이 출발지에서 도착지까지 움직입니다.</h4>
-</br>단, MapDraw.getRouteOn()을 호출하여 경로를 찾은 후 사용하여야 합니다.
+<h4 lang="ko">MapDraw.startRouteAnimation()으로 길찾기 경로를 따라 모의주행을 그릴 수 있습니다. 모의주행아이콘이 출발지에서 도착지까지 움직입니다.</h4>
+<h4 lang="en">With MapDraw.startRouteAnimation() you can draw a simulation along a directions route. The simulated driving icon moves from the origin to the destination.</h4>
+<span lang="ko"></br>단, MapDraw.getRouteOn()을 호출하여 경로를 찾은 후 사용하여야 합니다.</span>
+<span lang="en"></br>However, it should be used after finding the route by calling MapDraw.getRouteOn().</span>
 <pre>
     <code>
         mapDraw.startRouteAnimation();
@@ -9,12 +12,15 @@
         
 </code>
 </pre>
-</br>모의주행아이콘에 대한 옵션은 앞서 얘기한 MapDraw.setNavigationOption()으로 줄 수 있으며
-</br>MapDraw.startRouteAnimation()에서는 옵션으로 모의주행시 줌 설정과 카메라 설정, 모의주행중 층변경시 딜레이 설정과 도착지의 애니메이션 효과를 설정할 수 있습니다.
-</br>MapDraw.startRouteAnimation()에 대한 자세한 정보는 <a href="https://dabeeo.github.io/web_api/jsdocs/MapDraw.html#startRouteAnimation" target="_blank">[API Reference의 MapDraw.startRouteAnimation]</a>을
-참조하세요.
-</br>아래는 출발지와 목적지 poi에 연결된 오브젝트에 애니메이션 효과를 주고, 줌값을 설정하여 카메라가 모의주행을 따라 움직이도록 설정한 옵션입니다.
-<pre>
+<span lang="ko"></br>모의주행아이콘에 대한 옵션은 앞서 얘기한 MapDraw.setNavigationOption()으로 줄 수 있습니다.</span>
+<span lang="en"></br>The option for the simulation icon can be given with MapDraw.setNavigationOption() as mentioned above.</span>
+<span lang="ko"></br>MapDraw.startRouteAnimation()에서는 옵션으로 모의주행시 줌 설정과 카메라 설정, 모의주행중 층변경시 딜레이 설정과 도착지의 애니메이션 효과를 설정할 수 있습니다.</span>
+<span lang="en"></br>In MapDraw.startRouteAnimation(), you can optionally set zoom settings and camera settings during simulation driving, delay settings when changing floors during simulation, and animation effects of destinations.</span>
+<span lang="ko"></br>MapDraw.startRouteAnimation()에 대한 자세한 정보는 <a href="https://dabeeo.github.io/web_api/jsdocs/MapDraw.html#startRouteAnimation" target="_blank">[API Reference의 MapDraw.startRouteAnimation]</a>을 참조하세요.</span>
+<span lang="en"></br>For more information on MapDraw.startRouteAnimation(), see <a href="https://dabeeo.github.io/web_api/jsdocs/MapDraw.html#startRouteAnimation" target="_blank">[API Reference MapDraw.startRouteAnimation]</a>.</span>
+<span lang="ko"></br>아래는 출발지와 목적지 poi에 연결된 오브젝트에 애니메이션 효과를 주고, 줌값을 설정하여 카메라가 모의주행을 따라 움직이도록 설정한 옵션입니다.</span>
+<span lang="en"></br>Below are options to set the animation effect to the object connected to the source and destination poi, and set the zoom value so that the camera moves along the simulation.</span>
+<pre lang="ko">
     <code>
         mapDraw.startRouteAnimation({
             zoom: 130, // 설정된 줌값으로 카메라 이동 
@@ -35,10 +41,33 @@
 
     </code>
 </pre>
+<pre lang="en">
+    <code>
+        mapDraw.startRouteAnimation({
+            zoom: 130, // move camera with zoom 
+            destOption: // destination objet property
+            {
+                activeDest: true,   // Whether to apply object color  
+                color: '#0000ff',   // object color
+                opacity: 0.3,       // object transparency
+                isAnimate: true,    // Whether to apply animation
+                duration: 2000,     // animation cycle
+                isRepeat: true,     // Whether to repeat animation
+                isYoyo: true,       // animation loop. When set to true, a more natural effect is produced. 
+                
+                // If there is no ids field, animate the destination object.
+                ids: [routePoi.originPoi.poiId, routePoi.destPoi.poiId] // Apply animation to both origin and destination
+            }
+        });
+
+    </code>
+</pre>
 
 </br>
-</br>아래는 모의주행을 실행하는 코드의 일부입니다. MapDraw.startRouteAnimation()은 MapDraw.getRouteOn() 호출 후에 불러야 합니다.
-<br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#navigationObjectAnimation" target="_blank">[examples의 navigation object animation]</a>를 참조하세요.
+<span lang="ko"></br>아래는 모의주행을 실행하는 코드의 일부입니다. MapDraw.startRouteAnimation()은 MapDraw.getRouteOn() 호출 후에 불러야 합니다.</span>
+<span lang="en"></br>Below is a part of the code that runs the simulation. MapDraw.startRouteAnimation() should be called after calling MapDraw.getRouteOn().</span>
+<span lang="ko"></br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#navigationObjectAnimation" target="_blank">[examples의 navigation object animation]</a>를 참조하세요.</span>
+<span lang="en"></br>The example page and the full code are <a href="https://dabeeo.github.io/web_api/example/#navigationObjectAnimation" target="_blank">[examples navigation object animation]</a>.</span>
 <pre><code>
     <div class="button-container">
         <button type="button" class="button-menu">
@@ -59,30 +88,27 @@
         });
 
         function initMap () {
-            var mapContainer = document.getElementById('map'); // 지도를 표시할 div
-            // 지도 인증정보
+            var mapContainer = document.getElementById('map');
             var authorization = new indoorMapApi.Authorization({
                 clientId: "6Lwuu9wa4wta0NiHwy1fO5",
                 clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
             });
             var mapOptions = {
                 authorization: authorization,
-                camera: "3d", // 초기 카메라모드
+                camera: "3d",
                 angle: {
-                    vertical: 10, // 3D 모드일때 tilt
+                    vertical: 10,
                     horizontal: 0
                 },
                 zoom: 100,
                 isPoiSprite: true
             };
 
-            // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
             new indoorMapApi.MapView(
-                mapContainer, // 컨테이너
-                mapOptions, // 옵션
-                function (response) { // 맵 로드 콜백
+                mapContainer,
+                mapOptions,
+                function (response) {
                     var code = response.getCode();
-
                     if (code === 200) {
                         mapDraw = response.getPayload().mapDraw;
                         mapPoiInfo = mapDraw.response.poiInfo;
@@ -120,12 +146,12 @@
                 {
                     lineColor: '#0000ff',
                     lineZ: 20,
-                    speedRate: 3, // 주행 속도
+                    speedRate: 3,
                     lineSpotSize: 3,
                     lineSpotInterval: 3000,
                     originPositionZ: 5,
                     destinationPositionZ: 5,
-                    visibleIcon: false, // 경로 표시할때 시작지, 도착지 아이콘 없애기 / 보이기
+                    visibleIcon: false,
                     moveIconZ: 22,
                 });
         }
@@ -153,18 +179,16 @@
 
         function startRouteAnimation (routePoi) {
             mapDraw.startRouteAnimation({
-                zoom: 130, // 설정된 줌값으로 카메라 이동 
-                destOption: // 도착지 오브젝트 속성
+                zoom: 130,
+                destOption:
                 {
-                    activeDest: true,   // 오브젝트 색상 적용 여부 
-                    color: '#0000ff',   // 오브젝트 색상
-                    opacity: 0.3,       // 오브젝트 투명도
-                    isAnimate: true,    // animation 적용 여부 
-                    duration: 2000,     // animation 주기
-                    isRepeat: true,     // animation 반복여부
-                    isYoyo: true,       // animation 반복형태. true로 할 때 보다 자연스러운 효과가 연출됨 
-
-                    // ids 필드가 없을 경우 도착지 오브젝트에 애니메이션 합니다. 
+                    activeDest: true,
+                    color: '#0000ff',
+                    opacity: 0.3,
+                    isAnimate: true,
+                    duration: 2000,
+                    isRepeat: true,
+                    isYoyo: true,
                     ids: [routePoi.originPoi.poiId, routePoi.destPoi.poiId] // 출발지 도착지 모두에 animation 적용
                 }
             });
@@ -172,8 +196,8 @@
     </script>
 </code></pre>
 
-</br>전체코드의 실행화면은 다음과 같습니다. start navigation을 실행하면 길찾기 경로가 지도에 그려지고 모의주행이 실행됩니다.
-</br>
+<span lang="ko"></br>위 예제를 실행한 화면은 다음과 같습니다. start navigation을 실행하면 길찾기 경로가 지도에 그려지고 모의주행이 실행됩니다.</span>
+<span lang="en"></br>The result of the above code is below. When start navigation is executed, the route is drawn on the map and the simulation is executed.</span>
 <iframe height=1000px src="https://dabeeo.github.io/web_api/samples/navigationObjectAnimation.html"></iframe>
 </br>
 </br>

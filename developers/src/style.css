@@ -52,6 +52,7 @@ header ul li button {
   padding: 2px 4px;
   background-color: #fff;
   color: #111;
+  cursor: pointer;
 }
 
 /* ********************************************* */
@@ -92,7 +93,7 @@ main nav ul li a {
   width: 100%;
   padding: 5px;
   color: #111;
-  transition: all 1s ease;
+  transition: all 0.1s ease;
 }
 main nav ul li a.active {
   background-color: #111;

@@ -1,21 +1,36 @@
-<h1>모의주행과 층변경시 알림창 </h1>
+<h1 lang="ko">모의주행과 층변경시 알림창 </h1>
+<h1 lang="en">Notification window for simulated driving and floor change</h1>
 </br>
-<h4>MapDraw.startRouteAnimation()과 will-floor-change 이벤트를 이용하여 사용자에게 모의주행 중 층변경에 대한 알림을 줄 수 있습니다. </h4>
-</br>MapDraw.startRouteAnimation() 모의주행 옵션으로 층변경시 층 변경 전에 지연시간을 줄 수 있습니다.
-</br>옵션 설정시 모의주행 중 층변경 전에 will-floor-change가 발생하며 이를 이용하여 지연된 시간동안 사용자에게 층변경에 대한 알림을 줄 수 있습니다.
-</br>MapDraw.startRouteAnimation()은 MapDraw.getRouteOn()을 호출하여 경로를 찾은 후 사용하여야 합니다.
-<pre>
+<h4 lang="ko">MapDraw.startRouteAnimation()과 will-floor-change 이벤트를 이용하여 사용자에게 모의주행 중 층변경에 대한 알림을 줄 수 있습니다. </h4>
+<h4 lang="en">You can use MapDraw.startRouteAnimation() and will-floor-change event to notify the user of floor change during simulation. </h4>
+<span lang="ko"></br>MapDraw.startRouteAnimation() 모의주행 옵션으로 층변경시 층 변경 전에 지연시간을 줄 수 있습니다.</span>
+<span lang="en"></br>MapDraw.startRouteAnimation() simulation driving option allows you to give a delay before floor change when changing floors.</span>
+<span lang="ko"></br>옵션 설정시 모의주행 중 층변경 전에 will-floor-change가 발생하며 이를 이용하여 지연된 시간동안 사용자에게 층변경에 대한 알림을 줄 수 있습니다.</span>
+<span lang="en"></br>When setting options, will-floor-change occurs before floor change during simulated driving, and you can use this to notify the user of floor change for a delayed time.</span>
+<span lang="ko"></br>MapDraw.startRouteAnimation()은 MapDraw.getRouteOn()을 호출하여 경로를 찾은 후 사용하여야 합니다.</span>
+<span lang="en"></br>MapDraw.startRouteAnimation() should be used after finding the route by calling MapDraw.getRouteOn().</span>
+<pre lang="ko">
     <code>
         mapDraw.startRouteAnimation({
-            changeFloorDelay: changeFloorDelay, //층변경 전 지연시간
+            changeFloorDelay: 3000, //층 변경 전 지연시간 (milliseconds)
         });
     
     </code>
 </pre>
-</br>모의주행으로 인하여 층 변경전에 발생하는 will-floor-change 이벤트는 아래와 같은 방법으로 받습니다.
-</br>이벤트 내에 현재층정보와 바뀌는 층정보, 층변경시 이동수단에 대한 정보가 들어 있습니다. 이를 이용하여 사용자에게 층변경에 대한 정보를 알려줍니다 .
-</br>will-floor-change()에 대한 자세한 정보는 <a href="https://developers.dabeeomaps.com/jsdocs/global.html#event:will-floor-change" target="_blank">[API Reference의 will-floor-change]</a>을
-참조하세요.
+<pre lang="en">
+    <code>
+        mapDraw.startRouteAnimation({
+            changeFloorDelay: 3000, //Delay time before floor change (milliseconds)
+        });
+    
+    </code>
+</pre>
+<span lang="ko"></br>모의주행으로 인하여 층 변경전에 발생하는 will-floor-change 이벤트는 아래와 같은 방법으로 받습니다.</span>
+<span lang="en"></br>The will-floor-change event that occurs before floor change due to simulated driving is received in the following way.</span>
+<span lang="ko"></br>이벤트 내에 현재층정보와 바뀌는 층정보, 층변경시 이동수단에 대한 정보가 들어 있습니다. 이를 이용하여 사용자에게 층변경에 대한 정보를 알려줍니다.</span>
+<span lang="en"></br>In the event, information on the current floor, changing floor information, and information on means of transportation when changing floors are included. This is used to inform the user of the floor change information.</span>
+<span lang="ko"></br>will-floor-change()에 대한 자세한 정보는 <a href="https://developers.dabeeomaps.com/jsdocs/global.html#event:will-floor-change" target="_blank">[API Reference의 will-floor-change]</a>을 참조하세요.</span>
+<span lang="en"></br>For more information on will-floor-change(), see <a href="https://developers.dabeeomaps.com/jsdocs/global.html#event:will-floor-change" target="_blank">[API Reference will-floor-change]</a>.</span>
 <pre>
     <code>
         document.addEventListener("will-floor-change", function (e) {
@@ -27,9 +42,11 @@
     </code>
 </pre>
 </br>
-</br>아래는 모의주행 중 층변경시 사용자에게 층변경에 대한 알림창을 띠워주는 코드의 일부입니다. MapDraw.startRouteAnimation()은 MapDraw.getRouteOn() 호출 후에 불러야 합니다.
-<br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#navigationWillFloorChange" target="_blank">[examples의 navigation with floor change]</a>를 참조하세요.
-<pre><code>
+<span lang="ko"></br>아래는 모의주행 중 층변경시 사용자에게 층변경에 대한 알림창을 띠워주는 코드의 일부입니다. MapDraw.startRouteAnimation()은 MapDraw.getRouteOn() 호출 후에 불러야 합니다.</span>
+<span lang="en"></br>Below is a part of the code that displays a notification window about floor change to the user when changing the floor during simulated driving. MapDraw.startRouteAnimation() should be called after calling MapDraw.getRouteOn().</span>
+<span lang="ko"></br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#navigationWillFloorChange" target="_blank">[examples의 navigation with floor change]</a>를 참조하세요.</span>
+<span lang="en"></br>The example page and the full code are <a href="https://dabeeo.github.io/web_api/example/#navigationWillFloorChange" target="_blank">[examples navigation with floor change]</a>.</span>
+<pre lang="ko"><code>
     <div class='modal'>modal</div>
     <div class="button-container">
         <button type="button" class="button-menu">
@@ -52,29 +69,26 @@
             initMap();
         });
         function initMap () {
-            var mapContainer = document.getElementById('map'); // 지도를 표시할 div
-
-            // 지도 인증정보
+            var mapContainer = document.getElementById('map');
             var authorization = new indoorMapApi.Authorization({
                 clientId: "6Lwuu9wa4wta0NiHwy1fO5",
                 clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
             });
             var mapOptions = {
                 authorization: authorization,
-                camera: "3d", // 초기 카메라모드
+                camera: "3d",
                 angle: {
-                    vertical: 10, // 3D 모드일때 tilt
+                    vertical: 10,
                     horizontal: 0
                 },
                 zoom: 100,
                 isPoiSprite: true
             };
 
-            // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
             new indoorMapApi.MapView(
-                mapContainer, // 컨테이너
-                mapOptions, // 옵션
-                function (response) { // 맵 로드 콜백
+                mapContainer,
+                mapOptions,
+                function (response) {
                     var code = response.getCode();
 
                     if (code === 200) {
@@ -127,7 +141,7 @@
             return result;
         };
 
-        //모의주행으로 인한 층변경시 층변경전에 오는 이벤트 처리
+        //모의주행으로 인한 층변경시 층 변경 전에 오는 이벤트 처리
         function initWillChangeFloor () {
             document.addEventListener("will-floor-change", function (e) {
                 if (e.detail === null) return;
@@ -143,9 +157,9 @@
         }
 
         function initNavigation () {
-            setNavigationOption();//set navigation option 
-            const result = getRouteOn();//draw navigation route
-            if (result) startRouteAnimation(result);//start navigate simulation 
+            setNavigationOption();                   //set navigation option 
+            const result = getRouteOn();             //draw navigation route
+            if (result) startRouteAnimation(result); //start navigate simulation 
         }
 
         function setNavigationOption () {
@@ -154,10 +168,10 @@
                     lineColor: '#dc3545',
                     lineSpotSize: 3,
                     lineSpotInterval: 100,
-                    speedRate: 4, // 주행 속도
+                    speedRate: 4,
                     originPositionZ: 5,
                     destinationPositionZ: 5,
-                    visibleIcon: true, // 경로 표시할때 시작지, 도착지 아이콘 없애기 / 보이기
+                    visibleIcon: true,
                     moveIconZ: 12,
                 });
         }
@@ -187,7 +201,6 @@
 
         function startRouteAnimation (result) {
             let changeFloorDelay = Number(document.querySelector("#changeFloorDelay").value);
-            //모의주행 시작. 옵션으로 층변경 전 지연시간 설정
             mapDraw.startRouteAnimation({
                 changeFloorDelay: changeFloorDelay,
             });
@@ -205,8 +218,180 @@
     </script>
 </code></pre>
 
-</br>전체코드의 실행화면은 다음과 같습니다. start navigation을 실행하면 모의주행 도중 층변경시 알림창이 뜹니다.
-</br>
+<pre lang="en"><code>
+    <div class='modal'>modal</div>
+    <div class="button-container">
+        <button type="button" class="button-menu">
+            Navigation Will Floor Change
+        </button>
+    </div>
+    <div class="control-container">
+        <div class="inline-container">
+            <div class="inline-label">delay time</div>
+            <input type="text" class="inline-input " id="changeFloorDelay" value="3000">
+        </div>
+        <div class="inline-container">
+            <input type="button" class="inline-input" name="navigation" value="Start Navigation">
+        </div>
+    </div>
+    <div id="map"></div>
+
+    <script>
+        window.addEventListener("load", function () {
+            initMap();
+        });
+        function initMap () {
+            var mapContainer = document.getElementById('map');
+            var authorization = new indoorMapApi.Authorization({
+                clientId: "6Lwuu9wa4wta0NiHwy1fO5",
+                clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
+            });
+            var mapOptions = {
+                authorization: authorization,
+                camera: "3d",
+                angle: {
+                    vertical: 10,
+                    horizontal: 0
+                },
+                zoom: 100,
+                isPoiSprite: true
+            };
+
+            new indoorMapApi.MapView(
+                mapContainer,
+                mapOptions,
+                function (response) {
+                    var code = response.getCode();
+
+                    if (code === 200) {
+                        mapDraw = response.getPayload().mapDraw;
+                        mapPoiInfo = mapDraw.response.poiInfo;
+                        floorInfo = mapDraw.response.floorInfo;
+                        window.mapDraw = mapDraw;
+                        // do something
+                        console.log("map view success!")
+                        initNavigationBtn();
+                        initWillChangeFloor();
+                    }
+                }
+            );
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////    
+        function initNavigationBtn () {
+            const initNaviBtn = document.querySelector("[name='navigation']");
+            initNaviBtn.addEventListener("click", function (e) {
+                mapDraw.getRouteOff();
+                initNavigation();
+            });
+        }
+        function transCodeName (type) {
+            let result = "걷기";
+            switch (type) {
+                case "OB-STAIRS":
+                    result = "stairs";
+                    break;
+                case "OB-ELEVATOR":
+                    result = "elevator";
+                    break;
+                case "OB-ESCALATOR":
+                    result = "escalator both";
+                    break;
+                case "OB-ESCALATOR_UP":
+                    result = "escalator up";
+                    break;
+                case "OB-ESCALATOR_DOWN":
+                    result = "escalator down";
+                    break;
+                case "OB-OTHER_TRANSPORT":
+                    result = "connecting passage";
+                    break;
+                default:
+                    result = "walk";
+                    break;
+            }
+            return result;
+        };
+
+        //Event handling before floor change in case of floor change due to simulated driving
+        function initWillChangeFloor () {
+            document.addEventListener("will-floor-change", function (e) {
+                if (e.detail === null) return;
+                let currentFloor = e.detail.floor.current.name;
+                let nextFloor = e.detail.floor.next.name;
+                let transCode = e.detail.transCode;
+                let modal = document.querySelector('.modal');
+                modal.innerHTML = + "from " + currentFloor + " to " + nextFloor + " by " + transCodeName(transCode);
+                modal.style.opacity = "100";
+                let delay = Number(document.querySelector("#changeFloorDelay").value);
+                setTimeout(() => { modal.style.opacity = 0; }, delay);
+            });
+        }
+
+        function initNavigation () {
+            setNavigationOption();                   //set navigation option 
+            const result = getRouteOn();             //draw navigation route
+            if (result) startRouteAnimation(result); //start navigate simulation 
+        }
+
+        function setNavigationOption () {
+            mapDraw.setNavigationOption(
+                {
+                    lineColor: '#dc3545',
+                    lineSpotSize: 3,
+                    lineSpotInterval: 100,
+                    speedRate: 4,
+                    originPositionZ: 5,
+                    destinationPositionZ: 5,
+                    visibleIcon: true,
+                    moveIconZ: 12,
+                });
+        }
+
+        function getRouteOn () {
+            let fInfo = floorInfo.slice();
+            let max = fInfo.length;
+            let index = Math.floor((Math.random() * (max - 0) + 0));
+            let originFloorId = fInfo[index].id;
+            fInfo.splice(index, 1);
+            max = fInfo.length;
+            index = Math.floor((Math.random() * (max - 0) + 0));
+            let destFloorId = fInfo[index].id;
+
+            const originPois = mapPoiInfo.filter(poi => poi.floorId == originFloorId);
+            const destPois = mapPoiInfo.filter(poi => poi.floorId == destFloorId);
+
+            let originPoi = getPoi(originPois);
+            let destPoi = getPoi(destPois);
+            const result = mapDraw.getRouteOn(originPoi, destPoi, "recommendation", [], false);
+            if (result === undefined) {
+                alert("The requested path does not exist.\nCheck your origin and destination");
+                return false;
+            }
+            return { originPoi, destPoi };
+        }
+
+        function startRouteAnimation (result) {
+            let changeFloorDelay = Number(document.querySelector("#changeFloorDelay").value);
+            mapDraw.startRouteAnimation({
+                changeFloorDelay: changeFloorDelay,
+            });
+        }
+
+        function getPoi (pois) {
+            const max = pois.length;
+            const index = Math.floor((Math.random() * (max - 0) + 0));
+            let poi = {
+                poiId: pois[index].id,
+                floorId: pois[index].floorId
+            };
+            return poi;
+        }
+    </script>
+</code></pre>
+
+<span lang="ko"></br>위 예제를 실행한 화면은 다음과 같습니다. start navigation을 실행하면 모의주행 도중 층변경시 알림창이 뜹니다.</span>
+<span lang="en"></br>The result of the above code is below. If you run start navigation, a notification window appears when you change floors during the simulated driving.</span>
 <iframe height=1000px src="https://dabeeo.github.io/web_api/samples/navigationWillFloorChange.html"></iframe>
 </br>
 </br>

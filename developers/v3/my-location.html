@@ -1,36 +1,73 @@
-<h1>내 위치 마커 표시하기 </h1>
+<h1 lang="ko">내 위치 마커 표시하기 </h1>
+<h1 lang="en">Drawing My Location Marker</h1>
 </br>
-<h4>MapDraw.myLocationOn()으로 지도에 현재 내위치 마커를 그릴 수 있습니다.</h4>
-</br>내위치 마커의 위치를 지정하고 마커 아이콘의 속성과 애니메이션 효과를 설정할 수 있습니다.
-</br>내위치 마커 아이콘의 속성을 지정하지 않는 경우 디폴트 값으로 표시되며 애니메이션 효과는 활성화되지 않습니다.
-</br>MapDraw.setMarker()에 대한 자세한 정보는 <a href="https://dabeeo.github.io/web_api/jsdocs/MapDraw.html#myLocationOn" target="_blank">[API Reference의 MapDraw.myLocationOn]</a>에 설명되어 있습니다.
-</br>내위치 마커의 속성은 아래 예제와 같습니다.
-<pre>
+<h4 lang="ko">MapDraw.myLocationOn()으로 지도에 현재 내위치 마커를 그릴 수 있습니다.</h4>
+<h4 lang="ko">MapDraw.myLocationOn() allows you to draw your current location marker on the map.</h4>
+<span lang="ko"></br>내위치 마커의 위치를 지정하고 마커 아이콘의 속성과 애니메이션 효과를 설정할 수 있습니다.</span>
+<span lang="en"></br>You can specify the position of the My Location marker, and set the properties and animation effect of the marker icon.</span>
+<span lang="ko"></br>내위치 마커 아이콘의 속성을 지정하지 않는 경우 디폴트 값으로 표시되며 애니메이션 효과는 활성화되지 않습니다.</span>
+<span lang="en"></br>If you do not specify the properties of the My Place marker icon, it is displayed as a default value and the animation effect is not activated.</span>
+<span lang="ko"></br>MapDraw.setMarker()에 대한 자세한 정보는 <a href="https://dabeeo.github.io/web_api/jsdocs/MapDraw.html#myLocationOn" target="_blank">[API Reference의 MapDraw.myLocationOn]</a>에 설명되어 있습니다.</span>
+<span lang="en"></br>For more information on MapDraw.setMarker(), see <a href="https://dabeeo.github.io/web_api/jsdocs/MapDraw.html#myLocationOn" target="_blank">[API Reference의 MapDraw.myLocationOn]</a>.</span>
+<span lang="ko"></br>내위치 마커의 속성은 아래 예제와 같습니다.</span>
+<span lang="en"></br>The properties of my location marker are as in the example below.</span>
+<pre lang="ko">
     <code>
-        //내위치 표시 
+        // 내위치 표시 
         mapDraw.myLocationOn(posX, posY, posZ, 
-            true,                       //타층 이동후 다시 돌아왔을 때 계속 표시 여부 
+            true,                       // 타층 이동후 다시 돌아왔을 때 계속 표시 여부 
             {
-                icon: {                 //내위치 마커의 아이콘 속성
-                    size: {             //내위치 마커 아이콘의 크기
+                icon: {                 // 내 위치 마커의 아이콘 속성
+                    size: {             // 내 위치 마커 아이콘의 크기
                         width: 30,
                         height: 30
                     }
                 },
-                animate: {              //내위치 마커 애니메이션 효과 속성 
-                    color: "#ff00ff",   //내위치 마커의 색상
-                    opacity: 0.3,       //내위치 마커의 투명도
-                    desireScale: 3.5    //내위치 마커의 최대 크기 
+                animate: {              // 내 위치 마커 애니메이션 효과 속성 
+                    color: "#ff00ff",   // 내 위치 마커의 색상
+                    opacity: 0.3,       // 내 위치 마커의 투명도
+                    desireScale: 3.5    // 내 위치 마커의 최대 크기 
                 }
             }
         ); 
-        mapDraw.myLocationOff(); // 내위치 마커 삭제
 
     </code>
 </pre>
+<pre lang="en">
+    <code>
+        //draw my location 
+        mapDraw.myLocationOn(posX, posY, posZ, 
+            true,                       // Whether to continue to be displayed when returning from moving to another floor
+            {
+                icon: {                 // Icon properties of my location marker
+                    size: {             // Size of my location marker icon
+                        width: 30,
+                        height: 30
+                    }
+                },
+                animate: {              // My Position Marker Animation Effect Properties 
+                    color: "#ff00ff",   // color of my location marker
+                    opacity: 0.3,       // Transparency of my location markers
+                    desireScale: 3.5    // max size of my location marker
+                }
+            }
+        ); 
+
+    </code>
+</pre>
+<span lang="ko"></br>내위치 마커의 삭제는 MapDraw.myLocationOff()로 할 수 있습니다.</span>
+<span lang="en"></br>My location marker can be deleted by MapDraw.myLocationOff().</span>
+<pre>
+    <code>
+        // 내위치 마커 삭제
+        mapDraw.myLocationOff(); 
+    </code>
+</pre>
 </br>
-</br>아래는 내위치마커의 속성을 설정하여 지도위에 내위치마커를 그리는 코드의 일부입니다.
-<br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#myLocation" target="_blank">[examples의 my location]</a>를 참조하세요.
+<span lang="ko"></br>아래는 내위치마커의 속성을 설정하여 지도위에 내위치마커를 그리는 코드의 일부입니다.</span>
+<span lang="ko"></br>Below is a part of the code to draw my location marker on the map by setting the properties of my location marker.</span>
+<span lang="ko"><br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#myLocation" target="_blank">[examples의 my location]</a>를 참조하세요.</span>
+<span lang="ko"><br>Example page and full code are at : <a href="https://dabeeo.github.io/web_api/example/#myLocation" target="_blank">[examples my location]</a>.</span>
 <pre><code>
     <div class="button-container">
         <button type="button" class="button-menu">
@@ -62,9 +99,7 @@
         });
 
         function initMap () {
-            var mapContainer = document.getElementById('map'); // 지도를 표시할 div
-
-            // 지도 인증정보
+            var mapContainer = document.getElementById('map');
             var authorization = new indoorMapApi.Authorization({
                 clientId: "6Lwuu9wa4wta0NiHwy1fO5",
                 clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
@@ -72,12 +107,10 @@
             var mapOptions = {
                 authorization: authorization
             };
-
-            // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
             new indoorMapApi.MapView(
-                mapContainer, // 컨테이너
-                mapOptions, // 옵션
-                function (response) { // 맵 로드 콜백
+                mapContainer,
+                mapOptions,
+                function (response) {
                     var code = response.getCode();
                     if (code === 200) {
                         mapDraw = response.getPayload().mapDraw;
@@ -96,20 +129,19 @@
                 let posZ = document.querySelector("#myLocationZ").value;
                 document.querySelector("#myLocationOn").classList.add("on");
                 document.querySelector("#myLocationOff").classList.remove("on");
-                //내위치 표시 
                 mapDraw.myLocationOn(posX, posY, posZ,
-                    true,                       //타층 이동후 다시 돌아왔을 때 계속 표시 여부 
+                    true,
                     {
-                        icon: {                 //내위치 마커의 아이콘 속성
-                            size: {             //내위치 마커 아이콘의 크기
+                        icon: {
+                            size: {
                                 width: 30,
                                 height: 30
                             }
                         },
-                        animate: {              //내위치 마커 애니메이션 효과 속성 
-                            color: "#ff00ff",   //내위치 마커의 색상
-                            opacity: 0.3,       //내위치 마커의 투명도
-                            desireScale: 3.5    //내위치 마커의 최대 크기 
+                        animate: {
+                            color: "#ff00ff",
+                            opacity: 0.3,
+                            desireScale: 3.5
                         }
                     }
                 );
@@ -118,14 +150,14 @@
                 document.querySelector("#myLocationOff").classList.add("on");
                 document.querySelector("#myLocationOn").classList.remove("on");
                 isOn = false;
-                mapDraw.myLocationOff(); // 내위치 마커 삭제
+                mapDraw.myLocationOff();
             });
         }
     </script>    
 </code></pre>
 
-</br>전체코드의 실행화면은 다음과 같습니다. 버튼을 클릭하면 내위치마커가 지도에 표시됩니다.
-</br>
+<span lang="ko"></br>위 예제를 실행한 화면은 다음과 같습니다. 버튼을 클릭하면 내위치마커가 지도에 표시됩니다.</span>
+<span lang="en"></br>The result of the above code is below. Click the button to display my location marker on the map. </span>
 <iframe src="https://dabeeo.github.io/web_api/samples/myLocation.html"></iframe>
 </br>
 </br>

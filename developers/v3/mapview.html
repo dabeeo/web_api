@@ -1,46 +1,41 @@
-<h1> 지도 불러오기 (서버에서 지도파일 가져와서 지도 그리기)</h1>
+<h1 lang="ko"> 지도 불러오기 (서버에서 지도파일 가져와서 지도 그리기)</h1>
+<h1 lang="en"> Loading a map</h1>
 </br>
-<h4>indoorMapApi.MapView를 이용하여 다비오 지도서버에 있는 지도를 불러와 지정된 영역에 지도를 그립니다.</h4>
-</br>지도를 불러오기 위해서는 지도 사용을 위한 인증 정보가 필요합니다.
-</br>MapView를 호출시 지도에 관한 모든 정보가 mapDraw 객체로 반환되므로 이를 이용하여 지도를 제어할 수 있습니다.
-</br>MapView에 대한 자세한 정보는 <a href="https://dabeeo.github.io/web_api/jsdocs/MapView.html" target="_blank">[API Referece의 MapView]</a> 에 설명되어 있으니 이를 참조하세요.
+<h4 lang="ko">indoorMapApi.MapView를 이용하여 다비오 지도서버에 있는 지도를 불러와 지정된 영역에 지도를 그립니다.</h4>
+<h4 lang="en">Using indoorMapApi.MapView, draw a map in the designated area by loading the map in Dabeeo map server.</h4>
+<span lang="ko"></br>지도를 불러오기 위해서는 지도 사용을 위한 인증 정보가 필요합니다.</span>
+<span lang="en"></br>To load a map, you need authentication information to use the map.</span>
+<span lang="ko"></br>MapView를 호출시 지도에 관한 모든 정보가 mapDraw 객체로 반환되므로 이를 이용하여 지도를 제어할 수 있습니다.</span>
+<span lang="en"></br>When MapView is called, all information about the map is returned as a mapDraw object, so you can use it to control the map.</span>
+<span lang="ko"></br>MapView에 대한 자세한 정보는 <a href="https://dabeeo.github.io/web_api/jsdocs/MapView.html" target="_blank">[API Referece의 MapView]</a> 에 설명되어 있으니 이를 참조하세요.</span>
+<span lang="en"></br>For more information about MapView, see <a href="https://dabeeo.github.io/web_api/jsdocs/MapView.html" target="_blank">[API Referece MapView]</a>.</span>
 </br>
 </br>
-</br>실행 코드는 아래와 같습니다.
-<br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#index" target="_blank">[examples index]</a>를 참조하세요.
-
+<span lang="ko"></br>코드는 아래와 같습니다.</span>
+<span lang="en"></br>The code is below.</span>
+<span lang="ko"><br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#index" target="_blank">[examples index]</a>를 참조하세요.</span>
+<span lang="en"><br>Example page and the full code are at <a href="https://dabeeo.github.io/web_api/example/#index" target="_blank">[examples index]</a>.</span>
 <pre>
     <code>
         <div id="map"></div>
-        <script src="[다비오맵스의 공식 api 링크]"></script>
-
         <script>
-
             window.addEventListener("load", function () {
                 initMap();
             });
-
             function initMap () {
-                let mapContainer = document.getElementById('map'); // 지도를 표시할 div
-
-                // 지도 인증정보
+                let mapContainer = document.getElementById('map');
                 let authorization = new indoorMapApi.Authorization({
                     clientId: "6Lwuu9wa4wta0NiHwy1fO5",
                     clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
                 });
-
                 let mapOptions = {
                     authorization: authorization
                 };
-
-
-                // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
                 new indoorMapApi.MapView(
                     mapContainer, // 컨테이너
                     mapOptions, // 옵션
                     function (response) { // 맵 로드 콜백
                         let code = response.getCode();
-
                         if (code === 200) {
                             mapDraw = response.getPayload().mapDraw;
                             // do something
@@ -53,7 +48,8 @@
     </code>
 </pre>
 
-</br>전체코드의 실행화면은 다음과 같습니다.
+<span lang="ko"></br>위 예제를 실행한 화면은 다음과 같습니다.</span>
+<span lang="en"></br>The result of the above code is below. </span>
 </br>
 <iframe src="https://dabeeo.github.io/web_api/samples/index.html"></iframe>
 </br>

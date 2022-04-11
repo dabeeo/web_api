@@ -1,19 +1,28 @@
-<h1>층 변경하여 지도 다시 그리기 </h1>
+<h1 lang="ko">층 변경하여 지도 다시 그리기 </h1>
+<h1 lang="en">Redrawing the map by changing the floors </h1>
 </br>
-<h4>MapDraw.redrawMap()으로 층을 변경하여 지도를 그립니다.</h4>
-</br>indoorMapApi.MapView를 이용하여 지도를 그린 후에 층을 변경하고자 하는 경우에는 층만 변경하면 다시 그리면 됩니다.
-</br>이 때 사용자로부터 층을 선택받기 위한 UI는 직접 구현해야 합니다.
-</br>MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 맵이름, 층정보, poi정보, 테마정보 등이 속성으로 들어있으며 지도를 제어하기 위한 메소드들도 있습니다.
-</br>MapDraw에 대한 자세한 정보는 <a href="https://dabeeo.github.io/web_api/jsdocs/MapDraw.html" target="_blank">[API Reference의 MapDraw]</a>에 설명되어 있으며
-</br>MapDraw.redrawap()에 대한 정보는 <a href="https://dabeeo.github.io/web_api/jsdocs/MapDraw.html#redrawMap" target="_blank">[API Reference의 MapDraw.redrawMap()]</a>을 참조하세요
+<h4 lang="ko">MapDraw.redrawMap()으로 층을 변경하여 지도를 그립니다.</h4>
+<h4 lang="en">Draw the map by changing the layers with MapDraw.redrawMap().</h4>
+<span lang="ko"></br>indoorMapApi.MapView를 이용하여 지도를 그린 후에 층을 변경하고자 하는 경우에는 층만 변경하면 다시 그리면 됩니다.</span>
+<span lang="en"></br>If you want to change the floor after loading a map using indoorMapApi.MapView, just change the floor and draw again.</span>
+<span lang="ko"></br>이 때 사용자로부터 층을 선택받기 위한 UI는 직접 구현해야 합니다.</span>
+<span lang="en"></br>In this case, you need to implement the UI to receive the floor selection from the user.</span>
+<span lang="ko"></br>MapDraw는 MapView API를 호출시 Response로 반환되며 여기에 맵이름, 층정보, poi정보, 테마정보 등이 속성으로 들어있으며 지도를 제어하기 위한 메소드들도 있습니다.</span>
+<span lang="en"></br>MapDraw is returned as a Response when MapView API is called, which contains map name, floor information, poi information, theme information, etc. as properties, and there are methods to control the map.</span>
+<span lang="ko"></br>MapDraw에 대한 자세한 정보는 <a href="https://dabeeo.github.io/web_api/jsdocs/MapDraw.html" target="_blank">[API Reference의 MapDraw]</a>에 설명되어 있으며</span>
+<span lang="en"></br>For more information about MapDraw, see <a href="https://dabeeo.github.io/web_api/jsdocs/MapDraw.html" target="_blank">[API Reference MapDraw]</a></span>
+<span lang="ko"></br>MapDraw.redrawap()에 대한 정보는 <a href="https://dabeeo.github.io/web_api/jsdocs/MapDraw.html#redrawMap" target="_blank">[API Reference의 MapDraw.redrawMap()]</a>을 참조하세요</span>
+<span lang="en"></br>More information about MapDraw.redrawap() is at <a href="https://dabeeo.github.io/web_api/jsdocs/MapDraw.html#redrawMap" target="_blank">[API Reference의 MapDraw.redrawMap()]</a>.</span>
 <p>
 <pre>
     <code>
-        mapDraw.redrawMap({ floor: e.target.value }); //층변경하여 지도 다시 그리기
+        mapDraw.redrawMap({ floor: e.target.value }); 
     </code>
 </pre>
-</br>층을 변경하여 지도를 다시 그리기 위한 실행 코드는 아래와 같습니다.
-<br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#floor" target="_blank">[examples floor]</a>를 참조하세요.
+<span lang="ko"></br>층을 변경하여 지도를 다시 그리기 위한 실행 코드는 아래와 같습니다.</span>
+<span lang="en"></br>The executable code for redrawing the map by changing the layers is as follows.</span>
+<span lang="ko"><br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#floor" target="_blank">[examples floor]</a>를 참조하세요.</span>
+<span lang="en"><br>The example page and the full code are at <a href="https://dabeeo.github.io/web_api/example/#floor" target="_blank">[examples floor]</a>.</span>
 <pre>
     <code>
         <div class="button-container">
@@ -27,71 +36,66 @@
                 <option selected value="default">default</option>
               </select>
             </div>
-        </div>
-        
+        </div>        
         <div id="map"></div>
-        <script>
-            window.addEventListener("load", function () {
-                initMap();
+
+       <script>
+        window.addEventListener("load", function () {
+            initMap();
+        });
+
+        function initMap () {
+            let mapContainer = document.getElementById('map');
+            let authorization = new indoorMapApi.Authorization({
+                clientId: "6Lwuu9wa4wta0NiHwy1fO5",
+                clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
             });
-
-            function initMap () {
-                let mapContainer = document.getElementById('map'); // 지도를 표시할 div
-
-                // 지도 인증정보
-                let authorization = new indoorMapApi.Authorization({
-                    clientId: "6Lwuu9wa4wta0NiHwy1fO5",
-                    clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
-                });
-
-                let mapOptions = {
-                    authorization: authorization
-                };
-
-                // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
-                new indoorMapApi.MapView(
-                    mapContainer, // 컨테이너
-                    mapOptions, // 옵션
-                    function (response) { // 맵 로드 콜백
-                        let code = response.getCode();
-
-                        if (code === 200) {
-                            mapDraw = response.getPayload().mapDraw;
-                            // do something
-                            console.log("map view success!")
-                            handleFloorInfo(mapDraw.response);
-                        }
-                    }
-                );
+            let mapOptions = {
+                authorization: authorization
             };
-            //////////////////////////////////////////////////////////////////////////////////
-            //지도 층 정보 처리
-            function handleFloorInfo (response) {
-                let floorElement = document.querySelector("[name='floor']");
-                let floorInfo = response.floorInfo;
-                // 옵션창에 층 추가하기
 
-                for (let index = 0; index < floorInfo.length; index++) {
-                    let floor = floorInfo[index];
-                    let newOption = document.createElement("option");
-                    newOption.value = floor.id;
-                    if (floor.defaultYn == true) {
-                        newOption.selected = true; //지도에 설정된 디폴트 층을 가져옴
+            new indoorMapApi.MapView(
+                mapContainer,
+                mapOptions,
+                function (response) {
+                    let code = response.getCode();
+
+                    if (code === 200) {
+                        mapDraw = response.getPayload().mapDraw;
+                        // do something
+                        console.log("map view success!")
+                        handleFloorInfo(mapDraw.response);
                     }
-                    newOption.appendChild(document.createTextNode(floor.name[0].text));
-                    floorElement.appendChild(newOption);
                 }
-                floorElement.addEventListener("change", function (e) {
-                    console.log(e.target.value);
-                    mapDraw.redrawMap({ floor: e.target.value }); //층변경하여 지도 다시 그리기 
-                });
+            );
+        };
+        //////////////////////////////////////////////////////////////////////////////////
+        function handleFloorInfo (response) {
+            let floorElement = document.querySelector("[name='floor']");
+            let floorInfo = response.floorInfo;
+            // 옵션창에 층 추가하기
+
+            for (let index = 0; index < floorInfo.length; index++) {
+                let floor = floorInfo[index];
+                let newOption = document.createElement("option");
+                newOption.value = floor.id;
+                if (floor.defaultYn == true) {
+                    newOption.selected = true;
+                }
+                newOption.appendChild(document.createTextNode(floor.name[0].text));
+                floorElement.appendChild(newOption);
             }
-        </script>
+            floorElement.addEventListener("change", function (e) {
+                console.log(e.target.value);
+                mapDraw.redrawMap({ floor: e.target.value });
+            });
+        }
+    </script>
     </code>
 </pre>
 
-</br>실행화면은 다음과 같습니다.
-</br>
+<span lang="ko"></br>위 예제를 실행한 화면은 다음과 같습니다.</span>
+<span lang="en"></br>The result of the above code is below. </span>
 <iframe src="https://dabeeo.github.io/web_api/samples/floor.html"></iframe>
 </br>
 </br>

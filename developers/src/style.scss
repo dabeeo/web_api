@@ -59,6 +59,7 @@ header {
                 padding: 2px 4px;
                 background-color: $color;
                 color: $backColor;
+                cursor: pointer;
             }
         }
     }
@@ -99,7 +100,7 @@ main {
                     width: 100%;
                     padding: 5px;
                     color: $backColor;
-                    transition: all 1s ease;
+                    transition: all 0.1s ease;
 
                     &.active {
                         background-color: $backColor;

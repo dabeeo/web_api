@@ -1,32 +1,60 @@
-<h1>마커 그리기 </h1>
+<h1 lang="ko">마커 그리기 </h1>
+<h1 lang="en">Drawing markers</h1>
 </br>
-<h4>MapDraw.setMarker()로 지도에 여러개의 마커를 그릴 수 있습니다.</h4>
-</br>각 마커의 위치를 지정하고 각 마커에 원하는 아이콘을 지정할 수 있습니다. 아이콘을 생략하는 경우는 디폴트로 제공되는 아이콘이 표시됩니다.
-</br>여러개의 마커를 지정하기 위하여 배열 형태로 인자를 받습니다.
-</br>한층에만 마커를 그릴 경우에는 층정보를 생략하나, 여러층에 한꺼번에 마커를 표시하고자하는 경우는 각 마커에 층아이디를 지정해줘야 합니다.
-</br>지도를 2d로 표현하더라도 마커의 좌표는 3d로 줘야 합니다. 기본적으로 지도데이터가 3d로 되어 있기 때문입니다.
-</br>MapDraw.setMarker()에 대한 자세한 정보는 <a href="https://dabeeo.github.io/web_api/jsdocs/MapDraw.html#setMarker" target="_blank">[API Reference의 MapDraw.setMarker]</a>에 설명되어 있습니다.
-</br>마커의 속성은 아래 예제와 같습니다.
-<pre>
+<h4 lang="ko">MapDraw.setMarker()로 지도에 여러개의 마커를 그릴 수 있습니다.</h4>
+<h4 lang="en">You can draw multiple markers on the map with MapDraw.setMarker().</h4>
+<span lang="ko"></br>각 마커의 위치를 지정하고 각 마커에 원하는 아이콘을 지정할 수 있습니다. 아이콘을 생략하는 경우는 디폴트로 제공되는 아이콘이 표시됩니다.</span>
+<span lang="en"></br>You can position each marker and assign the desired icon to each marker. If the icon is omitted, default icon is displayed.</span>
+<span lang="ko"></br>여러개의 마커를 지정하기 위하여 배열 형태로 인자를 받습니다.</span>
+<span lang="en"></br>It receives an argument in the form of an array to designate multiple markers.</span>
+<span lang="ko"></br>한층에만 마커를 그릴 경우에는 층정보를 생략하나, 여러층에 한꺼번에 마커를 표시하고자하는 경우는 각 마커에 층아이디를 지정해줘야 합니다.</span>
+<span lang="en"></br>When drawing markers on only one floor, floor information is omitted, but if you want to display markers on multiple floors at once, you must designate a floor ID for each marker..</span>
+<span lang="ko"></br>지도를 2d로 표현하더라도 마커의 좌표는 3d로 줘야 합니다. 기본적으로 지도데이터가 3d로 되어 있기 때문입니다.</span>
+<span lang="en"></br>Even if the map is expressed in 2D, the coordinates of the marker must be given in 3D. This is because the map data is basically in 3D.</span>
+<span lang="ko"></br>마커의 속성은 아래 예제와 같습니다.</span>
+<span lang="en"></br>The properties of the marker are as in the example below.</span>
+<span lang="ko"></br>MapDraw.setMarker()에 대한 자세한 정보는 <a href="https://dabeeo.github.io/web_api/jsdocs/MapDraw.html#setMarker" target="_blank">[API Reference의 MapDraw.setMarker]</a>에 설명되어 있습니다.</span>
+<span lang="en"></br>For more information on MapDraw.setMarker(), see <a href="https://dabeeo.github.io/web_api/jsdocs/MapDraw.html#setMarker" target="_blank">[API Reference MapDraw.setMarker]</a>.</span>
+<pre lang="ko">
     <code>
         position: {
-            x: i.position.x, // 마커의 x좌표 
-            y: i.position.y - 30, // 마커의 y좌표
-            z: 60, // 마커의 z좌표 
+            x: i.position.x,              // 마커의 x좌표 
+            y: i.position.y - 30,         // 마커의 y좌표
+            z: 60,                        // 마커의 z좌표 
         },
         size: {
-            width: 30, // 아이콘의 넓이 
-            height: 30 // 아이콘의 높이
+            width: 30,                     // 아이콘의 넓이 
+            height: 30                     // 아이콘의 높이
         },
         image: "./img_marker_blue-3x.png", // 아이콘 지정
-        floorId: i.floorId,// 각 마커의 층을 지정.  지정하지 않을 경우 현재 보이는 층에만 표시함.  
-        async: true // 마커의 크기가 줌에 관계없이 항상 동일한 크기로 보여줄지 여부. true인 경우에는 항상 동일한 크기로 보임. 디폴트는 false
+        floorId: i.floorId,                // 각 마커의 층을 지정.  지정하지 않을 경우 현재 보이는 층에만 표시함.  
+        async: true                        // 마커의 크기가 줌에 관계없이 항상 동일한 크기로 보여줄지 여부. true인 경우에는 항상 동일한 크기로 보임. 디폴트는 false
+        
+    </code>
+</pre>
+<pre lang="en">
+    <code>
+        position: {
+            x: i.position.x,              // x coordinate of marker
+            y: i.position.y - 30,         // y coordinate of marker
+            z: 60,                        // z coordinate of marker
+        },
+        size: {
+            width: 30,                     // width of icon 
+            height: 30                     // height of icon 
+        },
+        image: "./img_marker_blue-3x.png", // icon url 
+        floorId: i.floorId,                // floor for each marker. If not specified, only the currently visible floor is displayed.
+        async: true                        // Whether the marker's size will always show the same size regardless of zoom. 
+                                           // If true, it will always appear the same size. default is false
         
     </code>
 </pre>
 </br>
-</br>아래는 각 층의 poi의 좌표를 구하여 poi의 위에 마커를 그리는 코드의 일부입니다.
-<br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#marker" target="_blank">[examples의 marker]</a>를 참조하세요.
+<span lang="ko"></br>아래는 각 층의 poi의 좌표를 구하여 poi의 위에 마커를 그리는 코드의 일부입니다.</span>
+<span lang="en"></br>Below is a part of the code to get the coordinates of the poi of each layer and draw a marker on top of the poi.</span>
+<span lang="ko"><br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#marker" target="_blank">[examples의 marker]</a>를 참조하세요.</span>
+<span lang="en"><br>Example page and the full code are at <a href="https://dabeeo.github.io/web_api/example/#marker" target="_blank">[examples marker]</a>.</span>
 <pre><code>
     <div class="button-container">
         <button type="button" class="button-menu">
@@ -42,30 +70,23 @@
     <div id="map"></div>
 
     <script>
-
         window.addEventListener("load", function () {
             initMap();
         });
-
         function initMap () {
-            var mapContainer = document.getElementById('map'); // 지도를 표시할 div
-
-            // 지도 인증정보
+            var mapContainer = document.getElementById('map');
             var authorization = new indoorMapApi.Authorization({
                 clientId: "6Lwuu9wa4wta0NiHwy1fO5",
                 clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
             });
-
             var mapOptions = {
                 authorization: authorization
             };
-            // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
             new indoorMapApi.MapView(
-                mapContainer, // 컨테이너
-                mapOptions, // 옵션
-                function (response) { // 맵 로드 콜백
+                mapContainer,
+                mapOptions,
+                function (response) {
                     var code = response.getCode();
-
                     if (code === 200) {
                         mapDraw = response.getPayload().mapDraw;
                         // do something
@@ -77,7 +98,6 @@
         };
 
         //////////////////////////////////////////////////////////////////////////////////
-        // 마커 그리기
         function initSetMarker () {
             /* marker */
             document.querySelector("#markerOn").addEventListener("click", function (e) {
@@ -85,35 +105,34 @@
                 mapDraw.response.poiInfo.forEach(function (i) {
                     marker.push({
                         position: {
-                            x: i.position.x, // 마커의 x좌표 
-                            y: i.position.y - 30, // 마커의 y좌표
-                            z: 60, // 마커의 z좌표 
+                            x: i.position.x,
+                            y: i.position.y - 30,
+                            z: 60,
                         },
                         size: {
-                            width: 30, // 아이콘의 넓이 
-                            height: 30 // 아이콘의 높이
+                            width: 30,
+                            height: 30
                         },
-                        image: "./img_marker_blue-3x.png", // 아이콘 지정
-                        floorId: i.floorId,// 각 마커의 층을 지정.  지정하지 않을 경우 현재 보이는 층에만 표시함.  
-                        async: true // 마커의 크기가 줌에 관계없이 동일한 크기로 보여줄지 여부. true인 경우에는 항상 동일한 크기로 보임. 디폴트는 false
+                        image: "./img_marker_blue-3x.png",
+                        floorId: i.floorId,
+                        async: true
                     });
                 });
                 document.querySelector("#markerOn").classList.add("on");
                 document.querySelector("#markerOff").classList.remove("on");
-                mapDraw.setMarker({ marker: marker }); // 마커 그리기
+                mapDraw.setMarker({ marker: marker });
             });
-
             document.querySelector("#markerOff").addEventListener("click", function (e) {
                 document.querySelector("#markerOff").classList.add("on");
                 document.querySelector("#markerOn").classList.remove("on");
-                mapDraw.clearMarker(); // 마커 지우기
+                mapDraw.clearMarker();
             });
         }
     </script>
 </code></pre>
 
-</br>전체코드의 실행화면은 다음과 같습니다.
-</br>
+<span lang="ko"></br>위 예제를 실행한 화면은 다음과 같습니다.</span>
+<span lang="en"></br>The result of the above code is below. </span>
 <iframe src="https://dabeeo.github.io/web_api/samples/marker.html"></iframe>
 </br>
 </br>

@@ -1,12 +1,20 @@
-<h1>클릭시 poi의 정보 표시하기 </h1>
+<h1 lang="ko">클릭시 poi의 정보 표시하기 </h1>
+<h1 lang="en">Showing info of poi on click </h1>
 </br>
-<h4>object-click 또는 poi-click 이벤트를 이용하여 지도의 POI 정보를 사용자에게 표시할 수 있습니다. </h4>
-</br>다비오맵스 플랫폼에서 poi metadata에 입력된 정보는 object가 클릭되거나 poi가 클릭될 때 event를 통해 전달됩니다.
-</br>이를 통해 poi의 여러가지 내용을 팝업창 등을 통해 사용자에게 알릴 수 있습니다.
-</br>object 클릭시에는 object에 연결된 poi의 정보가 전달됩니다. 한개의 object에 여러개의 poi가 연결될 수 있습니다.
-</br>object 클릭 이벤트에 대한 자세한 설명은 <a href="https://dabeeo.github.io/web_api/jsdocs/global.html#event:object-click" target="_blank">[API Reference의 object click event]</a>를 참조하세요.
-</br>poi 클릭 이벤트에 대한 자세한 설명은 <a href="https://dabeeo.github.io/web_api/jsdocs/global.html#event:poi-click" target="_blank">[API Reference의 poi click event]</a>를 참조하세요.
-</br>이벤트는 아래와 같은 방법으로 받을 수 있습니다.
+<h4 lang="ko">object-click 또는 poi-click 이벤트를 이용하여 지도의 POI 정보를 사용자에게 표시할 수 있습니다. </h4>
+<h4 lang="en">POI information on the map can be displayed to the user using object-click or poi-click events. </h4>
+<span lang="ko"></br>다비오맵스 플랫폼에서 poi metadata에 입력된 정보는 object가 클릭되거나 poi가 클릭될 때 event를 통해 전달됩니다.</span>
+<span lang="en"></br>In the Dabeeomaps platform, information entered in poi metadata is transmitted through events when an object is clicked or poi is clicked.</span>
+<span lang="ko"></br>이를 통해 poi의 여러가지 내용을 팝업창 등을 통해 사용자에게 알릴 수 있습니다.</span>
+<span lang="en"></br>Through this, various contents of the poi can be notified to the user through a pop-up window.</span>
+<span lang="ko"></br>object 클릭시에는 object에 연결된 poi의 정보가 전달됩니다. 한개의 object에 여러개의 poi가 연결될 수 있습니다.</span>
+<span lang="en"></br>When an object is clicked, the information of the poi connected to the object is transmitted. Multiple poi can be connected to one object.</span>
+<span lang="ko"></br>이벤트는 아래와 같은 방법으로 받을 수 있습니다.</span>
+<span lang="en"></br>Events can be received in the following ways.</span>
+<span lang="ko"></br>object 클릭 이벤트에 대한 자세한 설명은 <a href="https://dabeeo.github.io/web_api/jsdocs/global.html#event:object-click" target="_blank">[API Reference의 object click event]</a>를 참조하세요.</span>
+<span lang="en"></br>For a detailed description of the object click event, see <a href="https://dabeeo.github.io/web_api/jsdocs/global.html#event:object-click" target="_blank">[API Reference object click event]</a>.</span>
+<span lang="ko"></br>poi 클릭 이벤트에 대한 자세한 설명은 <a href="https://dabeeo.github.io/web_api/jsdocs/global.html#event:poi-click" target="_blank">[API Reference의 poi click event]</a>를 참조하세요.</span>
+<span lang="en"></br>For a detailed description of the poi click event, see <a href="https://dabeeo.github.io/web_api/jsdocs/global.html#event:poi-click" target="_blank">[API Reference poi click event]</a>.</span>
 <pre>
     <code>
         document.querySelector("#map").addEventListener("object-click", function (e) {
@@ -14,7 +22,6 @@
         }    
     </code>
 </pre>
-
 <pre>
     <code>
         document.querySelector("#map").addEventListener("poi-click", function (e) {
@@ -24,8 +31,10 @@
 </pre>
 
 </br>
-</br>아래는 지도에 포함된 object를 클릭하면 object에 연결된 poi의 정보를 보여주는 코드의 일부입니다.
-<br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#objectClickEvent" target="_blank">[examples의 object click event]</a>를 참조하세요.
+<span lang="ko"></br>아래는 지도에 포함된 object를 클릭하면 object에 연결된 poi의 정보를 보여주는 코드의 일부입니다.</span>
+<span lang="en"></br>Below is a part of the code that shows the information of the poi connected to the object when you click on the object included in the map.</span>
+<span lang="ko"><br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#objectClickEvent" target="_blank">[examples의 object click event]</a>를 참조하세요.</span>
+<span lang="en"><br>The example page and the full code are at <a href="https://dabeeo.github.io/web_api/example/#objectClickEvent" target="_blank">[examples object click event]</a>.</span>
 <pre><code>
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -49,8 +58,7 @@
         });
 
         function initMap () {
-            var mapContainer = document.getElementById('map'); // 지도를 표시할 div
-            // 지도 인증정보
+            var mapContainer = document.getElementById('map');
             var authorization = new indoorMapApi.Authorization({
                 clientId: "6Lwuu9wa4wta0NiHwy1fO5",
                 clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
@@ -60,11 +68,10 @@
                 camera: "2d",
                 zoom: 200
             };
-            // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
             new indoorMapApi.MapView(
-                mapContainer, // 컨테이너
-                mapOptions, // 옵션
-                function (response) { // 맵 로드 콜백
+                mapContainer,
+                mapOptions,
+                function (response) {
                     var code = response.getCode();
                     if (code === 200) {
                         mapDraw = response.getPayload().mapDraw;
@@ -81,18 +88,17 @@
             var modal = document.querySelector("#myModal");
             var span = document.querySelector(".close");
 
-            /* object 클릭시 poi 정보 전달 */
+            /* handles object click event  */
             document.querySelector("#map").addEventListener("object-click", function (e) {
                 console.log("object click ", e.detail);
                 if (e.detail === null) return;
                 let message = "";
 
-                //클릭시 좌표에 연결 된 object가 여러개 올수 있으므로 array를 순회하면서 확인 후  poi 처리 
                 for (let index of e.detail) {
-                    //하나의 Object에 여러개의 poi가 연결된 경우
+                    //handle multiple pois
                     for (let p of index.poiDataArr) {
                         message += `poi title : ${JSON.stringify(p.title)} `
-                        // poi의 메타데이터에 있는 내용
+                        // handle poi metadata
                         for (let m of p.metadatas) {
                             message += `\n${m.lang}`;
                             for (let meta of m.metadatas) {
@@ -124,8 +130,8 @@
     </script>    
 </code></pre>
 
-</br>전체코드의 실행화면은 다음과 같습니다. Object를 클릭하면 poi 정보가 팝업창으로 보입니다.
-</br>
+<span lang="ko"></br>위 예제를 실행한 화면은 다음과 같습니다. Object를 클릭하면 poi 정보가 팝업창으로 보입니다.</span>
+<span lang="en"></br>The result of the above code is below. If you click Object, poi information is displayed in a pop-up window.</span>
 <iframe height=1000px src="https://dabeeo.github.io/web_api/samples/objectClickEvent.html"></iframe>
 </br>
 </br>

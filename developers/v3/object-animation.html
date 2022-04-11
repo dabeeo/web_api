@@ -1,11 +1,15 @@
-<h1>오브젝트 애니메이션 효과주기 </h1>
+<h1 lang="ko">오브젝트 애니메이션 효과주기 </h1>
+<h1 lang="en">Object Animation </h1>
 </br>
-<h4>MapDraw.updateObjectStateByIds()를 이용하여 지도의 오브젝트에 애니메이션 효과를 줄 수 있습니다. </h4>
-</br>복수개의 오브젝트를 직접 지정하거나 연결된 poi를 지정하여 색상 옵션을 주면 됩니다.
-</br>MapDraw.updateObjectStateByIds()에 대한 자세한 설명은 <a href="https://developers.dabeeomaps.com/jsdocs/MapDraw.html#updateObjectStateByIds" target="_blank">[API Reference의 update object status by
-    id]</a>를 참조하세요.
-</br>아래는 오브젝트의 속성을 설정하는 각 옵션과 그에 대한 설명입니다.
-<pre>
+<h4 lang="ko">MapDraw.updateObjectStateByIds()를 이용하여 지도의 오브젝트에 애니메이션 효과를 줄 수 있습니다. </h4>
+<h4 lang="en">You can animate objects on the map using MapDraw.updateObjectStateByIds().</h4>
+<span lang="ko"></br>복수개의 오브젝트를 직접 지정하거나 연결된 poi를 지정하여 색상 옵션을 주면 됩니다.</span>
+<span lang="en"></br>You can give color options by directly designating multiple objects or by designating a connected poi.</span>
+<span lang="ko"></br>MapDraw.updateObjectStateByIds()에 대한 자세한 설명은 <a href="https://developers.dabeeomaps.com/jsdocs/MapDraw.html#updateObjectStateByIds" target="_blank">[API Reference의 update object status by id]</a>를 참조하세요.</span>
+<span lang="en"></br>For a more detailed explanation of MapDraw.updateObjectStateByIds() see <a href="https://developers.dabeeomaps.com/jsdocs/MapDraw.html#updateObjectStateByIds" target="_blank">[API Reference의 update object status by id]</a>.</span>
+<span lang="ko"></br>아래는 오브젝트의 속성을 설정하는 각 옵션과 그에 대한 설명입니다.</span>
+<span lang="en"></br>Below is a description of each option for setting the properties of an object.</span>
+<pre lang="ko">
     <code>
         mapDraw.updateObjectStateByIds({
             ids: [poi1, poi2, poi3],    // 애니메이션 효과를 주고자 하는 오브젝트의 아이디, 또는 연결된 poi의 아이디
@@ -19,10 +23,26 @@
 
     </code>
 </pre>
+<pre lang="en">
+    <code>
+        mapDraw.updateObjectStateByIds({
+            ids: [poi1, poi2, poi3],    // ID of object to be animated, or ID of connected poi
+            color: '#dc3545',           // object color
+            opacity: 0.3,               // object transparency
+            isAnimate: true,            // Whether to apply animation 
+            duration: 1000,             // animation cycle
+            isRepeat: true,             // Whether to repeat animation
+            isYoyo: true                // animation loop. When set to true, a more natural effect is produced.
+        });
+
+    </code>
+</pre>
 
 </br>
-</br>아래는 지도에 포함된 object중 random하게 선택하여 색상 정보를 변경하는 코드의 일부입니다.
-<br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#multiObjectsAnimation" target="_blank">[examples의 multi objects animation]</a>를 참조하세요.
+<span lang="ko"></br>아래는 지도에 포함된 object중 random하게 선택하여 색상 정보를 변경하는 코드의 일부입니다.</span>
+<span lang="en"></br>Below is a part of the code that changes color information by randomly selecting objects included in the map.</span>
+<span lang="ko"><br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#multiObjectsAnimation" target="_blank">[examples의 multi objects animation]</a>를 참조하세요.</span>
+<span lang="en"><br>Example page and full code are at : <a href="https://dabeeo.github.io/web_api/example/#multiObjectsAnimation" target="_blank">[examples의 multi objects animation]</a>.</span>
 <pre><code>
     <div class="button-container">
         <button type="button" class="button-menu">
@@ -52,29 +72,25 @@
         });
 
         function initMap () {
-            var mapContainer = document.getElementById('map'); // 지도를 표시할 div
-
-            // 지도 인증정보
+            var mapContainer = document.getElementById('map');
             var authorization = new indoorMapApi.Authorization({
                 clientId: "6Lwuu9wa4wta0NiHwy1fO5",
                 clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
             });
             var mapOptions = {
                 authorization: authorization,
-                camera: "3d", // 초기 카메라 모드
+                camera: "3d",
                 angle: {
-                    vertical: 10, // 3D 모드일때 tilt 
+                    vertical: 10,
                     horizontal: 0
                 },
                 zoom: 100,
                 isPoiSprite: true
             };
-
-            // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
             new indoorMapApi.MapView(
-                mapContainer, // 컨테이너
-                mapOptions, // 옵션
-                function (response) { // 맵 로드 콜백
+                mapContainer,
+                mapOptions,
+                function (response) {
                     var code = response.getCode();
 
                     if (code === 200) {
@@ -106,15 +122,14 @@
             let poi1 = getPoiId();
             let poi2 = getPoiId();
             let poi3 = getPoiId();
-            // 오브젝트 색상 업데이트 
             mapDraw.updateObjectStateByIds({
-                ids: [poi1, poi2, poi3],    // 애니메이션 효과를 주고자 하는 오브젝트의 아이디, 또는 연결된 poi의 아이디
-                color: '#dc3545',           // 오브젝트 색상
-                opacity: 0.3,               // 오브젝트 투명도
-                isAnimate: true,            // animation 적용 여부 
-                duration: 1000,             // animation 주기
-                isRepeat: true,             // animation 반복여부
-                isYoyo: true                // animation 반복형태. true로 할 때 보다 자연스러운 효과가 연출됨
+                ids: [poi1, poi2, poi3],
+                color: '#dc3545',
+                opacity: 0.3,
+                isAnimate: true,
+                duration: 1000,
+                isRepeat: true,
+                isYoyo: true
             });
         }
 
@@ -127,7 +142,6 @@
             return mapPoiInfo[index].id;
         }
         //////////////////////////////////////////////////////////////////////////////////
-        //지도 층 정보 처리
         function handleFloorInfo (response) {
             let floorElement = document.querySelector("[name='floor']");
             let floorInfo = response.floorInfo;
@@ -152,8 +166,8 @@
     </script>
 </code></pre>
 
-</br>전체코드의 실행화면은 다음과 같습니다. Start object animation 버튼을 클릭하면 복수개의 오브젝트에 애니메이션 효과가 나타납니다.
-</br>
+<span lang="ko"></br>위 예제를 실행한 화면은 다음과 같습니다. Start object animation 버튼을 클릭하면 복수개의 오브젝트에 애니메이션 효과가 나타납니다.</span>
+<span lang="en"></br>The result of the above code is below. Click the Start object animation button to animate multiple objects.</span>
 <iframe height=1000px src="https://dabeeo.github.io/web_api/samples/multiObjectsAnimation.html"></iframe>
 </br>
 </br>
