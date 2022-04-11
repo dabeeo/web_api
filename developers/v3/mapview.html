@@ -15,7 +15,7 @@
 <span lang="en"></br>The code is below.</span>
 <span lang="ko"><br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#index" target="_blank">[examples index]</a>를 참조하세요.</span>
 <span lang="en"><br>Example page and the full code are at <a href="https://dabeeo.github.io/web_api/example/#index" target="_blank">[examples index]</a>.</span>
-<pre>
+<pre lang="ko">
     <code>
         <div id="map"></div>
         <script>
@@ -35,6 +35,38 @@
                     mapContainer, // 컨테이너
                     mapOptions, // 옵션
                     function (response) { // 맵 로드 콜백
+                        let code = response.getCode();
+                        if (code === 200) {
+                            mapDraw = response.getPayload().mapDraw;
+                            // do something
+                            console.log("map view success!")
+                        }
+                    }
+                );
+            }
+        </script>
+    </code>
+</pre>
+<pre lang="en">
+    <code>
+        <div id="map"></div>
+        <script>
+            window.addEventListener("load", function () {
+                initMap();
+            });
+            function initMap () {
+                let mapContainer = document.getElementById('map');
+                let authorization = new indoorMapApi.Authorization({
+                    clientId: "6Lwuu9wa4wta0NiHwy1fO5",
+                    clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
+                });
+                let mapOptions = {
+                    authorization: authorization
+                };
+                new indoorMapApi.MapView(
+                    mapContainer, // container
+                    mapOptions, // option
+                    function (response) { // callback after loading a map
                         let code = response.getCode();
                         if (code === 200) {
                             mapDraw = response.getPayload().mapDraw;

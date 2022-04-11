@@ -162,7 +162,7 @@
 
             const result = mapDraw.getRouteOn(originPoi, destPoi, "recommendation", [], false);
             if (result === undefined) {
-                alert("요청하신 경로가 존재하지 않습니다.\n출발지와 도착지를 확인하세요");
+                alert("요청하신 경로가 존재하지 않습니다.\n출발지와 도착지를 확인하세요\nNo Route \n check origination and destination");
                 return false;
             }
             return { originPoi, destPoi };
@@ -189,7 +189,7 @@
                     duration: 2000,
                     isRepeat: true,
                     isYoyo: true,
-                    ids: [routePoi.originPoi.poiId, routePoi.destPoi.poiId] // 출발지 도착지 모두에 animation 적용
+                    ids: [routePoi.originPoi.poiId, routePoi.destPoi.poiId]
                 }
             });
         }

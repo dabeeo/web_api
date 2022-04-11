@@ -21,10 +21,10 @@
 <span lang="en"></br>Below is a snippet of code that gives information about the path. This is the code of the part that calls MapDraw.getNavigation() in the directions and simulation menu. It must be called after the MapDraw.getRouteOn() call.</span>
 <span lang="ko"></br>실행 페이지와 전체 코드는 <a href="https://dabeeo.github.io/web_api/example/#navigation" target="_blank">[examples의 simple navigation]</a>를 참조하세요.</span>
 <span lang="en"></br>The example page and the full code are <a href="https://dabeeo.github.io/web_api/example/#navigation" target="_blank">[examples simple navigation]</a>.</span>
-<pre><code>
+<pre lang="ko"><code>
     <div id="navi_path_wrap" style="display:none;">
         <div class="divider"></div>
-        <div class="inline-label">이동경로</div>
+        <div class="inline-label">route</div>
         <div id="navigationButton">
             <div class="inline-container">
             </div>
@@ -33,7 +33,7 @@
     <script>
         function getNavigation () {
             document.querySelector("#navi_path_wrap").style.display = "block";
-            //길찾기 경로 구하기
+
             let list = mapDraw.getNavigation();
 
             document.querySelector("#navigationButton").innerHTML = "";
@@ -56,7 +56,6 @@
                     document.querySelector("#navigationButton").appendChild(divElement);
                 } else {
                     if (typeof list[i].distance === "object") {
-                        // 이동수단 진입 후 층변경시 distance: 이동된 floor object
                         inputButton.value += transCode(list[i].transCode) + " " + list[i].distance.name[0].text + " 으로 이동";
                     } else {
                         if (transCode(list[i].transCode) === "걷기") {
@@ -110,6 +109,106 @@
                     break;
                 case "RIGHT":
                     result = "우회전";
+                    break;
+                default:
+                    result = "";
+                    break;
+            }
+            return result;
+        }
+
+    </script>
+
+</code></pre>
+
+<pre lang="en"><code>
+    <div id="navi_path_wrap" style="display:none;">
+        <div class="divider"></div>
+        <div class="inline-label">route</div>
+        <div id="navigationButton">
+            <div class="inline-container">
+            </div>
+        </div>
+    </div>
+    <script>
+        function getNavigation () {
+            document.querySelector("#navi_path_wrap").style.display = "block";
+
+            let list = mapDraw.getNavigation();
+
+            document.querySelector("#navigationButton").innerHTML = "";
+            for (let i = 0; i < list.length; i++) {
+                let divElement = document.createElement("div");
+                let inputButton = document.createElement("input");
+                document.querySelector("#navigationButton").appendChild(divElement);
+                divElement.appendChild(inputButton);
+                divElement.classList.add("inline-container");
+
+                inputButton.type = "button";
+                inputButton.classList.add("inline-input");
+                inputButton.addEventListener("click", list[i].move);
+                inputButton.value = "";
+                if (list[i].isDestination) {
+                    if (list[i].distance != 0) {
+                        inputButton.value += "walk " + list[i].distance / 100 + "m";
+                    }
+                    inputButton.value += list[i].title
+                    document.querySelector("#navigationButton").appendChild(divElement);
+                } else {
+                    if (typeof list[i].distance === "object") {
+                        inputButton.value += transCode(list[i].transCode) + " by " + list[i].distance.name[0].text;
+                    } else {
+                        if (transCode(list[i].transCode) === "walk") {
+                            inputButton.value += " walk " + list[i].distance / 100 + "m ";
+                        } else {
+                            inputButton.value += " " + + " walk " + list[i].distance / 100 + "m " + " to " + transCode(list[i].transCode);
+                        }
+                    }
+                    if (list[i].direction) {
+                        inputButton.value += " then "
+                        if (list[i].title) {
+                            inputButton.value += "at " + list[i].title;
+                        }
+                        inputButton.value += transDirectCode(list[i].direction);
+                    }
+                }
+            }
+        }
+        function transCode (type) {
+            let result = "walk";
+            switch (type) {
+                case "OB-STAIRS":
+                    result = "stairs";
+                    break;
+                case "OB-ELEVATOR":
+                    result = "elevator";
+                    break;
+                case "OB-ESCALATOR":
+                    result = "escalator both";
+                    break;
+                case "OB-ESCALATOR_UP":
+                    result = "escalator up";
+                    break;
+                case "OB-ESCALATOR_DOWN":
+                    result = "escalator down";
+                    break;
+                default:
+                    result = "walk";
+                    break;
+            }
+            return result;
+        }
+        function transDirectCode (type) {
+            let result = "";
+            switch (type) {
+                case "STRAIGHT":
+                    result = "straight";
+                    break;
+                case "LEFT":
+                    result = "turn left";
+                    break;
+                case "RIGHT":
+                    result = "turn right";
                     break;
                 default:
                     result = "";
