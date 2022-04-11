@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <!-- dabeeo js api test url 사용. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+    <!-- dabeeo js api test url. For official link, see :  https://dabeeomaps.com/docs  -->
     <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -18,7 +19,7 @@
     </div>
     <div class="control-container">
         <div class="inline-container">
-            <div class="inline-label">카메라</div>
+            <div class="inline-label">camera</div>
             <select type="text" class="inline-input" name="camera">
                 <option selected value="default">default</option>
                 <option value="2d">2d</option>
@@ -27,36 +28,36 @@
         </div>
 
         <div class="inline-container">
-            <div class="inline-label">층선택</div>
+            <div class="inline-label">floor</div>
             <select type="text" class="inline-input" name="floor">
                 <option selected value="default">default</option>
             </select>
         </div>
         <div class="divider"></div>
         <div class="inline-container">
-            <div class="inline-label">출발지</div>
+            <div class="inline-label">origination</div>
             <select type="text" class="inline-input" id="poiOrigin">
             </select>
         </div>
         <div class="inline-container">
-            <div class="inline-label">도착지</div>
+            <div class="inline-label">destination</div>
             <select type="text" class="inline-input" id="poiDestination">
             </select>
         </div>
         <div class="inline-container">
-            <input type="button" class="inline-input" id="getRouteOn" value="길찾기">
-            <input type="button" class="inline-input" id="getRouteOff" value="끄기">
+            <input type="button" class="inline-input" id="getRouteOn" value="Get Directions">
+            <input type="button" class="inline-input" id="getRouteOff" value="off">
         </div>
         <div class="inline-container">
-            <input type="button" class="inline-input" id="startRouteAnimation" value="모의주행">
-            <input type="button" class="inline-input" id="stopRouteAnimation" value="끄기">
+            <input type="button" class="inline-input" id="startRouteAnimation" value="simulation">
+            <input type="button" class="inline-input" id="stopRouteAnimation" value="off">
         </div>
         <div class="inline-container">
-            <button type="button" class="inline-input" id="retResult">주행시간</button>
+            <button type="button" class="inline-input" id="retResult">duration</button>
         </div>
         <div id="navi_path_wrap" style="display:none;">
             <div class="divider"></div>
-            <div class="inline-label">이동경로</div>
+            <div class="inline-label">route</div>
             <div id="navigationButton">
                 <div class="inline-container">
                 </div>

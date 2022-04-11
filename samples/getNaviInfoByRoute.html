@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <!-- dabeeo js api test url 사용. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+    <!-- dabeeo js api test url. For official link, see :  https://dabeeomaps.com/docs  -->
     <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
 
     <link rel="stylesheet" href="style.css">
@@ -19,7 +20,7 @@
     </div>
     <div class="control-container">
         <div class="inline-container">
-            <div class="inline-label">카메라</div>
+            <div class="inline-label">Camera</div>
             <select type="text" class="inline-input" name="camera">
                 <option selected value="default">default</option>
                 <option value="2d">2d</option>
@@ -28,28 +29,28 @@
         </div>
 
         <div class="inline-container">
-            <div class="inline-label">층선택</div>
+            <div class="inline-label">select floor</div>
             <select type="text" class="inline-input" name="floor">
                 <option selected value="default">default</option>
             </select>
         </div>
         <div class="divider"></div>
         <div class="inline-container">
-            <div class="inline-label">출발지</div>
+            <div class="inline-label">origination</div>
             <select type="text" class="inline-input" id="poiOrigin">
             </select>
         </div>
         <div class="inline-container">
-            <div class="inline-label">도착지</div>
+            <div class="inline-label">detination</div>
             <select type="text" class="inline-input" id="poiDestination">
             </select>
         </div>
         <div class="inline-container">
-            <button id="getNaviInfoByRoute" type="button" class="inline-input">경로별시간과 거리</button>
+            <button id="getNaviInfoByRoute" type="button" class="inline-input">time and distance</button>
 
         </div>
         <div class="inline-container">
-            <input type="button" class="inline-input" id="getRouteOff" value="끄기">
+            <input type="button" class="inline-input" id="getRouteOff" value="Off">
         </div>
         <div id="navi_path_wrap" style="display:none;">
             <div class="divider"></div>
@@ -202,7 +203,7 @@
             btn.style.backgroundColor = "#a7a7a7";
             btn.style.color = "#fff";
             btn.style.borderColor = "#fff";
-            btn.innerText = "경로별 길찾기 아래 버튼 클릭"
+            btn.innerText = "click below button for each route"
 
             document.querySelector("#navigationButton").appendChild(div);
 
@@ -224,7 +225,7 @@
 
                     let result = mapDraw.getRouteOn(originPoi, destPoi, key, [], retResponse = true);
                     if (result === undefined) {
-                        alert("요청하신 경로가 존재하지 않습니다.\n출발지와 도착지를 확인하세요");
+                        alert("요청하신 경로가 존재하지 않습니다.\n출발지와 도착지를 확인하세요\nno route \ncheck origination and destination");
                         return;
                     }
                     mapDraw.startRouteAnimation();
@@ -232,7 +233,7 @@
                 });
 
                 let text = key + "--" +
-                    (routeInfo[key].totalTime / (1000 * 60)).toFixed(1) + "분/  총거리: " +
+                    (routeInfo[key].totalTime / (1000 * 60)).toFixed(1) + "분(min)/  총거리(distance): " +
                     (routeInfo[key].totalDistance / 100).toFixed(0) + "m";
 
                 inputButton.value = text;

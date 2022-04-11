@@ -2,87 +2,88 @@
 <html lang="en">
 
 <head>
-  <title>theme sample</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-  <!-- dabeeo js api test url 사용. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
-  <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
-  <link rel="stylesheet" href="style.css">
+    <title>theme sample</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- dabeeo js api test url 사용. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+    <!-- dabeeo js api test url. For official link, see :  https://dabeeomaps.com/docs  -->
+    <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="button-container">
-    <button type="button" class="button-menu">
-      floor
-    </button>
-  </div>
-  <div class="control-container">
-    <div class="inline-container">
-      <select type="text" class="inline-input" name="theme">
-        <option selected value="default">default</option>
-      </select>
+    <div class="button-container">
+        <button type="button" class="button-menu">
+            floor
+        </button>
     </div>
-  </div>
-  <div id="map"></div>
-  <script>
+    <div class="control-container">
+        <div class="inline-container">
+            <select type="text" class="inline-input" name="theme">
+                <option selected value="default">default</option>
+            </select>
+        </div>
+    </div>
+    <div id="map"></div>
+    <script>
 
-    window.addEventListener("load", function () {
-      initMap();
-    });
+        window.addEventListener("load", function () {
+            initMap();
+        });
 
-    function initMap() {
-      let mapContainer = document.getElementById('map'); // 지도를 표시할 div
+        function initMap () {
+            let mapContainer = document.getElementById('map'); // 지도를 표시할 div
 
-      // 지도 인증정보
-      let authorization = new indoorMapApi.Authorization({
-        clientId: "6Lwuu9wa4wta0NiHwy1fO5",
-        clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
-      });
+            // 지도 인증정보
+            let authorization = new indoorMapApi.Authorization({
+                clientId: "6Lwuu9wa4wta0NiHwy1fO5",
+                clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
+            });
 
-      let mapOptions = {
-        authorization: authorization
-      };
+            let mapOptions = {
+                authorization: authorization
+            };
 
 
-      // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
-      new indoorMapApi.MapView(
-        mapContainer, // 컨테이너
-        mapOptions, // 옵션
-        function (response) { // 맵 로드 콜백
-          let code = response.getCode();
+            // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+            new indoorMapApi.MapView(
+                mapContainer, // 컨테이너
+                mapOptions, // 옵션
+                function (response) { // 맵 로드 콜백
+                    let code = response.getCode();
 
-          if (code === 200) {
-            mapDraw = response.getPayload().mapDraw;
-            // do something
-            console.log("map view success!")
-            handleThemeInfo(mapDraw.response);
-          }
+                    if (code === 200) {
+                        mapDraw = response.getPayload().mapDraw;
+                        // do something
+                        console.log("map view success!")
+                        handleThemeInfo(mapDraw.response);
+                    }
+                }
+            );
+        };
+        //////////////////////////////////////////////////////////////////////////////////
+        //테마 상태 및 테마 선택
+        //테마 변경 다시 그리기 : redrawMap
+        function handleThemeInfo (response) {
+            let themeElement = document.querySelector("[name='theme']");
+
+            let themeInfo = response.themeInfo;
+            for (let index = 0; index < themeInfo.length; index++) {
+                let theme = themeInfo[index];
+                let newOption = document.createElement("option");
+                newOption.value = theme.id;
+                if (theme.defaultYn) {
+                    newOption.selected = true;
+                }
+                newOption.appendChild(document.createTextNode(theme.name));
+                themeElement.appendChild(newOption);
+            }
+            themeElement.addEventListener("change", function (e) {
+                mapDraw.redrawMap({ theme: e.target.value });
+            });
         }
-      );
-    };
-    //////////////////////////////////////////////////////////////////////////////////
-    //테마 상태 및 테마 선택
-    //테마 변경 다시 그리기 : redrawMap
-    function handleThemeInfo(response) {
-      let themeElement = document.querySelector("[name='theme']");
 
-      let themeInfo = response.themeInfo;
-      for (let index = 0; index < themeInfo.length; index++) {
-        let theme = themeInfo[index];
-        let newOption = document.createElement("option");
-        newOption.value = theme.id;
-        if (theme.defaultYn) {
-          newOption.selected = true;
-        }
-        newOption.appendChild(document.createTextNode(theme.name));
-        themeElement.appendChild(newOption);
-      }
-      themeElement.addEventListener("change", function (e) {
-        mapDraw.redrawMap({ theme: e.target.value });
-      });
-    }
-
-  </script>
+    </script>
 </body>
 
 </html>

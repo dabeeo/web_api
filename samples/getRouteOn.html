@@ -18,32 +18,32 @@
     </div>
     <div class="control-container">
         <div class="inline-container">
-            <div class="inline-label">층선택</div>
+            <div class="inline-label">floor</div>
             <select type="text" class="inline-input" name="floor">
                 <option selected value="default">default</option>
             </select>
         </div>
         <div class="divider"></div>
         <div class="inline-container">
-            <div class="inline-label">출발지</div>
+            <div class="inline-label">origination</div>
             <select type="text" class="inline-input" id="poiOrigin">
             </select>
         </div>
         <div class="inline-container">
-            <div class="inline-label">도착지</div>
+            <div class="inline-label">destination</div>
             <select type="text" class="inline-input" id="poiDestination">
             </select>
         </div>
         <div class="inline-container">
-            <input type="button" class="inline-input" id="getRouteOn" value="길찾기">
-            <input type="button" class="inline-input" id="getRouteOff" value="끄기">
+            <input type="button" class="inline-input" id="getRouteOn" value="get directions">
+            <input type="button" class="inline-input" id="getRouteOff" value="off">
         </div>
         <div class="inline-container">
-            <input type="button" class="inline-input" id="startRouteAnimation" value="모의주행">
-            <input type="button" class="inline-input" id="stopRouteAnimation" value="끄기">
+            <input type="button" class="inline-input" id="startRouteAnimation" value="simulation">
+            <input type="button" class="inline-input" id="stopRouteAnimation" value="off">
         </div>
         <div class="inline-container">
-            <button type="button" class="inline-input" id="retResult">주행시간</button>
+            <button type="button" class="inline-input" id="retResult">duration</button>
         </div>
     </div>
 
@@ -168,16 +168,16 @@
                 );
                 //경로가 존재하지 않는 경우
                 if (result === undefined) {
-                    alert("요청하신 경로가 존재하지 않습니다.\n출발지와 도착지를 확인하세요");
+                    alert("요청하신 경로가 존재하지 않습니다.\n출발지와 도착지를 확인하세요\n no route\ncheck origination and destination");
                     return;
                 }
                 if (typeof result === "object") {
                     let retResult = document.querySelector("#retResult");
                     retResult.innerText =
-                        (result.totalTime / (1000 * 60)).toFixed(1) + "분, 거리: " +
-                        (result.totalDistance / 100).toFixed(0) + "미터";
+                        (result.totalTime / (1000 * 60)).toFixed(1) + "분(min), 거리(distance): " +
+                        (result.totalDistance / 100).toFixed(0) + "미터(meter)";
                 } else {
-                    retResult.innerText = "도착시간 " + (result / (1000 * 60)).toFixed(1) + "분";
+                    retResult.innerText = "도착시간 (duration)" + (result / (1000 * 60)).toFixed(1) + "분(min)";
                 }
             });
             //길찾기 경로 지우기
