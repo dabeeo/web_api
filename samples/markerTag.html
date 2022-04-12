@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>marker tag sample</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <!-- dabeeo js api test url입니다. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+    <!-- dabeeo js api test url. For official link, see :  https://dabeeomaps.com/docs  -->
+    <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .control-container {
+            z-index: 100;
+        }
+
+        .div_container {
+            padding: 6px;
+            height: 100%;
+            background-color: #eee;
+        }
+
+        .test_tag {
+            display: flex;
+            align-items: center;
+        }
+
+        .tag_text {
+            padding-left: 5px;
+        }
+
+        .tag_img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .tag_floor,
+        .tag_title {
+            padding: 2px;
+            width: 100%;
+            height: 100%;
+            font-size: 1rem;
+            overflow: hidden;
+            color: rgb(18, 8, 40);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="button-container">
+        <button type="button" class="button-menu">
+            Marker Tag test
+        </button>
+    </div>
+    <div class="control-container">
+        <div class="inline-container">
+            <input type="button" class="inline-input" name="show" value="Show marker Tag">
+            <input type="button" class="inline-input" name="hide" value="Hide marker Tag">
+        </div>
+    </div>
+    <div id="map"></div>
+    <script>
+        const imageURL = "./chart4.png";
+        const innerHTML =
+            `<div class="test_tag">
+                    <img class="tag_img" src="${imageURL}" />
+                    <div class="tag_text">
+                        <div class="tag_title">current status</div>
+                        <div class="tag_floor">meeting room </div>
+                    </div>
+                </div>`;
+        window.addEventListener("load", function () {
+            initMap();
+        });
+
+        function initMap () {
+            var mapContainer = document.getElementById('map'); // 지도를 표시할 div
+            // 지도 인증정보
+            var authorization = new indoorMapApi.Authorization({
+                clientId: "6Lwuu9wa4wta0NiHwy1fO5",
+                clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
+            });
+            var mapOptions = {
+                authorization: authorization,
+                camera: "3d", // 초기 카메라 모드
+                angle: {
+                    vertical: 10, // 3D 모드일때 tilt
+                    horizontal: 0
+                },
+                zoom: 100,
+                isPoiSprite: true,
+                isUseTag: true
+            };
+
+            // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+            new indoorMapApi.MapView(
+                mapContainer, // 컨테이너
+                mapOptions, // 옵션
+                function (response) { // 맵 로드 콜백
+                    var code = response.getCode();
+                    if (code === 200) {
+                        mapDraw = response.getPayload().mapDraw;
+                        mapPoiInfo = mapDraw.response.poiInfo;
+                        window.mapDraw = mapDraw;
+                        // do something
+                        console.log("map view success!")
+                        initSetPoiTag();
+                    }
+                }
+            );
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////    
+        function initSetPoiTag () {
+            document.querySelector("[name='show']").addEventListener("click", function (e) {
+                let dom = document.createElement("div");
+                dom.className = "div_container"
+                dom.innerHTML = innerHTML;
+                let marker = [];
+                marker.push({
+                    position: {
+                        x: 2000,
+                        y: 1000,
+                        z: 100, // 마커의 z좌표 
+                    },
+                });
+                let tagInfo = {
+                    tag: dom,
+                    width: '200',
+                    height: '70',
+                    pos: "bottom",
+                    isResize: false
+                }
+                mapDraw.setMarker({ marker: marker, tagInfo }); // 마커 그리기
+            });
+            document.querySelector("[name='hide']").addEventListener("click", function (e) {
+                mapDraw.clearMarker();
+            });
+        }
+    </script>
+</body>
+
+</html>
