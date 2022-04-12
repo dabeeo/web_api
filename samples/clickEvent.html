@@ -9,6 +9,16 @@
     <!-- dabeeo js api test url. For official link, see :  https://dabeeomaps.com/docs  -->
     <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .mouse-pos {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            z-index: 100;
+            font-weight: bold;
+            color: rgb(11, 3, 3);
+        }
+    </style>
 
 </head>
 
@@ -18,6 +28,7 @@
             Click Event Test
         </button>
     </div>
+    <div class="mouse-pos"></div>
     <div id="map"></div>
 
     <script>
@@ -83,6 +94,9 @@
         //////////////////////////////////////////////////////////////////////////////////
         // click event init
         function initClickEvent () {
+            //hover event activate
+            mapDraw.onHoverObjectEvent("#ff0000", 0.5);
+
             /* poi 클릭시 poi 정보 전달 */
             document.querySelector("#map").addEventListener("poi-click", function (e) {
                 console.log("poi click ", e.detail);
@@ -96,7 +110,7 @@
             document.querySelector("#map").addEventListener("object-click", function (e) {
                 console.log("object click ", e.detail);
                 if (e.detail === null) return;
-                let alertMessage = "[OBJECT CLICK]";
+                let alertMessage = "";
 
                 //클릭시 좌표에 연결 된 object가 여러개 올수 있으므로 array를 순회하면서 확인 후  poi 처리 
                 for (let index of e.detail) {
@@ -105,6 +119,9 @@
                         alertMessage += `\npoi title : ${JSON.stringify(p.title)} \npoi position : ${JSON.stringify(p.position)}`
                     }
                 }
+                if (alertMessage === "") return;
+                alertMessage = "[OBJECT CLICK]" + alertMessage;
+
                 alert(alertMessage);
             });
 
@@ -114,6 +131,13 @@
                 if (e.detail === null) return;
                 alert("[MARKER CLICK] \ndata : " + JSON.stringify(e.detail[0].position));
             });
+
+            // get click position event
+            document.querySelector('#map').addEventListener('get-pos', (e) => {
+                console.log(e.detail);
+                document.querySelector(".mouse-pos").innerHTML = `x: ${parseInt(e.detail.x)}, y: ${parseInt(e.detail.y)}`;
+            })
+
 
         }
     </script>
