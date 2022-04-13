@@ -3,7 +3,6 @@
     padding: 0;
     color: #faf3f3;
     box-sizing: border-box;
-    border-radius: 2px;
     font-family: "Noto Sans KR", sans-serif;
 }
 
@@ -34,6 +33,7 @@ header {
     background-color: rgb(7, 0, 0);
     height: 50px;
     padding: 0.5rem 0rem;
+    align-items: center;
     justify-content: space-around;
 }
 header p {
@@ -64,13 +64,17 @@ header p i {
 main {
     display: flex;
     flex-grow: 1;
+    font-size:0.9rem;
 }
 
-nav {
+main nav {
+    overflow-y: auto;
+    overflow-x: hidden;
     width: 300px;
     background-color: #fff;
     color: rgb(7, 0, 0);
     padding: 4px 4px;
+    height: calc(100vh - 50px)
 }
 nav.on {
     display: block;
