@@ -181,7 +181,7 @@ mapDraw.unHoverObjectEvent();
 ### poi object tag box 생성 메소드
 mapDraw.setPOITag(poi, tag, width, height, pos, isResize) 메소드를 이용하여 poi 위치에 태그 생성
 - poi : 태그와 연동할 poi 정보
-- tag : 생성할 domelement
+- tag : 생성할 HTMLElement
 - width : 생성할 tag의 width
 - height: 생성할 tag의 height
 - pos: 생성할 tag가 위치할 위치 정보 위치정보(top, bottom, left, right, center)
@@ -676,8 +676,8 @@ mapDraw.setMarker()마커를 한개 또는 여러개 표시할 수 있습니다.
 - async : 마커의 사이즈를 줌 배율에 맞춰서 동기화 할 지 여부. defalt값은 false 
 	true일 때 줌값에 관계없이 항상 동일한 사이즈로 보입니다.   
 	false일 때 줌값에 따라 사이즈가 변합니다. 
--tagInfo : marker의 정보나 추가적으로 표시하고 싶은 domElement가 있다면  전달하여 표시할 수 있습니다. 전달하지 않을 경우 마커만 표시됩니다.
-	- tag: marker에 표시하고 싶은 domElement
+-tagInfo : marker의 정보나 추가적으로 표시하고 싶은 HTMLElement가 있다면  전달하여 표시할 수 있습니다. 전달하지 않을 경우 마커만 표시됩니다.
+	- tag: marker에 표시하고 싶은 HTMLElement가
 	- width: 표시할 tag의 width
 	- height: 표시할 tag의 height
 	- pos: tag의 위치, (top, bottom, left, right) 중 하나의 값 전달
