@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>click Event and Mouseover</title>
+    <title>click Event</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <!-- dabeeo js api test url 사용. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
@@ -94,9 +94,6 @@
         //////////////////////////////////////////////////////////////////////////////////
         // click event init
         function initClickEvent () {
-            //hover event activate
-            mapDraw.onHoverObjectEvent("#ff0000", 0.5);
-
             /* poi 클릭시 poi 정보 전달 */
             document.querySelector("#map").addEventListener("poi-click", function (e) {
                 console.log("poi click ", e.detail);
