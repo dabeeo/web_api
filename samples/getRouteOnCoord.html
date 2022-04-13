@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>getRouteOn </title>
+    <title>getRouteOn with coordinates</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <!-- dabeeo js api test url 사용. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
@@ -13,7 +13,7 @@
 <body>
     <div class="button-container">
         <button type="button" class="button-menu">
-            Navigation Test
+            Simple Navigation Test
         </button>
     </div>
     <div class="control-container">
@@ -24,16 +24,6 @@
             </select>
         </div>
         <div class="divider"></div>
-        <div class="inline-container">
-            <div class="inline-label">origination</div>
-            <select type="text" class="inline-input" id="poiOrigin">
-            </select>
-        </div>
-        <div class="inline-container">
-            <div class="inline-label">destination</div>
-            <select type="text" class="inline-input" id="poiDestination">
-            </select>
-        </div>
         <div class="inline-container">
             <input type="button" class="inline-input" id="getRouteOn" value="get directions">
             <input type="button" class="inline-input" id="getRouteOff" value="off">
@@ -77,7 +67,6 @@
                         // do something
                         console.log("map view success!")
                         handleFloorInfo(mapDraw.response);
-                        handlePoiInfo(mapDraw.response);
                         handleGetRouteOnEvent();
                         handleRouteAnimationEvent();
                     }
@@ -113,40 +102,9 @@
             });
         }
 
-        //////////////////////////////////////////////////////////////////////////////////
-        // poi select 만들기
-        function handlePoiInfo (response) {
-            mapPoiInfo = response.poiInfo;
-            //poi select에서 사용할 층이름 만들기 
-            let floorInfo = response.floorInfo;
-            for (let i = 0; i < floorInfo.length; i++) {
-                var floor = floorInfo[i];
-                mapFloorName[floor.id] = floor.name[0].text;
-            }
-            //상단 poi select 만들기
-            makePoiSelect("poiOrigin");
-            makePoiSelect("poiDestination");
-        }
-
-        //poi select창에 poi list 만들기
-        function makePoiSelect (id) {
-            let element = document.querySelector("select#" + id);
-            for (let index = 0; index < mapPoiInfo.length; index++) {
-                let poi = mapPoiInfo[index];
-                if (poi.title === "") continue;
-
-                let option = document.createElement("option");
-                option.value = index;
-                option.innerHTML = mapFloorName[poi.floorId] + "&nbsp;&nbsp;&nbsp;" + poi.title;
-                element.appendChild(option);
-            }
-        }
 
         function handleGetRouteOnEvent () {
             document.querySelector("#getRouteOn").addEventListener("click", function (e) {
-                //출발지와 도착지 선택
-                let originPoi = getPoi("poiOrigin"); //출발지 POI id 
-                let destPoi = getPoi("poiDestination"); //도착지 POI id 
 
                 //네비게이션 옵션 설정
                 mapDraw.setNavigationOption({
@@ -154,11 +112,22 @@
                     lineZ: 40,                  // 길찾기 주행선 z축 높이 
                     speedRate: 3,               // 모의주행 아이콘 속도
                 });
+                const floor = document.querySelector("[name='floor']");
+                const floorId = floor.options[floor.selectedIndex].value;
+
+                let origin = {
+                    position: { x: 1000, y: 2000, z: 30 },
+                    floorId: floorId
+                }
+                let dest = {
+                    position: { x: 5000, y: 1000, z: 30 },
+                    floorId: floorId
+                }
 
                 //길찾기 경로 그리기
                 result = mapDraw.getRouteOn(
-                    originPoi,            // 출발지
-                    destPoi,              // 도착지
+                    origin,            // 출발지
+                    dest,              // 도착지
                     "recommendation",     // 층간이동경로
                     [],                   // 경유지
                     retResponse = true    // 반환값에 대한 옵션, true로 하는 경우 소요시간과 거리 반환받음. false인 경우 소요시간만 반환받음. 
@@ -173,11 +142,6 @@
             document.querySelector("#getRouteOff").addEventListener("click", function (e) {
                 mapDraw.getRouteOff();
             });
-        }
-
-        function getPoi (id) {
-            let index = document.querySelector("select#" + id).value;
-            return mapPoiInfo[index];
         }
         function handleRouteAnimationEvent () {
             //모의주행 시작
