@@ -181,7 +181,7 @@ mapDraw.unHoverObjectEvent();
 ### poi object tag box 생성 메소드
 mapDraw.setPOITag(poi, tag, width, height, pos, isResize) 메소드를 이용하여 poi 위치에 태그 생성
 - poi : 태그와 연동할 poi 정보
-- tag : 생성할 domelement
+- tag : 생성할 HTMLElement
 - width : 생성할 tag의 width
 - height: 생성할 tag의 height
 - pos: 생성할 tag가 위치할 위치 정보 위치정보(top, bottom, left, right, center)
@@ -676,13 +676,12 @@ mapDraw.setMarker()마커를 한개 또는 여러개 표시할 수 있습니다.
 - async : 마커의 사이즈를 줌 배율에 맞춰서 동기화 할 지 여부. defalt값은 false 
 	true일 때 줌값에 관계없이 항상 동일한 사이즈로 보입니다.   
 	false일 때 줌값에 따라 사이즈가 변합니다. 
-	
-marker의 정보나 추가적으로 표시하고 싶은 domElement가 있다면  전달하여 표시할 수 있습니다. 전달하지 않을 경우 마커만 표시됩니다.
-- tag: marker에 표시하고 싶은 domElement
-- width: 표시할 tag의 width
-- height: 표시할 tag의 height
-- pos: tag의 위치, (top, bottom, left, right) 중 하나의 값 전달
-- isResize: tag의 크기가 zoom과 rotate에 따라 반응형으로 동작할지 안할지. default는 false
+-tagInfo : marker의 정보나 추가적으로 표시하고 싶은 HTMLElement가 있다면  전달하여 표시할 수 있습니다. 전달하지 않을 경우 마커만 표시됩니다.
+	- tag: marker에 표시하고 싶은 HTMLElement가
+	- width: 표시할 tag의 width
+	- height: 표시할 tag의 height
+	- pos: tag의 위치, (top, bottom, left, right) 중 하나의 값 전달
+	- isResize: tag의 크기가 zoom과 rotate에 따라 반응형으로 동작할지 안할지. default는 false
 ~~~javascript
 mapDraw.setMarker({
     marker: [
@@ -699,15 +698,16 @@ mapDraw.setMarker({
         	},
 	        floorId: "[해당층아이디]", // 층을 지정 할때 : 지정하지 않을 경우 현재 보이는 층
 		data: i // marker를 클릭했을 때 반환할 정보 
-		async: true // 마커의 사이즈를 줌배율에 따라 실시간 동기화(마커 크기 일정) : 지정하지 않을 경우 동기화 하지 않음(마커 크기 변동)
+		async: true // 마커의 사이즈를 줌배율에 따라 실시간 동기화(마커 크기 일정) : 지정하지 않을 경우 동기화 하지 않음(마커 크기 변동),
+		tagInfo : {
+				tag: tag,
+				width: 100,
+				height: 50,
+				pos: top, // top, bottom, left, right
+				isResize: true // default는 false);
+			}
         }
     ]
-}, {
-	tag: tag,
-	width: 100,
-	height: 50,
-	pos: top, // top, bottom, left, right
-	isResize: true // default는 false);
 });
 ~~~
 mapDraw.clearMarker로 표시한 마커를 삭제할 수 있습니다.

@@ -278,5 +278,13 @@ panningPercent: 1.0
  결국 zoomIn을 하다보면 panningBox는 처음에 1.0으로 설정한 것 과 같이 오브젝트의 최대 사이즈까지 늘어나게 됩니다.    
  참고 영상 : https://user-images.githubusercontent.com/79128769/114359397-df6cdb00-9bae-11eb-9ff6-7380496c4761.mov
 
-
+## 기타
+### isUseTag
+Type : Boolean   
+Default : false
+~~~javascript
+isUseTag : false // marker, poi와 연동되는 tag를 생성을 원할 경우 true값으로 전환하여 사용합니다. 태그를 사용할 경우 map위에 또다른 component를 적용하신다면 필히 zIndex값을 주세요.
+~~~
+사용 관련 메소드 - setMarker, setPOITag 메소드 참조
+https://github.com/dabeeo/web_api/blob/master/docs/MapDraw/Methods.md
 
