@@ -11,10 +11,6 @@
     <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
     <link rel="stylesheet" href="style.css">
     <style>
-        .control-container {
-            z-index: 100;
-        }
-
         .div_container {
             padding: 6px;
             height: 100%;
@@ -53,7 +49,7 @@
             Marker Tag test
         </button>
     </div>
-    <div class="control-container">
+    <div class="control-container" style="z-index:100">
         <div class="inline-container">
             <input type="button" class="inline-input" name="show" value="Show marker Tag">
             <input type="button" class="inline-input" name="hide" value="Hide marker Tag">
@@ -111,28 +107,42 @@
             );
         }
 
+        function createTagInfo () {
+            let dom = document.createElement("div");
+            dom.className = "div_container"
+            dom.innerHTML = innerHTML;
+            let tagInfo = {
+                tag: dom,
+                width: '200',
+                height: '70',
+                pos: "bottom",
+                isResize: false
+            }
+            return tagInfo;
+        }
         //////////////////////////////////////////////////////////////////////////////////    
         function initSetPoiTag () {
             document.querySelector("[name='show']").addEventListener("click", function (e) {
-                let dom = document.createElement("div");
-                dom.className = "div_container"
-                dom.innerHTML = innerHTML;
+                let tagInfo1 = createTagInfo();
                 let marker = [];
                 marker.push({
                     position: {
                         x: 2000,
                         y: 1000,
-                        z: 100, // 마커의 z좌표 
+                        z: 70, // 마커의 z좌표 
                     },
+                    tagInfo: tagInfo1
                 });
-                let tagInfo = {
-                    tag: dom,
-                    width: '200',
-                    height: '70',
-                    pos: "bottom",
-                    isResize: false
-                }
-                mapDraw.setMarker({ marker: marker, tagInfo }); // 마커 그리기
+                let tagInfo2 = createTagInfo();
+                marker.push({
+                    position: {
+                        x: 4000,
+                        y: 1500,
+                        z: 70, // 마커의 z좌표 
+                    },
+                    tagInfo: tagInfo2
+                });
+                mapDraw.setMarker({ marker: marker }); // 마커 그리기
             });
             document.querySelector("[name='hide']").addEventListener("click", function (e) {
                 mapDraw.clearMarker();

@@ -53,7 +53,12 @@
             POI Tag Test
         </button>
     </div>
-    <div class="control-container">
+    <div class="control-container" style="z-index:100">
+        <div class="inline-container">
+            <select type="text" class="inline-input" name="floor">
+                <option selected value="default">default</option>
+            </select>
+        </div>
         <div class="inline-container">
             <input type="button" class="inline-input" name="showPoiTag" value="Show POI Tag">
             <input type="button" class="inline-input" name="hidePoiTag" value="Hide POI Tag">
@@ -106,30 +111,77 @@
                         window.mapDraw = mapDraw;
                         // do something
                         console.log("map view success!")
+                        handleFloorInfo(mapDraw.response);
                         initSetPoiTag();
                     }
                 }
             );
         }
+        //////////////////////////////////////////////////////////////////////////////////
+        //지도 층 정보 처리
+        function handleFloorInfo (response) {
+            let floorElement = document.querySelector("[name='floor']");
+            let floorInfo = response.floorInfo;
+            // 옵션창에 층 추가하기
+
+            for (let index = 0; index < floorInfo.length; index++) {
+                let floor = floorInfo[index];
+                let newOption = document.createElement("option");
+                newOption.value = floor.id;
+                if (floor.defaultYn == true) {
+                    newOption.selected = true; //지도에 설정된 디폴트 층을 가져옴
+                }
+                newOption.appendChild(document.createTextNode(floor.name[0].text));
+                floorElement.appendChild(newOption);
+            }
+            floorElement.addEventListener("change", function (e) {
+                console.log(e.target.value);
+                mapDraw.redrawMap({ floor: e.target.value }); //층변경하여 지도 다시 그리기 
+            });
+        }
+
 
         //////////////////////////////////////////////////////////////////////////////////    
         function initSetPoiTag () {
-            const poi = getPoi();
+            let poi1 = null;
+            let poi2 = null;
             document.querySelector("[name='showPoiTag']").addEventListener("click", function (e) {
-                let dom = document.createElement("div");
-                dom.className = "div_container"
-                dom.innerHTML = innerHTML;
-                mapDraw.setPOITag(poi, dom, 200, 70, "center", false);
+                poi1 = getPoi();
+                poi2 = null;
+                do {
+                    poi2 = getPoi();
+                }
+                while (poi1.id === poi2.id)
+                console.log(poi1);
+                console.log(poi2);
+                let dom1 = createDom();
+                let dom2 = createDom();
+                mapDraw.setPOITag(poi1, dom1, 170, 70, "center", false);
+                mapDraw.setPOITag(poi2, dom2, 170, 70, "center", false);
             });
             document.querySelector("[name='hidePoiTag']").addEventListener("click", function (e) {
-                mapDraw.deletePOITag(poi.id);
+                mapDraw.deletePOITag(poi1.id);
+                mapDraw.deletePOITag(poi2.id);
             });
         }
         function getPoi () {
+            const floor = document.querySelector("[name='floor']");
+            const floorId = floor.options[floor.selectedIndex].value;
+
             const max = mapPoiInfo.length;
-            const index = Math.floor((Math.random() * (max - 0) + 0));
+            let index = null;
+            do {
+                index = Math.floor((Math.random() * (max - 0) + 0));
+            } while (floorId != mapPoiInfo[index].floorId)
             return mapPoiInfo[index];
         }
+        function createDom () {
+            let dom = document.createElement("div");
+            dom.className = "div_container"
+            dom.innerHTML = innerHTML;
+            return dom;
+        }
+
     </script>
 </body>
 
