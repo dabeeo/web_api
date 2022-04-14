@@ -1,0 +1,91 @@
+<h1 lang="ko">poi에 HTML Element 표시하기 </h1>
+<h1 lang="en">Displaying HTML Elements in poi </h1>
+</br>
+<h4 lang="ko">MapDraw.setPOITag()를 이용하여 poi에 HTML Element를 표시할 수 있습니다. </h4>
+<h4 lang="en">You can display HTML Element in poi by using MapDraw.setPOITag(). </h4>
+<span lang="ko"></br>이를 위해서 MapView 생성시 isUseTag를 true로 설정해야 하며, 지도영역위에 사용자 컴포넌트가 올라가는 경우 z-index를 설정해줘야 합니다.</span>
+<span lang="en"></br>For this, isUseTag must be set to true when creating MapView, and z-index must be set when a user component is placed on the map area.</span>
+<span lang="ko"></br>인자로는 poi의 아이디와 HTML의 속성을 설정해주는 tagInfo가 있습니다. 옵션 설정에 대한 예제는 아래와 같습니다.</span>
+<span lang="en"></br>As arguments, there is the ID of poi and tagInfo that sets the attributes of HTML. An example of setting options is as follows.</span>
+<span lang="ko"></br>자세한 설명은 <a href="https://developers.dabeeomaps.com/jsdocs/MapDraw.html#setPOITag" target="_blank">[API Reference의 setPOITag]</a>를 참조하세요.</span>
+<span lang="en"></br>For a detailed description, see <a href="https://developers.dabeeomaps.com/jsdocs/MapDraw.html#setPOITag" target="_blank">[API Reference object click event]</a>.</span>
+<pre>
+    <code>
+        poiId: poi.id,
+        tagInfo: {
+            tag: dom1,
+            width: 170,
+            height: 70,
+            pos: "BOTTOM",
+            isResize: false
+        }
+</code>
+</pre>
+</br>
+<span lang="ko"></br>아래는 poi에 HTML element를 붙여서 보여주는 코드의 일부입니다.</span>
+<span lang="en"></br>Below is a part of the code that shows by attaching an HTML element to poi.</span>
+<span lang="ko"><br>실행 페이지와 전체 코드는 <a href="https://developers.dabeeomaps.com/example/#poiTag" target="_blank">[examples의 poi tag]</a>를 참조하세요.</span>
+<span lang="en"><br>The example page and the full code are at <a href="https://developers.dabeeomaps.com/example/#poiTag" target="_blank">[examples poi tag]</a>.</span>
+<pre><code>
+    <script>
+        let poiList = [];
+        //////////////////////////////////////////////////////////////////////////////////    
+        function initSetPoiTag () {
+            let poi1 = null;
+            let poi2 = null;
+            document.querySelector("[name='showPoiTag']").addEventListener("click", function (e) {
+                poi1 = getPoi();
+                poi2 = null;
+                do {
+                    poi2 = getPoi();
+                }
+                while (poi1.id === poi2.id)
+                poiList.push(poi1);
+                poiList.push(poi2);
+                let dom1 = createDom();
+                let dom2 = createDom();
+                let poiTagList = [];
+                poiTagList.push({
+                    poiId: poi1.id,
+                    tagInfo: {
+                        tag: dom1,
+                        width: 170,
+                        height: 70,
+                        pos: "BOTTOM",
+                        isResize: false
+                    }
+                });
+                poiTagList.push({
+                    poiId: poi2.id,
+                    tagInfo: {
+                        tag: dom2,
+                        width: 170,
+                        height: 70,
+                        pos: "BOTTOM",
+                        isResize: false
+                    }
+                });
+                mapDraw.setPOITag(poiTagList);
+            });
+            document.querySelector("[name='hidePoiTag']").addEventListener("click", function (e) {
+                do {
+                    let poi = poiList.pop();
+                    if (poi === undefined) break;
+                    mapDraw.deletePOITag(poi.id);
+                }
+                while (1)
+            });
+        }
+    </script>    
+</code></pre>
+
+<span lang="ko"></br>위 예제를 실행한 화면은 다음과 같습니다.</span>
+<span lang="en"></br>The result of the above code is below. </span>
+<iframe height=1000px src="https://dabeeo.github.io/web_api/samples/poiTag.html"></iframe>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>

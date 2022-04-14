@@ -70,33 +70,6 @@
     <div id="map"></div>
 
     <script>
-        window.addEventListener("load", function () {
-            initMap();
-        });
-        function initMap () {
-            var mapContainer = document.getElementById('map');
-            var authorization = new indoorMapApi.Authorization({
-                clientId: "6Lwuu9wa4wta0NiHwy1fO5",
-                clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
-            });
-            var mapOptions = {
-                authorization: authorization
-            };
-            new indoorMapApi.MapView(
-                mapContainer,
-                mapOptions,
-                function (response) {
-                    var code = response.getCode();
-                    if (code === 200) {
-                        mapDraw = response.getPayload().mapDraw;
-                        // do something
-                        console.log("map view success!");
-                        initSetMarker();
-                    }
-                }
-            );
-        };
-
         //////////////////////////////////////////////////////////////////////////////////
         function initSetMarker () {
             /* marker */
@@ -136,8 +109,84 @@
 <iframe src="https://dabeeo.github.io/web_api/samples/marker.html"></iframe>
 </br>
 </br>
-</br>
-</br>
-</br>
+<span lang="ko"></br>또한 tagInfo라는 옵션을 설정하여 마커에 HTML element를 붙일 수 있습니다.</span>
+<span lang="en"></br>You can also attach HTML elements to markers by setting an option called tagInfo.</span>
+<span lang="ko"></br>이를 위해서 MapView 생성시 isUseTag를 true로 설정해야 하며, 지도영역위에 사용자 컴포넌트가 올라가는 경우 z-index를 설정해줘야 합니다.</span>
+<span lang="en"></br>For this, isUseTag must be set to true when creating MapView, and z-index must be set when a user component is placed on the map area.</span>
+<span lang="ko"></br>tagInfo에 대한 자세한 정보는 <a href="https://developers.dabeeomaps.com/jsdocs/global.html#TagInfo" target="_blank">[API Reference의 TagInfo]</a>에 설명되어 있습니다.</span>
+<span lang="en"></br>For more information on tagInfo, see <a href="https://developers.dabeeomaps.com/jsdocs/global.html#TagInfo" target="_blank">[API Reference TagInfo]</a>.</span>
+<pre>
+    <code>
+        let tagInfo = {
+            tag: dom,
+            width: '200',
+            height: '70',
+            pos: "BOTTOM",
+            isResize: false
+        }
+        marker.push({
+            position: {
+                x: 2000,
+                y: 1000,
+                z: 70, // 마커의 z좌표 
+            },
+            tagInfo: tagInfo
+        });
+    </code>
+</pre>
+<span lang="ko"></br>아래는 복수개의 마커에 html element를 붙여서 마커를 그리는 코드의 일부입니다.</span>
+<span lang="en"></br>Below is a part of the code to draw markers by attaching html elements to multiple markers..</span>
+<span lang="ko"><br>실행 페이지와 전체 코드는 <a href="https://developers.dabeeomaps.com/example/#markerTag" target="_blank">[examples의 marker tag]</a>를 참조하세요.</span>
+<span lang="en"><br>Example page and the full code are at <a href="https://developers.dabeeomaps.com/example/#markerTag" target="_blank">[examples marker tag]</a>.</span>
+<pre>
+    <code>
+        <script>
+            function createTagInfo () {
+                let dom = document.createElement("div");
+                dom.className = "div_container"
+                dom.innerHTML = innerHTML;
+                let tagInfo = {
+                    tag: dom,
+                    width: '200',
+                    height: '70',
+                    pos: "BOTTOM",
+                    isResize: false
+                }
+                return tagInfo;
+            }
+            //////////////////////////////////////////////////////////////////////////////////    
+            function initSetPoiTag () {
+                document.querySelector("[name='show']").addEventListener("click", function (e) {
+                    let tagInfo1 = createTagInfo();
+                    let marker = [];
+                    marker.push({
+                        position: {
+                            x: 2000,
+                            y: 1000,
+                            z: 70, // 마커의 z좌표 
+                        },
+                        tagInfo: tagInfo1
+                    });
+                    let tagInfo2 = createTagInfo();
+                    marker.push({
+                        position: {
+                            x: 4000,
+                            y: 1500,
+                            z: 70, // 마커의 z좌표 
+                        },
+                        tagInfo: tagInfo2
+                    });
+                    mapDraw.setMarker({ marker: marker }); // 마커 그리기
+                });
+                document.querySelector("[name='hide']").addEventListener("click", function (e) {
+                    mapDraw.clearMarker();
+                });
+            }
+        </script>
+    </code>
+</pre>
+<span lang="ko"></br>위 예제를 실행한 화면은 다음과 같습니다.</span>
+<span lang="en"></br>The result of the above code is below. </span>
+<iframe src="https://dabeeo.github.io/web_api/samples/markerTag.html"></iframe>
 </br>
 </br>

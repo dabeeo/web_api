@@ -140,7 +140,7 @@
             });
         }
 
-
+        let poiList = [];
         //////////////////////////////////////////////////////////////////////////////////    
         function initSetPoiTag () {
             let poi1 = null;
@@ -152,8 +152,8 @@
                     poi2 = getPoi();
                 }
                 while (poi1.id === poi2.id)
-                console.log(poi1);
-                console.log(poi2);
+                poiList.push(poi1);
+                poiList.push(poi2);
                 let dom1 = createDom();
                 let dom2 = createDom();
                 let poiTagList = [];
@@ -180,8 +180,12 @@
                 mapDraw.setPOITag(poiTagList);
             });
             document.querySelector("[name='hidePoiTag']").addEventListener("click", function (e) {
-                mapDraw.deletePOITag(poi1.id);
-                mapDraw.deletePOITag(poi2.id);
+                do {
+                    let poi = poiList.pop();
+                    if (poi === undefined) break;
+                    mapDraw.deletePOITag(poi.id);
+                }
+                while (1)
             });
         }
         function getPoi () {
