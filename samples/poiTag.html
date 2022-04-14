@@ -156,8 +156,28 @@
                 console.log(poi2);
                 let dom1 = createDom();
                 let dom2 = createDom();
-                mapDraw.setPOITag(poi1, dom1, 170, 70, "center", false);
-                mapDraw.setPOITag(poi2, dom2, 170, 70, "center", false);
+                let poiTagList = [];
+                poiTagList.push({
+                    poiId: poi1.id,
+                    tagInfo: {
+                        tag: dom1,
+                        width: 170,
+                        height: 70,
+                        pos: "BOTTOM",
+                        isResize: false
+                    }
+                });
+                poiTagList.push({
+                    poiId: poi2.id,
+                    tagInfo: {
+                        tag: dom2,
+                        width: 170,
+                        height: 70,
+                        pos: "BOTTOM",
+                        isResize: false
+                    }
+                });
+                mapDraw.setPOITag(poiTagList);
             });
             document.querySelector("[name='hidePoiTag']").addEventListener("click", function (e) {
                 mapDraw.deletePOITag(poi1.id);

@@ -405,39 +405,6 @@ fixed : false
             
 <tr class="deep-level-0">
     
-        <td class="name"><code>animate</code></td>
-    
-
-    <td class="type">
-    
-        
-<code class="param-type"><a href="global.html#AnimateOption">AnimateOption</a></code>
-
-
-    
-    </td>
-
-    
-        <td class="attributes">
-        
-
-        
-        </td>
-    
-
-    
-        <td class="default">
-        
-        </td>
-    
-
-    <td class="description last"></td>
-</tr>
-
-        
-            
-<tr class="deep-level-0">
-    
         <td class="name"><code>color</code></td>
     
 
@@ -590,6 +557,17 @@ fixed : false
 
 
 
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>animate: {              //내위치 마커 애니메이션 효과 속성 
+                            color: "#ff00ff",   //내위치 마커의 색상
+                            opacity: 0.3,       //내위치 마커의 투명도
+                            desireScale: 3.5    //내위치 마커의 최대 크기 
+                        }</code></pre>
+    
+
+
 </div>
             
                 <div class="member">
@@ -735,6 +713,15 @@ fixed : false
 
 
 
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>let authorization = new indoorMapApi.Authorization({
+     clientId: "28AXw_veA2YbNKDP6poTpT", 
+     clientSecret: "70c540c169af62808f4da3709e988e06"});</code></pre>
+    
+
+
 </div>
             
                 <div class="member">
@@ -864,6 +851,13 @@ fixed : false
 
 
 
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>camera: "3d"</code></pre>
+    
+
+
 </div>
             
                 <div class="member">
@@ -983,6 +977,13 @@ fixed : false
 
 
 
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>camera: "3d"</code></pre>
+    
 
 
 </div>
@@ -1251,7 +1252,7 @@ fixed : false
 
     
 
-    <td class="description last"><p>대상 지도가 다비오 지도(원도)를 기준으로 몇도 틀어져있는지</p></td>
+    <td class="description last"><p>대상 지도가 다비오 지도(원도)를 기준으로 몇도 틀어져있는지(시계방향이 +, 시계 반대방향이 -)</p></td>
 </tr>
 
         
@@ -1366,6 +1367,25 @@ fixed : false
 
 
 
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>var convertPositionOption = {
+                position: {
+                  x: 100, 
+                  y: 200 
+                },
+                degree: -5.27, 
+                zeroPoint: {
+                  x: -284,
+                  y: 286.5
+                }, 
+                xDirection: 1, 
+                yDirection: -1 
+              };</code></pre>
+    
 
 
 </div>
@@ -2768,10 +2788,15 @@ fixed : false
             
 <tr class="deep-level-0">
     
-        <td class="name"><code><Position3d></code></td>
+        <td class="name"><code>fixedPosition</code></td>
     
 
     <td class="type">
+    
+        
+<code class="param-type"><a href="global.html#Position3d">Position3d</a></code>
+
+
     
     </td>
 
@@ -2779,17 +2804,22 @@ fixed : false
 
     
 
-    <td class="description last"><p>fixedPosition - 지도 영점</p></td>
+    <td class="description last"><p>지도 영점</p></td>
 </tr>
 
         
             
 <tr class="deep-level-0">
     
-        <td class="name"><code><number></code></td>
+        <td class="name"><code>scaleCm</code></td>
     
 
     <td class="type">
+    
+        
+<code class="param-type">number</code>
+
+
     
     </td>
 
@@ -2797,17 +2827,22 @@ fixed : false
 
     
 
-    <td class="description last"><p>scaleCm - 지도축척비</p></td>
+    <td class="description last"><p>지도축척비</p></td>
 </tr>
 
         
             
 <tr class="deep-level-0">
     
-        <td class="name"><code><number></code></td>
+        <td class="name"><code>xaxisDirection</code></td>
     
 
     <td class="type">
+    
+        
+<code class="param-type">number</code>
+
+
     
     </td>
 
@@ -2815,17 +2850,22 @@ fixed : false
 
     
 
-    <td class="description last"><p>xaxisDirection - x축 증가방향 1과 -1</p></td>
+    <td class="description last"><p>x축 증가방향 1과 -1</p></td>
 </tr>
 
         
             
 <tr class="deep-level-0">
     
-        <td class="name"><code><number></code></td>
+        <td class="name"><code>yaxisDirection</code></td>
     
 
     <td class="type">
+    
+        
+<code class="param-type">number</code>
+
+
     
     </td>
 
@@ -2833,17 +2873,22 @@ fixed : false
 
     
 
-    <td class="description last"><p>yaxisDirection - y축 증가 방향 1과 -1</p></td>
+    <td class="description last"><p>y축 증가 방향 1과 -1</p></td>
 </tr>
 
         
             
 <tr class="deep-level-0">
     
-        <td class="name"><code><Size></code></td>
+        <td class="name"><code>size</code></td>
     
 
     <td class="type">
+    
+        
+<code class="param-type"><a href="global.html#Size">Size</a></code>
+
+
     
     </td>
 
@@ -3731,6 +3776,43 @@ fixed : false
 </tr>
 
         
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>isUseTag</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+        <td class="default">
+        
+            false
+        
+        </td>
+    
+
+    <td class="description last"><p>marker, poi와 연동되는 tag를 생성을 원할 경우 true값으로 전환하여 사용합니다. 태그를 사용할 경우 map위에 또다른 component를 적용하신다면 필히 zIndex값을 줘야 합니다.</p></td>
+</tr>
+
+        
         </tbody>
     </table>
 </div>
@@ -3994,7 +4076,8 @@ fixed : false
 
 
 <div class="description">
-    <p>각 마커의 좌표와 속성 지정</p>
+    <p>각 마커의 좌표와 속성 지정
+TagInfo를 사용하기 위해서는 MapView 생성시 isUseTag를 true로 설정해야 합니다.</p>
 </div>
 
 
@@ -4235,6 +4318,41 @@ fixed : false
     
 
     <td class="description last"><p>지도의 줌 배율과 관계없이 동일한 크기로 보여줄지 결정. true인 경우 항상 동일한 크기로 표시.</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>tagInfo</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type"><a href="global.html#TagInfo">TagInfo</a></code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+        <td class="default">
+        
+        </td>
+    
+
+    <td class="description last"><p>추가적으로 표시하고 싶은 HTMLElement</p></td>
 </tr>
 
         
@@ -7086,6 +7204,151 @@ fixed : false
 
     </span>
 
+<h4 class="name" id="PoiTag">
+    <a class="href-link" href="#PoiTag">#</a>
+    
+    <span class="code-name">
+        PoiTag
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>POI Tag 설정</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>poiId</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">string</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>poi의 아이디</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>tagInfo</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type"><a href="global.html#TagInfo">TagInfo</a></code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>tag 속성</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type">Object</code>
+
+
+    </span>
+
 <h4 class="name" id="Position2d">
     <a class="href-link" href="#Position2d">#</a>
     
@@ -9076,6 +9339,301 @@ transCode: null</code></pre>
 
 
 
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type">Object</code>
+
+
+    </span>
+
+<h4 class="name" id="TagInfo">
+    <a class="href-link" href="#TagInfo">#</a>
+    
+    <span class="code-name">
+        TagInfo
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>HTML Element를 설정합니다.
+TagInfo를 사용하기 위해서는 MapView에서 mapOption으로 isUseTag를 true로 설정해야 합니다.</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>tag</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">HTMLElement</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+
+        
+        </td>
+    
+
+    
+        <td class="default">
+        
+        </td>
+    
+
+    <td class="description last"><p>HTML Element</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>width</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">number</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+
+        
+        </td>
+    
+
+    
+        <td class="default">
+        
+        </td>
+    
+
+    <td class="description last"><p>HTML Element의 넓이</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>height</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">number</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+
+        
+        </td>
+    
+
+    
+        <td class="default">
+        
+        </td>
+    
+
+    <td class="description last"><p>HTML Element의 높이</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>pos</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">"TOP"</code>
+|
+
+<code class="param-type">"BOTTOM"</code>
+|
+
+<code class="param-type">"LEFT"</code>
+|
+
+<code class="param-type">"RIGHT"</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+
+        
+        </td>
+    
+
+    
+        <td class="default">
+        
+        </td>
+    
+
+    <td class="description last"><p>마커를 표시할 상대 위치</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>isResize</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">boolean</code>
+
+
+    
+    </td>
+
+    
+        <td class="attributes">
+        
+            &lt;optional><br>
+        
+
+        
+        </td>
+    
+
+    
+        <td class="default">
+        
+            false
+        
+        </td>
+    
+
+    <td class="description last"><p>지도의 줌과 회전에 따라 반응형으로 동작할 지 여부. false인 경우 항상 동일한 위치와 크기 유지</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>let tagInfo = {
+               tag: dom,
+               width: '200',
+               height: '70',
+               pos: "BOTTOM",
+               isResize: false
+           }</code></pre>
+    
 
 
 </div>

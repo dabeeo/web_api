@@ -1606,6 +1606,161 @@ let p = mapDraw.convertPosition(convertOptions); // 좌표 변경 함수 호출<
 
 
     
+    <h4 class="name" id="deletePOITag">
+        <a class="href-link" href="#deletePOITag">#</a>
+        
+        <span class="code-name">
+            
+                deletePOITag<span class="signature">(id)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>mapDraw.setPOITag()로 생성한 poi의 tag를 삭제합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>id</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">string</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>삭제할 tag와 연동된 poi id</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://developers.dabeeomaps.com/example/#poiTag">https://developers.dabeeomaps.com/example/#poiTag</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.deletePOITag(poi1.id);</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
     <h4 class="name" id="dispose">
         <a class="href-link" href="#dispose">#</a>
         
@@ -1719,6 +1874,147 @@ dispose를 호출한 뒤 다시 지도를 그리려면 new indoorMapApi.mapView�
     
         <pre class="prettyprint"><code>mapDraw.dispose();</code></pre>
     
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="getFloorName">
+        <a class="href-link" href="#getFloorName">#</a>
+        
+        <span class="code-name">
+            
+                getFloorName<span class="signature">(floorId)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>floorId를 입력받아 해당하는 층의 정보를 return 해준다</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>floorId</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">string</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>floor정보를 찾을 floorId</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </div>
@@ -3569,6 +3865,186 @@ mapDraw.myLocationOn(x, y, z, false, {
 
 
     
+    <h4 class="name" id="onHoverObjectEvent">
+        <a class="href-link" href="#onHoverObjectEvent">#</a>
+        
+        <span class="code-name">
+            
+                onHoverObjectEvent<span class="signature">(color, opacity)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>마우스 hover시 입력받은 color와 opacity로 해당 object의 색상을 변경합니다. 해제하기 위해서는 MapDraw.unHoverObjectEvent()를 호출합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>color</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">string</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>object에 입힐 색상 코드</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>opacity</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">number</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>색상의 투명도</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>실행 및 전체 코드 보기 <a href="https://developers.dabeeomaps.com/example/#mouseOver">https://developers.dabeeomaps.com/example/#mouseOver</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.onHoverObjectEvent("#ff0000", 0.5);</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
     <h4 class="name" id="redrawMap">
         <a class="href-link" href="#redrawMap">#</a>
         
@@ -3844,6 +4320,8 @@ mapDraw.myLocationOn(x, y, z, false, {
     <dd class="tag-see">
         <ul>
             <li>실행 및 전체 코드 보기 <a href="https://dabeeo.github.io/web_api/example/#marker">https://dabeeo.github.io/web_api/example/#marker</a></li>
+        
+            <li>tagInfo를 사용하는 예제 실행 및 전체 코드 보기 <a href="https://dabeeo.github.io/web_api/example/#markerTag">https://dabeeo.github.io/web_api/example/#markerTag</a></li>
         </ul>
     </dd>
     
@@ -3891,6 +4369,7 @@ mapDraw.myLocationOn(x, y, z, false, {
             },
             data: i // marker를 클릭했을 때 반환할 정보 
             async: true // 마커의 사이즈를 줌배율에 따라 실시간 동기화(마커 크기 일정) : 지정하지 않을 경우 동기화 하지 않음(마커 크기 변동)
+            tagInfo: tagInfo
         }
     ]
 });</code></pre>
@@ -4537,6 +5016,422 @@ poi 객체의 높이값을 조정할 수 있습니다. 맵에 적용되어 있�
 
 
     
+    <h4 class="name" id="setPOITag">
+        <a class="href-link" href="#setPOITag">#</a>
+        
+        <span class="code-name">
+            
+                setPOITag<span class="signature">(poiList)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>POI 정보를 받아와 해당 poi에 유저가 만든 dom tag 생성합니다. 이 메소드를 사용하기 위해서는 MapView 생성시 isUseTag를 true로 설정해야 합니다.
+dom tag를 삭제하기 위해서는 mapDraw.deletePOITag(id)를 호출해야 합니다.</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>poiList</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type"><a href="global.html#PoiTag">PoiTag</a></code>
+|
+
+<code class="param-type">Array.&lt;<a href="global.html#PoiTag">PoiTag</a>></code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>tag를 추가할 poiList 또는 개별 poi</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://developers.dabeeomaps.com/example/#poiTag">https://developers.dabeeomaps.com/example/#poiTag</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>poiTag= {
+                 poiId: poi.id,
+                 tagInfo: {
+                     tag: dom2,
+                     width: 170,
+                     height: 70,
+                     pos: "BOTTOM",
+                     isResize: false
+                   }
+               }
+               mapDraw.setPOITag(poiTagList);</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="setTagBox">
+        <a class="href-link" href="#setTagBox">#</a>
+        
+        <span class="code-name">
+            
+                setTagBox<span class="signature">(coordinate, tag, pos, width, height)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>태그가 생성되거나 마우스 zoom 또는 이동시 tag size, rotate값 수정</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>coordinate</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">object</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>vector값 생성할 좌표</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>tag</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">HTMLElment</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>user가 생성한 tag</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>pos</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">string</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>tag가 생성될 위치 {top | bottom | left | right | ''}</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>width</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">string</code>
+|
+
+<code class="param-type">number</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>tag width</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>height</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">string</code>
+|
+
+<code class="param-type">number</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>tag height</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+
+    
     <h4 class="name" id="startRouteAnimation">
         <a class="href-link" href="#startRouteAnimation">#</a>
         
@@ -4551,7 +5446,7 @@ poi 객체의 높이값을 조정할 수 있습니다. 맵에 적용되어 있�
     
     
     <div class="description">
-        <p>길찾기 경로가 표시된 후 경로를 따라 모의주행을 그립니다. 경로를 따라가다가 층이 변환되는 경우 &quot;floor-changed&quot; event와 &quot;will-floor-change&quot; event가 발생합니다.
+        <p>길찾기 경로가 표시된 후 경로를 따라 모의주행을 그립니다. 경로를 따라가다가 층이 변경되는 경우 층 변경 전에 &quot;floor-changed&quot; event와 &quot;will-floor-change&quot; event가 발생합니다.
 옵션 없이 사용할 수도 있고 옵션을 주어 모의주행에 관련된 설정을 할 수도 있습니다.</p>
     </div>
     
@@ -4807,6 +5702,110 @@ poi 객체의 높이값을 조정할 수 있습니다. 맵에 적용되어 있�
     
     
         <pre class="prettyprint"><code>mapDraw.stopRouteAnimation();</code></pre>
+    
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="unHoverObjectEvent">
+        <a class="href-link" href="#unHoverObjectEvent">#</a>
+        
+        <span class="code-name">
+            
+                unHoverObjectEvent<span class="signature">()</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>MapDraw.onHoverObjectEvent()로 실행한 hover event를 해제합니다</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>실행 및 전체 코드 보기 <a href="https://developers.dabeeomaps.com/example/#mouseOver">https://developers.dabeeomaps.com/example/#mouseOver</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    
+        <pre class="prettyprint"><code>mapDraw.unHoverObjectEvent();</code></pre>
     
 
 
