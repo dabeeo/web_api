@@ -179,24 +179,36 @@ mapDraw.unHoverObjectEvent();
 #
 
 ### poi object tag box 생성 메소드
-mapDraw.setPOITag(poi, tag, width, height, pos, isResize) 메소드를 이용하여 poi 위치에 태그 생성
-- poi : 태그와 연동할 poi 정보
-- tag : 생성할 HTMLElement
-- width : 생성할 tag의 width
-- height: 생성할 tag의 height
-- pos: 생성할 tag가 위치할 위치 정보 위치정보(top, bottom, left, right, center)
-- isResize: 태그가 zoom, 마우스의 wheel 상태에 따라 반응형으로 동작하는 지에 대한 boolean
+mapDraw.setPOITag()를 이용하여 poi에 dom tag를 생성할 수 있습니다.   
+이 메소드를 사용하기 위해서는 MapView 생성시 isUseTag를 true로 설정해야 합니다.  
+인자는 아래와 같습니다. 
+{PoiTag | Array<PoiTag>} poiList tag를 추가할 poiList 또는 개별 poi.
+- poiId: poi id 
+- tagInfo : tag로 보여줄 HTML 속성
+
+tagInfo의 속성   
+- tag : HTML Element
+- width : number. HTML Element의 넓이
+- height : number. HTML Element의 높이
+- pos : string.  마커를 표시할 상대 위치 {"TOP"|"BOTTOM"|"LEFT"|"RIGHT"}
+- isResize : boolean.  지도의 줌과 회전에 따라 반응형으로 동작할 지 여부. 디폴트는 false. false인 경우 항상 동일한 위치와 크기 유지
 
 ~~~javascript
-const poi = mapDraw.poiGroup.children.find((v) => v.userData.id === document.querySelector("#poiTagID").value);
-const tag = document.createElement('div');
-const width = document.querySelector('#poiTagWidth').value;
-const height = document.querySelector('#poiTagHeight').value;
-const pos = document.querySelector('#poiTagSelector').value;
-const isResize = JSON.parse(document.querySelector('#poiTagResize').value);
-mapDraw.setPOITag(poi, tag, width, height, pos, isResize);
-~~~
 
+     *              poiTag= {
+     *                  poiId: poi.id,
+     *                  tagInfo: {
+     *                      tag: dom2,
+     *                      width: 170,
+     *                      height: 70,
+     *                      pos: "BOTTOM",
+     *                      isResize: false
+     *                    }
+     *                }
+     *                mapDraw.setPOITag(poiTagList);
+     * @see {@link https://developers.dabeeomaps.com/example/#poiTag }
+     */
+~~~
 #
 
 ### poi object tag box 삭제 메소드
