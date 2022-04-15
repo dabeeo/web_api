@@ -123,13 +123,27 @@
                     position: { x: 5000, y: 1000, z: 30 },
                     floorId: floorId
                 }
+                let waypoint1 = {
+                    position: { x: 3000, y: 1200, z: 30 },
+                    floorId: floorId
+                }
+                let waypoint2 = {
+                    position: { x: 4000, y: 1400, z: 30 },
+                    floorId: floorId
+                }
+                let waypoints = [waypoint1, waypoint2];
+
+                //경유지 마커로 그리기
+
+                mapDraw.setMarker({ marker: waypoints }); // 마커 그리기
+
 
                 //길찾기 경로 그리기
                 result = mapDraw.getRouteOn(
                     origin,            // 출발지
                     dest,              // 도착지
                     "recommendation",     // 층간이동경로
-                    [],                   // 경유지
+                    waypoints,                   // 경유지
                     retResponse = true    // 반환값에 대한 옵션, true로 하는 경우 소요시간과 거리 반환받음. false인 경우 소요시간만 반환받음. 
                 );
                 //경로가 존재하지 않는 경우
