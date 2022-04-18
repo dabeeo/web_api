@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>map download lotte sample</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <!-- dabeeo js api test url입니다. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+    <!-- dabeeo js api test url. For official link, see :  https://dabeeomaps.com/docs  -->
+    <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
+
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="button-container">
+        <button type="button" class="button-menu">
+            Map Download Test
+        </button>
+    </div>
+    <div class="control-container">
+        <div class="inline-container">
+            <input type="button" class="inline-input" name="downloadMap" value="download Map">
+        </div>
+    </div>
+    <div id="map"></div>
+
+    <script>
+
+        window.addEventListener("load", function () {
+            initMap();
+        });
+
+        function initMap () {
+            var mapContainer = document.getElementById('map'); // 지도를 표시할 div
+
+            // 지도 인증정보
+            // 롯데백화점 본점
+            var authorization = new indoorMapApi.Authorization({
+                clientId: "7kVpa5FkQ3s8UxPhxCg8pW",
+                clientSecret: "2ed75e6eb084eb740b46e09924be9d7c"
+            });
+            var mapOptions = {
+                authorization: authorization,
+                camera: "2d",
+                canvasSize: {
+                    width: 10000,
+                    height: 5000
+                },
+                zoom: 100,
+                // isPoiSprite: true
+            };
+
+            // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+            new indoorMapApi.MapView(
+                mapContainer, // 컨테이너
+                mapOptions, // 옵션
+                function (response) { // 맵 로드 콜백
+                    var code = response.getCode();
+
+                    if (code === 200) {
+                        mapDraw = response.getPayload().mapDraw;
+                        mapPoiInfo = mapDraw.response.poiInfo;
+                        window.mapDraw = mapDraw;
+                        // do something
+                        console.log("map view success!")
+                        downloadMap();
+                    }
+                }
+            );
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////    
+        function downloadMap () {
+            const initNaviBtn = document.querySelector("[name='downloadMap']");
+            initNaviBtn.addEventListener("click", function (e) {
+                mapDraw.convert2img({ useMapOption: true });
+            });
+        }
+
+
+    </script>
+</body>
+
+</html>
