@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>camera sample</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- dabeeo js api test url 사용. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+    <!-- dabeeo js api test url. For official link, see :  https://dabeeomaps.com/docs  -->
+    <!-- <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script> -->
+    <script src="https://assets.dabeeomaps.com/upload/kioskJs/jsMapAPI_pre_release.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .control-container {
+            z-index: 100;
+        }
+
+        .stringlogo {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            border: none;
+            width: 100px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <a href=""><img class="stringlogo" src="./dabeeo_only_navy.png" alt="..."></a>
+    <div class="button-container">
+        <button type="button" class="button-menu">
+            camera
+        </button>
+    </div>
+    <div class="control-container">
+        <div class="inline-container">
+            <select type="text" class="inline-input" name="camera">
+                <option selected value="default">default</option>
+                <option value="2d">2d</option>
+                <option value="3d">3d</option>
+
+            </select>
+        </div>
+    </div>
+
+    <div id="map"></div>
+    <script>
+
+        window.addEventListener("load", function () {
+            initMap();
+        });
+
+        function initMap () {
+            let mapContainer = document.getElementById('map'); // 지도를 표시할 div
+
+            // 지도 인증정보
+            let authorization = new indoorMapApi.Authorization({
+                clientId: "eJpNKZ6IQ-qa-GJtqNozkH",
+                clientSecret: "aa1c146bab50f34347e96e7665bad817"
+            });
+
+            let mapOptions = {
+                authorization: authorization
+            };
+
+
+            // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+            new indoorMapApi.MapView(
+                mapContainer, // 컨테이너
+                mapOptions, // 옵션
+                function (response) { // 맵 로드 콜백
+                    let code = response.getCode();
+
+                    if (code === 200) {
+                        mapDraw = response.getPayload().mapDraw;
+                        // do something
+                        console.log("map view success!")
+                        hanldeCameraInfo(mapDraw.response);
+                    }
+                }
+            );
+        };
+        function hanldeCameraInfo (response) {
+            let cameraElement = document.querySelector("[name='camera']");
+            cameraElement.value = response.mapOptions.camera;
+
+            cameraElement.addEventListener("change", function (e) {
+                mapDraw.changeCamera({ camera: e.target.value });
+            });
+        }
+
+    </script>
+</body>
+
+</html>
