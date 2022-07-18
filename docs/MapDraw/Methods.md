@@ -331,7 +331,7 @@ mapDraw.getRouteOn() 메소드를 이용하여 길찾기 경로를 표시할 수
     - "stairs": 계단
     - "escalator"
     - "elevator"
-- waypoints : 경유지, 배열 형태. 배열 안에는 origin과 destination과 같은 형태의 데이터를 주면 됩니다. 아무값도 주지 않으면 경유지 없이 길찾기 기능이 수행됩니다. 
+- waypoints : 경유지, 배열 형태. 배열 안에는 origin과 destination과 같은 형태의 데이터를 주면 됩니다. 아무값도 주지 않으면 경유지 없이 길찾기 기능이 수행됩니다. markerOption 을 별도로 지정하면 경유지 아이콘을 설정할 수 있습니다.
 
 - poi ID로 길찾기를 하는 경우 
 ~~~javascript
@@ -387,6 +387,42 @@ mapDraw.getRouteOn() 메소드를 이용하여 길찾기 경로를 표시할 수
         };
         let waypoints=[waypoint1, waypoint2]
 ~~~
+	
+-경유지 아이콘을 설정하는 경우
+~~~javascript
+        let waypoint1 = { 
+            position: {
+                x: 194.9300631234604,
+                y: 435.2368257718544,
+                z: 60
+            },
+            floorId: "FL-1jeyt4ubl4awn7429",
+	    markerOption: {
+                iconUrl: "./icon_blue.png",
+                width: 20,
+                height: 20,
+                wayPointPositionZ: 80,
+            },
+        };
+        
+        let waypoint2 = {
+            position: {
+                x: 758.6335459859386,
+                y: 835.624999999005,
+                z: 60
+            },
+            floorId: "FL-1jeyt4ubl4awn7429",
+	    markerOption: {
+                iconUrl: "./icon_red.png",
+                width: 20,
+                height: 20,
+                wayPointPositionZ: 80,
+            },
+        };
+        let waypoints=[waypoint1, waypoint2]
+~~~
+- example: https://github.com/dabeeo/web_api/blob/master/samples/waypointMarker.html   
+- 실행 : https://dabeeo.github.io/web_api/samples/waypointMarker.html 
 
 경유지 정보가 있으면서 도착지까지의 시간만 알고자 할 때 
 ~~~javascript
