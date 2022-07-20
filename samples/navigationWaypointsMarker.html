@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>navigation sample</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- dabeeo js api test url 사용. 정식 버전 :  https://dabeeomaps.com/docs 참조  -->
+    <!-- dabeeo js api test url. For official link, see :  https://dabeeomaps.com/docs  -->
+    <script src="https://assets.dabeeomaps.com/upload/JS/jsMapAPI_pre_release.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="button-container">
+        <button type="button" class="button-menu">
+            Navigation Waypoint Marker
+        </button>
+    </div>
+    <div class="control-container">
+
+        <div class="inline-container">
+            <button id="getNaviInfoByRoute" type="button" class="inline-input">start navigation</button>
+        </div>
+        <div class="inline-container">
+            <input type="button" class="inline-input" id="getRouteOff" value="Off">
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+    <script>
+        let mapFloorName = {};
+
+        window.addEventListener("load", function () {
+            initMap();
+        });
+
+        function initMap () {
+            var mapContainer = document.getElementById('map'); // 지도를 표시할 div
+
+            // 지도 인증정보
+            var authorization = new indoorMapApi.Authorization({
+                clientId: "6Lwuu9wa4wta0NiHwy1fO5",
+                clientSecret: "93ab5dbaf7fa6c9017cf9cb9ef4dc8fd"
+            });
+            var mapOptions = {
+                authorization: authorization,
+                camera: "2d"
+            };
+
+            // 지도를 표시할 div, 옵션으로 생성 후 로딩이 완료되면 콜백으로 결과를 리턴합니다
+            new indoorMapApi.MapView(
+                mapContainer, // 컨테이너
+                mapOptions, // 옵션
+                function (response) { // 맵 로드 콜백
+                    var code = response.getCode();
+                    console.log(response);
+
+                    if (code === 200) {
+                        mapDraw = response.getPayload().mapDraw;
+                        // do something
+                        console.log("map view success!")
+                        handleNavigation(mapDraw.response);
+                    }
+                }
+            );
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////
+        function handleNavigation (response) {
+
+            document.querySelector("#getNaviInfoByRoute").addEventListener("click", function (e) {
+                getNaviInfoByRoute();
+            });
+
+            document.querySelector("#getRouteOff").addEventListener("click", function (e) {
+                mapDraw.getRouteOff();
+                document.querySelector("#navi_path_wrap").style.display = "none";
+            });
+        }
+
+        function getNaviInfoByRoute () {
+            mapDraw.getRouteOff();
+            mapDraw.setNavigationOption(
+                {
+                    lineColor: '#dc3545',
+                    lineSpotSize: 3,
+                    lineSpotInterval: 100,
+                    speedRate: 4, // 주행 속도
+                    originPositionZ: 5,
+                    destinationPositionZ: 5,
+                    visibleIcon: true, // 경로 표시할때 시작지, 도착지 아이콘 없애기 / 보이기
+                    moveIconZ: 12,
+
+                });
+
+
+            let result = mapDraw.getRouteOn(
+                //origin 출발지
+                {
+                    poiId: "PO-IEhLTwu0K2348",
+                    floorId: "FL-qhndqjlqhu7p3894",
+                },
+                //destination 목적지
+                {
+                    poiId: "PO-YSOUJtaCA5959",
+                    floorId: "FL-qhndqjlqhu7p3894",
+                },
+                // route type 경로 타입 
+                'recommendation',
+                // waypoints 경유지
+                [
+                    {
+                        poiId: "PO-J9yE7f9tt5155",
+                        floorId: "FL-qhndqjlqhu7p3894",
+                        // waypoints marker
+                        markerOption: {
+                            iconUrl: "./icon_blue.png",
+                            width: 20,
+                            height: 20,
+                            wayPointPositionZ: 80,
+                        },
+                    },
+                    {
+                        poiId: "PO-4JvSQCWHC2270",
+                        floorId: "FL-qhndqjlqhu7p3894",
+                        // waypoints marker
+                        markerOption: {
+                            iconUrl: "./icon_red.png",
+                            width: 20,
+                            height: 20,
+                            wayPointPositionZ: 80,
+                        },
+                    },
+                ],
+                retResponse = true
+            );
+            if (result === undefined) {
+                alert("요청하신 경로가 존재하지 않습니다.\n출발지와 도착지를 확인하세요\nno route \ncheck origination and destination");
+                return;
+            }
+            mapDraw.startRouteAnimation();
+        }
+
+    </script>
+</body>
+
+</html>
