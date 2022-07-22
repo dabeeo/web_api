@@ -83,6 +83,16 @@ document.querySelector("#map").addEventListener("poi-click", (e) => { // 캔버�
 * 실행 : https://dabeeo.github.io/web_api/samples/clickEvent.html   
 
 
+### poi-long-click(IE 지원 X)
+지도에서 poi를 길게 클릭할 시 poi 정보를 전달하는 이벤트입니다.
+반환 정보는 poi-click과 같습니다.
+사용법은 다음과 같습니다. 
+~~~javascript
+document.querySelector("#map").addEventListener("poi-click", (e) => { // 캔버스가 그려지는 container
+        console.log(e.detail); // 해당하는 poi 정보가 array 로 리턴
+});
+~~~
+
 ### object-click
 지도에서 object 클릭 이벤트를 실행하면 obejct의 id, title, type, 연결된 poi 정보를 반환합니다.   
 반환되는 정보는 배열형태입니다. 이는 클릭한 좌표에 여러개의 object가 연결될 수 있기 때문입니다.   
