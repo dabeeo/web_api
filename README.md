@@ -5,11 +5,13 @@
 </h1>
 
 
-# 이 페이지는 3.0 API page입니다.
-# 3.0 은 더이상 기술지원하지 않습니다. 4.0 이용바랍니다. https://api-sample.dabeeomaps.com/
+# 이 페이지는 Dabeeomaps API 3 page입니다.
+## API 3은 더이상 기술지원하지 않습니다. 
+
+## API 4를 이용해 주시기 바랍니다. https://api-sample.dabeeomaps.com/
 
 
-## Developers' guide
+## API 3 Developers' guide
 - url : https://developers.dabeeomaps.com/
 
 # 공식 api 링크는 다비오 사이트에 올라가 있습니다. 
@@ -21,7 +23,7 @@
 
 ## DABEEO MAPS JavaScript API 기능정의서 
 
-- 다비오맵스 API 는 다비오맵스 실내지도플랫폼 지도를 활용한 서비스를 쉽고 빠르게 구축 할 수 있게 JavaScript 형태로 공개한 기술들입니다.
+- 다비오맵스 3 API 는 다비오맵스 실내지도플랫폼 지도를 활용한 서비스를 쉽고 빠르게 구축 할 수 있게 JavaScript 형태로 공개한 기술들입니다.
 - 본 문서에서는 웹 서비스 또는 애플리케이션에 지도 기능을 구현하기 위한 기능에 대한 설명이 담겨 있습니다.    
 [javascript_API_기능정의서_2021_03_16_v2.0.xlsx - Spec_Map_option.pdf](https://github.com/dabeeo/web_api/files/6146384/javascript_API_._2021_03_16_v2.0.xlsx.-.Spec_Map_option.pdf)
 
