@@ -3,10 +3,11 @@
 <h1 align="center">
  <img src="https://indoor.dabeeomaps.com/upload/demo/CI.png" />
 </h1>
+# 3.0 API page입니다.
+# 3.0 은 더이상 기술지원하지 않습니다. 4.0 이용바랍니다. https://api-sample.dabeeomaps.com/
+
 
 ## Developers' guide
-- 3.0 API page입니다.
-- 3.0 은 더이상 기술지원하지 않습니다. 4.0 이용바랍니다. https://api-sample.dabeeomaps.com/
 - url : https://developers.dabeeomaps.com/
 
 # 공식 api 링크는 다비오 사이트에 올라가 있습니다. 
