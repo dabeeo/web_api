@@ -3,7 +3,9 @@
 <h1 align="center">
  <img src="https://indoor.dabeeomaps.com/upload/demo/CI.png" />
 </h1>
-# 3.0 API page입니다.
+
+
+# 이 페이지는 3.0 API page입니다.
 # 3.0 은 더이상 기술지원하지 않습니다. 4.0 이용바랍니다. https://api-sample.dabeeomaps.com/
 
 
